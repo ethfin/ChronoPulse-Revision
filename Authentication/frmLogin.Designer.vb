@@ -22,6 +22,7 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.pnlLoginContainer = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblErrorMsg = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cbxShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
@@ -165,6 +166,7 @@ Partial Class frmLogin
         '
         'btnLogin
         '
+        Me.btnLogin.Animated = True
         Me.btnLogin.BorderRadius = 15
         Me.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
@@ -318,6 +320,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.pnlLoginContainer)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmLogin"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

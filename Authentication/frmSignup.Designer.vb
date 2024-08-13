@@ -22,6 +22,7 @@ Partial Class frmSignup
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSignup))
         Me.pnlLoginContainer = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlSignUpProgress = New Guna.UI2.WinForms.Guna2Panel()
@@ -41,6 +42,7 @@ Partial Class frmSignup
         Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pbxBackground = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.lblTitle = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlLoginContainer.SuspendLayout()
         Me.pnlSignUpProgress.SuspendLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +84,7 @@ Partial Class frmSignup
         '
         'pnlSignUpProgress
         '
+        Me.pnlSignUpProgress.Controls.Add(Me.lblTitle)
         Me.pnlSignUpProgress.Controls.Add(Me.Guna2HtmlLabel6)
         Me.pnlSignUpProgress.Controls.Add(Me.txtEmail)
         Me.pnlSignUpProgress.Controls.Add(Me.Guna2HtmlLabel4)
@@ -125,7 +128,7 @@ Partial Class frmSignup
         Me.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtEmail.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.txtEmail.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtEmail.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.arroba
         Me.txtEmail.Location = New System.Drawing.Point(87, 257)
@@ -160,7 +163,7 @@ Partial Class frmSignup
         Me.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
         Me.txtPassword.Location = New System.Drawing.Point(87, 315)
@@ -243,12 +246,13 @@ Partial Class frmSignup
         '
         'btnLogin
         '
+        Me.btnLogin.Animated = True
         Me.btnLogin.BorderRadius = 15
         Me.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnLogin.FillColor = System.Drawing.Color.Black
+        Me.btnLogin.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
         Me.btnLogin.Font = New System.Drawing.Font("Inter", 12.0!)
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.IndicateFocus = True
@@ -268,7 +272,7 @@ Partial Class frmSignup
         Me.txtVerifyPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtVerifyPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtVerifyPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtVerifyPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.txtVerifyPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtVerifyPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtVerifyPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
         Me.txtVerifyPassword.Location = New System.Drawing.Point(87, 373)
@@ -291,7 +295,7 @@ Partial Class frmSignup
         Me.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
         Me.txtUsername.Location = New System.Drawing.Point(87, 199)
@@ -320,6 +324,7 @@ Partial Class frmSignup
         '
         Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
         Me.guna2HtmlLabel1.Location = New System.Drawing.Point(220, 101)
         Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
         Me.guna2HtmlLabel1.Size = New System.Drawing.Size(127, 40)
@@ -343,6 +348,7 @@ Partial Class frmSignup
         Me.pbxBackground.BorderRadius = 30
         Me.pbxBackground.Dock = System.Windows.Forms.DockStyle.Left
         Me.pbxBackground.FillColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(212, Byte), Integer))
+        Me.pbxBackground.Image = Global.ChronoPulse_Revision.My.Resources.Resources.background
         Me.pbxBackground.ImageRotate = 0!
         Me.pbxBackground.Location = New System.Drawing.Point(30, 30)
         Me.pbxBackground.Name = "pbxBackground"
@@ -350,6 +356,20 @@ Partial Class frmSignup
         Me.pbxBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxBackground.TabIndex = 15
         Me.pbxBackground.TabStop = False
+        '
+        'lblTitle
+        '
+        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblTitle.AutoSize = False
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Font = New System.Drawing.Font("DM Sans 14pt Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.Black
+        Me.lblTitle.Location = New System.Drawing.Point(155, 13)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(111, 75)
+        Me.lblTitle.TabIndex = 35
+        Me.lblTitle.Text = "CHRONO PULSE"
+        Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmSignup
         '
@@ -360,6 +380,7 @@ Partial Class frmSignup
         Me.Controls.Add(Me.pnlLoginContainer)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSignup"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -392,4 +413,5 @@ Partial Class frmSignup
     Private WithEvents guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Private WithEvents guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Private WithEvents pbxLogo As Guna.UI2.WinForms.Guna2PictureBox
+    Private WithEvents lblTitle As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class
