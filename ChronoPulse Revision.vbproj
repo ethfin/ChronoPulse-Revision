@@ -164,6 +164,24 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForms\frmDashboard.Designer.vb">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\frmExpenses.Designer.vb">
+      <DependentUpon>frmExpenses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmExpenses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\frmGames.Designer.vb">
+      <DependentUpon>frmGames.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmGames.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -212,7 +230,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MainForms\" />
+    <None Include="Resources\dashboard.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close.png" />
@@ -243,6 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arroba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game-controller.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

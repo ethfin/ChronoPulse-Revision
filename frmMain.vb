@@ -65,6 +65,8 @@ Public Class frmMain
         End Using
 
         dgvExpenses.DataSource = dt
+        dgvExpenses.AllowUserToAddRows = False
+        dgvExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
 
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -134,4 +136,12 @@ Public Class frmMain
     <DllImport("Gdi32.dll")>
     Private Shared Function CreateRoundRectRgn(ByVal x1 As Integer, ByVal y1 As Integer, ByVal x2 As Integer, ByVal y2 As Integer, ByVal cx As Integer, ByVal cy As Integer) As IntPtr
     End Function
+
+    Private Sub btnDashboard_MouseHover(sender As Object, e As EventArgs) Handles btnDashboard.MouseHover
+        ToolTip.SetToolTip(btnDashboard, "Dashboard")
+    End Sub
+
+    Private Sub btnGames_MouseHover(sender As Object, e As EventArgs) Handles btnGames.MouseHover
+        ToolTip.SetToolTip(btnGames, "Games")
+    End Sub
 End Class
