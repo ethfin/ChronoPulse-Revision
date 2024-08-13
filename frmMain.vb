@@ -48,6 +48,17 @@ Public Class frmMain
         Me.MinimumSize = New Size(800, 500)
         ' Load the user expenses
         LoadUserExpenses()
+
+        ' Create and configure the ContextMenuStrip
+        Dim contextMenu As New ContextMenuStrip()
+        Dim showMenuItem As New ToolStripMenuItem("Show")
+        Dim closeMenuItem As New ToolStripMenuItem("Close")
+
+        AddHandler showMenuItem.Click, AddressOf ShowMenuItem_Click
+        AddHandler closeMenuItem.Click, AddressOf CloseMenuItem_Click
+
+        contextMenu.Items.AddRange(New ToolStripItem() {showMenuItem, closeMenuItem})
+        NotifyIcon1.ContextMenuStrip = contextMenu
     End Sub
 
     Private Sub LoadUserExpenses()
@@ -69,16 +80,49 @@ Public Class frmMain
         dgvExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
 
+    ' Backup code for closing the application
+    'Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    '    ' Ask for confirmation before closing the application
+    '    Dim result As DialogResult = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+    '    If result = DialogResult.No Then
+    '        e.Cancel = True ' Cancel the form closing event
+    '    End If
+    '    If result = DialogResult.Yes Then
+    '        frmLogin.Close() ' Close the application
+    '    End If
+    'End Sub
+
+    '-- System Tray Icon --
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        ' Ask for confirmation before closing the application
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If result = DialogResult.No Then
-            e.Cancel = True ' Cancel the form closing event
-        End If
-        If result = DialogResult.Yes Then
-            frmLogin.Close() ' Close the application
+        ' Minimize to system tray instead of closing
+        e.Cancel = True
+        Me.Hide()
+        NotifyIcon1.Visible = True
+    End Sub
+
+    Private Sub NotifyIcon1_DoubleClick(sender As Object, e As EventArgs) Handles NotifyIcon1.DoubleClick
+        ' Restore the form when the NotifyIcon is double-clicked
+        Me.Show()
+        Me.WindowState = FormWindowState.Normal
+    End Sub
+
+    Private Sub ShowMenuItem_Click(sender As Object, e As EventArgs)
+        ' Restore the form when the "Show" menu item is clicked
+        Me.Show()
+        Me.WindowState = FormWindowState.Normal
+    End Sub
+
+    Private Sub CloseMenuItem_Click(sender As Object, e As EventArgs)
+        ' Prompt for confirmation before closing the application
+        Dim confirmExit As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirmExit = DialogResult.Yes Then
+            AccountData.Clear()
+            NotifyIcon1.Visible = False
+            Me.Close()
+            frmLogin.Close()
         End If
     End Sub
+    '-- End System Tray Icon --
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         ' Prompt for confirmation before logging out
