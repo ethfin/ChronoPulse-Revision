@@ -1,0 +1,102 @@
+﻿Imports System.Runtime.InteropServices
+Imports MySql.Data.MySqlClient
+
+Public Class frmMain
+
+    Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Set the lblUsername text to the username stored in AccountData
+        lblUsername.Text = AccountData.Username
+        ' Add round corners by 10 to btnLogout
+        btnLogout.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLogout.Width, btnLogout.Height, 10, 10))
+        ' Remove the 3D effect from the button
+        btnLogout.FlatAppearance.BorderSize = 0
+        ' Lock the minimum resize of the form to (800, 500)
+        Me.MinimumSize = New Size(800, 500)
+        ' Load the user expenses
+        LoadUserExpenses()
+    End Sub
+
+    Private Sub LoadUserExpenses()
+        Dim query As String = "SELECT Item AS ITEM, Cost AS COST, Category AS CATEGORY, Description AS DESCRIPTION, DATE_FORMAT(date, '%m/%d/%Y') AS DATE FROM user_expenses WHERE UserID = @UserID"
+        Dim dt As New DataTable()
+
+        Using conn As MySqlConnection = Common.getDBConnectionX()
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID) ' Assuming Username is the UserID
+                conn.Open()
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    dt.Load(reader)
+                End Using
+            End Using
+        End Using
+
+        dgvExpenses.DataSource = dt
+    End Sub
+
+    Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Ask for confirmation before closing the application
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+            e.Cancel = True ' Cancel the form closing event
+        End If
+        If result = DialogResult.Yes Then
+            frmLogin.Close() ' Close the application
+        End If
+    End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        ' Prompt for confirmation before logging out
+        Dim confirmLogout As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirmLogout = DialogResult.Yes Then
+            ' Clear the AccountData
+            AccountData.Clear()
+            frmLogin.Show()
+            Me.Hide()
+        End If
+    End Sub
+
+    Private Sub ckbxTheme_CheckedChanged(sender As Object, e As EventArgs) Handles ckbxTheme.CheckedChanged
+        ' Toggle the theme based on the checkbox state
+        If ckbxTheme.Checked Then
+            ' Set the dark theme
+            SetDarkTheme()
+        Else
+            ' Set the light theme
+            SetLightTheme()
+        End If
+    End Sub
+
+    Private Sub SetDarkTheme()
+        ' Set the background color to dark
+        Me.BackColor = Color.FromArgb(20, 20, 22)
+        pnlContainer.BackColor = Color.FromArgb(20, 20, 22)
+        pnlHeader.BackColor = Color.FromArgb(20, 20, 22)
+        pnlMenu.BackColor = Color.FromArgb(20, 20, 22)
+        ' Set the text color to light
+        lblUsername.ForeColor = Color.FromArgb(255, 255, 255)
+        lblCurrentPanel.ForeColor = Color.FromArgb(255, 255, 255)
+        ' Set the Logo to a different image
+        pbxLogo.Image = My.Resources.ChronoPulse_Logo_Light
+        pbxUser.Image = My.Resources.user_white
+    End Sub
+
+    Private Sub SetLightTheme()
+        ' Set the background color to dark
+        Me.BackColor = Color.GhostWhite
+        pnlContainer.BackColor = Color.GhostWhite
+        pnlHeader.BackColor = Color.GhostWhite
+        pnlMenu.BackColor = Color.GhostWhite
+        ' Set the text color to light
+        lblUsername.ForeColor = Color.Black
+        lblCurrentPanel.ForeColor = Color.Black
+        ' Set the Logo to a different image
+        pbxLogo.Image = My.Resources.ChronoPulse_Logo_Dark
+        pbxUser.Image = My.Resources.user
+    End Sub
+
+
+
+    <DllImport("Gdi32.dll")>
+    Private Shared Function CreateRoundRectRgn(ByVal x1 As Integer, ByVal y1 As Integer, ByVal x2 As Integer, ByVal y2 As Integer, ByVal cx As Integer, ByVal cy As Integer) As IntPtr
+    End Function
+End Class
