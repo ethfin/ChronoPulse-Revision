@@ -185,6 +185,9 @@
     <EmbeddedResource Include="Authentication\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmSignup.resx">
+      <DependentUpon>frmSignup.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChronoPulse Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arroba.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

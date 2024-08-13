@@ -63,9 +63,14 @@ Public Class frmLogin
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
+            AccountData.Clear()
             Me.Close()
         End If
     End Sub
+
+    Public loginAttempts As Integer = 0
+    Private lastInvalidAttemptTime As DateTime
+    Private loginTimer As Timer
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         ' Clear AccountData
@@ -104,13 +109,33 @@ Public Class frmLogin
                 txtPassword.Clear()
                 Me.Hide()
             Else
-                'use lblErrorMsg to display error message
-                lblErrorMsg.Text = "Invalid username or password."
-                lblErrorMsg.ForeColor = Color.Red
-                txtUsername.BorderColor = Color.Red
-                txtPassword.BorderColor = Color.Red
+                loginAttempts += 1
+                lastInvalidAttemptTime = DateTime.Now
+
+                If loginAttempts >= 5 Then
+                    btnLogin.Enabled = False
+                    lblErrorMsg.Text = "Please try again in about 30 seconds."
+                    lblErrorMsg.ForeColor = Color.Red
+                    loginTimer = New Timer()
+                    loginTimer.Interval = 30000 ' 1 minute
+                    AddHandler loginTimer.Tick, AddressOf EnableLoginButton
+                    loginTimer.Start()
+                Else
+                    'use lblErrorMsg to display error message
+                    lblErrorMsg.Text = "Invalid username or password. Please try again."
+                    lblErrorMsg.ForeColor = Color.Red
+                    txtUsername.BorderColor = Color.Red
+                    txtPassword.BorderColor = Color.Red
+                End If
             End If
         End Using
+    End Sub
+
+    Private Sub EnableLoginButton(sender As Object, e As EventArgs)
+        btnLogin.Enabled = True
+        lblErrorMsg.Text = ""
+        loginTimer.Stop()
+        loginTimer.Dispose()
     End Sub
 
     Private Function GetUserID(username As String) As Integer
@@ -139,6 +164,8 @@ Public Class frmLogin
         ' Open the signup form
         Dim frmSignup As New frmSignup()
         frmSignup.Show()
+        txtUsername.Clear()
+        txtPassword.Clear()
         Me.Hide()
     End Sub
 

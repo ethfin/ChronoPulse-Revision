@@ -22,7 +22,6 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlLoginContainer = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblErrorMsg = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cbxShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
@@ -32,27 +31,17 @@ Partial Class frmLogin
         Me.lnklblSignup = New System.Windows.Forms.LinkLabel()
         Me.guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
+        Me.guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxBackground = New Guna.UI2.WinForms.Guna2PictureBox()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlLoginContainer.SuspendLayout()
         CType(Me.pbxBackground, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pbxLogo
-        '
-        Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Dark
-        Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(86, 33)
-        Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(75, 75)
-        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxLogo.TabIndex = 1
-        Me.pbxLogo.TabStop = False
         '
         'pnlLoginContainer
         '
@@ -186,10 +175,34 @@ Partial Class frmLogin
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(260, 45)
         Me.btnLogin.TabIndex = 4
-        Me.btnLogin.Text = "Sign In"
+        Me.btnLogin.Text = "Log In"
+        '
+        'guna2HtmlLabel2
+        '
+        Me.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.guna2HtmlLabel2.Location = New System.Drawing.Point(86, 203)
+        Me.guna2HtmlLabel2.Name = "guna2HtmlLabel2"
+        Me.guna2HtmlLabel2.Size = New System.Drawing.Size(109, 17)
+        Me.guna2HtmlLabel2.TabIndex = 4
+        Me.guna2HtmlLabel2.TabStop = False
+        Me.guna2HtmlLabel2.Text = "Not registered yet?"
+        '
+        'guna2HtmlLabel1
+        '
+        Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(86, 157)
+        Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
+        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(238, 40)
+        Me.guna2HtmlLabel1.TabIndex = 3
+        Me.guna2HtmlLabel1.TabStop = False
+        Me.guna2HtmlLabel1.Text = "Welcome Back"
         '
         'txtPassword
         '
+        Me.txtPassword.Animated = True
         Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtPassword.DefaultText = ""
         Me.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -199,6 +212,7 @@ Partial Class frmLogin
         Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
         Me.txtPassword.Location = New System.Drawing.Point(86, 331)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(0)
         Me.txtPassword.Name = "txtPassword"
@@ -211,6 +225,7 @@ Partial Class frmLogin
         '
         'txtUsername
         '
+        Me.txtUsername.Animated = True
         Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtUsername.DefaultText = ""
         Me.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -220,6 +235,7 @@ Partial Class frmLogin
         Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtUsername.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
         Me.txtUsername.Location = New System.Drawing.Point(86, 268)
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(0)
         Me.txtUsername.Name = "txtUsername"
@@ -250,29 +266,6 @@ Partial Class frmLogin
         Me.btnClose.TabStop = False
         Me.btnClose.UseTransparentBackground = True
         '
-        'guna2HtmlLabel2
-        '
-        Me.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel2.Location = New System.Drawing.Point(86, 203)
-        Me.guna2HtmlLabel2.Name = "guna2HtmlLabel2"
-        Me.guna2HtmlLabel2.Size = New System.Drawing.Size(109, 17)
-        Me.guna2HtmlLabel2.TabIndex = 4
-        Me.guna2HtmlLabel2.TabStop = False
-        Me.guna2HtmlLabel2.Text = "Not registered yet?"
-        '
-        'guna2HtmlLabel1
-        '
-        Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold)
-        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(86, 157)
-        Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
-        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(238, 40)
-        Me.guna2HtmlLabel1.TabIndex = 3
-        Me.guna2HtmlLabel1.TabStop = False
-        Me.guna2HtmlLabel1.Text = "Welcome Back"
-        '
         'pbxBackground
         '
         Me.pbxBackground.BorderRadius = 30
@@ -284,6 +277,17 @@ Partial Class frmLogin
         Me.pbxBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxBackground.TabIndex = 2
         Me.pbxBackground.TabStop = False
+        '
+        'pbxLogo
+        '
+        Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Dark
+        Me.pbxLogo.ImageRotate = 0!
+        Me.pbxLogo.Location = New System.Drawing.Point(86, 33)
+        Me.pbxLogo.Name = "pbxLogo"
+        Me.pbxLogo.Size = New System.Drawing.Size(75, 75)
+        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxLogo.TabIndex = 1
+        Me.pbxLogo.TabStop = False
         '
         'frmLogin
         '
@@ -299,10 +303,10 @@ Partial Class frmLogin
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmLogin"
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLoginContainer.ResumeLayout(False)
         Me.pnlLoginContainer.PerformLayout()
         CType(Me.pbxBackground, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

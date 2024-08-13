@@ -51,6 +51,7 @@ Public Class frmMain
             ' Clear the AccountData
             AccountData.Clear()
             frmLogin.Show()
+            frmLogin.loginAttempts = 0
             Me.Hide()
         End If
     End Sub
