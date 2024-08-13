@@ -35,6 +35,7 @@ Public Class frmSignup
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
     End Sub
+
     Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
         MyBase.OnPaint(e)
 
@@ -52,10 +53,9 @@ Public Class frmSignup
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to close? You will be redirected to the Login form.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to close?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
-            frmLogin.Show()
-            Me.Close()
+            frmLogin.Close()
         End If
     End Sub
 

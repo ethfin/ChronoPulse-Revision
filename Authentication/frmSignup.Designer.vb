@@ -56,7 +56,7 @@ Partial Class frmSignup
         Me.pnlLoginContainer.FillColor = System.Drawing.Color.GhostWhite
         Me.pnlLoginContainer.Location = New System.Drawing.Point(1, 1)
         Me.pnlLoginContainer.Name = "pnlLoginContainer"
-        Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(60, 30, 30, 30)
+        Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(30)
         Me.pnlLoginContainer.Size = New System.Drawing.Size(973, 602)
         Me.pnlLoginContainer.TabIndex = 2
         '
@@ -97,9 +97,10 @@ Partial Class frmSignup
         Me.pnlSignUpProgress.Controls.Add(Me.guna2HtmlLabel2)
         Me.pnlSignUpProgress.Controls.Add(Me.guna2HtmlLabel1)
         Me.pnlSignUpProgress.Controls.Add(Me.pbxLogo)
-        Me.pnlSignUpProgress.Location = New System.Drawing.Point(563, 33)
+        Me.pnlSignUpProgress.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnlSignUpProgress.Location = New System.Drawing.Point(530, 30)
         Me.pnlSignUpProgress.Name = "pnlSignUpProgress"
-        Me.pnlSignUpProgress.Size = New System.Drawing.Size(377, 536)
+        Me.pnlSignUpProgress.Size = New System.Drawing.Size(413, 542)
         Me.pnlSignUpProgress.TabIndex = 16
         '
         'Guna2HtmlLabel6
@@ -107,7 +108,7 @@ Partial Class frmSignup
         Me.Guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel6.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(58, 227)
+        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(87, 237)
         Me.Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
         Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(33, 17)
         Me.Guna2HtmlLabel6.TabIndex = 34
@@ -127,7 +128,7 @@ Partial Class frmSignup
         Me.txtEmail.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtEmail.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.arroba
-        Me.txtEmail.Location = New System.Drawing.Point(58, 247)
+        Me.txtEmail.Location = New System.Drawing.Point(87, 257)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(0)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -142,7 +143,7 @@ Partial Class frmSignup
         Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(58, 285)
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(87, 295)
         Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
         Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(58, 17)
         Me.Guna2HtmlLabel4.TabIndex = 32
@@ -162,7 +163,7 @@ Partial Class frmSignup
         Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
-        Me.txtPassword.Location = New System.Drawing.Point(58, 305)
+        Me.txtPassword.Location = New System.Drawing.Point(87, 315)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(0)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -178,7 +179,7 @@ Partial Class frmSignup
         Me.lblErrorMsg.BackColor = System.Drawing.Color.Transparent
         Me.lblErrorMsg.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblErrorMsg.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblErrorMsg.Location = New System.Drawing.Point(58, 479)
+        Me.lblErrorMsg.Location = New System.Drawing.Point(87, 489)
         Me.lblErrorMsg.Name = "lblErrorMsg"
         Me.lblErrorMsg.Size = New System.Drawing.Size(260, 43)
         Me.lblErrorMsg.TabIndex = 30
@@ -194,7 +195,7 @@ Partial Class frmSignup
         Me.cbxShowPassword.CheckedState.BorderThickness = 0
         Me.cbxShowPassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cbxShowPassword.Font = New System.Drawing.Font("Inter", 9.0!)
-        Me.cbxShowPassword.Location = New System.Drawing.Point(58, 401)
+        Me.cbxShowPassword.Location = New System.Drawing.Point(87, 411)
         Me.cbxShowPassword.Name = "cbxShowPassword"
         Me.cbxShowPassword.Size = New System.Drawing.Size(116, 19)
         Me.cbxShowPassword.TabIndex = 24
@@ -209,7 +210,7 @@ Partial Class frmSignup
         Me.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel5.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel5.Location = New System.Drawing.Point(58, 343)
+        Me.guna2HtmlLabel5.Location = New System.Drawing.Point(87, 353)
         Me.guna2HtmlLabel5.Name = "guna2HtmlLabel5"
         Me.guna2HtmlLabel5.Size = New System.Drawing.Size(105, 17)
         Me.guna2HtmlLabel5.TabIndex = 29
@@ -221,7 +222,7 @@ Partial Class frmSignup
         Me.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel3.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel3.Location = New System.Drawing.Point(58, 169)
+        Me.guna2HtmlLabel3.Location = New System.Drawing.Point(87, 179)
         Me.guna2HtmlLabel3.Name = "guna2HtmlLabel3"
         Me.guna2HtmlLabel3.Size = New System.Drawing.Size(60, 17)
         Me.guna2HtmlLabel3.TabIndex = 28
@@ -233,7 +234,7 @@ Partial Class frmSignup
         Me.lnklblSignup.AutoSize = True
         Me.lnklblSignup.Font = New System.Drawing.Font("Inter Medium", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lnklblSignup.LinkColor = System.Drawing.Color.Black
-        Me.lnklblSignup.Location = New System.Drawing.Point(213, 137)
+        Me.lnklblSignup.Location = New System.Drawing.Point(306, 147)
         Me.lnklblSignup.Name = "lnklblSignup"
         Me.lnklblSignup.Size = New System.Drawing.Size(41, 15)
         Me.lnklblSignup.TabIndex = 20
@@ -251,7 +252,7 @@ Partial Class frmSignup
         Me.btnLogin.Font = New System.Drawing.Font("Inter", 12.0!)
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.IndicateFocus = True
-        Me.btnLogin.Location = New System.Drawing.Point(58, 428)
+        Me.btnLogin.Location = New System.Drawing.Point(87, 438)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(260, 45)
         Me.btnLogin.TabIndex = 26
@@ -270,7 +271,7 @@ Partial Class frmSignup
         Me.txtVerifyPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.txtVerifyPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtVerifyPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
-        Me.txtVerifyPassword.Location = New System.Drawing.Point(58, 363)
+        Me.txtVerifyPassword.Location = New System.Drawing.Point(87, 373)
         Me.txtVerifyPassword.Margin = New System.Windows.Forms.Padding(0)
         Me.txtVerifyPassword.Name = "txtVerifyPassword"
         Me.txtVerifyPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -293,7 +294,7 @@ Partial Class frmSignup
         Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
-        Me.txtUsername.Location = New System.Drawing.Point(58, 189)
+        Me.txtUsername.Location = New System.Drawing.Point(87, 199)
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(0)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -308,7 +309,7 @@ Partial Class frmSignup
         Me.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel2.Location = New System.Drawing.Point(58, 137)
+        Me.guna2HtmlLabel2.Location = New System.Drawing.Point(151, 147)
         Me.guna2HtmlLabel2.Name = "guna2HtmlLabel2"
         Me.guna2HtmlLabel2.Size = New System.Drawing.Size(149, 17)
         Me.guna2HtmlLabel2.TabIndex = 27
@@ -319,7 +320,7 @@ Partial Class frmSignup
         '
         Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold)
-        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(58, 91)
+        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(220, 101)
         Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
         Me.guna2HtmlLabel1.Size = New System.Drawing.Size(127, 40)
         Me.guna2HtmlLabel1.TabIndex = 25
@@ -330,7 +331,7 @@ Partial Class frmSignup
         '
         Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Dark
         Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(58, 3)
+        Me.pbxLogo.Location = New System.Drawing.Point(272, 13)
         Me.pbxLogo.Name = "pbxLogo"
         Me.pbxLogo.Size = New System.Drawing.Size(75, 75)
         Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -340,11 +341,12 @@ Partial Class frmSignup
         'pbxBackground
         '
         Me.pbxBackground.BorderRadius = 30
+        Me.pbxBackground.Dock = System.Windows.Forms.DockStyle.Left
         Me.pbxBackground.FillColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(212, Byte), Integer))
         Me.pbxBackground.ImageRotate = 0!
-        Me.pbxBackground.Location = New System.Drawing.Point(63, 33)
+        Me.pbxBackground.Location = New System.Drawing.Point(30, 30)
         Me.pbxBackground.Name = "pbxBackground"
-        Me.pbxBackground.Size = New System.Drawing.Size(494, 536)
+        Me.pbxBackground.Size = New System.Drawing.Size(494, 542)
         Me.pbxBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxBackground.TabIndex = 15
         Me.pbxBackground.TabStop = False
