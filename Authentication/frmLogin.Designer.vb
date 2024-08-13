@@ -38,6 +38,7 @@ Partial Class frmLogin
         Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxBackground = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.lblTitle = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlLoginContainer.SuspendLayout()
         CType(Me.pbxBackground, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +46,7 @@ Partial Class frmLogin
         '
         'pnlLoginContainer
         '
+        Me.pnlLoginContainer.Controls.Add(Me.lblTitle)
         Me.pnlLoginContainer.Controls.Add(Me.lblErrorMsg)
         Me.pnlLoginContainer.Controls.Add(Me.cbxShowPassword)
         Me.pnlLoginContainer.Controls.Add(Me.guna2HtmlLabel5)
@@ -291,6 +293,20 @@ Partial Class frmLogin
         Me.pbxLogo.TabIndex = 1
         Me.pbxLogo.TabStop = False
         '
+        'lblTitle
+        '
+        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblTitle.AutoSize = False
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Font = New System.Drawing.Font("DM Sans 14pt Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.Black
+        Me.lblTitle.Location = New System.Drawing.Point(167, 33)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(111, 75)
+        Me.lblTitle.TabIndex = 15
+        Me.lblTitle.Text = "CHRONO PULSE"
+        Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmLogin
         '
         Me.AcceptButton = Me.btnLogin
@@ -329,4 +345,5 @@ Partial Class frmLogin
     Private WithEvents guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Private WithEvents pbxBackground As Guna.UI2.WinForms.Guna2PictureBox
     Private WithEvents lblErrorMsg As Guna.UI2.WinForms.Guna2HtmlLabel
+    Private WithEvents lblTitle As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

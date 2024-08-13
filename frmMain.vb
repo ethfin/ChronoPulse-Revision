@@ -52,7 +52,7 @@ Public Class frmMain
     End Sub
 
     Private Sub LoadUserExpenses()
-        Dim query As String = "SELECT Item AS ITEM, Cost AS COST, Category AS CATEGORY, Description AS DESCRIPTION, DATE_FORMAT(date, '%m/%d/%Y') AS DATE FROM user_expenses WHERE UserID = @UserID"
+        Dim query As String = "SELECT Item AS ITEM, CONCAT('$', Cost) AS COST, Category AS CATEGORY, Description AS DESCRIPTION, DATE_FORMAT(date, '%m/%d/%Y') AS DATE FROM user_expenses WHERE UserID = @UserID"
         Dim dt As New DataTable()
 
         Using conn As MySqlConnection = Common.createDBConnection()

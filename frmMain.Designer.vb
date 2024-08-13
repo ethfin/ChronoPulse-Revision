@@ -23,10 +23,10 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.dgvExpenses = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -80,47 +80,47 @@ Partial Class frmMain
         '
         Me.dgvExpenses.AllowUserToResizeColumns = False
         Me.dgvExpenses.AllowUserToResizeRows = False
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Inter Medium", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(197, Byte), Integer), CType(CType(174, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
-        Me.dgvExpenses.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Inter Medium", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(197, Byte), Integer), CType(CType(174, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.dgvExpenses.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvExpenses.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvExpenses.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvExpenses.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvExpenses.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvExpenses.ColumnHeadersHeight = 30
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Inter Medium", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(197, Byte), Integer), CType(CType(174, Byte), Integer))
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvExpenses.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Inter Medium", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(197, Byte), Integer), CType(CType(174, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvExpenses.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvExpenses.EnableHeadersVisualStyles = True
         Me.dgvExpenses.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvExpenses.Location = New System.Drawing.Point(33, 33)
         Me.dgvExpenses.Name = "dgvExpenses"
         Me.dgvExpenses.ReadOnly = True
         Me.dgvExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvExpenses.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvExpenses.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvExpenses.RowHeadersVisible = False
         Me.dgvExpenses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dgvExpenses.RowTemplate.Height = 30
@@ -178,17 +178,22 @@ Partial Class frmMain
         'ckbxTheme
         '
         Me.ckbxTheme.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ckbxTheme.BackColor = System.Drawing.Color.Transparent
         Me.ckbxTheme.CheckedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.light_mode
         Me.ckbxTheme.CheckedState.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ckbxTheme.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ckbxTheme.HoverState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dark_mode
         Me.ckbxTheme.ImageOffset = New System.Drawing.Point(0, 0)
         Me.ckbxTheme.ImageRotate = 0!
         Me.ckbxTheme.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ckbxTheme.IndicateFocus = True
         Me.ckbxTheme.Location = New System.Drawing.Point(113, 13)
         Me.ckbxTheme.Name = "ckbxTheme"
+        Me.ckbxTheme.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.Size = New System.Drawing.Size(24, 24)
         Me.ckbxTheme.TabIndex = 1
+        Me.ckbxTheme.UseTransparentBackground = True
         '
         'lblCurrentPanel
         '
@@ -204,6 +209,7 @@ Partial Class frmMain
         'pbxUser
         '
         Me.pbxUser.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.pbxUser.Cursor = System.Windows.Forms.Cursors.Hand
         Me.pbxUser.FillColor = System.Drawing.Color.Transparent
         Me.pbxUser.Image = Global.ChronoPulse_Revision.My.Resources.Resources.user
         Me.pbxUser.ImageRotate = 0!
@@ -235,6 +241,7 @@ Partial Class frmMain
         Me.btnGames.Animated = True
         Me.btnGames.BackColor = System.Drawing.Color.Transparent
         Me.btnGames.BorderRadius = 10
+        Me.btnGames.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGames.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnGames.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnGames.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -257,6 +264,7 @@ Partial Class frmMain
         Me.btnDashboard.Animated = True
         Me.btnDashboard.BackColor = System.Drawing.Color.Transparent
         Me.btnDashboard.BorderRadius = 10
+        Me.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -287,6 +295,7 @@ Partial Class frmMain
         'btnLogout
         '
         Me.btnLogout.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.IconChar = FontAwesome.Sharp.IconChar.DoorOpen
@@ -326,7 +335,6 @@ Partial Class frmMain
         Me.cmsDropDown.Font = New System.Drawing.Font("Inter", 9.0!)
         Me.cmsDropDown.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmsSystemTray, Me.cmsTheme, Me.cmsLogout})
         Me.cmsDropDown.Name = "cmsDropDown"
-        Me.cmsDropDown.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.cmsDropDown.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmsDropDown.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
         Me.cmsDropDown.RenderStyle.ColorTable = Nothing
@@ -336,27 +344,27 @@ Partial Class frmMain
         Me.cmsDropDown.RenderStyle.SelectionForeColor = System.Drawing.Color.White
         Me.cmsDropDown.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
         Me.cmsDropDown.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsDropDown.Size = New System.Drawing.Size(181, 92)
+        Me.cmsDropDown.Size = New System.Drawing.Size(145, 70)
         '
         'cmsSystemTray
         '
         Me.cmsSystemTray.CheckOnClick = True
         Me.cmsSystemTray.Name = "cmsSystemTray"
-        Me.cmsSystemTray.Size = New System.Drawing.Size(180, 22)
+        Me.cmsSystemTray.Size = New System.Drawing.Size(144, 22)
         Me.cmsSystemTray.Text = "System Tray"
         '
         'cmsTheme
         '
         Me.cmsTheme.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dark_mode
         Me.cmsTheme.Name = "cmsTheme"
-        Me.cmsTheme.Size = New System.Drawing.Size(180, 22)
+        Me.cmsTheme.Size = New System.Drawing.Size(144, 22)
         Me.cmsTheme.Text = "Light/Dark"
         '
         'cmsLogout
         '
         Me.cmsLogout.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
         Me.cmsLogout.Name = "cmsLogout"
-        Me.cmsLogout.Size = New System.Drawing.Size(180, 22)
+        Me.cmsLogout.Size = New System.Drawing.Size(144, 22)
         Me.cmsLogout.Text = "Logout"
         '
         'NotifyIcon1
