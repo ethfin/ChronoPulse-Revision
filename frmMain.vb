@@ -3,6 +3,8 @@ Imports MySql.Data.MySqlClient
 
 Public Class frmMain
 
+    Private isRestoringFromTray As Boolean = False
+
     ' Constants for handling window dragging
     Private Const WM_NCLBUTTONDOWN As Integer = &HA1
     Private Const HT_CAPTION As Integer = &H2
@@ -16,18 +18,6 @@ Public Class frmMain
     <DllImport("user32.dll")>
     Private Shared Function ReleaseCapture() As Boolean
     End Function
-
-    ' Override the window procedure to handle custom window messages
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Const WM_SYSCOMMAND As Integer = &H112
-        Const SC_MAXIMIZE As Integer = &HF030
-
-        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_MAXIMIZE Then
-            Return
-        End If
-
-        MyBase.WndProc(m)
-    End Sub
 
     ' The MouseDown event for the panel to initiate the form dragging
     Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlHeader.MouseDown, pnlMenu.MouseDown, pbxLogo.MouseDown
@@ -103,13 +93,11 @@ Public Class frmMain
     Private Sub NotifyIcon1_DoubleClick(sender As Object, e As EventArgs) Handles NotifyIcon1.DoubleClick
         ' Restore the form when the NotifyIcon is double-clicked
         Me.Show()
-        Me.WindowState = FormWindowState.Normal
     End Sub
 
     Private Sub ShowMenuItem_Click(sender As Object, e As EventArgs)
         ' Restore the form when the "Show" menu item is clicked
         Me.Show()
-        Me.WindowState = FormWindowState.Normal
     End Sub
 
     Private Sub CloseMenuItem_Click(sender As Object, e As EventArgs)
@@ -130,6 +118,7 @@ Public Class frmMain
         If confirmLogout = DialogResult.Yes Then
             ' Clear the AccountData
             AccountData.Clear()
+            NotifyIcon1.Visible = False
             frmLogin.Show()
             frmLogin.loginAttempts = 0
             Me.Hide()
