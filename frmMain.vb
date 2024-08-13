@@ -115,6 +115,8 @@ Public Class frmMain
         ' Set the Logo to a different image
         pbxLogo.Image = My.Resources.ChronoPulse_Logo_Light
         pbxUser.Image = My.Resources.user_white
+        btnDashboard.Image = My.Resources.dashboard_blue
+        btnGames.Image = My.Resources.game_controller_blue
     End Sub
 
     Private Sub SetLightTheme()
@@ -129,9 +131,9 @@ Public Class frmMain
         ' Set the Logo to a different image
         pbxLogo.Image = My.Resources.ChronoPulse_Logo_Dark
         pbxUser.Image = My.Resources.user
+        btnDashboard.Image = My.Resources.dashboard
+        btnGames.Image = My.Resources.game_controller
     End Sub
-
-
 
     <DllImport("Gdi32.dll")>
     Private Shared Function CreateRoundRectRgn(ByVal x1 As Integer, ByVal y1 As Integer, ByVal x2 As Integer, ByVal y2 As Integer, ByVal cx As Integer, ByVal cy As Integer) As IntPtr
@@ -143,5 +145,25 @@ Public Class frmMain
 
     Private Sub btnGames_MouseHover(sender As Object, e As EventArgs) Handles btnGames.MouseHover
         ToolTip.SetToolTip(btnGames, "Games")
+    End Sub
+
+    Private Sub pbxUser_Click(sender As Object, e As EventArgs) Handles pbxUser.Click
+        cmsDropDown.Show(pbxUser, New Point(0, pbxUser.Height))
+    End Sub
+
+    Private Sub cmsTheme_Click(sender As Object, e As EventArgs) Handles cmsTheme.Click
+        ckbxTheme.Checked = Not ckbxTheme.Checked
+    End Sub
+
+    Private Sub cmsLogout_Click(sender As Object, e As EventArgs) Handles cmsLogout.Click
+        ' Prompt for confirmation before logging out
+        Dim confirmLogout As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirmLogout = DialogResult.Yes Then
+            ' Clear the AccountData
+            AccountData.Clear()
+            frmLogin.Show()
+            frmLogin.loginAttempts = 0
+            Me.Hide()
+        End If
     End Sub
 End Class

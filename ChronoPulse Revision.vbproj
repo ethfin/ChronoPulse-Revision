@@ -265,5 +265,11 @@
   <ItemGroup>
     <None Include="Resources\game-controller.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game-controller-blue.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
