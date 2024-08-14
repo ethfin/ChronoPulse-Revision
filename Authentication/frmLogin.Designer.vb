@@ -24,6 +24,7 @@ Partial Class frmLogin
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.pnlLoginContainer = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblTitle = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblErrorMsg = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cbxShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -32,12 +33,11 @@ Partial Class frmLogin
         Me.lnklblSignup = New System.Windows.Forms.LinkLabel()
         Me.guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
-        Me.guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblTitle = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxBackground = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlLoginContainer.SuspendLayout()
@@ -70,6 +70,20 @@ Partial Class frmLogin
         Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(60, 30, 30, 30)
         Me.pnlLoginContainer.Size = New System.Drawing.Size(973, 602)
         Me.pnlLoginContainer.TabIndex = 1
+        '
+        'lblTitle
+        '
+        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblTitle.AutoSize = False
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Font = New System.Drawing.Font("DM Sans 14pt Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.Black
+        Me.lblTitle.Location = New System.Drawing.Point(167, 33)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(111, 75)
+        Me.lblTitle.TabIndex = 15
+        Me.lblTitle.Text = "CHRONO PULSE"
+        Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblErrorMsg
         '
@@ -182,47 +196,10 @@ Partial Class frmLogin
         Me.btnLogin.TabIndex = 4
         Me.btnLogin.Text = "Log In"
         '
-        'guna2HtmlLabel2
-        '
-        Me.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel2.Location = New System.Drawing.Point(86, 203)
-        Me.guna2HtmlLabel2.Name = "guna2HtmlLabel2"
-        Me.guna2HtmlLabel2.Size = New System.Drawing.Size(109, 17)
-        Me.guna2HtmlLabel2.TabIndex = 4
-        Me.guna2HtmlLabel2.TabStop = False
-        Me.guna2HtmlLabel2.Text = "Not registered yet?"
-        '
-        'guna2HtmlLabel1
-        '
-        Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(86, 154)
-        Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
-        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(258, 43)
-        Me.guna2HtmlLabel1.TabIndex = 3
-        Me.guna2HtmlLabel1.TabStop = False
-        Me.guna2HtmlLabel1.Text = "Welcome Back"
-        '
-        'lblTitle
-        '
-        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblTitle.AutoSize = False
-        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("DM Sans 14pt Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.Black
-        Me.lblTitle.Location = New System.Drawing.Point(167, 33)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(111, 75)
-        Me.lblTitle.TabIndex = 15
-        Me.lblTitle.Text = "CHRONO PULSE"
-        Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'txtPassword
         '
         Me.txtPassword.Animated = True
+        Me.txtPassword.BorderRadius = 10
         Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtPassword.DefaultText = ""
         Me.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -246,6 +223,7 @@ Partial Class frmLogin
         'txtUsername
         '
         Me.txtUsername.Animated = True
+        Me.txtUsername.BorderRadius = 10
         Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtUsername.DefaultText = ""
         Me.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -285,6 +263,30 @@ Partial Class frmLogin
         Me.btnClose.TabIndex = 0
         Me.btnClose.TabStop = False
         Me.btnClose.UseTransparentBackground = True
+        '
+        'guna2HtmlLabel2
+        '
+        Me.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.guna2HtmlLabel2.Location = New System.Drawing.Point(86, 203)
+        Me.guna2HtmlLabel2.Name = "guna2HtmlLabel2"
+        Me.guna2HtmlLabel2.Size = New System.Drawing.Size(109, 17)
+        Me.guna2HtmlLabel2.TabIndex = 4
+        Me.guna2HtmlLabel2.TabStop = False
+        Me.guna2HtmlLabel2.Text = "Not registered yet?"
+        '
+        'guna2HtmlLabel1
+        '
+        Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
+        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(86, 154)
+        Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
+        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(258, 43)
+        Me.guna2HtmlLabel1.TabIndex = 3
+        Me.guna2HtmlLabel1.TabStop = False
+        Me.guna2HtmlLabel1.Text = "Welcome Back"
         '
         'pbxBackground
         '

@@ -158,6 +158,18 @@
     <Compile Include="Authentication\frmSignup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Authentication\frmSignupDetails.Designer.vb">
+      <DependentUpon>frmSignupDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\frmSignupDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authentication\frmSignupSecurity.Designer.vb">
+      <DependentUpon>frmSignupSecurity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\frmSignupSecurity.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Data\AccountData.vb" />
     <Compile Include="Data\Common.vb" />
     <Compile Include="frmMain.vb">
@@ -208,6 +220,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Authentication\frmSignup.resx">
       <DependentUpon>frmSignup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmSignupDetails.resx">
+      <DependentUpon>frmSignupDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmSignupSecurity.resx">
+      <DependentUpon>frmSignupSecurity.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>

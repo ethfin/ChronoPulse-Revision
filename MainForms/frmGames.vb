@@ -200,11 +200,11 @@ Public Class frmGames
                 trackedApps(processName) = DateTime.Now
             Else
                 If trackedApps.ContainsKey(processName) Then
-                    ' Update the database with the elapsed time
+                    ' Update the database with the elapsed time and last used time
                     If AppUsageExists(AccountData.UserID, processName) Then
-                        UpdateAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName))
+                        UpdateAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName), trackedApps(processName))
                     Else
-                        InsertAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName))
+                        InsertAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName), trackedApps(processName))
                     End If
 
                     ' Remove the application from the trackedApps dictionary
@@ -214,7 +214,7 @@ Public Class frmGames
         Next
     End Sub
 
-    Private Sub InsertAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
+    Private Sub InsertAppUsage(userID As String, appName As String, elapsedTime As TimeSpan, lastUsed As DateTime)
         Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
         Dim query As String = "INSERT INTO app_usage (UserID, ApplicationName, ElapsedTime, LastUsed) VALUES (@UserID, @AppName, @ElapsedTime, @LastUsed)"
 
@@ -224,7 +224,7 @@ Public Class frmGames
                     command.Parameters.AddWithValue("@UserID", userID)
                     command.Parameters.AddWithValue("@AppName", appName)
                     command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
-                    command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
+                    command.Parameters.AddWithValue("@LastUsed", lastUsed)
 
                     connection.Open()
                     command.ExecuteNonQuery()
@@ -236,7 +236,7 @@ Public Class frmGames
         End If
     End Sub
 
-    Private Sub UpdateAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
+    Private Sub UpdateAppUsage(userID As String, appName As String, elapsedTime As TimeSpan, lastUsed As DateTime)
         Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
         Dim query As String = "UPDATE app_usage SET ElapsedTime = @ElapsedTime, LastUsed = @LastUsed WHERE UserID = @UserID AND ApplicationName = @AppName"
 
@@ -247,7 +247,7 @@ Public Class frmGames
                     command.Parameters.AddWithValue("@UserID", userID)
                     command.Parameters.AddWithValue("@AppName", appName)
                     command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
-                    command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
+                    command.Parameters.AddWithValue("@LastUsed", lastUsed)
 
                     connection.Open()
                     command.ExecuteNonQuery()
