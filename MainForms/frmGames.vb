@@ -18,6 +18,7 @@ Public Class frmGames
         ListViewTrackApp.View = View.Details
         ListViewTrackApp.Columns.Add("Application", 150)
         ListViewTrackApp.Columns.Add("Elapsed Time", 100)
+        ListViewTrackApp.Columns.Add("Last Used", 150) ' Add Last Used column
 
         ' Load saved game paths from the database
         LoadGamePaths()
@@ -155,9 +156,11 @@ Public Class frmGames
                 If trackItem Is Nothing Then
                     trackItem = New ListViewItem(processName)
                     trackItem.SubItems.Add(totalElapsedTimes(processName).ToString("hh\:mm\:ss"))
+                    trackItem.SubItems.Add(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")) ' Add Last Used time
                     ListViewTrackApp.Items.Add(trackItem)
                 Else
                     trackItem.SubItems(1).Text = totalElapsedTimes(processName).ToString("hh\:mm\:ss")
+                    trackItem.SubItems(2).Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ' Update Last Used time
                 End If
 
                 trackedApps(processName) = DateTime.Now
@@ -173,6 +176,13 @@ Public Class frmGames
                     Dim trackItem As ListViewItem = ListViewTrackApp.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text = processName)
                     If trackItem IsNot Nothing Then
                         trackItem.SubItems(1).Text = totalElapsedTimes(processName).ToString("hh\:mm\:ss")
+                        trackItem.SubItems(2).Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ' Update Last Used time
+                    End If
+
+                    If AppUsageExists(AccountData.UserID, processName) Then
+                        UpdateAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName))
+                    Else
+                        InsertAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName))
                     End If
 
                     trackedApps.Remove(processName)
@@ -180,4 +190,53 @@ Public Class frmGames
             End If
         Next
     End Sub
+
+
+    Private Sub InsertAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
+        Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
+        Dim query As String = "INSERT INTO app_usage (UserID, ApplicationName, ElapsedTime, LastUsed) VALUES (@UserID, @AppName, @ElapsedTime, @LastUsed)"
+        Using connection As MySqlConnection = Common.createDBConnection()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@UserID", userID)
+                command.Parameters.AddWithValue("@AppName", appName)
+                command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
+                command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    Private Sub UpdateAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
+        Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
+        Dim query As String = "UPDATE app_usage SET ElapsedTime = @ElapsedTime, LastUsed = @LastUsed WHERE UserID = @UserID AND ApplicationName = @AppName"
+        Using connection As MySqlConnection = Common.createDBConnection()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@UserID", userID)
+                command.Parameters.AddWithValue("@AppName", appName)
+                command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
+                command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    Private Function AppUsageExists(userID As String, appName As String) As Boolean
+        Dim query As String = "SELECT COUNT(*) FROM app_usage WHERE UserID = @UserID AND ApplicationName = @AppName"
+        Using connection As MySqlConnection = Common.createDBConnection()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@UserID", userID)
+                command.Parameters.AddWithValue("@AppName", appName)
+
+                connection.Open()
+                Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+                Return count > 0
+            End Using
+        End Using
+    End Function
+
+
 End Class
