@@ -16,9 +16,9 @@ Public Class frmGames
 
         ' Configure ListViewTrackApp
         ListViewTrackApp.View = View.Details
-        ListViewTrackApp.Columns.Add("Application", 150)
-        ListViewTrackApp.Columns.Add("Elapsed Time", 100)
-        ListViewTrackApp.Columns.Add("Last Used", 150) ' Add Last Used column
+        ListViewTrackApp.Columns.Add("Application", 250)
+        ListViewTrackApp.Columns.Add("Elapsed Time", 200)
+        ListViewTrackApp.Columns.Add("Last Used", 250) ' Add Last Used column
 
         ' Load saved game paths from the database
         LoadGamePaths()
@@ -131,7 +131,7 @@ Public Class frmGames
                         ImageList.Images.Add(icon)
 
                         ' Add file path and icon to ListView
-                        Dim item As New ListViewItem(gameName)
+                        Dim item As New ListViewItem(Path.GetFileNameWithoutExtension(gameName))
                         item.ImageIndex = ImageList.Images.Count - 1
                         item.Tag = exePath
                         ListViewApps.Items.Add(item)
@@ -274,5 +274,62 @@ Public Class frmGames
         End Using
     End Function
 
+    Private Sub ListViewApps_MouseClick(sender As Object, e As MouseEventArgs) Handles ListViewApps.MouseClick
+        If e.Button = MouseButtons.Right Then
+            ListViewAppsContext.Show(ListViewApps, e.Location)
+        End If
+    End Sub
 
+    Private Sub AddApplicationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddApplicationToolStripMenuItem.Click
+        ' Add your code here to handle the "Add Application" option
+        ' For example, you can open a file dialog to select an application and add it to the ListViewApps
+        Using openFileDialog As New OpenFileDialog()
+            openFileDialog.Filter = "Executable Files|*.exe"
+            openFileDialog.Multiselect = False
+
+            If openFileDialog.ShowDialog() = DialogResult.OK Then
+                Dim filePath As String = openFileDialog.FileName
+
+                ' Check if the application already exists in the ListView
+                Dim exists As Boolean = False
+                For Each item As ListViewItem In ListViewApps.Items
+                    If item.Tag.ToString() = filePath Then
+                        exists = True
+                        Exit For
+                    End If
+                Next
+
+                If Not exists Then
+                    ' Extract icon from the .exe file
+                    Dim icon As Icon = Icon.ExtractAssociatedIcon(filePath)
+                    ImageList.Images.Add(icon)
+
+                    ' Add file path and icon to ListView
+                    Dim item As New ListViewItem(Path.GetFileName(filePath))
+                    item.ImageIndex = ImageList.Images.Count - 1
+                    item.Tag = filePath
+                    ListViewApps.Items.Add(item)
+
+                    ' Save the game path to the database
+                    SaveGamePath(Path.GetFileName(filePath), filePath)
+                End If
+            End If
+        End Using
+    End Sub
+
+    Private Sub DeleteApplicationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteApplicationToolStripMenuItem.Click
+        ' Add your code here to handle the "Delete Application" option
+        ' For example, you can remove the selected application from the ListViewApps and delete its game path from the database
+        If ListViewApps.SelectedItems.Count > 0 Then
+            For Each selectedItem As ListViewItem In ListViewApps.SelectedItems
+                Dim exePath As String = selectedItem.Tag.ToString()
+
+                ' Remove the item from the ListView
+                ListViewApps.Items.Remove(selectedItem)
+
+                ' Delete the game path from the database
+                DeleteGamePath(exePath)
+            Next
+        End If
+    End Sub
 End Class

@@ -233,6 +233,9 @@
     <EmbeddedResource Include="MainForms\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmGames.resx">
+      <DependentUpon>frmGames.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
