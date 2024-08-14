@@ -217,33 +217,46 @@ Public Class frmGames
     Private Sub InsertAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
         Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
         Dim query As String = "INSERT INTO app_usage (UserID, ApplicationName, ElapsedTime, LastUsed) VALUES (@UserID, @AppName, @ElapsedTime, @LastUsed)"
-        Using connection As MySqlConnection = Common.createDBConnection()
-            Using command As New MySqlCommand(query, connection)
-                command.Parameters.AddWithValue("@UserID", userID)
-                command.Parameters.AddWithValue("@AppName", appName)
-                command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
-                command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
 
-                connection.Open()
-                command.ExecuteNonQuery()
+        If Not String.IsNullOrEmpty(userID) Then
+            Using connection As MySqlConnection = Common.createDBConnection()
+                Using command As New MySqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@UserID", userID)
+                    command.Parameters.AddWithValue("@AppName", appName)
+                    command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
+                    command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
+
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                End Using
             End Using
-        End Using
+        Else
+            ' Cancel the operation
+            Return
+        End If
     End Sub
 
     Private Sub UpdateAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
         Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
         Dim query As String = "UPDATE app_usage SET ElapsedTime = @ElapsedTime, LastUsed = @LastUsed WHERE UserID = @UserID AND ApplicationName = @AppName"
-        Using connection As MySqlConnection = Common.createDBConnection()
-            Using command As New MySqlCommand(query, connection)
-                command.Parameters.AddWithValue("@UserID", userID)
-                command.Parameters.AddWithValue("@AppName", appName)
-                command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
-                command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
 
-                connection.Open()
-                command.ExecuteNonQuery()
+        ' Check if UserID is accessible and not empty
+        If Not String.IsNullOrEmpty(userID) Then
+            Using connection As MySqlConnection = Common.createDBConnection()
+                Using command As New MySqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@UserID", userID)
+                    command.Parameters.AddWithValue("@AppName", appName)
+                    command.Parameters.AddWithValue("@ElapsedTime", elapsedTimeInSeconds)
+                    command.Parameters.AddWithValue("@LastUsed", DateTime.Now)
+
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                End Using
             End Using
-        End Using
+        Else
+            ' Cancel the operation
+            Return
+        End If
     End Sub
 
 
