@@ -1,7 +1,20 @@
 ﻿Imports System.Runtime.InteropServices
-Imports MySql.Data.MySqlClient
 
 Public Class frmMain
+
+    'function to load other forms into pnlContainer
+    Private Sub LoadForm(ByVal form As Form)
+        ' Check if the form is already open
+        If pnlContainer.Controls.Count > 0 Then
+            pnlContainer.Controls.RemoveAt(0)
+        End If
+        form.TopLevel = False
+        form.FormBorderStyle = FormBorderStyle.None
+        form.Dock = DockStyle.Fill
+        pnlContainer.Controls.Add(form)
+        pnlContainer.Tag = form
+        form.Show()
+    End Sub
 
     Private isRestoringFromTray As Boolean = False
 
@@ -36,8 +49,8 @@ Public Class frmMain
         btnLogout.FlatAppearance.BorderSize = 0
         ' Lock the minimum resize of the form to (800, 500)
         Me.MinimumSize = New Size(800, 500)
-        ' Load the user expenses
-        LoadUserExpenses()
+        ' Set the default form to load as frmDashboard
+        LoadForm(New frmDashboard)
 
         ' Create and configure the ContextMenuStrip
         Dim contextMenu As New ContextMenuStrip()
@@ -49,25 +62,6 @@ Public Class frmMain
 
         contextMenu.Items.AddRange(New ToolStripItem() {showMenuItem, closeMenuItem})
         NotifyIcon1.ContextMenuStrip = contextMenu
-    End Sub
-
-    Private Sub LoadUserExpenses()
-        Dim query As String = "SELECT Item AS ITEM, CONCAT('$', Cost) AS COST, Category AS CATEGORY, Description AS DESCRIPTION, DATE_FORMAT(date, '%m/%d/%Y') AS DATE FROM user_expenses WHERE UserID = @UserID"
-        Dim dt As New DataTable()
-
-        Using conn As MySqlConnection = Common.createDBConnection()
-            Using cmd As New MySqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID) ' Assuming Username is the UserID
-                conn.Open()
-                Using reader As MySqlDataReader = cmd.ExecuteReader()
-                    dt.Load(reader)
-                End Using
-            End Using
-        End Using
-
-        dgvExpenses.DataSource = dt
-        dgvExpenses.AllowUserToAddRows = False
-        dgvExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
 
     ' Backup code for closing the application
@@ -198,5 +192,10 @@ Public Class frmMain
             frmLogin.loginAttempts = 0
             Me.Hide()
         End If
+    End Sub
+
+    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+        'change form to dashboard
+        LoadForm(New frmDashboard)
     End Sub
 End Class
