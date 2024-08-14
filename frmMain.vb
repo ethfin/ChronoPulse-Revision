@@ -198,4 +198,8 @@ Public Class frmMain
         'change form to dashboard
         LoadForm(New frmDashboard)
     End Sub
+
+    Private Sub btnGames_Click(sender As Object, e As EventArgs) Handles btnGames.Click
+        LoadForm(New frmGames)
+    End Sub
 End Class
