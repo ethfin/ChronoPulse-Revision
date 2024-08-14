@@ -218,6 +218,9 @@
     <EmbeddedResource Include="Authentication\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmResetAccount.resx">
+      <DependentUpon>frmResetAccount.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Authentication\frmSignup.resx">
       <DependentUpon>frmSignup.vb</DependentUpon>
     </EmbeddedResource>
