@@ -23,11 +23,44 @@ Public Class frmGames
         ' Load saved game paths from the database
         LoadGamePaths()
 
+        ' Load existing app usage records
+        LoadAppUsageRecords()
+
         ' Initialize and start the tracking timer
         trackingTimer = New Timer()
         AddHandler trackingTimer.Tick, AddressOf UpdateTrackedApps
         trackingTimer.Interval = 1000 ' 1 second
         trackingTimer.Start()
+    End Sub
+
+    Private Sub LoadAppUsageRecords()
+        Dim query As String = "SELECT ApplicationName, ElapsedTime, LastUsed FROM app_usage WHERE UserID = @UserID"
+        Using connection As MySqlConnection = Common.createDBConnection()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@UserID", AccountData.UserID)
+
+                connection.Open()
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        Dim appName As String = reader("ApplicationName").ToString()
+                        Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(reader("ElapsedTime"))
+                        Dim lastUsed As DateTime = Convert.ToDateTime(reader("LastUsed"))
+
+                        Dim elapsedTime As TimeSpan = TimeSpan.FromSeconds(elapsedTimeInSeconds)
+
+                        ' Add the record to the ListViewTrackApp
+                        Dim trackItem As New ListViewItem(appName)
+                        trackItem.SubItems.Add(elapsedTime.ToString("hh\:mm\:ss"))
+                        trackItem.SubItems.Add(lastUsed.ToString("yyyy-MM-dd HH:mm:ss"))
+                        ListViewTrackApp.Items.Add(trackItem)
+
+                        ' Add the record to the dictionaries
+                        totalElapsedTimes(appName) = elapsedTime
+                        trackedApps(appName) = lastUsed
+                    End While
+                End Using
+            End Using
+        End Using
     End Sub
 
     Private Sub btnAddFiles_Click(sender As Object, e As EventArgs) Handles btnAddFiles.Click
@@ -191,7 +224,6 @@ Public Class frmGames
         Next
     End Sub
 
-
     Private Sub InsertAppUsage(userID As String, appName As String, elapsedTime As TimeSpan)
         Dim elapsedTimeInSeconds As Integer = Convert.ToInt32(elapsedTime.TotalSeconds)
         Dim query As String = "INSERT INTO app_usage (UserID, ApplicationName, ElapsedTime, LastUsed) VALUES (@UserID, @AppName, @ElapsedTime, @LastUsed)"
@@ -223,6 +255,7 @@ Public Class frmGames
             End Using
         End Using
     End Sub
+
 
     Private Function AppUsageExists(userID As String, appName As String) As Boolean
         Dim query As String = "SELECT COUNT(*) FROM app_usage WHERE UserID = @UserID AND ApplicationName = @AppName"
