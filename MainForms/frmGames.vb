@@ -63,6 +63,7 @@ Public Class frmGames
         End Using
     End Sub
 
+
     Private Sub btnAddFiles_Click(sender As Object, e As EventArgs) Handles btnAddFiles.Click
         Using openFileDialog As New OpenFileDialog()
             openFileDialog.Filter = "Executable Files|*.exe"
@@ -199,25 +200,14 @@ Public Class frmGames
                 trackedApps(processName) = DateTime.Now
             Else
                 If trackedApps.ContainsKey(processName) Then
-                    Dim elapsedTime As TimeSpan = DateTime.Now - trackedApps(processName)
-                    If totalElapsedTimes.ContainsKey(processName) Then
-                        totalElapsedTimes(processName) += elapsedTime
-                    Else
-                        totalElapsedTimes(processName) = elapsedTime
-                    End If
-
-                    Dim trackItem As ListViewItem = ListViewTrackApp.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text = processName)
-                    If trackItem IsNot Nothing Then
-                        trackItem.SubItems(1).Text = totalElapsedTimes(processName).ToString("hh\:mm\:ss")
-                        trackItem.SubItems(2).Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ' Update Last Used time
-                    End If
-
+                    ' Update the database with the elapsed time
                     If AppUsageExists(AccountData.UserID, processName) Then
                         UpdateAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName))
                     Else
                         InsertAppUsage(AccountData.UserID, processName, totalElapsedTimes(processName))
                     End If
 
+                    ' Remove the application from the trackedApps dictionary
                     trackedApps.Remove(processName)
                 End If
             End If
