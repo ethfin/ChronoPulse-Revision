@@ -1,6 +1,7 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Runtime.InteropServices
 Imports System.Text.RegularExpressions
+Imports MySql.Data.MySqlClient
 
 Public Class frmSignup
 
@@ -94,22 +95,60 @@ Public Class frmSignup
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         If ValidateInputFieldsDetails() AndAlso emailValid() Then
-            LoadForm(frmSignupSecurity)
-            btnNext.Visible = False
-            btnSignup.Visible = True
-            lnklblGoBack.Visible = True
+            If Not UserExists(frmSignupDetails.txtUsername.Text, frmSignupDetails.txtEmail.Text) Then
+                LoadForm(frmSignupSecurity)
+                btnNext.Visible = False
+                btnSignup.Visible = True
+                lnklblGoBack.Visible = True
+            Else
+                frmSignupDetails.lblErrorMsg.Text = "Username or email already exists."
+                frmSignupDetails.lblErrorMsg.Visible = True
+                frmSignupDetails.lblErrorMsg.ForeColor = Color.Red
+            End If
         End If
     End Sub
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
         If ValidateInputFieldsSecurity() AndAlso SecurityQuestionNotEmptyCombobox() AndAlso CompareAnswersQ1() AndAlso CompareAnswersQ2() Then
-            MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            frmLogin.Show()
-            frmSignupDetails.Close()
-            frmSignupSecurity.Close()
-            Me.Close()
+            If InsertNewUser() Then
+                MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                frmLogin.Show()
+                frmSignupDetails.Close()
+                frmSignupSecurity.Close()
+                Me.Close()
+            Else
+                MessageBox.Show("Failed to create account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
+
+    Private Function InsertNewUser() As Boolean
+        Try
+            Using conn As MySqlConnection = Common.createDBConnection()
+                conn.Open()
+                Dim query As String = "INSERT INTO dbaccounts (Username, Password, Email, FirstName, LastName, SecurityQuestion1, SecurityQuestion2, SecurityAnswer1, SecurityAnswer2, CreatedAt) " &
+                                      "VALUES (@Username, @Password, @Email, @FirstName, @LastName, @SecurityQuestion1, @SecurityQuestion2, @SecurityAnswer1, @SecurityAnswer2, @CreatedAt)"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@Username", frmSignupDetails.txtUsername.Text)
+                    cmd.Parameters.AddWithValue("@Password", frmSignupDetails.txtPassword.Text)
+                    cmd.Parameters.AddWithValue("@Email", frmSignupDetails.txtEmail.Text)
+                    cmd.Parameters.AddWithValue("@FirstName", frmSignupDetails.txtFirstName.Text)
+                    cmd.Parameters.AddWithValue("@LastName", frmSignupDetails.txtLastName.Text)
+                    cmd.Parameters.AddWithValue("@SecurityQuestion1", frmSignupSecurity.cmbQuestion1.SelectedItem.ToString())
+                    cmd.Parameters.AddWithValue("@SecurityQuestion2", frmSignupSecurity.cmbQuestion2.SelectedItem.ToString())
+                    cmd.Parameters.AddWithValue("@SecurityAnswer1", frmSignupSecurity.txtSQAnswer1.Text)
+                    cmd.Parameters.AddWithValue("@SecurityAnswer2", frmSignupSecurity.txtSQAnswer2.Text)
+                    cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now)
+
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+            Return True
+        Catch ex As MySqlException
+            ' Log or handle the specific exception as needed
+            Return False
+        End Try
+    End Function
 
     Private Function ValidateInputFieldsDetails() As Boolean
         ' Check if any of the fields are empty
@@ -263,4 +302,23 @@ Public Class frmSignup
             Return False
         End If
     End Function
+
+    Private Function UserExists(username As String, email As String) As Boolean
+        Try
+            Using conn As MySqlConnection = Common.createDBConnection()
+                conn.Open()
+                Dim query As String = "SELECT COUNT(*) FROM dbaccounts WHERE Username = @Username OR Email = @Email"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@Username", username)
+                    cmd.Parameters.AddWithValue("@Email", email)
+                    Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                    Return count > 0
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Log or handle the exception as needed
+            Return True ' Assume user exists if there's an error
+        End Try
+    End Function
+
 End Class
