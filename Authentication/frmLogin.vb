@@ -32,7 +32,7 @@ Public Class frmLogin
     End Sub
 
     ' The MouseDown event for the panel to initiate the form dragging
-    Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlLoginContainer.MouseDown, pbxBackground.MouseDown, pbxLogo.MouseDown
+    Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlLoginContainer.MouseDown, pbxBackground.MouseDown
         If e.Button = MouseButtons.Left Then
             ReleaseCapture()
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)

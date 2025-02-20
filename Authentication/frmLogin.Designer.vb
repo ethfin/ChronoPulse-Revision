@@ -24,7 +24,6 @@ Partial Class frmLogin
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.pnlLoginContainer = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblTitle = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblErrorMsg = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cbxShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -39,15 +38,14 @@ Partial Class frmLogin
         Me.guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxBackground = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlLoginContainer.SuspendLayout()
         CType(Me.pbxBackground, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlLoginContainer
         '
-        Me.pnlLoginContainer.Controls.Add(Me.lblTitle)
         Me.pnlLoginContainer.Controls.Add(Me.lblErrorMsg)
         Me.pnlLoginContainer.Controls.Add(Me.cbxShowPassword)
         Me.pnlLoginContainer.Controls.Add(Me.guna2HtmlLabel5)
@@ -62,7 +60,7 @@ Partial Class frmLogin
         Me.pnlLoginContainer.Controls.Add(Me.guna2HtmlLabel2)
         Me.pnlLoginContainer.Controls.Add(Me.guna2HtmlLabel1)
         Me.pnlLoginContainer.Controls.Add(Me.pbxBackground)
-        Me.pnlLoginContainer.Controls.Add(Me.pbxLogo)
+        Me.pnlLoginContainer.Controls.Add(Me.Guna2PictureBox1)
         Me.pnlLoginContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlLoginContainer.FillColor = System.Drawing.Color.GhostWhite
         Me.pnlLoginContainer.Location = New System.Drawing.Point(1, 1)
@@ -70,20 +68,6 @@ Partial Class frmLogin
         Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(60, 30, 30, 30)
         Me.pnlLoginContainer.Size = New System.Drawing.Size(973, 602)
         Me.pnlLoginContainer.TabIndex = 1
-        '
-        'lblTitle
-        '
-        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblTitle.AutoSize = False
-        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("DM Sans 14pt Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.Black
-        Me.lblTitle.Location = New System.Drawing.Point(167, 33)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(206, 75)
-        Me.lblTitle.TabIndex = 15
-        Me.lblTitle.Text = "CHRONO PULSE"
-        Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblErrorMsg
         '
@@ -237,7 +221,6 @@ Partial Class frmLogin
         Me.txtUsername.Location = New System.Drawing.Point(86, 268)
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(0)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtUsername.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtUsername.PlaceholderText = "Username"
         Me.txtUsername.SelectedText = ""
@@ -301,16 +284,18 @@ Partial Class frmLogin
         Me.pbxBackground.TabIndex = 2
         Me.pbxBackground.TabStop = False
         '
-        'pbxLogo
+        'Guna2PictureBox1
         '
-        Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Dark
-        Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(86, 33)
-        Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(75, 75)
-        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxLogo.TabIndex = 1
-        Me.pbxLogo.TabStop = False
+        Me.Guna2PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), System.Drawing.Image)
+        Me.Guna2PictureBox1.ImageRotate = 0!
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(86, 36)
+        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(260, 102)
+        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2PictureBox1.TabIndex = 61
+        Me.Guna2PictureBox1.TabStop = False
+        Me.Guna2PictureBox1.UseTransparentBackground = True
         '
         'frmLogin
         '
@@ -330,12 +315,10 @@ Partial Class frmLogin
         Me.pnlLoginContainer.ResumeLayout(False)
         Me.pnlLoginContainer.PerformLayout()
         CType(Me.pbxBackground, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Private WithEvents pbxLogo As Guna.UI2.WinForms.Guna2PictureBox
     Private WithEvents pnlLoginContainer As Guna.UI2.WinForms.Guna2Panel
     Private WithEvents cbxShowPassword As Guna.UI2.WinForms.Guna2CheckBox
     Private WithEvents guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
@@ -351,5 +334,5 @@ Partial Class frmLogin
     Private WithEvents guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Private WithEvents pbxBackground As Guna.UI2.WinForms.Guna2PictureBox
     Private WithEvents lblErrorMsg As Guna.UI2.WinForms.Guna2HtmlLabel
-    Private WithEvents lblTitle As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
 End Class
