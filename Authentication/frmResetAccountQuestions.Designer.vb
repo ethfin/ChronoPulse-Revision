@@ -30,7 +30,7 @@ Partial Class frmResetAccountQuestions
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.btnMinimize = New Guna.UI2.WinForms.Guna2Button()
         Me.lblError = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.btnReset = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnNext = New Guna.UI2.WinForms.Guna2Button()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.txtVerifyPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -49,7 +49,7 @@ Partial Class frmResetAccountQuestions
         Me.panelLogin1.Controls.Add(Me.btnClose)
         Me.panelLogin1.Controls.Add(Me.btnMinimize)
         Me.panelLogin1.Controls.Add(Me.lblError)
-        Me.panelLogin1.Controls.Add(Me.btnReset)
+        Me.panelLogin1.Controls.Add(Me.btnNext)
         Me.panelLogin1.Controls.Add(Me.LinkLabel1)
         Me.panelLogin1.Controls.Add(Me.txtVerifyPassword)
         Me.panelLogin1.Controls.Add(Me.Label1)
@@ -182,23 +182,23 @@ Partial Class frmResetAccountQuestions
         Me.lblError.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblError.Visible = False
         '
-        'btnReset
+        'btnNext
         '
-        Me.btnReset.BorderRadius = 2
-        Me.btnReset.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnReset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnReset.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnReset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnReset.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnReset.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.btnReset.ForeColor = System.Drawing.Color.White
-        Me.btnReset.IndicateFocus = True
-        Me.btnReset.Location = New System.Drawing.Point(251, 485)
-        Me.btnReset.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(240, 55)
-        Me.btnReset.TabIndex = 4
-        Me.btnReset.Text = "Reset"
+        Me.btnNext.BorderRadius = 2
+        Me.btnNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnNext.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
+        Me.btnNext.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnNext.ForeColor = System.Drawing.Color.White
+        Me.btnNext.IndicateFocus = True
+        Me.btnNext.Location = New System.Drawing.Point(251, 485)
+        Me.btnNext.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(240, 55)
+        Me.btnNext.TabIndex = 4
+        Me.btnNext.Text = "Reset"
         '
         'LinkLabel1
         '
@@ -296,7 +296,7 @@ Partial Class frmResetAccountQuestions
     Friend WithEvents btnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnMinimize As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblError As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents btnReset As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnNext As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents txtVerifyPassword As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label1 As Label

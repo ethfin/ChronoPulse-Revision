@@ -36,7 +36,6 @@ Partial Class frmResetAccountSecurity
         Me.txtSQA2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtSQA1Verify = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtSQA1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.btnReset = New Guna.UI2.WinForms.Guna2Button()
         Me.lblWelcome1 = New System.Windows.Forms.Label()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.panelLogin1.SuspendLayout()
@@ -57,7 +56,6 @@ Partial Class frmResetAccountSecurity
         Me.panelLogin1.Controls.Add(Me.txtSQA2)
         Me.panelLogin1.Controls.Add(Me.txtSQA1Verify)
         Me.panelLogin1.Controls.Add(Me.txtSQA1)
-        Me.panelLogin1.Controls.Add(Me.btnReset)
         Me.panelLogin1.Controls.Add(Me.lblWelcome1)
         Me.panelLogin1.Controls.Add(Me.Guna2PictureBox1)
         Me.panelLogin1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -295,24 +293,6 @@ Partial Class frmResetAccountSecurity
         Me.txtSQA1.Size = New System.Drawing.Size(288, 47)
         Me.txtSQA1.TabIndex = 1
         '
-        'btnReset
-        '
-        Me.btnReset.BorderRadius = 2
-        Me.btnReset.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnReset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnReset.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnReset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnReset.FillColor = System.Drawing.Color.MediumTurquoise
-        Me.btnReset.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.btnReset.ForeColor = System.Drawing.Color.White
-        Me.btnReset.IndicateFocus = True
-        Me.btnReset.Location = New System.Drawing.Point(249, 477)
-        Me.btnReset.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(240, 55)
-        Me.btnReset.TabIndex = 8
-        Me.btnReset.Text = "Next"
-        '
         'lblWelcome1
         '
         Me.lblWelcome1.BackColor = System.Drawing.Color.Transparent
@@ -367,7 +347,6 @@ Partial Class frmResetAccountSecurity
     Friend WithEvents txtSQA2 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtSQA1Verify As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtSQA1 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents btnReset As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblWelcome1 As Label
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
 End Class
