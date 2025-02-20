@@ -45,11 +45,12 @@ Partial Class frmSignupDetails
         'Guna2HtmlLabel8
         '
         Me.Guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel8.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Guna2HtmlLabel8.Location = New System.Drawing.Point(296, 168)
+        Me.Guna2HtmlLabel8.Location = New System.Drawing.Point(395, 207)
+        Me.Guna2HtmlLabel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2HtmlLabel8.Name = "Guna2HtmlLabel8"
-        Me.Guna2HtmlLabel8.Size = New System.Drawing.Size(63, 17)
+        Me.Guna2HtmlLabel8.Size = New System.Drawing.Size(75, 20)
         Me.Guna2HtmlLabel8.TabIndex = 59
         Me.Guna2HtmlLabel8.TabStop = False
         Me.Guna2HtmlLabel8.Text = "Last Name"
@@ -57,11 +58,12 @@ Partial Class frmSignupDetails
         'Guna2HtmlLabel7
         '
         Me.Guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel7.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(28, 226)
+        Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(37, 278)
+        Me.Guna2HtmlLabel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
-        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(60, 17)
+        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(72, 20)
         Me.Guna2HtmlLabel7.TabIndex = 58
         Me.Guna2HtmlLabel7.TabStop = False
         Me.Guna2HtmlLabel7.Text = "Username"
@@ -80,14 +82,14 @@ Partial Class frmSignupDetails
         Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
-        Me.txtUsername.Location = New System.Drawing.Point(28, 246)
+        Me.txtUsername.Location = New System.Drawing.Point(37, 303)
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(0)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtUsername.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtUsername.PlaceholderText = "Username"
         Me.txtUsername.SelectedText = ""
-        Me.txtUsername.Size = New System.Drawing.Size(504, 35)
+        Me.txtUsername.Size = New System.Drawing.Size(672, 43)
         Me.txtUsername.TabIndex = 2
         '
         'txtLastName
@@ -104,14 +106,14 @@ Partial Class frmSignupDetails
         Me.txtLastName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtLastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtLastName.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
-        Me.txtLastName.Location = New System.Drawing.Point(296, 188)
+        Me.txtLastName.Location = New System.Drawing.Point(395, 231)
         Me.txtLastName.Margin = New System.Windows.Forms.Padding(0)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtLastName.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtLastName.PlaceholderText = "Last Name"
         Me.txtLastName.SelectedText = ""
-        Me.txtLastName.Size = New System.Drawing.Size(236, 35)
+        Me.txtLastName.Size = New System.Drawing.Size(315, 43)
         Me.txtLastName.TabIndex = 1
         '
         'lblTitle
@@ -119,11 +121,12 @@ Partial Class frmSignupDetails
         Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lblTitle.AutoSize = False
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("DM Sans 14pt Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.Black
-        Me.lblTitle.Location = New System.Drawing.Point(109, 12)
+        Me.lblTitle.Location = New System.Drawing.Point(145, 15)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(111, 75)
+        Me.lblTitle.Size = New System.Drawing.Size(148, 92)
         Me.lblTitle.TabIndex = 55
         Me.lblTitle.Text = "CHRONO PULSE"
         Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
@@ -131,11 +134,12 @@ Partial Class frmSignupDetails
         'Guna2HtmlLabel6
         '
         Me.Guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel6.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(28, 281)
+        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(37, 346)
+        Me.Guna2HtmlLabel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
-        Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(33, 17)
+        Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(40, 20)
         Me.Guna2HtmlLabel6.TabIndex = 54
         Me.Guna2HtmlLabel6.TabStop = False
         Me.Guna2HtmlLabel6.Text = "Email"
@@ -154,24 +158,25 @@ Partial Class frmSignupDetails
         Me.txtEmail.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtEmail.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.arroba
-        Me.txtEmail.Location = New System.Drawing.Point(28, 301)
+        Me.txtEmail.Location = New System.Drawing.Point(37, 370)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(0)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtEmail.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtEmail.PlaceholderText = "Email"
         Me.txtEmail.SelectedText = ""
-        Me.txtEmail.Size = New System.Drawing.Size(504, 35)
+        Me.txtEmail.Size = New System.Drawing.Size(672, 43)
         Me.txtEmail.TabIndex = 3
         '
         'Guna2HtmlLabel4
         '
         Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(28, 339)
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(37, 417)
+        Me.Guna2HtmlLabel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
-        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(58, 17)
+        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(70, 20)
         Me.Guna2HtmlLabel4.TabIndex = 52
         Me.Guna2HtmlLabel4.TabStop = False
         Me.Guna2HtmlLabel4.Text = "Password"
@@ -190,25 +195,26 @@ Partial Class frmSignupDetails
         Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
-        Me.txtPassword.Location = New System.Drawing.Point(28, 359)
+        Me.txtPassword.Location = New System.Drawing.Point(37, 442)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(0)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtPassword.PlaceholderText = "Password"
         Me.txtPassword.SelectedText = ""
-        Me.txtPassword.Size = New System.Drawing.Size(504, 35)
+        Me.txtPassword.Size = New System.Drawing.Size(672, 43)
         Me.txtPassword.TabIndex = 4
         '
         'lblErrorMsg
         '
         Me.lblErrorMsg.AutoSize = False
         Me.lblErrorMsg.BackColor = System.Drawing.Color.Transparent
-        Me.lblErrorMsg.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblErrorMsg.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblErrorMsg.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblErrorMsg.Location = New System.Drawing.Point(296, 114)
+        Me.lblErrorMsg.Location = New System.Drawing.Point(395, 140)
+        Me.lblErrorMsg.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblErrorMsg.Name = "lblErrorMsg"
-        Me.lblErrorMsg.Size = New System.Drawing.Size(236, 43)
+        Me.lblErrorMsg.Size = New System.Drawing.Size(315, 53)
         Me.lblErrorMsg.TabIndex = 50
         Me.lblErrorMsg.TabStop = False
         Me.lblErrorMsg.Text = Nothing
@@ -221,10 +227,11 @@ Partial Class frmSignupDetails
         Me.cbxShowPassword.CheckedState.BorderRadius = 0
         Me.cbxShowPassword.CheckedState.BorderThickness = 0
         Me.cbxShowPassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cbxShowPassword.Font = New System.Drawing.Font("Inter", 9.0!)
-        Me.cbxShowPassword.Location = New System.Drawing.Point(31, 458)
+        Me.cbxShowPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.cbxShowPassword.Location = New System.Drawing.Point(41, 564)
+        Me.cbxShowPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbxShowPassword.Name = "cbxShowPassword"
-        Me.cbxShowPassword.Size = New System.Drawing.Size(116, 19)
+        Me.cbxShowPassword.Size = New System.Drawing.Size(139, 22)
         Me.cbxShowPassword.TabIndex = 6
         Me.cbxShowPassword.Text = "Show Password"
         Me.cbxShowPassword.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
@@ -235,11 +242,12 @@ Partial Class frmSignupDetails
         'guna2HtmlLabel5
         '
         Me.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel5.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel5.Location = New System.Drawing.Point(28, 397)
+        Me.guna2HtmlLabel5.Location = New System.Drawing.Point(37, 489)
+        Me.guna2HtmlLabel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.guna2HtmlLabel5.Name = "guna2HtmlLabel5"
-        Me.guna2HtmlLabel5.Size = New System.Drawing.Size(105, 17)
+        Me.guna2HtmlLabel5.Size = New System.Drawing.Size(127, 20)
         Me.guna2HtmlLabel5.TabIndex = 49
         Me.guna2HtmlLabel5.TabStop = False
         Me.guna2HtmlLabel5.Text = "Confirm Password"
@@ -247,11 +255,12 @@ Partial Class frmSignupDetails
         'guna2HtmlLabel3
         '
         Me.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel3.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.guna2HtmlLabel3.Location = New System.Drawing.Point(28, 168)
+        Me.guna2HtmlLabel3.Location = New System.Drawing.Point(37, 207)
+        Me.guna2HtmlLabel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.guna2HtmlLabel3.Name = "guna2HtmlLabel3"
-        Me.guna2HtmlLabel3.Size = New System.Drawing.Size(63, 17)
+        Me.guna2HtmlLabel3.Size = New System.Drawing.Size(76, 20)
         Me.guna2HtmlLabel3.TabIndex = 48
         Me.guna2HtmlLabel3.TabStop = False
         Me.guna2HtmlLabel3.Text = "First Name"
@@ -270,14 +279,14 @@ Partial Class frmSignupDetails
         Me.txtVerifyPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtVerifyPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtVerifyPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
-        Me.txtVerifyPassword.Location = New System.Drawing.Point(28, 417)
+        Me.txtVerifyPassword.Location = New System.Drawing.Point(37, 513)
         Me.txtVerifyPassword.Margin = New System.Windows.Forms.Padding(0)
         Me.txtVerifyPassword.Name = "txtVerifyPassword"
         Me.txtVerifyPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtVerifyPassword.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtVerifyPassword.PlaceholderText = "Password"
         Me.txtVerifyPassword.SelectedText = ""
-        Me.txtVerifyPassword.Size = New System.Drawing.Size(504, 35)
+        Me.txtVerifyPassword.Size = New System.Drawing.Size(672, 43)
         Me.txtVerifyPassword.TabIndex = 5
         '
         'txtFirstName
@@ -294,14 +303,14 @@ Partial Class frmSignupDetails
         Me.txtFirstName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtFirstName.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
-        Me.txtFirstName.Location = New System.Drawing.Point(28, 188)
+        Me.txtFirstName.Location = New System.Drawing.Point(37, 231)
         Me.txtFirstName.Margin = New System.Windows.Forms.Padding(0)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtFirstName.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtFirstName.PlaceholderText = "First Name"
         Me.txtFirstName.SelectedText = ""
-        Me.txtFirstName.Size = New System.Drawing.Size(236, 35)
+        Me.txtFirstName.Size = New System.Drawing.Size(315, 43)
         Me.txtFirstName.TabIndex = 0
         '
         'guna2HtmlLabel1
@@ -309,30 +318,32 @@ Partial Class frmSignupDetails
         Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold)
         Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(31, 97)
+        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(41, 119)
+        Me.guna2HtmlLabel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
-        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(127, 40)
+        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(268, 49)
         Me.guna2HtmlLabel1.TabIndex = 45
         Me.guna2HtmlLabel1.TabStop = False
-        Me.guna2HtmlLabel1.Text = "Sign Up!"
+        Me.guna2HtmlLabel1.Text = "Register here!"
         '
         'pbxLogo
         '
         Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Dark
         Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(28, 13)
+        Me.pbxLogo.Location = New System.Drawing.Point(37, 16)
+        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(75, 75)
+        Me.pbxLogo.Size = New System.Drawing.Size(100, 92)
         Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxLogo.TabIndex = 42
         Me.pbxLogo.TabStop = False
         '
         'frmSignupDetails
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(560, 482)
+        Me.ClientSize = New System.Drawing.Size(747, 593)
         Me.Controls.Add(Me.Guna2HtmlLabel8)
         Me.Controls.Add(Me.Guna2HtmlLabel7)
         Me.Controls.Add(Me.txtUsername)
@@ -351,6 +362,7 @@ Partial Class frmSignupDetails
         Me.Controls.Add(Me.guna2HtmlLabel1)
         Me.Controls.Add(Me.pbxLogo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmSignupDetails"
         Me.Text = "frmSignupDetails"
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
