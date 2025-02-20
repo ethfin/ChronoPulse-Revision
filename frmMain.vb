@@ -200,6 +200,6 @@ Public Class frmMain
     End Sub
 
     Private Sub btnGames_Click(sender As Object, e As EventArgs) Handles btnGames.Click
-        'LoadForm(New frmGames)
+        LoadForm(New frmAI)
     End Sub
 End Class
