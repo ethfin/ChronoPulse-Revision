@@ -149,6 +149,24 @@
     <Compile Include="Authentication\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Authentication\frmResetAccountEmail.Designer.vb">
+      <DependentUpon>frmResetAccountEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\frmResetAccountEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authentication\frmResetAccountQuestions.Designer.vb">
+      <DependentUpon>frmResetAccountQuestions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\frmResetAccountQuestions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authentication\frmResetAccountSecurity.Designer.vb">
+      <DependentUpon>frmResetAccountSecurity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\frmResetAccountSecurity.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Authentication\frmResetAccount.Designer.vb">
       <DependentUpon>frmResetAccount.vb</DependentUpon>
     </Compile>
@@ -229,6 +247,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Authentication\frmResetAccount.resx">
       <DependentUpon>frmResetAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmResetAccountEmail.resx">
+      <DependentUpon>frmResetAccountEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmResetAccountQuestions.resx">
+      <DependentUpon>frmResetAccountQuestions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmResetAccountSecurity.resx">
+      <DependentUpon>frmResetAccountSecurity.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authentication\frmSignup.resx">
       <DependentUpon>frmSignup.vb</DependentUpon>
