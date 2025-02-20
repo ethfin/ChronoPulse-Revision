@@ -3,8 +3,8 @@
 Module Common
     Private ReadOnly connectionString As String = "Database=chronopulsedb;" &
                                                   "Data Source=localhost;" &
-                                                  "User id=root;" &
-                                                  "Password=1234;" &
+                                                  "User id=projectDBAdmin;" &
+                                                  "Password=1322LDSP;" &
                                                   "Port=3306;Command Timeout=600;"
     Private myDBConnection As MySqlConnection
 

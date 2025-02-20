@@ -120,6 +120,11 @@ Public Class frmSignup
                 MessageBox.Show("Failed to create account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
+
+        If Not IsDatabaseConnected() Then
+            MessageBox.Show("Cannot connect to the database. Please try again later.", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
     End Sub
 
     Private Function InsertNewUser() As Boolean
@@ -324,4 +329,15 @@ Public Class frmSignup
     Private Sub pnlLoginContainer_Paint(sender As Object, e As PaintEventArgs) Handles pnlLoginContainer.Paint
 
     End Sub
+
+    Private Function IsDatabaseConnected() As Boolean
+        Try
+            Using myDBConnection As MySqlConnection = createDBConnection()
+                myDBConnection.Open()
+                Return True
+            End Using
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 End Class

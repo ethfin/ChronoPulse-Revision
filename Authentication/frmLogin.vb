@@ -88,6 +88,12 @@ Public Class frmLogin
             Return
         End If
 
+        If Not IsDatabaseConnected() Then
+            lblErrorMsg.Text = "Cannot connect to the database. Please try again later."
+            lblErrorMsg.ForeColor = Color.Red
+            Return
+        End If
+
         Using myDBConnection As MySqlConnection = createDBConnection()
             myDBConnection.Open()
 
@@ -150,6 +156,17 @@ Public Class frmLogin
 
             Return userID
         End Using
+    End Function
+
+    Private Function IsDatabaseConnected() As Boolean
+        Try
+            Using myDBConnection As MySqlConnection = createDBConnection()
+                myDBConnection.Open()
+                Return True
+            End Using
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 
     Private Sub cbxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles cbxShowPassword.CheckedChanged
