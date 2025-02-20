@@ -88,7 +88,7 @@ Partial Class frmSignupDetails
         Me.txtUsername.PlaceholderText = "Username"
         Me.txtUsername.SelectedText = ""
         Me.txtUsername.Size = New System.Drawing.Size(504, 35)
-        Me.txtUsername.TabIndex = 57
+        Me.txtUsername.TabIndex = 2
         '
         'txtLastName
         '
@@ -112,7 +112,7 @@ Partial Class frmSignupDetails
         Me.txtLastName.PlaceholderText = "Last Name"
         Me.txtLastName.SelectedText = ""
         Me.txtLastName.Size = New System.Drawing.Size(236, 35)
-        Me.txtLastName.TabIndex = 56
+        Me.txtLastName.TabIndex = 1
         '
         'lblTitle
         '
@@ -162,7 +162,7 @@ Partial Class frmSignupDetails
         Me.txtEmail.PlaceholderText = "Email"
         Me.txtEmail.SelectedText = ""
         Me.txtEmail.Size = New System.Drawing.Size(504, 35)
-        Me.txtEmail.TabIndex = 53
+        Me.txtEmail.TabIndex = 3
         '
         'Guna2HtmlLabel4
         '
@@ -198,7 +198,7 @@ Partial Class frmSignupDetails
         Me.txtPassword.PlaceholderText = "Password"
         Me.txtPassword.SelectedText = ""
         Me.txtPassword.Size = New System.Drawing.Size(504, 35)
-        Me.txtPassword.TabIndex = 51
+        Me.txtPassword.TabIndex = 4
         '
         'lblErrorMsg
         '
@@ -225,7 +225,7 @@ Partial Class frmSignupDetails
         Me.cbxShowPassword.Location = New System.Drawing.Point(31, 458)
         Me.cbxShowPassword.Name = "cbxShowPassword"
         Me.cbxShowPassword.Size = New System.Drawing.Size(116, 19)
-        Me.cbxShowPassword.TabIndex = 44
+        Me.cbxShowPassword.TabIndex = 6
         Me.cbxShowPassword.Text = "Show Password"
         Me.cbxShowPassword.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         Me.cbxShowPassword.UncheckedState.BorderRadius = 0
@@ -278,7 +278,7 @@ Partial Class frmSignupDetails
         Me.txtVerifyPassword.PlaceholderText = "Password"
         Me.txtVerifyPassword.SelectedText = ""
         Me.txtVerifyPassword.Size = New System.Drawing.Size(504, 35)
-        Me.txtVerifyPassword.TabIndex = 43
+        Me.txtVerifyPassword.TabIndex = 5
         '
         'txtFirstName
         '
@@ -302,7 +302,7 @@ Partial Class frmSignupDetails
         Me.txtFirstName.PlaceholderText = "First Name"
         Me.txtFirstName.SelectedText = ""
         Me.txtFirstName.Size = New System.Drawing.Size(236, 35)
-        Me.txtFirstName.TabIndex = 41
+        Me.txtFirstName.TabIndex = 0
         '
         'guna2HtmlLabel1
         '

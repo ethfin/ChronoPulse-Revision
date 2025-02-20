@@ -6,19 +6,17 @@ Public Class frmSignupDetails
         Me.Close()
     End Sub
 
-    Function emailValid() As Boolean
+    Private Function emailValid() As Boolean
         ' Using regular expressions to check if the email is valid
         Dim emailPattern As String = "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
 
         If Regex.IsMatch(txtEmail.Text, emailPattern) Then
-            lblErrorMsg.Hide() ' Hide the email error label
+            HideError()
             txtEmail.BorderColor = Color.FromArgb(213, 218, 223)
             Return True
         Else
-            lblErrorMsg.Text = "Please enter a valid email"
-            lblErrorMsg.ForeColor = Color.Red
+            ShowError("Please enter a valid email")
             txtEmail.BorderColor = Color.Red
-            lblErrorMsg.Show() ' Show the email error label
             Return False
         End If
     End Function
@@ -33,14 +31,12 @@ Public Class frmSignupDetails
 
         ' Check if passwords match
         If password <> verifyPassword Then
-            lblErrorMsg.Text = "Passwords do not match."
-            lblErrorMsg.Visible = True
-            lblErrorMsg.ForeColor = Color.Red
+            ShowError("Passwords do not match.")
             txtPassword.BorderColor = Color.Red
             txtVerifyPassword.BorderColor = Color.Red
             Return False
         Else
-            lblErrorMsg.Hide()
+            HideError()
             txtPassword.BorderColor = Color.FromArgb(213, 218, 223)
             txtVerifyPassword.BorderColor = Color.FromArgb(213, 218, 223)
         End If
@@ -48,9 +44,7 @@ Public Class frmSignupDetails
         ' Check if password is strong
         Dim passwordPattern As String = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
         If Not Regex.IsMatch(password, passwordPattern) Then
-            lblErrorMsg.Text = "Password must be at least 8 characters long, contain at least one special character, and one number."
-            lblErrorMsg.Visible = True
-            lblErrorMsg.ForeColor = Color.Red
+            ShowError("Password must be at least 8 characters long, contain at least one special character, and one number.")
             txtPassword.BorderColor = Color.Red
             txtVerifyPassword.BorderColor = Color.Red
             Return False
@@ -68,12 +62,18 @@ Public Class frmSignupDetails
     End Sub
 
     Private Sub cbxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles cbxShowPassword.CheckedChanged
-        If cbxShowPassword.Checked Then
-            txtPassword.PasswordChar = ""
-            txtVerifyPassword.PasswordChar = ""
-        Else
-            txtPassword.PasswordChar = "*"
-            txtVerifyPassword.PasswordChar = "*"
-        End If
+        Dim passwordChar As Char = If(cbxShowPassword.Checked, "", "*")
+        txtPassword.PasswordChar = passwordChar
+        txtVerifyPassword.PasswordChar = passwordChar
+    End Sub
+
+    Private Sub ShowError(message As String)
+        lblErrorMsg.Text = message
+        lblErrorMsg.ForeColor = Color.Red
+        lblErrorMsg.Visible = True
+    End Sub
+
+    Private Sub HideError()
+        lblErrorMsg.Hide()
     End Sub
 End Class

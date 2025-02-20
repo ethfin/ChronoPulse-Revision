@@ -321,4 +321,7 @@ Public Class frmSignup
         End Try
     End Function
 
+    Private Sub pnlLoginContainer_Paint(sender As Object, e As PaintEventArgs) Handles pnlLoginContainer.Paint
+
+    End Sub
 End Class

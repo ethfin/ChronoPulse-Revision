@@ -80,7 +80,7 @@ Partial Class frmLogin
         Me.lblTitle.ForeColor = System.Drawing.Color.Black
         Me.lblTitle.Location = New System.Drawing.Point(167, 33)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(111, 75)
+        Me.lblTitle.Size = New System.Drawing.Size(206, 75)
         Me.lblTitle.TabIndex = 15
         Me.lblTitle.Text = "CHRONO PULSE"
         Me.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
@@ -283,10 +283,10 @@ Partial Class frmLogin
         Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
         Me.guna2HtmlLabel1.Location = New System.Drawing.Point(86, 154)
         Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
-        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(258, 43)
+        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(268, 43)
         Me.guna2HtmlLabel1.TabIndex = 3
         Me.guna2HtmlLabel1.TabStop = False
-        Me.guna2HtmlLabel1.Text = "Welcome Back"
+        Me.guna2HtmlLabel1.Text = "Welcome Back!"
         '
         'pbxBackground
         '

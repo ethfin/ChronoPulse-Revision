@@ -27,10 +27,10 @@ Partial Class frmResetAccount
         Me.pnlLogin = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
         Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlSignUpProgress = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnReset = New Guna.UI2.WinForms.Guna2Button()
         Me.btnNext = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlLoginContainer.SuspendLayout()
         Me.pnlLogin.SuspendLayout()
         Me.SuspendLayout()
@@ -61,7 +61,6 @@ Partial Class frmResetAccount
         Me.lnklblGoBack.TabIndex = 62
         Me.lnklblGoBack.TabStop = True
         Me.lnklblGoBack.Text = "Go back"
-        Me.lnklblGoBack.Visible = False
         '
         'pnlLogin
         '
@@ -112,6 +111,26 @@ Partial Class frmResetAccount
         Me.guna2HtmlLabel1.Text = "Don't have an account yet?"
         Me.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'btnClose
+        '
+        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.btnClose.HoverState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
+        Me.btnClose.HoverState.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close
+        Me.btnClose.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.btnClose.ImageRotate = 0!
+        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Location = New System.Drawing.Point(931, 13)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.PressedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
+        Me.btnClose.PressedState.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Size = New System.Drawing.Size(30, 30)
+        Me.btnClose.TabIndex = 0
+        Me.btnClose.TabStop = False
+        Me.btnClose.UseTransparentBackground = True
+        '
         'pnlSignUpProgress
         '
         Me.pnlSignUpProgress.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -160,26 +179,6 @@ Partial Class frmResetAccount
         Me.btnNext.Size = New System.Drawing.Size(260, 45)
         Me.btnNext.TabIndex = 61
         Me.btnNext.Text = "Next"
-        '
-        'btnClose
-        '
-        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.BackColor = System.Drawing.Color.Transparent
-        Me.btnClose.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.btnClose.HoverState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
-        Me.btnClose.HoverState.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close
-        Me.btnClose.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.btnClose.ImageRotate = 0!
-        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(931, 13)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.PressedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
-        Me.btnClose.PressedState.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Size = New System.Drawing.Size(30, 30)
-        Me.btnClose.TabIndex = 0
-        Me.btnClose.TabStop = False
-        Me.btnClose.UseTransparentBackground = True
         '
         'frmResetAccount
         '
