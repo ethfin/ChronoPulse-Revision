@@ -29,22 +29,22 @@ Partial Class frmAI
         '
         'UserInputTextBox
         '
-        Me.UserInputTextBox.Location = New System.Drawing.Point(506, 458)
+        Me.UserInputTextBox.Location = New System.Drawing.Point(12, 392)
         Me.UserInputTextBox.Name = "UserInputTextBox"
         Me.UserInputTextBox.Size = New System.Drawing.Size(100, 20)
         Me.UserInputTextBox.TabIndex = 0
         '
         'ChatHistoryRichTextBox
         '
-        Me.ChatHistoryRichTextBox.Location = New System.Drawing.Point(420, 130)
+        Me.ChatHistoryRichTextBox.Location = New System.Drawing.Point(12, 12)
         Me.ChatHistoryRichTextBox.Name = "ChatHistoryRichTextBox"
-        Me.ChatHistoryRichTextBox.Size = New System.Drawing.Size(266, 278)
+        Me.ChatHistoryRichTextBox.Size = New System.Drawing.Size(1152, 374)
         Me.ChatHistoryRichTextBox.TabIndex = 1
         Me.ChatHistoryRichTextBox.Text = ""
         '
         'SendButton
         '
-        Me.SendButton.Location = New System.Drawing.Point(613, 454)
+        Me.SendButton.Location = New System.Drawing.Point(118, 389)
         Me.SendButton.Name = "SendButton"
         Me.SendButton.Size = New System.Drawing.Size(75, 23)
         Me.SendButton.TabIndex = 2

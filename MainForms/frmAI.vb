@@ -1,9 +1,7 @@
 ﻿Imports System.Net.Http
 Imports System.Text
 Imports Newtonsoft.Json
-
-' THIS IS A SAMPLE CODE AND MAY NOT WORK AS-IS
-' PLEASE MAKE SURE TO UPDATE THE CODE TO MATCH YOUR REQUIREMENTS
+Imports System.IO
 
 Public Class frmAI
     Private ReadOnly httpClient As HttpClient
@@ -11,9 +9,15 @@ Public Class frmAI
     Public Sub New()
         InitializeComponent()
         httpClient = New HttpClient()
-        ' Add your API key here
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY")
+        Dim apiKey As String = GetApiKey()
+        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " & apiKey)
     End Sub
+
+    Private Function GetApiKey() As String
+        Dim json As String = File.ReadAllText("appsettings.json")
+        Dim config = JsonConvert.DeserializeObject(Of Dictionary(Of String, String))(json)
+        Return config("ApiKey")
+    End Function
 
     Private Async Sub SendButton_Click(sender As Object, e As EventArgs) Handles SendButton.Click
         Dim userMessage As String = UserInputTextBox.Text
