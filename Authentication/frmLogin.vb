@@ -9,6 +9,8 @@ Public Class frmLogin
     Private Const WM_NCLBUTTONDOWN As Integer = &HA1
     Private Const HT_CAPTION As Integer = &H2
 
+    Private ReadOnly originalSize As New Size(431, 628)  ' Set this to your desired default size
+
     ' Import the SendMessage function from user32.dll
     <DllImport("user32.dll")>
     Private Shared Function SendMessage(hWnd As IntPtr, Msg As Integer, wParam As Integer, lParam As Integer) As Integer
