@@ -26,10 +26,15 @@ Partial Class frmDashboard
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.dgvExpenses = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.dgExpenses = New System.Windows.Forms.DataGridView()
+        Me.chCost = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chCost, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvExpenses
@@ -37,7 +42,7 @@ Partial Class frmDashboard
         Me.dgvExpenses.AllowUserToResizeColumns = False
         Me.dgvExpenses.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Inter Medium", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(197, Byte), Integer), CType(CType(174, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
@@ -57,7 +62,7 @@ Partial Class frmDashboard
         Me.dgvExpenses.ColumnHeadersHeight = 30
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Inter Medium", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(197, Byte), Integer), CType(CType(174, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
@@ -65,7 +70,8 @@ Partial Class frmDashboard
         Me.dgvExpenses.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvExpenses.EnableHeadersVisualStyles = True
         Me.dgvExpenses.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvExpenses.Location = New System.Drawing.Point(33, 33)
+        Me.dgvExpenses.Location = New System.Drawing.Point(44, 41)
+        Me.dgvExpenses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvExpenses.Name = "dgvExpenses"
         Me.dgvExpenses.ReadOnly = True
         Me.dgvExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -80,7 +86,7 @@ Partial Class frmDashboard
         Me.dgvExpenses.RowHeadersVisible = False
         Me.dgvExpenses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dgvExpenses.RowTemplate.Height = 30
-        Me.dgvExpenses.Size = New System.Drawing.Size(1126, 552)
+        Me.dgvExpenses.Size = New System.Drawing.Size(1501, 679)
         Me.dgvExpenses.TabIndex = 21
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -109,29 +115,51 @@ Partial Class frmDashboard
         Me.dgExpenses.AllowUserToAddRows = False
         Me.dgExpenses.AllowUserToDeleteRows = False
         Me.dgExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgExpenses.Location = New System.Drawing.Point(65, 72)
+        Me.dgExpenses.Location = New System.Drawing.Point(87, 89)
+        Me.dgExpenses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgExpenses.Name = "dgExpenses"
         Me.dgExpenses.ReadOnly = True
-        Me.dgExpenses.Size = New System.Drawing.Size(511, 223)
+        Me.dgExpenses.RowHeadersWidth = 51
+        Me.dgExpenses.Size = New System.Drawing.Size(681, 274)
         Me.dgExpenses.TabIndex = 22
+        '
+        'chCost
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.chCost.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chCost.Legends.Add(Legend1)
+        Me.chCost.Location = New System.Drawing.Point(87, 384)
+        Me.chCost.Name = "chCost"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chCost.Series.Add(Series1)
+        Me.chCost.Size = New System.Drawing.Size(681, 304)
+        Me.chCost.TabIndex = 23
+        Me.chCost.Text = "Chart"
         '
         'frmDashboard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1192, 618)
+        Me.ClientSize = New System.Drawing.Size(1589, 761)
+        Me.Controls.Add(Me.chCost)
         Me.Controls.Add(Me.dgExpenses)
         Me.Controls.Add(Me.dgvExpenses)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmDashboard"
         Me.Text = "frmDashboard"
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chCost, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents dgvExpenses As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents dgExpenses As DataGridView
+    Friend WithEvents chCost As DataVisualization.Charting.Chart
 End Class
