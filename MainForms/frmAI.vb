@@ -14,9 +14,14 @@ Public Class frmAI
     End Sub
 
     Private Function GetApiKey() As String
-        Dim json As String = File.ReadAllText("appsettings.json")
-        Dim config = JsonConvert.DeserializeObject(Of Dictionary(Of String, String))(json)
-        Return config("ApiKey")
+        Try
+            Dim json As String = File.ReadAllText("appsettings.json")
+            Dim config = JsonConvert.DeserializeObject(Of Dictionary(Of String, String))(json)
+            Return config("ApiKey")
+        Catch ex As Exception
+            MessageBox.Show("Error reading API key: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return String.Empty
+        End Try
     End Function
 
     Private Async Sub SendButton_Click(sender As Object, e As EventArgs) Handles SendButton.Click
