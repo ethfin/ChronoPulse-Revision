@@ -42,7 +42,8 @@ Public Class frmDashboard
     Private Sub PopulateChart(dt As DataTable)
         ' Clear existing series
         chCost.Series.Clear()
-        piChart.Series.Clear()
+        chPie.Series.Clear()
+        chLine.Series.Clear()
 
         ' Create a new series for column chart
         Dim columnSeries As New Series("Expenses")
@@ -53,17 +54,24 @@ Public Class frmDashboard
         Dim pieSeries As New Series("Expenses")
         pieSeries.ChartType = SeriesChartType.Pie ' Change to Pie for pie chart
 
+        ' Create a new series for line chart
+        Dim lineSeries As New Series("Expenses")
+        lineSeries.ChartType = SeriesChartType.Line ' Change to Line for line chart
+        lineSeries.Color = Color.FromArgb(0, 122, 204) ' Use a simple color for the line
+
         ' Add data points to the series
         For Each row As DataRow In dt.Rows
             Dim item As String = row("ITEM").ToString()
             Dim cost As Double = Convert.ToDouble(row("COST").ToString().Replace("$", ""))
             columnSeries.Points.AddXY(item, cost)
             pieSeries.Points.AddXY(item, cost)
+            lineSeries.Points.AddXY(item, cost)
         Next
 
         ' Add the series to the charts
         chCost.Series.Add(columnSeries)
-        piChart.Series.Add(pieSeries)
+        chPie.Series.Add(pieSeries)
+        chLine.Series.Add(lineSeries)
 
         ' Configure chart area for a minimalist design for column chart
         Dim chartArea As ChartArea = chCost.ChartAreas(0)
@@ -90,12 +98,36 @@ Public Class frmDashboard
         chCost.Legends.Clear()
 
         ' Configure pie chart area
-        Dim pieChartArea As ChartArea = piChart.ChartAreas(0)
+        Dim pieChartArea As ChartArea = chPie.ChartAreas(0)
         pieChartArea.BackColor = Color.White
         pieChartArea.BorderColor = Color.Transparent
 
         ' Remove the legend for pie chart
-        piChart.Legends.Clear()
+        chPie.Legends.Clear()
+
+        ' Configure line chart area
+        Dim lineChartArea As ChartArea = chLine.ChartAreas(0)
+        lineChartArea.AxisX.MajorGrid.Enabled = False
+        lineChartArea.AxisY.MajorGrid.Enabled = False
+        lineChartArea.AxisX.MinorGrid.Enabled = False
+        lineChartArea.AxisY.MinorGrid.Enabled = False
+        lineChartArea.AxisX.LineColor = Color.Transparent
+        lineChartArea.AxisY.LineColor = Color.Transparent
+        lineChartArea.AxisX.LabelStyle.ForeColor = Color.Black
+        lineChartArea.AxisY.LabelStyle.ForeColor = Color.Black
+        lineChartArea.BackColor = Color.White
+        lineChartArea.BorderColor = Color.Transparent
+
+        ' Set axis titles for line chart
+        lineChartArea.AxisX.Title = "Item"
+        lineChartArea.AxisY.Title = "Cost"
+        lineChartArea.AxisX.TitleFont = New Font("Segoe UI", 10, FontStyle.Regular)
+        lineChartArea.AxisY.TitleFont = New Font("Segoe UI", 10, FontStyle.Regular)
+        lineChartArea.AxisX.TitleForeColor = Color.Black
+        lineChartArea.AxisY.TitleForeColor = Color.Black
+
+        ' Remove the legend for line chart
+        chLine.Legends.Clear()
     End Sub
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load

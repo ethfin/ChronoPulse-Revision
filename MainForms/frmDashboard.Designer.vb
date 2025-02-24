@@ -32,14 +32,19 @@ Partial Class frmDashboard
         Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.dgvExpenses = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.dgExpenses = New System.Windows.Forms.DataGridView()
         Me.chCost = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.piChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.chPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.chLine = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chCost, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.piChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chPie, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chLine, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvExpenses
@@ -142,23 +147,39 @@ Partial Class frmDashboard
         Me.chCost.Series.Add(Series1)
         Me.chCost.Size = New System.Drawing.Size(681, 304)
         Me.chCost.TabIndex = 23
-        Me.chCost.Text = "Chart"
+        Me.chCost.Text = "Bar Chart"
         '
-        'piChart
+        'chPie
         '
         ChartArea2.Name = "ChartArea1"
-        Me.piChart.ChartAreas.Add(ChartArea2)
+        Me.chPie.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
-        Me.piChart.Legends.Add(Legend2)
-        Me.piChart.Location = New System.Drawing.Point(802, 384)
-        Me.piChart.Name = "piChart"
+        Me.chPie.Legends.Add(Legend2)
+        Me.chPie.Location = New System.Drawing.Point(802, 384)
+        Me.chPie.Name = "chPie"
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
-        Me.piChart.Series.Add(Series2)
-        Me.piChart.Size = New System.Drawing.Size(583, 304)
-        Me.piChart.TabIndex = 24
-        Me.piChart.Text = "Chart1"
+        Me.chPie.Series.Add(Series2)
+        Me.chPie.Size = New System.Drawing.Size(583, 304)
+        Me.chPie.TabIndex = 24
+        Me.chPie.Text = "Pie Chart"
+        '
+        'chLine
+        '
+        ChartArea3.Name = "ChartArea1"
+        Me.chLine.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.chLine.Legends.Add(Legend3)
+        Me.chLine.Location = New System.Drawing.Point(802, 89)
+        Me.chLine.Name = "chLine"
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.chLine.Series.Add(Series3)
+        Me.chLine.Size = New System.Drawing.Size(583, 274)
+        Me.chLine.TabIndex = 25
+        Me.chLine.Text = "Line Chart"
         '
         'frmDashboard
         '
@@ -166,7 +187,8 @@ Partial Class frmDashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1589, 761)
-        Me.Controls.Add(Me.piChart)
+        Me.Controls.Add(Me.chLine)
+        Me.Controls.Add(Me.chPie)
         Me.Controls.Add(Me.chCost)
         Me.Controls.Add(Me.dgExpenses)
         Me.Controls.Add(Me.dgvExpenses)
@@ -177,7 +199,8 @@ Partial Class frmDashboard
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chCost, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.piChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chPie, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chLine, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -185,5 +208,6 @@ Partial Class frmDashboard
     Friend WithEvents dgvExpenses As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents dgExpenses As DataGridView
     Friend WithEvents chCost As DataVisualization.Charting.Chart
-    Friend WithEvents piChart As DataVisualization.Charting.Chart
+    Friend WithEvents chPie As DataVisualization.Charting.Chart
+    Friend WithEvents chLine As DataVisualization.Charting.Chart
 End Class
