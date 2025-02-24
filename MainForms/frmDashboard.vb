@@ -35,28 +35,37 @@ Public Class frmDashboard
         dgExpenses.AllowUserToAddRows = False
         dgExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
 
-        ' Populate the chart with data
+        ' Populate the charts with data
         PopulateChart(dt)
     End Sub
 
     Private Sub PopulateChart(dt As DataTable)
         ' Clear existing series
         chCost.Series.Clear()
+        piChart.Series.Clear()
 
-        ' Create a new series
-        Dim series As New Series("Expenses")
-        series.ChartType = SeriesChartType.Column ' Change to Column for vertical bars
-        series.Color = Color.FromArgb(0, 122, 204) ' Use a simple color for the bars
+        ' Create a new series for column chart
+        Dim columnSeries As New Series("Expenses")
+        columnSeries.ChartType = SeriesChartType.Column ' Change to Column for vertical bars
+        columnSeries.Color = Color.FromArgb(0, 122, 204) ' Use a simple color for the bars
+
+        ' Create a new series for pie chart
+        Dim pieSeries As New Series("Expenses")
+        pieSeries.ChartType = SeriesChartType.Pie ' Change to Pie for pie chart
 
         ' Add data points to the series
         For Each row As DataRow In dt.Rows
-            series.Points.AddXY(row("ITEM"), Convert.ToDouble(row("COST").ToString().Replace("$", "")))
+            Dim item As String = row("ITEM").ToString()
+            Dim cost As Double = Convert.ToDouble(row("COST").ToString().Replace("$", ""))
+            columnSeries.Points.AddXY(item, cost)
+            pieSeries.Points.AddXY(item, cost)
         Next
 
-        ' Add the series to the chart
-        chCost.Series.Add(series)
+        ' Add the series to the charts
+        chCost.Series.Add(columnSeries)
+        piChart.Series.Add(pieSeries)
 
-        ' Configure chart area for a minimalist design
+        ' Configure chart area for a minimalist design for column chart
         Dim chartArea As ChartArea = chCost.ChartAreas(0)
         chartArea.AxisX.MajorGrid.Enabled = False
         chartArea.AxisY.MajorGrid.Enabled = False
@@ -69,7 +78,7 @@ Public Class frmDashboard
         chartArea.BackColor = Color.White
         chartArea.BorderColor = Color.Transparent
 
-        ' Set axis titles
+        ' Set axis titles for column chart
         chartArea.AxisX.Title = "Item"
         chartArea.AxisY.Title = "Cost"
         chartArea.AxisX.TitleFont = New Font("Segoe UI", 10, FontStyle.Regular)
@@ -77,8 +86,16 @@ Public Class frmDashboard
         chartArea.AxisX.TitleForeColor = Color.Black
         chartArea.AxisY.TitleForeColor = Color.Black
 
-        ' Remove the legend
+        ' Remove the legend for column chart
         chCost.Legends.Clear()
+
+        ' Configure pie chart area
+        Dim pieChartArea As ChartArea = piChart.ChartAreas(0)
+        pieChartArea.BackColor = Color.White
+        pieChartArea.BorderColor = Color.Transparent
+
+        ' Remove the legend for pie chart
+        piChart.Legends.Clear()
     End Sub
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
