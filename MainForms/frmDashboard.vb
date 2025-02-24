@@ -45,7 +45,7 @@ Public Class frmDashboard
 
         ' Create a new series
         Dim series As New Series("Expenses")
-        series.ChartType = SeriesChartType.Bar
+        series.ChartType = SeriesChartType.Column ' Change to Column for vertical bars
         series.Color = Color.FromArgb(0, 122, 204) ' Use a simple color for the bars
 
         ' Add data points to the series
