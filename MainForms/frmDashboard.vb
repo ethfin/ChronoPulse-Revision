@@ -16,9 +16,9 @@ Public Class frmDashboard
             End Using
         End Using
 
-        dgvExpenses.DataSource = dt
-        dgvExpenses.AllowUserToAddRows = False
-        dgvExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
+        dgExpenses.DataSource = dt
+        dgExpenses.AllowUserToAddRows = False
+        dgExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load

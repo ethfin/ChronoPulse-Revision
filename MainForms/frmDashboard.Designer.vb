@@ -27,7 +27,9 @@ Partial Class frmDashboard
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvExpenses = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.dgExpenses = New System.Windows.Forms.DataGridView()
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvExpenses
@@ -102,20 +104,34 @@ Partial Class frmDashboard
         Me.dgvExpenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvExpenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'dgExpenses
+        '
+        Me.dgExpenses.AllowUserToAddRows = False
+        Me.dgExpenses.AllowUserToDeleteRows = False
+        Me.dgExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgExpenses.Location = New System.Drawing.Point(65, 72)
+        Me.dgExpenses.Name = "dgExpenses"
+        Me.dgExpenses.ReadOnly = True
+        Me.dgExpenses.Size = New System.Drawing.Size(511, 223)
+        Me.dgExpenses.TabIndex = 22
+        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1192, 618)
+        Me.Controls.Add(Me.dgExpenses)
         Me.Controls.Add(Me.dgvExpenses)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDashboard"
         Me.Text = "frmDashboard"
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents dgvExpenses As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents dgExpenses As DataGridView
 End Class
