@@ -202,4 +202,8 @@ Public Class frmMain
     Private Sub btnGames_Click(sender As Object, e As EventArgs) Handles btnGames.Click
         LoadForm(New frmAI)
     End Sub
+
+    Private Sub btnExpenses_Click(sender As Object, e As EventArgs) Handles btnExpenses.Click
+        LoadForm(New frmExpenses)
+    End Sub
 End Class

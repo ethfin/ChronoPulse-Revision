@@ -27,26 +27,27 @@ Partial Class frmMain
         Me.pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.pnlHeader = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblUsername = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.ckbxTheme = New Guna.UI2.WinForms.Guna2ImageCheckBox()
         Me.lblCurrentPanel = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlMenu = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnGames = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.btnLogout = New FontAwesome.Sharp.IconButton()
-        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.ToolTip = New Guna.UI2.WinForms.Guna2HtmlToolTip()
         Me.cmsDropDown = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.cmsSystemTray = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ckbxTheme = New Guna.UI2.WinForms.Guna2ImageCheckBox()
+        Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.btnGames = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnLogout = New FontAwesome.Sharp.IconButton()
+        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.btnExpenses = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlHeader.SuspendLayout()
-        CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsDropDown.SuspendLayout()
+        CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContainer
@@ -95,6 +96,81 @@ Partial Class frmMain
         Me.lblUsername.Text = "Username"
         Me.lblUsername.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
         '
+        'lblCurrentPanel
+        '
+        Me.lblCurrentPanel.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
+        Me.lblCurrentPanel.Font = New System.Drawing.Font("DM Sans 14pt", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.lblCurrentPanel.Location = New System.Drawing.Point(19, 17)
+        Me.lblCurrentPanel.Name = "lblCurrentPanel"
+        Me.lblCurrentPanel.Size = New System.Drawing.Size(88, 23)
+        Me.lblCurrentPanel.TabIndex = 1
+        Me.lblCurrentPanel.Text = "Dashboard"
+        '
+        'pnlMenu
+        '
+        Me.pnlMenu.BackColor = System.Drawing.Color.GhostWhite
+        Me.pnlMenu.Controls.Add(Me.btnExpenses)
+        Me.pnlMenu.Controls.Add(Me.btnGames)
+        Me.pnlMenu.Controls.Add(Me.btnDashboard)
+        Me.pnlMenu.Controls.Add(Me.Guna2Separator1)
+        Me.pnlMenu.Controls.Add(Me.btnLogout)
+        Me.pnlMenu.Controls.Add(Me.pbxLogo)
+        Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
+        Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
+        Me.pnlMenu.Name = "pnlMenu"
+        Me.pnlMenu.Size = New System.Drawing.Size(92, 661)
+        Me.pnlMenu.TabIndex = 4
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator1.Location = New System.Drawing.Point(9, 87)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(74, 10)
+        Me.Guna2Separator1.TabIndex = 3
+        Me.Guna2Separator1.UseTransparentBackground = True
+        '
+        'ToolTip
+        '
+        Me.ToolTip.AllowLinksHandling = True
+        Me.ToolTip.Font = New System.Drawing.Font("Inter", 9.0!)
+        Me.ToolTip.MaximumSize = New System.Drawing.Size(0, 0)
+        Me.ToolTip.TitleFont = New System.Drawing.Font("Inter", 9.0!)
+        '
+        'cmsDropDown
+        '
+        Me.cmsDropDown.BackColor = System.Drawing.Color.GhostWhite
+        Me.cmsDropDown.Font = New System.Drawing.Font("Inter", 9.0!)
+        Me.cmsDropDown.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmsSystemTray, Me.cmsTheme, Me.cmsLogout})
+        Me.cmsDropDown.Name = "cmsDropDown"
+        Me.cmsDropDown.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmsDropDown.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
+        Me.cmsDropDown.RenderStyle.ColorTable = Nothing
+        Me.cmsDropDown.RenderStyle.RoundedEdges = True
+        Me.cmsDropDown.RenderStyle.SelectionArrowColor = System.Drawing.Color.White
+        Me.cmsDropDown.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmsDropDown.RenderStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.cmsDropDown.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
+        Me.cmsDropDown.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.cmsDropDown.Size = New System.Drawing.Size(145, 70)
+        '
+        'cmsSystemTray
+        '
+        Me.cmsSystemTray.CheckOnClick = True
+        Me.cmsSystemTray.Name = "cmsSystemTray"
+        Me.cmsSystemTray.Size = New System.Drawing.Size(144, 22)
+        Me.cmsSystemTray.Text = "System Tray"
+        '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "NotifyIcon1"
+        Me.NotifyIcon1.Visible = True
+        '
         'ckbxTheme
         '
         Me.ckbxTheme.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -115,17 +191,6 @@ Partial Class frmMain
         Me.ckbxTheme.TabIndex = 1
         Me.ckbxTheme.UseTransparentBackground = True
         '
-        'lblCurrentPanel
-        '
-        Me.lblCurrentPanel.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentPanel.Font = New System.Drawing.Font("DM Sans 14pt", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblCurrentPanel.Location = New System.Drawing.Point(19, 17)
-        Me.lblCurrentPanel.Name = "lblCurrentPanel"
-        Me.lblCurrentPanel.Size = New System.Drawing.Size(88, 23)
-        Me.lblCurrentPanel.TabIndex = 1
-        Me.lblCurrentPanel.Text = "Dashboard"
-        '
         'pbxUser
         '
         Me.pbxUser.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -140,21 +205,6 @@ Partial Class frmMain
         Me.pbxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxUser.TabIndex = 0
         Me.pbxUser.TabStop = False
-        '
-        'pnlMenu
-        '
-        Me.pnlMenu.BackColor = System.Drawing.Color.GhostWhite
-        Me.pnlMenu.Controls.Add(Me.btnGames)
-        Me.pnlMenu.Controls.Add(Me.btnDashboard)
-        Me.pnlMenu.Controls.Add(Me.Guna2Separator1)
-        Me.pnlMenu.Controls.Add(Me.btnLogout)
-        Me.pnlMenu.Controls.Add(Me.pbxLogo)
-        Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
-        Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
-        Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(92, 661)
-        Me.pnlMenu.TabIndex = 4
         '
         'btnGames
         '
@@ -201,17 +251,6 @@ Partial Class frmMain
         Me.btnDashboard.TabIndex = 4
         Me.btnDashboard.UseTransparentBackground = True
         '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.Location = New System.Drawing.Point(9, 87)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(74, 10)
-        Me.Guna2Separator1.TabIndex = 3
-        Me.Guna2Separator1.UseTransparentBackground = True
-        '
         'btnLogout
         '
         Me.btnLogout.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -242,37 +281,6 @@ Partial Class frmMain
         Me.pbxLogo.TabIndex = 0
         Me.pbxLogo.TabStop = False
         '
-        'ToolTip
-        '
-        Me.ToolTip.AllowLinksHandling = True
-        Me.ToolTip.Font = New System.Drawing.Font("Inter", 9.0!)
-        Me.ToolTip.MaximumSize = New System.Drawing.Size(0, 0)
-        Me.ToolTip.TitleFont = New System.Drawing.Font("Inter", 9.0!)
-        '
-        'cmsDropDown
-        '
-        Me.cmsDropDown.BackColor = System.Drawing.Color.GhostWhite
-        Me.cmsDropDown.Font = New System.Drawing.Font("Inter", 9.0!)
-        Me.cmsDropDown.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmsSystemTray, Me.cmsTheme, Me.cmsLogout})
-        Me.cmsDropDown.Name = "cmsDropDown"
-        Me.cmsDropDown.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmsDropDown.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
-        Me.cmsDropDown.RenderStyle.ColorTable = Nothing
-        Me.cmsDropDown.RenderStyle.RoundedEdges = True
-        Me.cmsDropDown.RenderStyle.SelectionArrowColor = System.Drawing.Color.White
-        Me.cmsDropDown.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmsDropDown.RenderStyle.SelectionForeColor = System.Drawing.Color.White
-        Me.cmsDropDown.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
-        Me.cmsDropDown.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsDropDown.Size = New System.Drawing.Size(145, 70)
-        '
-        'cmsSystemTray
-        '
-        Me.cmsSystemTray.CheckOnClick = True
-        Me.cmsSystemTray.Name = "cmsSystemTray"
-        Me.cmsSystemTray.Size = New System.Drawing.Size(144, 22)
-        Me.cmsSystemTray.Text = "System Tray"
-        '
         'cmsTheme
         '
         Me.cmsTheme.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dark_mode
@@ -287,11 +295,27 @@ Partial Class frmMain
         Me.cmsLogout.Size = New System.Drawing.Size(144, 22)
         Me.cmsLogout.Text = "Logout"
         '
-        'NotifyIcon1
+        'btnExpenses
         '
-        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
-        Me.NotifyIcon1.Text = "NotifyIcon1"
-        Me.NotifyIcon1.Visible = True
+        Me.btnExpenses.Animated = True
+        Me.btnExpenses.BackColor = System.Drawing.Color.Transparent
+        Me.btnExpenses.BorderRadius = 10
+        Me.btnExpenses.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExpenses.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnExpenses.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnExpenses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnExpenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
+        Me.btnExpenses.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnExpenses.ForeColor = System.Drawing.Color.White
+        Me.btnExpenses.Image = CType(resources.GetObject("btnExpenses.Image"), System.Drawing.Image)
+        Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnExpenses.IndicateFocus = True
+        Me.btnExpenses.Location = New System.Drawing.Point(9, 205)
+        Me.btnExpenses.Name = "btnExpenses"
+        Me.btnExpenses.Size = New System.Drawing.Size(74, 45)
+        Me.btnExpenses.TabIndex = 6
+        Me.btnExpenses.UseTransparentBackground = True
         '
         'frmMain
         '
@@ -309,10 +333,10 @@ Partial Class frmMain
         Me.Text = "Main"
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
-        CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMenu.ResumeLayout(False)
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsDropDown.ResumeLayout(False)
+        CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -335,4 +359,5 @@ Partial Class frmMain
     Friend WithEvents cmsTheme As ToolStripMenuItem
     Friend WithEvents cmsLogout As ToolStripMenuItem
     Friend WithEvents NotifyIcon1 As NotifyIcon
+    Friend WithEvents btnExpenses As Guna.UI2.WinForms.Guna2Button
 End Class

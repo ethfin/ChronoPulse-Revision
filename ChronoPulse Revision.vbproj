@@ -276,6 +276,9 @@
     <EmbeddedResource Include="MainForms\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmExpenses.resx">
+      <DependentUpon>frmExpenses.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmGames.resx">
       <DependentUpon>frmGames.vb</DependentUpon>
     </EmbeddedResource>
