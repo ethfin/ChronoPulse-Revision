@@ -207,6 +207,12 @@
     <Compile Include="MainForms\frmAI.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForms\frmBudgeting.Designer.vb">
+      <DependentUpon>frmBudgeting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmBudgeting.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForms\frmDashboard.Designer.vb">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </Compile>
@@ -223,6 +229,30 @@
       <DependentUpon>frmGames.vb</DependentUpon>
     </Compile>
     <Compile Include="MainForms\frmGames.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\frmIncome.Designer.vb">
+      <DependentUpon>frmIncome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmIncome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\frmQuests.Designer.vb">
+      <DependentUpon>frmQuests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmQuests.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\frmSavings.Designer.vb">
+      <DependentUpon>frmSavings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmSavings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\frmSettings.Designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -281,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmGames.resx">
       <DependentUpon>frmGames.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmQuests.resx">
+      <DependentUpon>frmQuests.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
