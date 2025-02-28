@@ -364,6 +364,7 @@
     <None Include="Resources\password.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PixelifySans-VariableFont_wght.ttf" />
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
