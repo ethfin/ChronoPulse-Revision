@@ -220,4 +220,8 @@ Public Class frmMain
     Private Sub btnIncome_Click(sender As Object, e As EventArgs) Handles btnIncome.Click
         LoadForm(New frmIncome)
     End Sub
+
+    Private Sub btnSavings_Click(sender As Object, e As EventArgs) Handles btnSavings.Click
+        LoadForm(New frmSavings)
+    End Sub
 End Class
