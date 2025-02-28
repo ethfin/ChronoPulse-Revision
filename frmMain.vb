@@ -1,6 +1,10 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
+Imports MySql.Data.MySqlClient
 
 Public Class frmMain
+
+    Private myDBConnection As MySqlConnection
 
     'function to load other forms into pnlContainer
     Private Sub LoadForm(ByVal form As Form)
@@ -14,6 +18,12 @@ Public Class frmMain
         pnlContainer.Controls.Add(form)
         pnlContainer.Tag = form
         form.Show()
+    End Sub
+
+    Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        If myDBConnection IsNot Nothing AndAlso myDBConnection.State = ConnectionState.Open Then
+            myDBConnection.Close()
+        End If
     End Sub
 
     Private isRestoringFromTray As Boolean = False
