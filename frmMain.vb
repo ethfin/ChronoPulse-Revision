@@ -216,4 +216,8 @@ Public Class frmMain
     Private Sub btnExpenses_Click(sender As Object, e As EventArgs) Handles btnExpenses.Click
         LoadForm(New frmExpenses)
     End Sub
+
+    Private Sub btnIncome_Click(sender As Object, e As EventArgs) Handles btnIncome.Click
+        LoadForm(New frmIncome)
+    End Sub
 End Class

@@ -36,13 +36,14 @@ Partial Class frmMain
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ckbxTheme = New Guna.UI2.WinForms.Guna2ImageCheckBox()
         Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.btnExpenses = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGames = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
         Me.btnLogout = New FontAwesome.Sharp.IconButton()
         Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnExpenses = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnIncome = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlHeader.SuspendLayout()
         Me.pnlMenu.SuspendLayout()
         Me.cmsDropDown.SuspendLayout()
@@ -110,6 +111,7 @@ Partial Class frmMain
         'pnlMenu
         '
         Me.pnlMenu.BackColor = System.Drawing.Color.GhostWhite
+        Me.pnlMenu.Controls.Add(Me.btnIncome)
         Me.pnlMenu.Controls.Add(Me.btnExpenses)
         Me.pnlMenu.Controls.Add(Me.btnGames)
         Me.pnlMenu.Controls.Add(Me.btnDashboard)
@@ -206,6 +208,28 @@ Partial Class frmMain
         Me.pbxUser.TabIndex = 0
         Me.pbxUser.TabStop = False
         '
+        'btnExpenses
+        '
+        Me.btnExpenses.Animated = True
+        Me.btnExpenses.BackColor = System.Drawing.Color.Transparent
+        Me.btnExpenses.BorderRadius = 10
+        Me.btnExpenses.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExpenses.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnExpenses.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnExpenses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnExpenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
+        Me.btnExpenses.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnExpenses.ForeColor = System.Drawing.Color.White
+        Me.btnExpenses.Image = CType(resources.GetObject("btnExpenses.Image"), System.Drawing.Image)
+        Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnExpenses.IndicateFocus = True
+        Me.btnExpenses.Location = New System.Drawing.Point(9, 205)
+        Me.btnExpenses.Name = "btnExpenses"
+        Me.btnExpenses.Size = New System.Drawing.Size(74, 45)
+        Me.btnExpenses.TabIndex = 6
+        Me.btnExpenses.UseTransparentBackground = True
+        '
         'btnGames
         '
         Me.btnGames.Animated = True
@@ -295,27 +319,27 @@ Partial Class frmMain
         Me.cmsLogout.Size = New System.Drawing.Size(144, 22)
         Me.cmsLogout.Text = "Logout"
         '
-        'btnExpenses
+        'btnIncome
         '
-        Me.btnExpenses.Animated = True
-        Me.btnExpenses.BackColor = System.Drawing.Color.Transparent
-        Me.btnExpenses.BorderRadius = 10
-        Me.btnExpenses.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExpenses.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnExpenses.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnExpenses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnExpenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
-        Me.btnExpenses.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnExpenses.ForeColor = System.Drawing.Color.White
-        Me.btnExpenses.Image = CType(resources.GetObject("btnExpenses.Image"), System.Drawing.Image)
-        Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnExpenses.IndicateFocus = True
-        Me.btnExpenses.Location = New System.Drawing.Point(9, 205)
-        Me.btnExpenses.Name = "btnExpenses"
-        Me.btnExpenses.Size = New System.Drawing.Size(74, 45)
-        Me.btnExpenses.TabIndex = 6
-        Me.btnExpenses.UseTransparentBackground = True
+        Me.btnIncome.Animated = True
+        Me.btnIncome.BackColor = System.Drawing.Color.Transparent
+        Me.btnIncome.BorderRadius = 10
+        Me.btnIncome.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnIncome.FillColor = System.Drawing.Color.Transparent
+        Me.btnIncome.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnIncome.ForeColor = System.Drawing.Color.White
+        Me.btnIncome.Image = CType(resources.GetObject("btnIncome.Image"), System.Drawing.Image)
+        Me.btnIncome.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnIncome.IndicateFocus = True
+        Me.btnIncome.Location = New System.Drawing.Point(9, 256)
+        Me.btnIncome.Name = "btnIncome"
+        Me.btnIncome.Size = New System.Drawing.Size(74, 45)
+        Me.btnIncome.TabIndex = 7
+        Me.btnIncome.UseTransparentBackground = True
         '
         'frmMain
         '
@@ -360,4 +384,5 @@ Partial Class frmMain
     Friend WithEvents cmsLogout As ToolStripMenuItem
     Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents btnExpenses As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnIncome As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -41,7 +41,7 @@ Partial Class frmExpenses
         Me.btnAddExpense.Font = New System.Drawing.Font("Inter", 12.0!)
         Me.btnAddExpense.ForeColor = System.Drawing.Color.White
         Me.btnAddExpense.IndicateFocus = True
-        Me.btnAddExpense.Location = New System.Drawing.Point(12, 186)
+        Me.btnAddExpense.Location = New System.Drawing.Point(9, 152)
         Me.btnAddExpense.Name = "btnAddExpense"
         Me.btnAddExpense.Size = New System.Drawing.Size(112, 45)
         Me.btnAddExpense.TabIndex = 5

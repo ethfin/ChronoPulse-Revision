@@ -312,6 +312,9 @@
     <EmbeddedResource Include="MainForms\frmGames.resx">
       <DependentUpon>frmGames.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmIncome.resx">
+      <DependentUpon>frmIncome.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmQuests.resx">
       <DependentUpon>frmQuests.vb</DependentUpon>
     </EmbeddedResource>
