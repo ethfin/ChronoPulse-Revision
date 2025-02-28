@@ -393,6 +393,14 @@
   <ItemGroup>
     <Content Include="ChronoPulse Logo v2.ico" />
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\btnSavings.png" />
+    <None Include="Resources\btnIncome.png" />
+    <None Include="Resources\btnExpenses.png" />
+    <None Include="Resources\btnDSavings.png" />
+    <None Include="Resources\btnDIncome.png" />
+    <None Include="Resources\btnDExpenses.png" />
+    <None Include="Resources\btnDBudget.png" />
+    <None Include="Resources\btnBudget.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

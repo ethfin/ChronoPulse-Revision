@@ -154,6 +154,10 @@ Public Class frmMain
         pbxUser.Image = My.Resources.user_white
         btnDashboard.Image = My.Resources.dashboard_blue
         btnGames.Image = My.Resources.game_controller_blue
+        btnExpenses.Image = My.Resources.btnDExpenses
+        btnIncome.Image = My.Resources.btnDIncome
+        btnBudget.Image = My.Resources.btnDBudget
+        btnSavings.Image = My.Resources.btnDSavings
     End Sub
 
     Private Sub SetLightTheme()
@@ -170,6 +174,10 @@ Public Class frmMain
         pbxUser.Image = My.Resources.user
         btnDashboard.Image = My.Resources.dashboard
         btnGames.Image = My.Resources.game_controller
+        btnExpenses.Image = My.Resources.btnExpenses
+        btnIncome.Image = My.Resources.btnIncome
+        btnBudget.Image = My.Resources.btnBudget
+        btnSavings.Image = My.Resources.btnSavings
     End Sub
 
     <DllImport("Gdi32.dll")>
@@ -182,6 +190,22 @@ Public Class frmMain
 
     Private Sub btnGames_MouseHover(sender As Object, e As EventArgs) Handles btnGames.MouseHover
         ToolTip.SetToolTip(btnGames, "Games")
+    End Sub
+
+    Private Sub btnExpenses_MouseHover(sender As Object, e As EventArgs) Handles btnExpenses.MouseHover
+        ToolTip.SetToolTip(btnExpenses, "Expenses")
+    End Sub
+
+    Private Sub btnIncome_MouseHover(sender As Object, e As EventArgs) Handles btnIncome.MouseHover
+        ToolTip.SetToolTip(btnIncome, "Income")
+    End Sub
+
+    Private Sub btnBudget_MouseHover(sender As Object, e As EventArgs) Handles btnBudget.MouseHover
+        ToolTip.SetToolTip(btnBudget, "Budget")
+    End Sub
+
+    Private Sub btnSavings_MouseHover(sender As Object, e As EventArgs) Handles btnSavings.MouseHover
+        ToolTip.SetToolTip(btnSavings, "Savings")
     End Sub
 
     Private Sub pbxUser_Click(sender As Object, e As EventArgs) Handles pbxUser.Click
