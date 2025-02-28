@@ -32,6 +32,7 @@ Partial Class frmSavings
         Me.dtpTargetDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.btnAddSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
         Me.dgvSavings = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.btnUpdateSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.dgvSavings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -197,11 +198,30 @@ Partial Class frmSavings
         Me.dgvSavings.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvSavings.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'btnUpdateSavingsGoal
+        '
+        Me.btnUpdateSavingsGoal.Animated = True
+        Me.btnUpdateSavingsGoal.BorderRadius = 15
+        Me.btnUpdateSavingsGoal.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdateSavingsGoal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdateSavingsGoal.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnUpdateSavingsGoal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnUpdateSavingsGoal.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
+        Me.btnUpdateSavingsGoal.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnUpdateSavingsGoal.ForeColor = System.Drawing.Color.White
+        Me.btnUpdateSavingsGoal.IndicateFocus = True
+        Me.btnUpdateSavingsGoal.Location = New System.Drawing.Point(160, 159)
+        Me.btnUpdateSavingsGoal.Name = "btnUpdateSavingsGoal"
+        Me.btnUpdateSavingsGoal.Size = New System.Drawing.Size(112, 45)
+        Me.btnUpdateSavingsGoal.TabIndex = 16
+        Me.btnUpdateSavingsGoal.Text = "Update"
+        '
         'frmSavings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnUpdateSavingsGoal)
         Me.Controls.Add(Me.dgvSavings)
         Me.Controls.Add(Me.btnAddSavingsGoal)
         Me.Controls.Add(Me.dtpTargetDate)
@@ -221,4 +241,5 @@ Partial Class frmSavings
     Friend WithEvents dtpTargetDate As Guna.UI2.WinForms.Guna2DateTimePicker
     Private WithEvents btnAddSavingsGoal As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents dgvSavings As Guna.UI2.WinForms.Guna2DataGridView
+    Private WithEvents btnUpdateSavingsGoal As Guna.UI2.WinForms.Guna2Button
 End Class
