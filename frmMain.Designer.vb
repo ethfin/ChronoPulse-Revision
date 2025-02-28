@@ -45,6 +45,7 @@ Partial Class frmMain
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.btnBudget = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlHeader.SuspendLayout()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
@@ -147,6 +148,7 @@ Partial Class frmMain
         'pnlMenu
         '
         Me.pnlMenu.BackColor = System.Drawing.Color.GhostWhite
+        Me.pnlMenu.Controls.Add(Me.btnBudget)
         Me.pnlMenu.Controls.Add(Me.btnSavings)
         Me.pnlMenu.Controls.Add(Me.btnIncome)
         Me.pnlMenu.Controls.Add(Me.btnExpenses)
@@ -365,6 +367,28 @@ Partial Class frmMain
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
+        'btnBudget
+        '
+        Me.btnBudget.Animated = True
+        Me.btnBudget.BackColor = System.Drawing.Color.Transparent
+        Me.btnBudget.BorderRadius = 10
+        Me.btnBudget.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBudget.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnBudget.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnBudget.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnBudget.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnBudget.FillColor = System.Drawing.Color.Transparent
+        Me.btnBudget.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnBudget.ForeColor = System.Drawing.Color.White
+        Me.btnBudget.Image = CType(resources.GetObject("btnBudget.Image"), System.Drawing.Image)
+        Me.btnBudget.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnBudget.IndicateFocus = True
+        Me.btnBudget.Location = New System.Drawing.Point(9, 358)
+        Me.btnBudget.Name = "btnBudget"
+        Me.btnBudget.Size = New System.Drawing.Size(74, 45)
+        Me.btnBudget.TabIndex = 9
+        Me.btnBudget.UseTransparentBackground = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -410,4 +434,5 @@ Partial Class frmMain
     Friend WithEvents btnExpenses As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnIncome As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSavings As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnBudget As Guna.UI2.WinForms.Guna2Button
 End Class

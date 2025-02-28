@@ -224,4 +224,8 @@ Public Class frmMain
     Private Sub btnSavings_Click(sender As Object, e As EventArgs) Handles btnSavings.Click
         LoadForm(New frmSavings)
     End Sub
+
+    Private Sub btnBudget_Click(sender As Object, e As EventArgs) Handles btnBudget.Click
+        LoadForm(New frmBudgeting)
+    End Sub
 End Class

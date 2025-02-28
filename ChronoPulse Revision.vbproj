@@ -303,6 +303,9 @@
     <EmbeddedResource Include="MainForms\frmAI.resx">
       <DependentUpon>frmAI.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmBudgeting.resx">
+      <DependentUpon>frmBudgeting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </EmbeddedResource>
