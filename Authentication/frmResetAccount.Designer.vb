@@ -53,11 +53,11 @@ Partial Class frmResetAccount
         'lnklblGoBack
         '
         Me.lnklblGoBack.AutoSize = True
-        Me.lnklblGoBack.Font = New System.Drawing.Font("Inter Medium", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lnklblGoBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lnklblGoBack.LinkColor = System.Drawing.Color.Black
         Me.lnklblGoBack.Location = New System.Drawing.Point(383, 557)
         Me.lnklblGoBack.Name = "lnklblGoBack"
-        Me.lnklblGoBack.Size = New System.Drawing.Size(55, 15)
+        Me.lnklblGoBack.Size = New System.Drawing.Size(59, 15)
         Me.lnklblGoBack.TabIndex = 62
         Me.lnklblGoBack.TabStop = True
         Me.lnklblGoBack.Text = "Go back"
@@ -88,7 +88,7 @@ Partial Class frmResetAccount
         Me.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnLogin.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.btnLogin.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.IndicateFocus = True
         Me.btnLogin.Location = New System.Drawing.Point(43, 297)
@@ -152,7 +152,7 @@ Partial Class frmResetAccount
         Me.btnReset.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnReset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnReset.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnReset.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnReset.ForeColor = System.Drawing.Color.White
         Me.btnReset.IndicateFocus = True
         Me.btnReset.Location = New System.Drawing.Point(533, 523)
@@ -171,7 +171,7 @@ Partial Class frmResetAccount
         Me.btnNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnNext.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnNext.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnNext.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnNext.ForeColor = System.Drawing.Color.White
         Me.btnNext.IndicateFocus = True
         Me.btnNext.Location = New System.Drawing.Point(533, 523)
