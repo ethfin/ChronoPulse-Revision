@@ -63,6 +63,7 @@ Partial Class frmLogin
         Me.pnlLoginContainer.Controls.Add(Me.Guna2PictureBox1)
         Me.pnlLoginContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlLoginContainer.FillColor = System.Drawing.Color.GhostWhite
+        Me.pnlLoginContainer.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlLoginContainer.Location = New System.Drawing.Point(1, 1)
         Me.pnlLoginContainer.Name = "pnlLoginContainer"
         Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(60, 30, 30, 30)
@@ -90,10 +91,10 @@ Partial Class frmLogin
         Me.cbxShowPassword.CheckedState.BorderRadius = 0
         Me.cbxShowPassword.CheckedState.BorderThickness = 0
         Me.cbxShowPassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cbxShowPassword.Font = New System.Drawing.Font("Inter", 9.0!)
+        Me.cbxShowPassword.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxShowPassword.Location = New System.Drawing.Point(86, 369)
         Me.cbxShowPassword.Name = "cbxShowPassword"
-        Me.cbxShowPassword.Size = New System.Drawing.Size(116, 19)
+        Me.cbxShowPassword.Size = New System.Drawing.Size(105, 17)
         Me.cbxShowPassword.TabIndex = 3
         Me.cbxShowPassword.Text = "Show Password"
         Me.cbxShowPassword.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
@@ -104,11 +105,11 @@ Partial Class frmLogin
         'guna2HtmlLabel5
         '
         Me.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel5.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel5.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.guna2HtmlLabel5.Location = New System.Drawing.Point(86, 311)
         Me.guna2HtmlLabel5.Name = "guna2HtmlLabel5"
-        Me.guna2HtmlLabel5.Size = New System.Drawing.Size(58, 17)
+        Me.guna2HtmlLabel5.Size = New System.Drawing.Size(54, 15)
         Me.guna2HtmlLabel5.TabIndex = 13
         Me.guna2HtmlLabel5.TabStop = False
         Me.guna2HtmlLabel5.Text = "Password"
@@ -116,11 +117,11 @@ Partial Class frmLogin
         'guna2HtmlLabel3
         '
         Me.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel3.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel3.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.guna2HtmlLabel3.Location = New System.Drawing.Point(86, 248)
         Me.guna2HtmlLabel3.Name = "guna2HtmlLabel3"
-        Me.guna2HtmlLabel3.Size = New System.Drawing.Size(60, 17)
+        Me.guna2HtmlLabel3.Size = New System.Drawing.Size(54, 15)
         Me.guna2HtmlLabel3.TabIndex = 12
         Me.guna2HtmlLabel3.TabStop = False
         Me.guna2HtmlLabel3.Text = "Username"
@@ -128,11 +129,11 @@ Partial Class frmLogin
         'lnklblResetAccount
         '
         Me.lnklblResetAccount.AutoSize = True
-        Me.lnklblResetAccount.Font = New System.Drawing.Font("Inter Medium", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lnklblResetAccount.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lnklblResetAccount.LinkColor = System.Drawing.Color.Black
         Me.lnklblResetAccount.Location = New System.Drawing.Point(83, 490)
         Me.lnklblResetAccount.Name = "lnklblResetAccount"
-        Me.lnklblResetAccount.Size = New System.Drawing.Size(89, 15)
+        Me.lnklblResetAccount.Size = New System.Drawing.Size(83, 13)
         Me.lnklblResetAccount.TabIndex = 5
         Me.lnklblResetAccount.TabStop = True
         Me.lnklblResetAccount.Text = "Reset Account"
@@ -140,12 +141,12 @@ Partial Class frmLogin
         'lnklblSignup
         '
         Me.lnklblSignup.AutoSize = True
-        Me.lnklblSignup.Font = New System.Drawing.Font("Inter Medium", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lnklblSignup.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lnklblSignup.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
         Me.lnklblSignup.LinkColor = System.Drawing.Color.Black
         Me.lnklblSignup.Location = New System.Drawing.Point(201, 203)
         Me.lnklblSignup.Name = "lnklblSignup"
-        Me.lnklblSignup.Size = New System.Drawing.Size(49, 15)
+        Me.lnklblSignup.Size = New System.Drawing.Size(41, 13)
         Me.lnklblSignup.TabIndex = 0
         Me.lnklblSignup.TabStop = True
         Me.lnklblSignup.Text = "Sign up"
@@ -153,11 +154,11 @@ Partial Class frmLogin
         'guna2HtmlLabel4
         '
         Me.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel4.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel4.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.guna2HtmlLabel4.Location = New System.Drawing.Point(86, 470)
         Me.guna2HtmlLabel4.Name = "guna2HtmlLabel4"
-        Me.guna2HtmlLabel4.Size = New System.Drawing.Size(260, 17)
+        Me.guna2HtmlLabel4.Size = New System.Drawing.Size(246, 15)
         Me.guna2HtmlLabel4.TabIndex = 9
         Me.guna2HtmlLabel4.TabStop = False
         Me.guna2HtmlLabel4.Text = "Forgotten your password or your login details?"
@@ -171,7 +172,7 @@ Partial Class frmLogin
         Me.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnLogin.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnLogin.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnLogin.Font = New System.Drawing.Font("Pixelify Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.IndicateFocus = True
         Me.btnLogin.Location = New System.Drawing.Point(86, 410)
@@ -191,7 +192,7 @@ Partial Class frmLogin
         Me.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.Font = New System.Drawing.Font("Pixelify Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.password
         Me.txtPassword.Location = New System.Drawing.Point(86, 331)
@@ -215,7 +216,7 @@ Partial Class frmLogin
         Me.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Font = New System.Drawing.Font("Pixelify Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.IconRight = Global.ChronoPulse_Revision.My.Resources.Resources.user
         Me.txtUsername.Location = New System.Drawing.Point(86, 268)
@@ -250,11 +251,11 @@ Partial Class frmLogin
         'guna2HtmlLabel2
         '
         Me.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel2.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.guna2HtmlLabel2.Location = New System.Drawing.Point(86, 203)
         Me.guna2HtmlLabel2.Name = "guna2HtmlLabel2"
-        Me.guna2HtmlLabel2.Size = New System.Drawing.Size(109, 17)
+        Me.guna2HtmlLabel2.Size = New System.Drawing.Size(108, 15)
         Me.guna2HtmlLabel2.TabIndex = 4
         Me.guna2HtmlLabel2.TabStop = False
         Me.guna2HtmlLabel2.Text = "Not registered yet?"
@@ -262,11 +263,11 @@ Partial Class frmLogin
         'guna2HtmlLabel1
         '
         Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Pixelify Sans", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
         Me.guna2HtmlLabel1.Location = New System.Drawing.Point(86, 154)
         Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
-        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(268, 43)
+        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(253, 44)
         Me.guna2HtmlLabel1.TabIndex = 3
         Me.guna2HtmlLabel1.TabStop = False
         Me.guna2HtmlLabel1.Text = "Welcome Back!"

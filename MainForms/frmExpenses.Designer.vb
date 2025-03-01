@@ -22,11 +22,17 @@ Partial Class frmExpenses
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnAddExpense = New Guna.UI2.WinForms.Guna2Button()
         Me.txtItem = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtCategory = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtDescription = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtCost = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.dgExpenses = New Guna.UI2.WinForms.Guna2DataGridView()
+        CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnAddExpense
@@ -38,12 +44,13 @@ Partial Class frmExpenses
         Me.btnAddExpense.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnAddExpense.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnAddExpense.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnAddExpense.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnAddExpense.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnAddExpense.ForeColor = System.Drawing.Color.White
         Me.btnAddExpense.IndicateFocus = True
-        Me.btnAddExpense.Location = New System.Drawing.Point(9, 152)
+        Me.btnAddExpense.Location = New System.Drawing.Point(12, 187)
+        Me.btnAddExpense.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAddExpense.Name = "btnAddExpense"
-        Me.btnAddExpense.Size = New System.Drawing.Size(112, 45)
+        Me.btnAddExpense.Size = New System.Drawing.Size(149, 55)
         Me.btnAddExpense.TabIndex = 5
         Me.btnAddExpense.Text = "Add"
         '
@@ -60,13 +67,13 @@ Partial Class frmExpenses
         Me.txtItem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtItem.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtItem.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtItem.Location = New System.Drawing.Point(9, 9)
+        Me.txtItem.Location = New System.Drawing.Point(12, 11)
         Me.txtItem.Margin = New System.Windows.Forms.Padding(0)
         Me.txtItem.Name = "txtItem"
         Me.txtItem.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtItem.PlaceholderText = "Item"
         Me.txtItem.SelectedText = ""
-        Me.txtItem.Size = New System.Drawing.Size(260, 35)
+        Me.txtItem.Size = New System.Drawing.Size(347, 43)
         Me.txtItem.TabIndex = 6
         '
         'txtCategory
@@ -82,13 +89,13 @@ Partial Class frmExpenses
         Me.txtCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtCategory.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCategory.Location = New System.Drawing.Point(9, 44)
+        Me.txtCategory.Location = New System.Drawing.Point(12, 54)
         Me.txtCategory.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCategory.Name = "txtCategory"
         Me.txtCategory.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtCategory.PlaceholderText = "Category"
         Me.txtCategory.SelectedText = ""
-        Me.txtCategory.Size = New System.Drawing.Size(260, 35)
+        Me.txtCategory.Size = New System.Drawing.Size(347, 43)
         Me.txtCategory.TabIndex = 7
         '
         'txtDescription
@@ -104,13 +111,13 @@ Partial Class frmExpenses
         Me.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtDescription.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(9, 79)
+        Me.txtDescription.Location = New System.Drawing.Point(12, 97)
         Me.txtDescription.Margin = New System.Windows.Forms.Padding(0)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtDescription.PlaceholderText = "Description"
         Me.txtDescription.SelectedText = ""
-        Me.txtDescription.Size = New System.Drawing.Size(260, 35)
+        Me.txtDescription.Size = New System.Drawing.Size(347, 43)
         Me.txtDescription.TabIndex = 8
         '
         'txtCost
@@ -126,27 +133,96 @@ Partial Class frmExpenses
         Me.txtCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtCost.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCost.Location = New System.Drawing.Point(9, 114)
+        Me.txtCost.Location = New System.Drawing.Point(12, 140)
         Me.txtCost.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtCost.PlaceholderText = "Cost"
         Me.txtCost.SelectedText = ""
-        Me.txtCost.Size = New System.Drawing.Size(260, 35)
+        Me.txtCost.Size = New System.Drawing.Size(347, 43)
         Me.txtCost.TabIndex = 9
+        '
+        'dgExpenses
+        '
+        Me.dgExpenses.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgExpenses.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgExpenses.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgExpenses.ColumnHeadersHeight = 22
+        Me.dgExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgExpenses.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgExpenses.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgExpenses.Location = New System.Drawing.Point(374, 11)
+        Me.dgExpenses.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgExpenses.Name = "dgExpenses"
+        Me.dgExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgExpenses.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgExpenses.RowHeadersVisible = False
+        Me.dgExpenses.RowHeadersWidth = 51
+        Me.dgExpenses.Size = New System.Drawing.Size(680, 537)
+        Me.dgExpenses.TabIndex = 16
+        Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgExpenses.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.dgExpenses.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgExpenses.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgExpenses.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgExpenses.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgExpenses.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.dgExpenses.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.dgExpenses.ThemeStyle.HeaderStyle.Height = 22
+        Me.dgExpenses.ThemeStyle.ReadOnly = False
+        Me.dgExpenses.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.dgExpenses.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgExpenses.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgExpenses.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgExpenses.ThemeStyle.RowsStyle.Height = 22
+        Me.dgExpenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgExpenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
         'frmExpenses
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.Controls.Add(Me.dgExpenses)
         Me.Controls.Add(Me.txtCost)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.txtCategory)
         Me.Controls.Add(Me.txtItem)
         Me.Controls.Add(Me.btnAddExpense)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmExpenses"
         Me.Text = "frmExpenses"
+        CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -156,4 +232,5 @@ Partial Class frmExpenses
     Private WithEvents txtCategory As Guna.UI2.WinForms.Guna2TextBox
     Private WithEvents txtDescription As Guna.UI2.WinForms.Guna2TextBox
     Private WithEvents txtCost As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents dgExpenses As Guna.UI2.WinForms.Guna2DataGridView
 End Class

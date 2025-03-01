@@ -303,6 +303,9 @@
     <EmbeddedResource Include="MainForms\frmAI.resx">
       <DependentUpon>frmAI.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmBudgeting.resx">
+      <DependentUpon>frmBudgeting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </EmbeddedResource>
@@ -361,6 +364,7 @@
     <None Include="Resources\password.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PixelifySans-VariableFont_wght.ttf" />
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
@@ -390,6 +394,14 @@
   <ItemGroup>
     <Content Include="ChronoPulse Logo v2.ico" />
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\btnSavings.png" />
+    <None Include="Resources\btnIncome.png" />
+    <None Include="Resources\btnExpenses.png" />
+    <None Include="Resources\btnDSavings.png" />
+    <None Include="Resources\btnDIncome.png" />
+    <None Include="Resources\btnDExpenses.png" />
+    <None Include="Resources\btnDBudget.png" />
+    <None Include="Resources\btnBudget.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
