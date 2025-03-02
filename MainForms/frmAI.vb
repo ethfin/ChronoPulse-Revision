@@ -3,10 +3,12 @@ Imports System.Text
 Imports Newtonsoft.Json
 Imports System.IO
 Imports DotNetEnv
+Imports MySql.Data.MySqlClient
 
 Public Class frmAI
     Private ReadOnly httpClient As HttpClient
     Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/v1/chat/completions"
+    Private dbConnection As MySqlConnection ' Add this field
 
     Public Sub New()
         InitializeComponent()
@@ -14,7 +16,71 @@ Public Class frmAI
         httpClient = New HttpClient()
         Dim apiKey As String = GetApiKey()
         httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " & apiKey)
+        ' Initialize database connection
+        dbConnection = createDBConnection()
     End Sub
+
+    Private Function GetUserFinancialData() As String
+        If String.IsNullOrEmpty(AccountData.UserID) Then
+            Throw New Exception("User is not logged in")
+        End If
+
+        Dim financialData As New StringBuilder()
+        Try
+            dbConnection.Open()
+
+            ' Get expenses (updated to match user_expenses table)
+            Using cmdExpenses As New MySqlCommand(
+            "SELECT Item, Cost, Category, Description, date FROM user_expenses " &
+            "WHERE UserID = @userId ORDER BY date DESC LIMIT 10",
+            dbConnection)
+                cmdExpenses.Parameters.AddWithValue("@userId", AccountData.UserID)
+                Using reader = cmdExpenses.ExecuteReader()
+                    financialData.AppendLine("Recent Expenses:")
+                    While reader.Read()
+                        financialData.AppendLine($"- ${reader("Cost")} for {reader("Item")} ({reader("Category")}) on {CDate(reader("date")).ToString("MM/dd/yyyy")}")
+                    End While
+                End Using
+            End Using
+
+            ' Get budget information (using categories and transactions tables)
+            Using cmdBudget As New MySqlCommand(
+            "SELECT c.CategoryName, SUM(t.Amount) as TotalAmount " &
+            "FROM categories c " &
+            "INNER JOIN transactions t ON c.CategoryID = t.CategoryID " &
+            "WHERE t.UserID = @userId AND t.Type = 'Expense' " &
+            "GROUP BY c.CategoryID, c.CategoryName",
+            dbConnection)
+                cmdBudget.Parameters.AddWithValue("@userId", AccountData.UserID)
+                Using reader = cmdBudget.ExecuteReader()
+                    financialData.AppendLine(vbNewLine & "Budget Information:")
+                    While reader.Read()
+                        financialData.AppendLine($"- {reader("CategoryName")}: ${reader("TotalAmount")}")
+                    End While
+                End Using
+            End Using
+
+            ' Get savings information (updated to match savings_goals table)
+            Using cmdSavings As New MySqlCommand(
+            "SELECT GoalName, TargetAmount, CurrentAmount, TargetDate " &
+            "FROM savings_goals WHERE UserID = @userId",
+            dbConnection)
+                cmdSavings.Parameters.AddWithValue("@userId", AccountData.UserID)
+                Using reader = cmdSavings.ExecuteReader()
+                    financialData.AppendLine(vbNewLine & "Savings Goals:")
+                    While reader.Read()
+                        financialData.AppendLine($"- {reader("GoalName")}: ${reader("CurrentAmount")}/${reader("TargetAmount")} " &
+                                           $"(Target: {CDate(reader("TargetDate")).ToString("MM/dd/yyyy")})")
+                    End While
+                End Using
+            End Using
+
+            Return financialData.ToString()
+
+        Finally
+            dbConnection.Close()
+        End Try
+    End Function
 
     Private Sub LoadEnvironmentVariables()
         Try
@@ -64,12 +130,21 @@ Public Class frmAI
     End Sub
 
     Private Async Function GetAIResponse(message As String) As Task(Of String)
+        Dim financialContext As String = GetUserFinancialData()
+        Dim enhancedMessage As String = $"As a financial advisor, considering the following user data:" &
+                                      vbNewLine & financialContext &
+                                      vbNewLine & "User question: " & message
+
         Dim requestBody As New With {
             .model = "deepseek-chat",
             .messages = New List(Of Object) From {
                 New With {
+                    .role = "system",
+                    .content = "You are a financial advisor. Analyze the provided financial data and give professional advice."
+                },
+                New With {
                     .role = "user",
-                    .content = message
+                    .content = enhancedMessage
                 }
             },
             .temperature = 0.7,
