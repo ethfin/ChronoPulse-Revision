@@ -18,6 +18,7 @@ Public Class frmAI
         httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " & apiKey)
         ' Initialize database connection
         dbConnection = createDBConnection()
+        LoadChatHistory()
     End Sub
 
     Private Function GetUserFinancialData() As String
@@ -82,6 +83,57 @@ Public Class frmAI
         End Try
     End Function
 
+    Private Sub SaveChatMessage(role As String, message As String, context As String)
+        If String.IsNullOrEmpty(AccountData.UserID) Then
+            Return
+        End If
+
+        Try
+            dbConnection.Open()
+            Using cmd As New MySqlCommand(
+            "INSERT INTO chat_history (UserID, Role, Message, Context) " &
+            "VALUES (@userId, @role, @message, @context)",
+            dbConnection)
+                cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
+                cmd.Parameters.AddWithValue("@role", role)
+                cmd.Parameters.AddWithValue("@message", message)
+                cmd.Parameters.AddWithValue("@context", context)
+                cmd.ExecuteNonQuery()
+            End Using
+        Finally
+            dbConnection.Close()
+        End Try
+    End Sub
+
+    Private Sub LoadChatHistory()
+        If String.IsNullOrEmpty(AccountData.UserID) Then
+            Return
+        End If
+
+        Try
+            dbConnection.Open()
+            Using cmd As New MySqlCommand(
+            "SELECT Role, Message FROM chat_history " &
+            "WHERE UserID = @userId " &
+            "ORDER BY Timestamp ASC",
+            dbConnection)
+                cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
+                Using reader = cmd.ExecuteReader()
+                    ChatHistoryRichTextBox.Clear()
+                    While reader.Read()
+                        Dim prefix As String = If(reader("Role").ToString() = "user", "You: ", "AI: ")
+                        ChatHistoryRichTextBox.AppendText(prefix & reader("Message").ToString() & Environment.NewLine)
+                        If reader("Role").ToString() = "ai" Then
+                            ChatHistoryRichTextBox.AppendText(Environment.NewLine)
+                        End If
+                    End While
+                End Using
+            End Using
+        Finally
+            dbConnection.Close()
+        End Try
+    End Sub
+
     Private Sub LoadEnvironmentVariables()
         Try
             ' Load the .env file from the application root directory
@@ -115,10 +167,17 @@ Public Class frmAI
 
         Try
             Dim userMessage As String = UserInputTextBox.Text
+            Dim financialContext As String = GetUserFinancialData()
             ChatHistoryRichTextBox.AppendText("You: " & userMessage & Environment.NewLine)
+
+            ' Save user message
+            SaveChatMessage("user", userMessage, financialContext)
 
             Dim aiResponse As String = Await GetAIResponse(userMessage)
             ChatHistoryRichTextBox.AppendText("AI: " & aiResponse & Environment.NewLine & Environment.NewLine)
+
+            ' Save AI response
+            SaveChatMessage("ai", aiResponse, financialContext)
 
             UserInputTextBox.Clear()
         Catch ex As Exception
@@ -129,11 +188,13 @@ Public Class frmAI
         End Try
     End Sub
 
+
     Private Async Function GetAIResponse(message As String) As Task(Of String)
         Dim financialContext As String = GetUserFinancialData()
         Dim enhancedMessage As String = $"As a financial advisor, considering the following user data:" &
                                       vbNewLine & financialContext &
-                                      vbNewLine & "User question: " & message
+                                      vbNewLine & "User question: " & message &
+                                      vbNewLine & "Please provide a concise response with only the necessary information."
 
         Dim requestBody As New With {
             .model = "deepseek-chat",
@@ -160,7 +221,18 @@ Public Class frmAI
         Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
         Dim aiResult = JsonConvert.DeserializeObject(Of DeepSeekResponse)(jsonResponse)
 
-        Return aiResult.choices(0).message.content
+        ' Post-process the response to extract necessary information
+        Dim aiContent As String = aiResult.choices(0).message.content
+        Dim necessaryData As String = ExtractNecessaryData(aiContent)
+
+        Return necessaryData
+    End Function
+
+    Private Function ExtractNecessaryData(aiContent As String) As String
+        ' Implement your logic to extract necessary data from aiContent
+        ' For example, you can use regular expressions or string manipulation
+        ' This is a placeholder implementation
+        Return aiContent ' Modify this to return only the necessary data
     End Function
 End Class
 
