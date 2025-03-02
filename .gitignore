@@ -365,3 +365,4 @@ FodyWeavers.xsd
 # Ignore the Common.vb file
 Data/Common.vb
 appsettings.json
+/.env
