@@ -7,7 +7,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class frmAI
     Private ReadOnly httpClient As HttpClient
-    Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/v1/chat/completions"
+    Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/chat/completions"
     Private dbConnection As MySqlConnection ' Add this field
 
     Private Sub AppendFormattedMessage(sender As String, message As String, isAI As Boolean)
@@ -44,15 +44,18 @@ Public Class frmAI
             If text.StartsWith("*") AndAlso text.EndsWith("*") Then
                 fontStyle = FontStyle.Bold
                 text = text.Trim("*"c)
-            ElseIf text.StartsWith("_") AndAlso text.EndsWith("_") Then
+            End If
+
+            If text.StartsWith("_") AndAlso text.EndsWith("_") Then
                 fontStyle = FontStyle.Italic
                 text = text.Trim("_"c)
-            ElseIf text.StartsWith("~") AndAlso text.EndsWith("~") Then
+            End If
+
+            If text.StartsWith("~") AndAlso text.EndsWith("~") Then
                 fontStyle = FontStyle.Underline
                 text = text.Trim("~"c)
             End If
 
-            ' Check for AI placed ** for bold text
             If text.Contains("**") Then
                 fontStyle = FontStyle.Bold
                 text = text.Replace("**", "")
