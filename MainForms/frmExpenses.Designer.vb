@@ -47,10 +47,9 @@ Partial Class frmExpenses
         Me.btnAddExpense.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnAddExpense.ForeColor = System.Drawing.Color.White
         Me.btnAddExpense.IndicateFocus = True
-        Me.btnAddExpense.Location = New System.Drawing.Point(12, 187)
-        Me.btnAddExpense.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAddExpense.Location = New System.Drawing.Point(9, 152)
         Me.btnAddExpense.Name = "btnAddExpense"
-        Me.btnAddExpense.Size = New System.Drawing.Size(149, 55)
+        Me.btnAddExpense.Size = New System.Drawing.Size(112, 45)
         Me.btnAddExpense.TabIndex = 5
         Me.btnAddExpense.Text = "Add"
         '
@@ -67,13 +66,13 @@ Partial Class frmExpenses
         Me.txtItem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtItem.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtItem.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtItem.Location = New System.Drawing.Point(12, 11)
+        Me.txtItem.Location = New System.Drawing.Point(9, 9)
         Me.txtItem.Margin = New System.Windows.Forms.Padding(0)
         Me.txtItem.Name = "txtItem"
         Me.txtItem.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtItem.PlaceholderText = "Item"
         Me.txtItem.SelectedText = ""
-        Me.txtItem.Size = New System.Drawing.Size(347, 43)
+        Me.txtItem.Size = New System.Drawing.Size(260, 35)
         Me.txtItem.TabIndex = 6
         '
         'txtCategory
@@ -89,13 +88,13 @@ Partial Class frmExpenses
         Me.txtCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtCategory.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCategory.Location = New System.Drawing.Point(12, 54)
+        Me.txtCategory.Location = New System.Drawing.Point(9, 44)
         Me.txtCategory.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCategory.Name = "txtCategory"
         Me.txtCategory.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtCategory.PlaceholderText = "Category"
         Me.txtCategory.SelectedText = ""
-        Me.txtCategory.Size = New System.Drawing.Size(347, 43)
+        Me.txtCategory.Size = New System.Drawing.Size(260, 35)
         Me.txtCategory.TabIndex = 7
         '
         'txtDescription
@@ -111,13 +110,13 @@ Partial Class frmExpenses
         Me.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtDescription.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(12, 97)
+        Me.txtDescription.Location = New System.Drawing.Point(9, 79)
         Me.txtDescription.Margin = New System.Windows.Forms.Padding(0)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtDescription.PlaceholderText = "Description"
         Me.txtDescription.SelectedText = ""
-        Me.txtDescription.Size = New System.Drawing.Size(347, 43)
+        Me.txtDescription.Size = New System.Drawing.Size(260, 35)
         Me.txtDescription.TabIndex = 8
         '
         'txtCost
@@ -133,13 +132,13 @@ Partial Class frmExpenses
         Me.txtCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtCost.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCost.Location = New System.Drawing.Point(12, 140)
+        Me.txtCost.Location = New System.Drawing.Point(9, 114)
         Me.txtCost.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtCost.PlaceholderText = "Cost"
         Me.txtCost.SelectedText = ""
-        Me.txtCost.Size = New System.Drawing.Size(347, 43)
+        Me.txtCost.Size = New System.Drawing.Size(260, 35)
         Me.txtCost.TabIndex = 9
         '
         'dgExpenses
@@ -169,9 +168,9 @@ Partial Class frmExpenses
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgExpenses.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgExpenses.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgExpenses.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgExpenses.Location = New System.Drawing.Point(374, 11)
-        Me.dgExpenses.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgExpenses.Location = New System.Drawing.Point(272, 0)
         Me.dgExpenses.Name = "dgExpenses"
         Me.dgExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -184,7 +183,7 @@ Partial Class frmExpenses
         Me.dgExpenses.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgExpenses.RowHeadersVisible = False
         Me.dgExpenses.RowHeadersWidth = 51
-        Me.dgExpenses.Size = New System.Drawing.Size(680, 537)
+        Me.dgExpenses.Size = New System.Drawing.Size(528, 450)
         Me.dgExpenses.TabIndex = 16
         Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgExpenses.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -210,16 +209,16 @@ Partial Class frmExpenses
         '
         'frmExpenses
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.dgExpenses)
         Me.Controls.Add(Me.txtCost)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.txtCategory)
         Me.Controls.Add(Me.txtItem)
         Me.Controls.Add(Me.btnAddExpense)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmExpenses"
         Me.Text = "frmExpenses"
         CType(Me.dgExpenses, System.ComponentModel.ISupportInitialize).EndInit()

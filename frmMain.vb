@@ -189,7 +189,7 @@ Public Class frmMain
     End Sub
 
     Private Sub btnGames_MouseHover(sender As Object, e As EventArgs) Handles btnGames.MouseHover
-        ToolTip.SetToolTip(btnGames, "Games")
+        ToolTip.SetToolTip(btnGames, "AI Chatbot")
     End Sub
 
     Private Sub btnExpenses_MouseHover(sender As Object, e As EventArgs) Handles btnExpenses.MouseHover

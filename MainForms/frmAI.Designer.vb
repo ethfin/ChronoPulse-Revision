@@ -57,7 +57,7 @@ Partial Class frmAI
         '
         'btnClearHistory
         '
-        Me.btnClearHistory.Location = New System.Drawing.Point(199, 392)
+        Me.btnClearHistory.Location = New System.Drawing.Point(199, 389)
         Me.btnClearHistory.Name = "btnClearHistory"
         Me.btnClearHistory.Size = New System.Drawing.Size(75, 23)
         Me.btnClearHistory.TabIndex = 3
@@ -66,6 +66,7 @@ Partial Class frmAI
         '
         'frmAI
         '
+        Me.AcceptButton = Me.SendButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))

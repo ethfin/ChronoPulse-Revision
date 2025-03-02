@@ -161,8 +161,9 @@ Partial Class frmSavings
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvSavings.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvSavings.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgvSavings.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvSavings.Location = New System.Drawing.Point(278, 12)
+        Me.dgvSavings.Location = New System.Drawing.Point(278, 0)
         Me.dgvSavings.Name = "dgvSavings"
         Me.dgvSavings.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -174,7 +175,7 @@ Partial Class frmSavings
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvSavings.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvSavings.RowHeadersVisible = False
-        Me.dgvSavings.Size = New System.Drawing.Size(510, 436)
+        Me.dgvSavings.Size = New System.Drawing.Size(522, 450)
         Me.dgvSavings.TabIndex = 15
         Me.dgvSavings.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvSavings.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -220,6 +221,7 @@ Partial Class frmSavings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnUpdateSavingsGoal)
         Me.Controls.Add(Me.dgvSavings)

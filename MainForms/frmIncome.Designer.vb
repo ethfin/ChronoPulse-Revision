@@ -47,13 +47,13 @@ Partial Class frmIncome
         Me.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtAmount.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtAmount.Location = New System.Drawing.Point(12, 54)
+        Me.txtAmount.Location = New System.Drawing.Point(9, 44)
         Me.txtAmount.Margin = New System.Windows.Forms.Padding(0)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtAmount.PlaceholderText = "Amount"
         Me.txtAmount.SelectedText = ""
-        Me.txtAmount.Size = New System.Drawing.Size(347, 43)
+        Me.txtAmount.Size = New System.Drawing.Size(260, 35)
         Me.txtAmount.TabIndex = 9
         '
         'txtSource
@@ -69,13 +69,13 @@ Partial Class frmIncome
         Me.txtSource.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtSource.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtSource.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSource.Location = New System.Drawing.Point(12, 11)
+        Me.txtSource.Location = New System.Drawing.Point(9, 9)
         Me.txtSource.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSource.Name = "txtSource"
         Me.txtSource.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtSource.PlaceholderText = "Source"
         Me.txtSource.SelectedText = ""
-        Me.txtSource.Size = New System.Drawing.Size(347, 43)
+        Me.txtSource.Size = New System.Drawing.Size(260, 35)
         Me.txtSource.TabIndex = 8
         '
         'dtpDate
@@ -84,12 +84,11 @@ Partial Class frmIncome
         Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDate.ForeColor = System.Drawing.SystemColors.Control
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.dtpDate.Location = New System.Drawing.Point(12, 101)
-        Me.dtpDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpDate.Location = New System.Drawing.Point(9, 82)
         Me.dtpDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(347, 44)
+        Me.dtpDate.Size = New System.Drawing.Size(260, 36)
         Me.dtpDate.TabIndex = 10
         Me.dtpDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
         '
@@ -105,10 +104,9 @@ Partial Class frmIncome
         Me.btnAddIncome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnAddIncome.ForeColor = System.Drawing.Color.White
         Me.btnAddIncome.IndicateFocus = True
-        Me.btnAddIncome.Location = New System.Drawing.Point(16, 153)
-        Me.btnAddIncome.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnAddIncome.Location = New System.Drawing.Point(12, 124)
         Me.btnAddIncome.Name = "btnAddIncome"
-        Me.btnAddIncome.Size = New System.Drawing.Size(149, 55)
+        Me.btnAddIncome.Size = New System.Drawing.Size(112, 45)
         Me.btnAddIncome.TabIndex = 11
         Me.btnAddIncome.Text = "Add"
         '
@@ -139,9 +137,9 @@ Partial Class frmIncome
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgIncome.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgIncome.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgIncome.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgIncome.Location = New System.Drawing.Point(374, 11)
-        Me.dgIncome.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgIncome.Location = New System.Drawing.Point(275, 0)
         Me.dgIncome.Name = "dgIncome"
         Me.dgIncome.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -154,7 +152,7 @@ Partial Class frmIncome
         Me.dgIncome.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgIncome.RowHeadersVisible = False
         Me.dgIncome.RowHeadersWidth = 51
-        Me.dgIncome.Size = New System.Drawing.Size(680, 537)
+        Me.dgIncome.Size = New System.Drawing.Size(525, 450)
         Me.dgIncome.TabIndex = 16
         Me.dgIncome.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgIncome.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -180,16 +178,15 @@ Partial Class frmIncome
         '
         'frmIncome
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.dgIncome)
         Me.Controls.Add(Me.btnAddIncome)
         Me.Controls.Add(Me.dtpDate)
         Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.txtSource)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmIncome"
         Me.Text = "frmIncome"
         CType(Me.dgIncome, System.ComponentModel.ISupportInitialize).EndInit()

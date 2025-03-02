@@ -147,7 +147,6 @@ Partial Class frmBudgeting
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.dgvBudgets.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvBudgets.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -166,9 +165,11 @@ Partial Class frmBudgeting
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvBudgets.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvBudgets.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgvBudgets.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvBudgets.Location = New System.Drawing.Point(278, 9)
+        Me.dgvBudgets.Location = New System.Drawing.Point(275, 0)
         Me.dgvBudgets.Name = "dgvBudgets"
+        Me.dgvBudgets.ReadOnly = True
         Me.dgvBudgets.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
@@ -179,7 +180,7 @@ Partial Class frmBudgeting
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvBudgets.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvBudgets.RowHeadersVisible = False
-        Me.dgvBudgets.Size = New System.Drawing.Size(510, 429)
+        Me.dgvBudgets.Size = New System.Drawing.Size(525, 450)
         Me.dgvBudgets.TabIndex = 18
         Me.dgvBudgets.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvBudgets.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -194,7 +195,7 @@ Partial Class frmBudgeting
         Me.dgvBudgets.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.dgvBudgets.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.dgvBudgets.ThemeStyle.HeaderStyle.Height = 20
-        Me.dgvBudgets.ThemeStyle.ReadOnly = False
+        Me.dgvBudgets.ThemeStyle.ReadOnly = True
         Me.dgvBudgets.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvBudgets.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgvBudgets.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -229,6 +230,7 @@ Partial Class frmBudgeting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.dgvBudgets)
