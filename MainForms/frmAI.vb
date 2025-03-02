@@ -10,6 +10,31 @@ Public Class frmAI
     Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/v1/chat/completions"
     Private dbConnection As MySqlConnection ' Add this field
 
+    Private Sub AppendFormattedMessage(sender As String, message As String, isAI As Boolean)
+        ' Add timestamp
+        Dim timestamp = DateTime.Now.ToString("HH:mm")
+        ChatHistoryRichTextBox.SelectionColor = Color.Gray
+        ChatHistoryRichTextBox.SelectionFont = New Font("Arial", 8)
+        ChatHistoryRichTextBox.AppendText($"[{timestamp}] ")
+
+        ' Format sender
+        ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.DarkGreen)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Arial", 10, FontStyle.Bold)
+        ChatHistoryRichTextBox.AppendText(sender & ": ")
+
+        ' Format message
+        ChatHistoryRichTextBox.SelectionColor = Color.Black
+        ChatHistoryRichTextBox.SelectionFont = New Font("Arial", 10)
+        ChatHistoryRichTextBox.AppendText(message & Environment.NewLine)
+
+        If isAI Then
+            ChatHistoryRichTextBox.AppendText(Environment.NewLine)
+        End If
+
+        ' Scroll to end
+        ChatHistoryRichTextBox.ScrollToCaret()
+    End Sub
+
     Public Sub New()
         InitializeComponent()
         LoadEnvironmentVariables()
@@ -18,6 +43,13 @@ Public Class frmAI
         httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " & apiKey)
         ' Initialize database connection
         dbConnection = createDBConnection()
+        ChatHistoryRichTextBox.BackColor = Color.White
+        ChatHistoryRichTextBox.BorderStyle = BorderStyle.FixedSingle
+        ChatHistoryRichTextBox.Font = New Font("Segoe UI", 9.75F)
+        ChatHistoryRichTextBox.ForeColor = Color.Black
+        ChatHistoryRichTextBox.ReadOnly = True
+        ChatHistoryRichTextBox.ScrollBars = RichTextBoxScrollBars.Vertical
+        LoadEnvironmentVariables()
         LoadChatHistory()
     End Sub
 
@@ -113,19 +145,17 @@ Public Class frmAI
         Try
             dbConnection.Open()
             Using cmd As New MySqlCommand(
-            "SELECT Role, Message FROM chat_history " &
-            "WHERE UserID = @userId " &
-            "ORDER BY Timestamp ASC",
-            dbConnection)
+        "SELECT Role, Message FROM chat_history " &
+        "WHERE UserID = @userId " &
+        "ORDER BY Timestamp ASC",
+        dbConnection)
                 cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
                 Using reader = cmd.ExecuteReader()
                     ChatHistoryRichTextBox.Clear()
                     While reader.Read()
-                        Dim prefix As String = If(reader("Role").ToString() = "user", "You: ", "AI: ")
-                        ChatHistoryRichTextBox.AppendText(prefix & reader("Message").ToString() & Environment.NewLine)
-                        If reader("Role").ToString() = "ai" Then
-                            ChatHistoryRichTextBox.AppendText(Environment.NewLine)
-                        End If
+                        Dim isAI = reader("Role").ToString() = "ai"
+                        Dim sender As String = If(isAI, "AI", "You")
+                        AppendFormattedMessage(sender, reader("Message").ToString(), isAI)
                     End While
                 End Using
             End Using
@@ -133,6 +163,7 @@ Public Class frmAI
             dbConnection.Close()
         End Try
     End Sub
+
 
     Private Sub LoadEnvironmentVariables()
         Try
@@ -168,13 +199,17 @@ Public Class frmAI
         Try
             Dim userMessage As String = UserInputTextBox.Text
             Dim financialContext As String = GetUserFinancialData()
-            ChatHistoryRichTextBox.AppendText("You: " & userMessage & Environment.NewLine)
+
+            ' Use new formatting for user message
+            AppendFormattedMessage("You", userMessage, False)
 
             ' Save user message
             SaveChatMessage("user", userMessage, financialContext)
 
             Dim aiResponse As String = Await GetAIResponse(userMessage)
-            ChatHistoryRichTextBox.AppendText("AI: " & aiResponse & Environment.NewLine & Environment.NewLine)
+
+            ' Use new formatting for AI response
+            AppendFormattedMessage("AI", aiResponse, True)
 
             ' Save AI response
             SaveChatMessage("ai", aiResponse, financialContext)
@@ -187,6 +222,7 @@ Public Class frmAI
             UserInputTextBox.Enabled = True
         End Try
     End Sub
+
 
 
     Private Async Function GetAIResponse(message As String) As Task(Of String)

@@ -36,8 +36,10 @@ Partial Class frmAI
         '
         'ChatHistoryRichTextBox
         '
+        Me.ChatHistoryRichTextBox.Font = New System.Drawing.Font("Pixelify Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChatHistoryRichTextBox.Location = New System.Drawing.Point(12, 12)
         Me.ChatHistoryRichTextBox.Name = "ChatHistoryRichTextBox"
+        Me.ChatHistoryRichTextBox.ReadOnly = True
         Me.ChatHistoryRichTextBox.Size = New System.Drawing.Size(1152, 374)
         Me.ChatHistoryRichTextBox.TabIndex = 1
         Me.ChatHistoryRichTextBox.Text = ""
