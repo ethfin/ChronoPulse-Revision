@@ -25,6 +25,7 @@ Partial Class frmAI
         Me.UserInputTextBox = New System.Windows.Forms.TextBox()
         Me.ChatHistoryRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.SendButton = New System.Windows.Forms.Button()
+        Me.btnClearHistory = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UserInputTextBox
@@ -36,11 +37,12 @@ Partial Class frmAI
         '
         'ChatHistoryRichTextBox
         '
+        Me.ChatHistoryRichTextBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.ChatHistoryRichTextBox.Font = New System.Drawing.Font("Pixelify Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChatHistoryRichTextBox.Location = New System.Drawing.Point(12, 12)
+        Me.ChatHistoryRichTextBox.Location = New System.Drawing.Point(0, 0)
         Me.ChatHistoryRichTextBox.Name = "ChatHistoryRichTextBox"
         Me.ChatHistoryRichTextBox.ReadOnly = True
-        Me.ChatHistoryRichTextBox.Size = New System.Drawing.Size(1152, 374)
+        Me.ChatHistoryRichTextBox.Size = New System.Drawing.Size(1176, 374)
         Me.ChatHistoryRichTextBox.TabIndex = 1
         Me.ChatHistoryRichTextBox.Text = ""
         '
@@ -53,12 +55,22 @@ Partial Class frmAI
         Me.SendButton.Text = "Send"
         Me.SendButton.UseVisualStyleBackColor = True
         '
+        'btnClearHistory
+        '
+        Me.btnClearHistory.Location = New System.Drawing.Point(199, 392)
+        Me.btnClearHistory.Name = "btnClearHistory"
+        Me.btnClearHistory.Size = New System.Drawing.Size(75, 23)
+        Me.btnClearHistory.TabIndex = 3
+        Me.btnClearHistory.Text = "Clear"
+        Me.btnClearHistory.UseVisualStyleBackColor = True
+        '
         'frmAI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1176, 579)
+        Me.Controls.Add(Me.btnClearHistory)
         Me.Controls.Add(Me.SendButton)
         Me.Controls.Add(Me.ChatHistoryRichTextBox)
         Me.Controls.Add(Me.UserInputTextBox)
@@ -73,4 +85,5 @@ Partial Class frmAI
     Friend WithEvents UserInputTextBox As TextBox
     Friend WithEvents ChatHistoryRichTextBox As RichTextBox
     Friend WithEvents SendButton As Button
+    Friend WithEvents btnClearHistory As Button
 End Class

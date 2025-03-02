@@ -14,18 +14,18 @@ Public Class frmAI
         ' Add timestamp
         Dim timestamp = DateTime.Now.ToString("HH:mm")
         ChatHistoryRichTextBox.SelectionColor = Color.Gray
-        ChatHistoryRichTextBox.SelectionFont = New Font("Arial", 8)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 8)
         ChatHistoryRichTextBox.AppendText($"[{timestamp}] ")
 
         ' Format sender
         ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.DarkGreen)
-        ChatHistoryRichTextBox.SelectionFont = New Font("Arial", 10, FontStyle.Bold)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 16, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText(sender & ": ")
 
         ' Format message
         ChatHistoryRichTextBox.SelectionColor = Color.Black
-        ChatHistoryRichTextBox.SelectionFont = New Font("Arial", 10)
-        ChatHistoryRichTextBox.AppendText(message & Environment.NewLine)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 14)
+        AppendFormattedText(message)
 
         If isAI Then
             ChatHistoryRichTextBox.AppendText(Environment.NewLine)
@@ -34,6 +34,36 @@ Public Class frmAI
         ' Scroll to end
         ChatHistoryRichTextBox.ScrollToCaret()
     End Sub
+
+    Private Sub AppendFormattedText(message As String)
+        Dim parts = message.Split(New Char() {" "c}, StringSplitOptions.None)
+        For Each part In parts
+            Dim fontStyle As FontStyle = FontStyle.Regular
+            Dim text = part
+
+            If text.StartsWith("*") AndAlso text.EndsWith("*") Then
+                fontStyle = FontStyle.Bold
+                text = text.Trim("*"c)
+            ElseIf text.StartsWith("_") AndAlso text.EndsWith("_") Then
+                fontStyle = FontStyle.Italic
+                text = text.Trim("_"c)
+            ElseIf text.StartsWith("~") AndAlso text.EndsWith("~") Then
+                fontStyle = FontStyle.Underline
+                text = text.Trim("~"c)
+            End If
+
+            ' Check for AI placed ** for bold text
+            If text.Contains("**") Then
+                fontStyle = FontStyle.Bold
+                text = text.Replace("**", "")
+            End If
+
+            ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 14, fontStyle)
+            ChatHistoryRichTextBox.AppendText(text & " ")
+        Next
+        ChatHistoryRichTextBox.AppendText(Environment.NewLine)
+    End Sub
+
 
     Public Sub New()
         InitializeComponent()
@@ -45,7 +75,7 @@ Public Class frmAI
         dbConnection = createDBConnection()
         ChatHistoryRichTextBox.BackColor = Color.White
         ChatHistoryRichTextBox.BorderStyle = BorderStyle.FixedSingle
-        ChatHistoryRichTextBox.Font = New Font("Segoe UI", 9.75F)
+        ChatHistoryRichTextBox.Font = New Font("Pixelify Sans", 14)
         ChatHistoryRichTextBox.ForeColor = Color.Black
         ChatHistoryRichTextBox.ReadOnly = True
         ChatHistoryRichTextBox.ScrollBars = RichTextBoxScrollBars.Vertical
@@ -122,20 +152,40 @@ Public Class frmAI
 
         Try
             dbConnection.Open()
-            Using cmd As New MySqlCommand(
+            ' First, insert the new message
+            Using cmdInsert As New MySqlCommand(
             "INSERT INTO chat_history (UserID, Role, Message, Context) " &
             "VALUES (@userId, @role, @message, @context)",
             dbConnection)
-                cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
-                cmd.Parameters.AddWithValue("@role", role)
-                cmd.Parameters.AddWithValue("@message", message)
-                cmd.Parameters.AddWithValue("@context", context)
-                cmd.ExecuteNonQuery()
+                cmdInsert.Parameters.AddWithValue("@userId", AccountData.UserID)
+                cmdInsert.Parameters.AddWithValue("@role", role)
+                cmdInsert.Parameters.AddWithValue("@message", message)
+                cmdInsert.Parameters.AddWithValue("@context", context)
+                cmdInsert.ExecuteNonQuery()
+            End Using
+
+            ' Then, delete older messages if count exceeds the limit
+            Using cmdDelete As New MySqlCommand(
+            "DELETE FROM chat_history " &
+            "WHERE UserID = @userId " &
+            "AND ChatID NOT IN (" &
+            "    SELECT ChatID FROM (" &
+            "        SELECT ChatID " &
+            "        FROM chat_history " &
+            "        WHERE UserID = @userId " &
+            "        ORDER BY Timestamp DESC " &
+            "        LIMIT 50" &
+            "    ) as temp" &
+            ")",
+            dbConnection)
+                cmdDelete.Parameters.AddWithValue("@userId", AccountData.UserID)
+                cmdDelete.ExecuteNonQuery()
             End Using
         Finally
             dbConnection.Close()
         End Try
     End Sub
+
 
     Private Sub LoadChatHistory()
         If String.IsNullOrEmpty(AccountData.UserID) Then
@@ -145,18 +195,27 @@ Public Class frmAI
         Try
             dbConnection.Open()
             Using cmd As New MySqlCommand(
-        "SELECT Role, Message FROM chat_history " &
-        "WHERE UserID = @userId " &
-        "ORDER BY Timestamp ASC",
-        dbConnection)
+            "SELECT Role, Message FROM chat_history " &
+            "WHERE UserID = @userId " &
+            "ORDER BY Timestamp DESC " &
+            "LIMIT 50",
+            dbConnection)
                 cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
                 Using reader = cmd.ExecuteReader()
                     ChatHistoryRichTextBox.Clear()
+                    Dim messages As New List(Of (Role As String, Message As String))
+
+                    ' Store messages in a list first (they come in reverse order)
                     While reader.Read()
-                        Dim isAI = reader("Role").ToString() = "ai"
-                        Dim sender As String = If(isAI, "AI", "You")
-                        AppendFormattedMessage(sender, reader("Message").ToString(), isAI)
+                        messages.Add((reader("Role").ToString(), reader("Message").ToString()))
                     End While
+
+                    ' Display messages in chronological order
+                    For i As Integer = messages.Count - 1 To 0 Step -1
+                        Dim isAI = messages(i).Role = "ai"
+                        Dim sender As String = If(isAI, "AI", "You")
+                        AppendFormattedMessage(sender, messages(i).Message, isAI)
+                    Next
                 End Using
             End Using
         Finally
@@ -223,6 +282,48 @@ Public Class frmAI
         End Try
     End Sub
 
+    Private Sub btnClearHistory_Click(sender As Object, e As EventArgs) Handles btnClearHistory.Click
+        If String.IsNullOrEmpty(AccountData.UserID) Then
+            Return
+        End If
+
+        ' Show confirmation dialog
+        Dim result = MessageBox.Show(
+        "Are you sure you want to clear your chat history? This action cannot be undone.",
+        "Clear Chat History",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning)
+
+        If result = DialogResult.Yes Then
+            Try
+                dbConnection.Open()
+                ' Delete all chat history for the current user
+                Using cmd As New MySqlCommand(
+                "DELETE FROM chat_history WHERE UserID = @userId",
+                dbConnection)
+                    cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
+                    cmd.ExecuteNonQuery()
+                End Using
+
+                ' Clear the chat display
+                ChatHistoryRichTextBox.Clear()
+                MessageBox.Show(
+                "Chat history has been cleared successfully.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show(
+                "Error clearing chat history: " & ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error)
+            Finally
+                dbConnection.Close()
+            End Try
+        End If
+    End Sub
 
 
     Private Async Function GetAIResponse(message As String) As Task(Of String)
