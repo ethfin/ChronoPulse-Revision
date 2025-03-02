@@ -327,27 +327,36 @@ Public Class frmAI
 
 
     Private Async Function GetAIResponse(message As String) As Task(Of String)
+        ' First validate if the message is finance-related
+        If Not IsFinancialQuery(message) Then
+            Return "I apologize, but I can only assist with financial topics and questions related to your financial data. Please ask something about your expenses, budget, savings, or financial planning."
+        End If
+
         Dim financialContext As String = GetUserFinancialData()
         Dim enhancedMessage As String = $"As a financial advisor, considering the following user data:" &
-                                      vbNewLine & financialContext &
-                                      vbNewLine & "User question: " & message &
-                                      vbNewLine & "Please provide a concise response with only the necessary information."
+                                  vbNewLine & financialContext &
+                                  vbNewLine & "User question: " & message &
+                                  vbNewLine & "Please provide a concise response with only the necessary information."
 
         Dim requestBody As New With {
-            .model = "deepseek-chat",
-            .messages = New List(Of Object) From {
-                New With {
-                    .role = "system",
-                    .content = "You are a financial advisor. Analyze the provided financial data and give professional advice."
-                },
-                New With {
-                    .role = "user",
-                    .content = enhancedMessage
-                }
+        .model = "deepseek-chat",
+        .messages = New List(Of Object) From {
+            New With {
+                .role = "system",
+                .content = "You are a strictly financial advisor AI. Only provide responses related to financial matters, " &
+                          "personal finance, budgeting, savings, investments, and financial planning. " &
+                          "If a question is not related to finance or the user's financial data, " &
+                          "politely decline to answer and remind the user that you can only discuss financial topics. " &
+                          "Always analyze the provided financial data to give personalized financial advice."
             },
-            .temperature = 0.7,
-            .max_tokens = 1000
-        }
+            New With {
+                .role = "user",
+                .content = enhancedMessage
+            }
+        },
+        .temperature = 0.7,
+        .max_tokens = 1000
+    }
 
         Dim jsonRequestBody As String = JsonConvert.SerializeObject(requestBody)
         Dim content As New StringContent(jsonRequestBody, Encoding.UTF8, "application/json")
@@ -363,6 +372,23 @@ Public Class frmAI
         Dim necessaryData As String = ExtractNecessaryData(aiContent)
 
         Return necessaryData
+    End Function
+
+    Private Function IsFinancialQuery(message As String) As Boolean
+        ' List of financial-related keywords
+        Dim financialKeywords As String() = {
+        "money", "budget", "expense", "spend", "save", "invest", "income", "cost",
+        "bill", "payment", "debt", "loan", "interest", "bank", "account", "finance",
+        "dollar", "profit", "loss", "balance", "credit", "debit", "fund", "salary",
+        "earning", "tax", "investment", "stock", "bond", "market", "portfolio",
+        "saving", "goal", "financial", "economy", "price", "cash", "transaction"
+    }
+
+        ' Convert message to lower case for case-insensitive comparison
+        Dim lowerMessage As String = message.ToLower()
+
+        ' Check if the message contains any financial keywords
+        Return financialKeywords.Any(Function(keyword) lowerMessage.Contains(keyword))
     End Function
 
     Private Function ExtractNecessaryData(aiContent As String) As String
