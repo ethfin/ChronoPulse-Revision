@@ -66,11 +66,10 @@ Partial Class frmMain
         Me.pnlContainer.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.pnlContainer.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.pnlContainer.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.pnlContainer.Location = New System.Drawing.Point(123, 53)
-        Me.pnlContainer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlContainer.Location = New System.Drawing.Point(92, 43)
         Me.pnlContainer.Name = "pnlContainer"
-        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(40, 37, 40, 37)
-        Me.pnlContainer.Size = New System.Drawing.Size(1589, 761)
+        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
+        Me.pnlContainer.Size = New System.Drawing.Size(1192, 618)
         Me.pnlContainer.TabIndex = 5
         '
         'pnlHeader
@@ -82,10 +81,9 @@ Partial Class frmMain
         Me.pnlHeader.Controls.Add(Me.pbxUser)
         Me.pnlHeader.CustomBorderColor = System.Drawing.Color.White
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHeader.Location = New System.Drawing.Point(123, 0)
-        Me.pnlHeader.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlHeader.Location = New System.Drawing.Point(92, 0)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1589, 53)
+        Me.pnlHeader.Size = New System.Drawing.Size(1192, 43)
         Me.pnlHeader.TabIndex = 3
         '
         'lblUsername
@@ -93,11 +91,10 @@ Partial Class frmMain
         Me.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lblUsername.AutoSize = False
         Me.lblUsername.BackColor = System.Drawing.Color.Transparent
-        Me.lblUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblUsername.Location = New System.Drawing.Point(1408, 25)
-        Me.lblUsername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lblUsername.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.Location = New System.Drawing.Point(942, 12)
         Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(123, 21)
+        Me.lblUsername.Size = New System.Drawing.Size(206, 25)
         Me.lblUsername.TabIndex = 2
         Me.lblUsername.Text = "Username"
         Me.lblUsername.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
@@ -115,11 +112,10 @@ Partial Class frmMain
         Me.ckbxTheme.ImageRotate = 0!
         Me.ckbxTheme.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.IndicateFocus = True
-        Me.ckbxTheme.Location = New System.Drawing.Point(151, 16)
-        Me.ckbxTheme.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ckbxTheme.Location = New System.Drawing.Point(143, 12)
         Me.ckbxTheme.Name = "ckbxTheme"
         Me.ckbxTheme.PressedState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ckbxTheme.Size = New System.Drawing.Size(32, 30)
+        Me.ckbxTheme.Size = New System.Drawing.Size(24, 24)
         Me.ckbxTheme.TabIndex = 1
         Me.ckbxTheme.UseTransparentBackground = True
         '
@@ -127,11 +123,10 @@ Partial Class frmMain
         '
         Me.lblCurrentPanel.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentPanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblCurrentPanel.Location = New System.Drawing.Point(25, 21)
-        Me.lblCurrentPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lblCurrentPanel.Font = New System.Drawing.Font("Pixelify Sans", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentPanel.Location = New System.Drawing.Point(13, 10)
         Me.lblCurrentPanel.Name = "lblCurrentPanel"
-        Me.lblCurrentPanel.Size = New System.Drawing.Size(108, 27)
+        Me.lblCurrentPanel.Size = New System.Drawing.Size(124, 27)
         Me.lblCurrentPanel.TabIndex = 1
         Me.lblCurrentPanel.Text = "Dashboard"
         '
@@ -142,10 +137,10 @@ Partial Class frmMain
         Me.pbxUser.FillColor = System.Drawing.Color.Transparent
         Me.pbxUser.Image = Global.ChronoPulse_Revision.My.Resources.Resources.user
         Me.pbxUser.ImageRotate = 0!
-        Me.pbxUser.Location = New System.Drawing.Point(1535, 6)
+        Me.pbxUser.Location = New System.Drawing.Point(1151, 5)
         Me.pbxUser.Margin = New System.Windows.Forms.Padding(0)
         Me.pbxUser.Name = "pbxUser"
-        Me.pbxUser.Size = New System.Drawing.Size(43, 39)
+        Me.pbxUser.Size = New System.Drawing.Size(32, 32)
         Me.pbxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxUser.TabIndex = 0
         Me.pbxUser.TabStop = False
@@ -165,9 +160,8 @@ Partial Class frmMain
         Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
-        Me.pnlMenu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(123, 814)
+        Me.pnlMenu.Size = New System.Drawing.Size(92, 661)
         Me.pnlMenu.TabIndex = 4
         '
         'btnBudget
@@ -186,10 +180,9 @@ Partial Class frmMain
         Me.btnBudget.Image = CType(resources.GetObject("btnBudget.Image"), System.Drawing.Image)
         Me.btnBudget.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnBudget.IndicateFocus = True
-        Me.btnBudget.Location = New System.Drawing.Point(12, 441)
-        Me.btnBudget.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnBudget.Location = New System.Drawing.Point(9, 358)
         Me.btnBudget.Name = "btnBudget"
-        Me.btnBudget.Size = New System.Drawing.Size(99, 55)
+        Me.btnBudget.Size = New System.Drawing.Size(74, 45)
         Me.btnBudget.TabIndex = 9
         Me.btnBudget.UseTransparentBackground = True
         '
@@ -209,10 +202,9 @@ Partial Class frmMain
         Me.btnSavings.Image = CType(resources.GetObject("btnSavings.Image"), System.Drawing.Image)
         Me.btnSavings.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnSavings.IndicateFocus = True
-        Me.btnSavings.Location = New System.Drawing.Point(12, 378)
-        Me.btnSavings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSavings.Location = New System.Drawing.Point(9, 307)
         Me.btnSavings.Name = "btnSavings"
-        Me.btnSavings.Size = New System.Drawing.Size(99, 55)
+        Me.btnSavings.Size = New System.Drawing.Size(74, 45)
         Me.btnSavings.TabIndex = 8
         Me.btnSavings.UseTransparentBackground = True
         '
@@ -232,10 +224,9 @@ Partial Class frmMain
         Me.btnIncome.Image = CType(resources.GetObject("btnIncome.Image"), System.Drawing.Image)
         Me.btnIncome.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnIncome.IndicateFocus = True
-        Me.btnIncome.Location = New System.Drawing.Point(12, 315)
-        Me.btnIncome.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnIncome.Location = New System.Drawing.Point(9, 256)
         Me.btnIncome.Name = "btnIncome"
-        Me.btnIncome.Size = New System.Drawing.Size(99, 55)
+        Me.btnIncome.Size = New System.Drawing.Size(74, 45)
         Me.btnIncome.TabIndex = 7
         Me.btnIncome.UseTransparentBackground = True
         '
@@ -255,10 +246,9 @@ Partial Class frmMain
         Me.btnExpenses.Image = CType(resources.GetObject("btnExpenses.Image"), System.Drawing.Image)
         Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnExpenses.IndicateFocus = True
-        Me.btnExpenses.Location = New System.Drawing.Point(12, 252)
-        Me.btnExpenses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnExpenses.Location = New System.Drawing.Point(9, 205)
         Me.btnExpenses.Name = "btnExpenses"
-        Me.btnExpenses.Size = New System.Drawing.Size(99, 55)
+        Me.btnExpenses.Size = New System.Drawing.Size(74, 45)
         Me.btnExpenses.TabIndex = 6
         Me.btnExpenses.UseTransparentBackground = True
         '
@@ -278,10 +268,9 @@ Partial Class frmMain
         Me.btnGames.Image = CType(resources.GetObject("btnGames.Image"), System.Drawing.Image)
         Me.btnGames.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnGames.IndicateFocus = True
-        Me.btnGames.Location = New System.Drawing.Point(12, 190)
-        Me.btnGames.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGames.Location = New System.Drawing.Point(9, 154)
         Me.btnGames.Name = "btnGames"
-        Me.btnGames.Size = New System.Drawing.Size(99, 55)
+        Me.btnGames.Size = New System.Drawing.Size(74, 45)
         Me.btnGames.TabIndex = 5
         Me.btnGames.UseTransparentBackground = True
         '
@@ -302,10 +291,9 @@ Partial Class frmMain
         Me.btnDashboard.Image = CType(resources.GetObject("btnDashboard.Image"), System.Drawing.Image)
         Me.btnDashboard.ImageSize = New System.Drawing.Size(25, 25)
         Me.btnDashboard.IndicateFocus = True
-        Me.btnDashboard.Location = New System.Drawing.Point(12, 127)
-        Me.btnDashboard.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnDashboard.Location = New System.Drawing.Point(9, 103)
         Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Size = New System.Drawing.Size(99, 55)
+        Me.btnDashboard.Size = New System.Drawing.Size(74, 45)
         Me.btnDashboard.TabIndex = 4
         Me.btnDashboard.UseTransparentBackground = True
         '
@@ -314,10 +302,9 @@ Partial Class frmMain
         Me.Guna2Separator1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.Location = New System.Drawing.Point(12, 107)
-        Me.Guna2Separator1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(9, 87)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(99, 12)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(74, 10)
         Me.Guna2Separator1.TabIndex = 3
         Me.Guna2Separator1.UseTransparentBackground = True
         '
@@ -331,10 +318,9 @@ Partial Class frmMain
         Me.btnLogout.IconColor = System.Drawing.Color.Red
         Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnLogout.IconSize = 30
-        Me.btnLogout.Location = New System.Drawing.Point(15, 713)
-        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLogout.Location = New System.Drawing.Point(11, 579)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(93, 86)
+        Me.btnLogout.Size = New System.Drawing.Size(70, 70)
         Me.btnLogout.TabIndex = 2
         Me.btnLogout.UseVisualStyleBackColor = True
         '
@@ -345,10 +331,9 @@ Partial Class frmMain
         Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
         Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Dark
         Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(12, 15)
-        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pbxLogo.Location = New System.Drawing.Point(9, 12)
         Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(99, 85)
+        Me.pbxLogo.Size = New System.Drawing.Size(74, 69)
         Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxLogo.TabIndex = 0
         Me.pbxLogo.TabStop = False
@@ -376,27 +361,27 @@ Partial Class frmMain
         Me.cmsDropDown.RenderStyle.SelectionForeColor = System.Drawing.Color.White
         Me.cmsDropDown.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
         Me.cmsDropDown.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsDropDown.Size = New System.Drawing.Size(164, 82)
+        Me.cmsDropDown.Size = New System.Drawing.Size(145, 82)
         '
         'cmsSystemTray
         '
         Me.cmsSystemTray.CheckOnClick = True
         Me.cmsSystemTray.Name = "cmsSystemTray"
-        Me.cmsSystemTray.Size = New System.Drawing.Size(163, 26)
+        Me.cmsSystemTray.Size = New System.Drawing.Size(144, 26)
         Me.cmsSystemTray.Text = "System Tray"
         '
         'cmsTheme
         '
         Me.cmsTheme.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dark_mode
         Me.cmsTheme.Name = "cmsTheme"
-        Me.cmsTheme.Size = New System.Drawing.Size(163, 26)
+        Me.cmsTheme.Size = New System.Drawing.Size(144, 26)
         Me.cmsTheme.Text = "Light/Dark"
         '
         'cmsLogout
         '
         Me.cmsLogout.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
         Me.cmsLogout.Name = "cmsLogout"
-        Me.cmsLogout.Size = New System.Drawing.Size(163, 26)
+        Me.cmsLogout.Size = New System.Drawing.Size(144, 26)
         Me.cmsLogout.Text = "Logout"
         '
         'NotifyIcon1
@@ -407,16 +392,15 @@ Partial Class frmMain
         '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(1712, 814)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Controls.Add(Me.pnlContainer)
         Me.Controls.Add(Me.pnlHeader)
         Me.Controls.Add(Me.pnlMenu)
         Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main"
