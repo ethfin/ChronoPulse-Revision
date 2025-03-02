@@ -141,15 +141,15 @@ Public Class frmMain
     End Sub
 
     Private Sub SetDarkTheme()
-        ' Set the background color to dark
+        ' Set the background color to dark  
         Me.BackColor = Color.FromArgb(20, 20, 22)
         pnlContainer.BackColor = Color.FromArgb(20, 20, 22)
         pnlHeader.BackColor = Color.FromArgb(20, 20, 22)
         pnlMenu.BackColor = Color.FromArgb(20, 20, 22)
-        ' Set the text color to light
+        ' Set the text color to light  
         lblUsername.ForeColor = Color.FromArgb(255, 255, 255)
         lblCurrentPanel.ForeColor = Color.FromArgb(255, 255, 255)
-        ' Set the Logo to a different image
+        ' Set the Logo to a different image  
         pbxLogo.Image = My.Resources.ChronoPulse_Logo_Light
         pbxUser.Image = My.Resources.user_white
         btnDashboard.Image = My.Resources.dashboard_blue
@@ -158,6 +158,13 @@ Public Class frmMain
         btnIncome.Image = My.Resources.btnDIncome
         btnBudget.Image = My.Resources.btnDBudget
         btnSavings.Image = My.Resources.btnDSavings
+        ' Set the button text color to white  
+        btnDashboard.ForeColor = Color.White
+        btnGames.ForeColor = Color.White
+        btnExpenses.ForeColor = Color.White
+        btnIncome.ForeColor = Color.White
+        btnBudget.ForeColor = Color.White
+        btnSavings.ForeColor = Color.White
     End Sub
 
     Private Sub SetLightTheme()
@@ -178,6 +185,13 @@ Public Class frmMain
         btnIncome.Image = My.Resources.btnIncome
         btnBudget.Image = My.Resources.btnBudget
         btnSavings.Image = My.Resources.btnSavings
+        ' Set the button text color to black  
+        btnDashboard.ForeColor = Color.Black
+        btnGames.ForeColor = Color.Black
+        btnExpenses.ForeColor = Color.Black
+        btnIncome.ForeColor = Color.Black
+        btnBudget.ForeColor = Color.Black
+        btnSavings.ForeColor = Color.Black
     End Sub
 
     <DllImport("Gdi32.dll")>

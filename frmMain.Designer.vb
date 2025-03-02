@@ -66,10 +66,10 @@ Partial Class frmMain
         Me.pnlContainer.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.pnlContainer.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.pnlContainer.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.pnlContainer.Location = New System.Drawing.Point(92, 43)
+        Me.pnlContainer.Location = New System.Drawing.Point(191, 43)
         Me.pnlContainer.Name = "pnlContainer"
         Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
-        Me.pnlContainer.Size = New System.Drawing.Size(1192, 618)
+        Me.pnlContainer.Size = New System.Drawing.Size(1093, 618)
         Me.pnlContainer.TabIndex = 5
         '
         'pnlHeader
@@ -81,9 +81,9 @@ Partial Class frmMain
         Me.pnlHeader.Controls.Add(Me.pbxUser)
         Me.pnlHeader.CustomBorderColor = System.Drawing.Color.White
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHeader.Location = New System.Drawing.Point(92, 0)
+        Me.pnlHeader.Location = New System.Drawing.Point(191, 0)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1192, 43)
+        Me.pnlHeader.Size = New System.Drawing.Size(1093, 43)
         Me.pnlHeader.TabIndex = 3
         '
         'lblUsername
@@ -92,7 +92,7 @@ Partial Class frmMain
         Me.lblUsername.AutoSize = False
         Me.lblUsername.BackColor = System.Drawing.Color.Transparent
         Me.lblUsername.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsername.Location = New System.Drawing.Point(942, 12)
+        Me.lblUsername.Location = New System.Drawing.Point(843, 12)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(206, 25)
         Me.lblUsername.TabIndex = 2
@@ -137,7 +137,7 @@ Partial Class frmMain
         Me.pbxUser.FillColor = System.Drawing.Color.Transparent
         Me.pbxUser.Image = Global.ChronoPulse_Revision.My.Resources.Resources.user
         Me.pbxUser.ImageRotate = 0!
-        Me.pbxUser.Location = New System.Drawing.Point(1151, 5)
+        Me.pbxUser.Location = New System.Drawing.Point(1052, 5)
         Me.pbxUser.Margin = New System.Windows.Forms.Padding(0)
         Me.pbxUser.Name = "pbxUser"
         Me.pbxUser.Size = New System.Drawing.Size(32, 32)
@@ -161,7 +161,7 @@ Partial Class frmMain
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(92, 661)
+        Me.pnlMenu.Size = New System.Drawing.Size(191, 661)
         Me.pnlMenu.TabIndex = 4
         '
         'btnBudget
@@ -175,15 +175,18 @@ Partial Class frmMain
         Me.btnBudget.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnBudget.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnBudget.FillColor = System.Drawing.Color.Transparent
-        Me.btnBudget.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnBudget.ForeColor = System.Drawing.Color.White
+        Me.btnBudget.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnBudget.ForeColor = System.Drawing.Color.Black
         Me.btnBudget.Image = CType(resources.GetObject("btnBudget.Image"), System.Drawing.Image)
+        Me.btnBudget.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnBudget.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnBudget.IndicateFocus = True
         Me.btnBudget.Location = New System.Drawing.Point(9, 358)
         Me.btnBudget.Name = "btnBudget"
-        Me.btnBudget.Size = New System.Drawing.Size(74, 45)
+        Me.btnBudget.Size = New System.Drawing.Size(173, 45)
         Me.btnBudget.TabIndex = 9
+        Me.btnBudget.Text = "Budget"
+        Me.btnBudget.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnBudget.UseTransparentBackground = True
         '
         'btnSavings
@@ -197,15 +200,18 @@ Partial Class frmMain
         Me.btnSavings.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnSavings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnSavings.FillColor = System.Drawing.Color.Transparent
-        Me.btnSavings.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnSavings.ForeColor = System.Drawing.Color.White
+        Me.btnSavings.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnSavings.ForeColor = System.Drawing.Color.Black
         Me.btnSavings.Image = CType(resources.GetObject("btnSavings.Image"), System.Drawing.Image)
+        Me.btnSavings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnSavings.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnSavings.IndicateFocus = True
         Me.btnSavings.Location = New System.Drawing.Point(9, 307)
         Me.btnSavings.Name = "btnSavings"
-        Me.btnSavings.Size = New System.Drawing.Size(74, 45)
+        Me.btnSavings.Size = New System.Drawing.Size(173, 45)
         Me.btnSavings.TabIndex = 8
+        Me.btnSavings.Text = "Goals"
+        Me.btnSavings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnSavings.UseTransparentBackground = True
         '
         'btnIncome
@@ -219,15 +225,18 @@ Partial Class frmMain
         Me.btnIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnIncome.FillColor = System.Drawing.Color.Transparent
-        Me.btnIncome.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnIncome.ForeColor = System.Drawing.Color.White
+        Me.btnIncome.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnIncome.ForeColor = System.Drawing.Color.Black
         Me.btnIncome.Image = CType(resources.GetObject("btnIncome.Image"), System.Drawing.Image)
+        Me.btnIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnIncome.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnIncome.IndicateFocus = True
         Me.btnIncome.Location = New System.Drawing.Point(9, 256)
         Me.btnIncome.Name = "btnIncome"
-        Me.btnIncome.Size = New System.Drawing.Size(74, 45)
+        Me.btnIncome.Size = New System.Drawing.Size(173, 45)
         Me.btnIncome.TabIndex = 7
+        Me.btnIncome.Text = "Income"
+        Me.btnIncome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnIncome.UseTransparentBackground = True
         '
         'btnExpenses
@@ -241,15 +250,18 @@ Partial Class frmMain
         Me.btnExpenses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnExpenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
-        Me.btnExpenses.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnExpenses.ForeColor = System.Drawing.Color.White
+        Me.btnExpenses.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnExpenses.ForeColor = System.Drawing.Color.Black
         Me.btnExpenses.Image = CType(resources.GetObject("btnExpenses.Image"), System.Drawing.Image)
+        Me.btnExpenses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnExpenses.IndicateFocus = True
         Me.btnExpenses.Location = New System.Drawing.Point(9, 205)
         Me.btnExpenses.Name = "btnExpenses"
-        Me.btnExpenses.Size = New System.Drawing.Size(74, 45)
+        Me.btnExpenses.Size = New System.Drawing.Size(173, 45)
         Me.btnExpenses.TabIndex = 6
+        Me.btnExpenses.Text = "Expenses"
+        Me.btnExpenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnExpenses.UseTransparentBackground = True
         '
         'btnGames
@@ -263,15 +275,18 @@ Partial Class frmMain
         Me.btnGames.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnGames.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnGames.FillColor = System.Drawing.Color.Transparent
-        Me.btnGames.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnGames.ForeColor = System.Drawing.Color.White
+        Me.btnGames.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnGames.ForeColor = System.Drawing.Color.Black
         Me.btnGames.Image = CType(resources.GetObject("btnGames.Image"), System.Drawing.Image)
+        Me.btnGames.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnGames.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnGames.IndicateFocus = True
         Me.btnGames.Location = New System.Drawing.Point(9, 154)
         Me.btnGames.Name = "btnGames"
-        Me.btnGames.Size = New System.Drawing.Size(74, 45)
+        Me.btnGames.Size = New System.Drawing.Size(173, 45)
         Me.btnGames.TabIndex = 5
+        Me.btnGames.Text = "AI Chatbot"
+        Me.btnGames.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnGames.UseTransparentBackground = True
         '
         'btnDashboard
@@ -286,15 +301,18 @@ Partial Class frmMain
         Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
-        Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnDashboard.ForeColor = System.Drawing.Color.White
+        Me.btnDashboard.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnDashboard.ForeColor = System.Drawing.Color.Black
         Me.btnDashboard.Image = CType(resources.GetObject("btnDashboard.Image"), System.Drawing.Image)
+        Me.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.ImageSize = New System.Drawing.Size(25, 25)
         Me.btnDashboard.IndicateFocus = True
         Me.btnDashboard.Location = New System.Drawing.Point(9, 103)
         Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Size = New System.Drawing.Size(74, 45)
+        Me.btnDashboard.Size = New System.Drawing.Size(173, 45)
         Me.btnDashboard.TabIndex = 4
+        Me.btnDashboard.Text = "Dashboard"
+        Me.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.UseTransparentBackground = True
         '
         'Guna2Separator1
@@ -304,7 +322,7 @@ Partial Class frmMain
         Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Separator1.Location = New System.Drawing.Point(9, 87)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(74, 10)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(173, 10)
         Me.Guna2Separator1.TabIndex = 3
         Me.Guna2Separator1.UseTransparentBackground = True
         '
@@ -314,14 +332,18 @@ Partial Class frmMain
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogout.ForeColor = System.Drawing.Color.Red
         Me.btnLogout.IconChar = FontAwesome.Sharp.IconChar.DoorOpen
         Me.btnLogout.IconColor = System.Drawing.Color.Red
         Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnLogout.IconSize = 30
-        Me.btnLogout.Location = New System.Drawing.Point(11, 579)
+        Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLogout.Location = New System.Drawing.Point(9, 604)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(70, 70)
+        Me.btnLogout.Size = New System.Drawing.Size(173, 45)
         Me.btnLogout.TabIndex = 2
+        Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
         'pbxLogo
@@ -333,7 +355,7 @@ Partial Class frmMain
         Me.pbxLogo.ImageRotate = 0!
         Me.pbxLogo.Location = New System.Drawing.Point(9, 12)
         Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(74, 69)
+        Me.pbxLogo.Size = New System.Drawing.Size(173, 69)
         Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxLogo.TabIndex = 0
         Me.pbxLogo.TabStop = False
