@@ -331,9 +331,9 @@ Public Class frmAI
 
     Private Async Function GetAIResponse(message As String) As Task(Of String)
         ' First validate if the message is finance-related
-        If Not IsFinancialQuery(message) Then
-            Return "I apologize, but I can only assist with financial topics and questions related to your financial data. Please ask something about your expenses, budget, savings, or financial planning."
-        End If
+        'If Not IsFinancialQuery(message) Then
+        '    Return "I apologize, but I can only assist with financial topics and questions related to your financial data. Please ask something about your expenses, budget, savings, or financial planning."
+        'End If
 
         Dim financialContext As String = GetUserFinancialData()
         Dim enhancedMessage As String = $"As a financial advisor, considering the following user data:" &
