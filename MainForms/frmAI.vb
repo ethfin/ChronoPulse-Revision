@@ -8,7 +8,7 @@ Imports MySql.Data.MySqlClient
 Public Class frmAI
     Private ReadOnly httpClient As HttpClient
     Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/chat/completions"
-    Private dbConnection As MySqlConnection ' Add this field
+    Private dbConnection As MySqlConnection 
 
     Private Sub AppendFormattedMessage(sender As String, message As String, isAI As Boolean)
         ' Add timestamp
@@ -40,6 +40,7 @@ Public Class frmAI
         For Each part In parts
             Dim fontStyle As FontStyle = FontStyle.Regular
             Dim text = part
+            Dim fontSize As Single = 14
 
             If text.StartsWith("*") AndAlso text.EndsWith("*") Then
                 fontStyle = FontStyle.Bold
@@ -61,7 +62,12 @@ Public Class frmAI
                 text = text.Replace("**", "")
             End If
 
-            ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 14, fontStyle)
+            If text.StartsWith("###") Then
+                fontSize = 18
+                text = text.TrimStart("#"c)
+            End If
+
+            ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", fontSize, fontStyle)
             ChatHistoryRichTextBox.AppendText(text & " ")
         Next
         ChatHistoryRichTextBox.AppendText(Environment.NewLine)
@@ -252,86 +258,6 @@ Public Class frmAI
         End Try
     End Function
 
-    Private Async Sub SendButton_Click(sender As Object, e As EventArgs) Handles SendButton.Click
-        If String.IsNullOrWhiteSpace(UserInputTextBox.Text) Then
-            MessageBox.Show("Please enter a message", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        SendButton.Enabled = False
-        UserInputTextBox.Enabled = False
-
-        Try
-            Dim userMessage As String = UserInputTextBox.Text
-            Dim financialContext As String = GetUserFinancialData()
-
-            ' Use new formatting for user message
-            AppendFormattedMessage("You", userMessage, False)
-
-            ' Save user message
-            SaveChatMessage("user", userMessage, financialContext)
-
-            Dim aiResponse As String = Await GetAIResponse(userMessage)
-
-            ' Use new formatting for AI response
-            AppendFormattedMessage("AI", aiResponse, True)
-
-            ' Save AI response
-            SaveChatMessage("ai", aiResponse, financialContext)
-
-            UserInputTextBox.Clear()
-        Catch ex As Exception
-            MessageBox.Show("Error getting AI response: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            SendButton.Enabled = True
-            UserInputTextBox.Enabled = True
-        End Try
-    End Sub
-
-    Private Sub btnClearHistory_Click(sender As Object, e As EventArgs) Handles btnClearHistory.Click
-        If String.IsNullOrEmpty(AccountData.UserID) Then
-            Return
-        End If
-
-        ' Show confirmation dialog
-        Dim result = MessageBox.Show(
-        "Are you sure you want to clear your chat history? This action cannot be undone.",
-        "Clear Chat History",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Warning)
-
-        If result = DialogResult.Yes Then
-            Try
-                dbConnection.Open()
-                ' Delete all chat history for the current user
-                Using cmd As New MySqlCommand(
-                "DELETE FROM chat_history WHERE UserID = @userId",
-                dbConnection)
-                    cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
-                    cmd.ExecuteNonQuery()
-                End Using
-
-                ' Clear the chat display
-                ChatHistoryRichTextBox.Clear()
-                MessageBox.Show(
-                "Chat history has been cleared successfully.",
-                "Success",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information)
-
-            Catch ex As Exception
-                MessageBox.Show(
-                "Error clearing chat history: " & ex.Message,
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error)
-            Finally
-                dbConnection.Close()
-            End Try
-        End If
-    End Sub
-
-
     Private Async Function GetAIResponse(message As String) As Task(Of String)
         ' First validate if the message is finance-related
         'If Not IsFinancialQuery(message) Then
@@ -403,6 +329,85 @@ Public Class frmAI
         ' This is a placeholder implementation
         Return aiContent ' Modify this to return only the necessary data
     End Function
+
+    Private Async Sub SendButton_Click_1(sender As Object, e As EventArgs) Handles SendButton.Click
+        If String.IsNullOrWhiteSpace(UserInputTextBox.Text) Then
+            MessageBox.Show("Please enter a message", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        SendButton.Enabled = False
+        UserInputTextBox.Enabled = False
+
+        Try
+            Dim userMessage As String = UserInputTextBox.Text
+            Dim financialContext As String = GetUserFinancialData()
+
+            ' Use new formatting for user message
+            AppendFormattedMessage("You", userMessage, False)
+
+            ' Save user message
+            SaveChatMessage("user", userMessage, financialContext)
+
+            Dim aiResponse As String = Await GetAIResponse(userMessage)
+
+            ' Use new formatting for AI response
+            AppendFormattedMessage("AI", aiResponse, True)
+
+            ' Save AI response
+            SaveChatMessage("ai", aiResponse, financialContext)
+
+            UserInputTextBox.Clear()
+        Catch ex As Exception
+            MessageBox.Show("Error getting AI response: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            SendButton.Enabled = True
+            UserInputTextBox.Enabled = True
+        End Try
+    End Sub
+
+    Private Sub btnClearHistory_Click_1(sender As Object, e As EventArgs) Handles btnClearHistory.Click
+        If String.IsNullOrEmpty(AccountData.UserID) Then
+            Return
+        End If
+
+        ' Show confirmation dialog
+        Dim result = MessageBox.Show(
+        "Are you sure you want to clear your chat history? This action cannot be undone.",
+        "Clear Chat History",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning)
+
+        If result = DialogResult.Yes Then
+            Try
+                dbConnection.Open()
+                ' Delete all chat history for the current user
+                Using cmd As New MySqlCommand(
+                "DELETE FROM chat_history WHERE UserID = @userId",
+                dbConnection)
+                    cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
+                    cmd.ExecuteNonQuery()
+                End Using
+
+                ' Clear the chat display
+                ChatHistoryRichTextBox.Clear()
+                MessageBox.Show(
+                "Chat history has been cleared successfully.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show(
+                "Error clearing chat history: " & ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error)
+            Finally
+                dbConnection.Close()
+            End Try
+        End If
+    End Sub
 End Class
 
 Public Class DeepSeekResponse
