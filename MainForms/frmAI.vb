@@ -109,22 +109,25 @@ Public Class frmAI
                 End Using
             End Using
 
-            ' Get budget information (using categories and transactions tables)
+            ' Get budget information (using the budgets table)
             Using cmdBudget As New MySqlCommand(
-            "SELECT c.CategoryName, SUM(t.Amount) as TotalAmount " &
-            "FROM categories c " &
-            "INNER JOIN transactions t ON c.CategoryID = t.CategoryID " &
-            "WHERE t.UserID = @userId AND t.Type = 'Expense' " &
-            "GROUP BY c.CategoryID, c.CategoryName",
-            dbConnection)
+                "SELECT c.CategoryName, b.Amount, b.StartDate, b.EndDate " &
+                "FROM budgets b " &
+                "INNER JOIN categories c ON b.CategoryID = c.CategoryID " &
+                "WHERE b.UserID = @userId " &
+                "AND CURRENT_DATE BETWEEN b.StartDate AND b.EndDate",
+                dbConnection)
                 cmdBudget.Parameters.AddWithValue("@userId", AccountData.UserID)
                 Using reader = cmdBudget.ExecuteReader()
                     financialData.AppendLine(vbNewLine & "Budget Information:")
                     While reader.Read()
-                        financialData.AppendLine($"- {reader("CategoryName")}: ${reader("TotalAmount")}")
+                        financialData.AppendLine(
+                $"- {reader("CategoryName")}: ${reader("Amount")} " &
+                $"(Valid: {CDate(reader("StartDate")).ToString("MM/dd/yyyy")} - {CDate(reader("EndDate")).ToString("MM/dd/yyyy")})")
                     End While
                 End Using
             End Using
+
 
             ' Get savings information (updated to match savings_goals table)
             Using cmdSavings As New MySqlCommand(
