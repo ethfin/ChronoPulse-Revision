@@ -150,6 +150,23 @@ Public Class frmAI
                 End Using
             End Using
 
+            ' Get income information (add this after the savings_goals query)
+            Using cmdIncome As New MySqlCommand(
+                "SELECT Source, Amount, Date " &
+                "FROM user_income " &
+                "WHERE UserID = @userId " &
+                "ORDER BY Date DESC LIMIT 10",
+                dbConnection)
+                cmdIncome.Parameters.AddWithValue("@userId", AccountData.UserID)
+                Using reader = cmdIncome.ExecuteReader()
+                    financialData.AppendLine(vbNewLine & "Recent Income:")
+                    While reader.Read()
+                        financialData.AppendLine($"- ${reader("Amount")} from {reader("Source")} on {CDate(reader("Date")).ToString("MM/dd/yyyy")}")
+                    End While
+                End Using
+            End Using
+
+
             Return financialData.ToString()
 
         Finally
