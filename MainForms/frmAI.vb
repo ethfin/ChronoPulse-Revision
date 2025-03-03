@@ -306,22 +306,22 @@ Public Class frmAI
         Return necessaryData
     End Function
 
-    Private Function IsFinancialQuery(message As String) As Boolean
-        ' List of financial-related keywords
-        Dim financialKeywords As String() = {
-        "money", "budget", "expense", "spend", "save", "invest", "income", "cost",
-        "bill", "payment", "debt", "loan", "interest", "bank", "account", "finance",
-        "dollar", "profit", "loss", "balance", "credit", "debit", "fund", "salary",
-        "earning", "tax", "investment", "stock", "bond", "market", "portfolio",
-        "saving", "goal", "financial", "economy", "price", "cash", "transaction"
-    }
+    'Private Function IsFinancialQuery(message As String) As Boolean
+    '    ' List of financial-related keywords
+    '    Dim financialKeywords As String() = {
+    '    "money", "budget", "expense", "spend", "save", "invest", "income", "cost",
+    '    "bill", "payment", "debt", "loan", "interest", "bank", "account", "finance",
+    '    "dollar", "profit", "loss", "balance", "credit", "debit", "fund", "salary",
+    '    "earning", "tax", "investment", "stock", "bond", "market", "portfolio",
+    '    "saving", "goal", "financial", "economy", "price", "cash", "transaction"
+    '}
 
-        ' Convert message to lower case for case-insensitive comparison
-        Dim lowerMessage As String = message.ToLower()
+    '    ' Convert message to lower case for case-insensitive comparison
+    '    Dim lowerMessage As String = message.ToLower()
 
-        ' Check if the message contains any financial keywords
-        Return financialKeywords.Any(Function(keyword) lowerMessage.Contains(keyword))
-    End Function
+    '    ' Check if the message contains any financial keywords
+    '    Return financialKeywords.Any(Function(keyword) lowerMessage.Contains(keyword))
+    'End Function
 
     Private Function ExtractNecessaryData(aiContent As String) As String
         ' Implement your logic to extract necessary data from aiContent
