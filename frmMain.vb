@@ -153,14 +153,15 @@ Public Class frmMain
         pbxLogo.Image = My.Resources.ChronoPulse_Logo_Light
         pbxUser.Image = My.Resources.user_white
         btnDashboard.Image = My.Resources.dashboard_blue
-        btnGames.Image = My.Resources.game_controller_blue
+        btnAI.Image = My.Resources.game_controller_blue
         btnExpenses.Image = My.Resources.btnDExpenses
         btnIncome.Image = My.Resources.btnDIncome
         btnBudget.Image = My.Resources.btnDBudget
         btnSavings.Image = My.Resources.btnDSavings
+        btnAI.Image = My.Resources.chat_blue
         ' Set the button text color to white  
         btnDashboard.ForeColor = Color.White
-        btnGames.ForeColor = Color.White
+        btnAI.ForeColor = Color.White
         btnExpenses.ForeColor = Color.White
         btnIncome.ForeColor = Color.White
         btnBudget.ForeColor = Color.White
@@ -180,14 +181,15 @@ Public Class frmMain
         pbxLogo.Image = My.Resources.ChronoPulse_Logo_Dark
         pbxUser.Image = My.Resources.user
         btnDashboard.Image = My.Resources.dashboard
-        btnGames.Image = My.Resources.game_controller
+        btnAI.Image = My.Resources.game_controller
         btnExpenses.Image = My.Resources.btnExpenses
         btnIncome.Image = My.Resources.btnIncome
         btnBudget.Image = My.Resources.btnBudget
         btnSavings.Image = My.Resources.btnSavings
+        btnAI.Image = My.Resources.chat_blue
         ' Set the button text color to black  
         btnDashboard.ForeColor = Color.Black
-        btnGames.ForeColor = Color.Black
+        btnAI.ForeColor = Color.Black
         btnExpenses.ForeColor = Color.Black
         btnIncome.ForeColor = Color.Black
         btnBudget.ForeColor = Color.Black
@@ -202,8 +204,8 @@ Public Class frmMain
         ToolTip.SetToolTip(btnDashboard, "Dashboard")
     End Sub
 
-    Private Sub btnGames_MouseHover(sender As Object, e As EventArgs) Handles btnGames.MouseHover
-        ToolTip.SetToolTip(btnGames, "AI Chatbot")
+    Private Sub btnGames_MouseHover(sender As Object, e As EventArgs) Handles btnAI.MouseHover
+        ToolTip.SetToolTip(btnAI, "AI Chatbot")
     End Sub
 
     Private Sub btnExpenses_MouseHover(sender As Object, e As EventArgs) Handles btnExpenses.MouseHover
@@ -247,7 +249,7 @@ Public Class frmMain
         LoadForm(New frmDashboard)
     End Sub
 
-    Private Sub btnGames_Click(sender As Object, e As EventArgs) Handles btnGames.Click
+    Private Sub btnGames_Click(sender As Object, e As EventArgs) Handles btnAI.Click
         LoadForm(New frmAI)
     End Sub
 

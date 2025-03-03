@@ -14,17 +14,17 @@ Public Class frmAI
         ' Add timestamp
         Dim timestamp = DateTime.Now.ToString("HH:mm")
         ChatHistoryRichTextBox.SelectionColor = Color.Gray
-        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 8)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 10)
         ChatHistoryRichTextBox.AppendText($"[{timestamp}] ")
 
         ' Format sender
         ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.DarkGreen)
-        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 16, FontStyle.Bold)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 16, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText(sender & ": ")
 
         ' Format message
         ChatHistoryRichTextBox.SelectionColor = Color.Black
-        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 14)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 14)
         AppendFormattedText(message)
 
         If isAI Then
@@ -67,7 +67,7 @@ Public Class frmAI
                 text = text.TrimStart("#"c)
             End If
 
-            ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", fontSize, fontStyle)
+            ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", fontSize, fontStyle)
             ChatHistoryRichTextBox.AppendText(text & " ")
         Next
         ChatHistoryRichTextBox.AppendText(Environment.NewLine)
@@ -84,7 +84,7 @@ Public Class frmAI
         dbConnection = createDBConnection()
         ChatHistoryRichTextBox.BackColor = Color.White
         ChatHistoryRichTextBox.BorderStyle = BorderStyle.FixedSingle
-        ChatHistoryRichTextBox.Font = New Font("Pixelify Sans", 14)
+        ChatHistoryRichTextBox.Font = New Font("Century Gothic", 14)
         ChatHistoryRichTextBox.ForeColor = Color.Black
         ChatHistoryRichTextBox.ReadOnly = True
         ChatHistoryRichTextBox.ScrollBars = RichTextBoxScrollBars.Vertical
