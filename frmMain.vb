@@ -266,4 +266,8 @@ Public Class frmMain
     Private Sub btnBudget_Click(sender As Object, e As EventArgs) Handles btnBudget.Click
         LoadForm(New frmBudgeting)
     End Sub
+
+    Private Sub btnOCR_Click(sender As Object, e As EventArgs) Handles btnOCR.Click
+        LoadForm(New frmOCR)
+    End Sub
 End Class

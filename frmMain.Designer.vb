@@ -31,6 +31,7 @@ Partial Class frmMain
         Me.lblCurrentPanel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlMenu = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnOCR = New Guna.UI2.WinForms.Guna2Button()
         Me.btnBudget = New Guna.UI2.WinForms.Guna2Button()
         Me.btnSavings = New Guna.UI2.WinForms.Guna2Button()
         Me.btnIncome = New Guna.UI2.WinForms.Guna2Button()
@@ -68,7 +69,7 @@ Partial Class frmMain
         Me.pnlContainer.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.pnlContainer.Location = New System.Drawing.Point(191, 43)
         Me.pnlContainer.Name = "pnlContainer"
-        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
+        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30)
         Me.pnlContainer.Size = New System.Drawing.Size(1093, 618)
         Me.pnlContainer.TabIndex = 5
         '
@@ -148,6 +149,7 @@ Partial Class frmMain
         'pnlMenu
         '
         Me.pnlMenu.BackColor = System.Drawing.Color.GhostWhite
+        Me.pnlMenu.Controls.Add(Me.btnOCR)
         Me.pnlMenu.Controls.Add(Me.btnBudget)
         Me.pnlMenu.Controls.Add(Me.btnSavings)
         Me.pnlMenu.Controls.Add(Me.btnIncome)
@@ -163,6 +165,31 @@ Partial Class frmMain
         Me.pnlMenu.Name = "pnlMenu"
         Me.pnlMenu.Size = New System.Drawing.Size(191, 661)
         Me.pnlMenu.TabIndex = 4
+        '
+        'btnOCR
+        '
+        Me.btnOCR.Animated = True
+        Me.btnOCR.BackColor = System.Drawing.Color.Transparent
+        Me.btnOCR.BorderRadius = 10
+        Me.btnOCR.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnOCR.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnOCR.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnOCR.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnOCR.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnOCR.FillColor = System.Drawing.Color.Transparent
+        Me.btnOCR.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnOCR.ForeColor = System.Drawing.Color.Black
+        Me.btnOCR.Image = CType(resources.GetObject("btnOCR.Image"), System.Drawing.Image)
+        Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnOCR.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnOCR.IndicateFocus = True
+        Me.btnOCR.Location = New System.Drawing.Point(9, 409)
+        Me.btnOCR.Name = "btnOCR"
+        Me.btnOCR.Size = New System.Drawing.Size(173, 45)
+        Me.btnOCR.TabIndex = 10
+        Me.btnOCR.Text = "OCR"
+        Me.btnOCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnOCR.UseTransparentBackground = True
         '
         'btnBudget
         '
@@ -458,4 +485,5 @@ Partial Class frmMain
     Friend WithEvents btnIncome As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSavings As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnBudget As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnOCR As Guna.UI2.WinForms.Guna2Button
 End Class
