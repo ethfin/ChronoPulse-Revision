@@ -28,7 +28,7 @@ Partial Class frmResetAccount
         Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
         Me.guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.pnlSignUpProgress = New Guna.UI2.WinForms.Guna2Panel()
+        Me.pnlResetAccountProgress = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnReset = New Guna.UI2.WinForms.Guna2Button()
         Me.btnNext = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlLoginContainer.SuspendLayout()
@@ -40,14 +40,15 @@ Partial Class frmResetAccount
         Me.pnlLoginContainer.Controls.Add(Me.lnklblGoBack)
         Me.pnlLoginContainer.Controls.Add(Me.pnlLogin)
         Me.pnlLoginContainer.Controls.Add(Me.btnClose)
-        Me.pnlLoginContainer.Controls.Add(Me.pnlSignUpProgress)
+        Me.pnlLoginContainer.Controls.Add(Me.pnlResetAccountProgress)
         Me.pnlLoginContainer.Controls.Add(Me.btnReset)
         Me.pnlLoginContainer.Controls.Add(Me.btnNext)
         Me.pnlLoginContainer.FillColor = System.Drawing.Color.GhostWhite
         Me.pnlLoginContainer.Location = New System.Drawing.Point(1, 1)
+        Me.pnlLoginContainer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlLoginContainer.Name = "pnlLoginContainer"
-        Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(30)
-        Me.pnlLoginContainer.Size = New System.Drawing.Size(973, 602)
+        Me.pnlLoginContainer.Padding = New System.Windows.Forms.Padding(40, 37, 40, 37)
+        Me.pnlLoginContainer.Size = New System.Drawing.Size(1297, 741)
         Me.pnlLoginContainer.TabIndex = 3
         '
         'lnklblGoBack
@@ -55,9 +56,10 @@ Partial Class frmResetAccount
         Me.lnklblGoBack.AutoSize = True
         Me.lnklblGoBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lnklblGoBack.LinkColor = System.Drawing.Color.Black
-        Me.lnklblGoBack.Location = New System.Drawing.Point(383, 557)
+        Me.lnklblGoBack.Location = New System.Drawing.Point(511, 686)
+        Me.lnklblGoBack.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lnklblGoBack.Name = "lnklblGoBack"
-        Me.lnklblGoBack.Size = New System.Drawing.Size(59, 15)
+        Me.lnklblGoBack.Size = New System.Drawing.Size(72, 18)
         Me.lnklblGoBack.TabIndex = 62
         Me.lnklblGoBack.TabStop = True
         Me.lnklblGoBack.Text = "Go back"
@@ -73,10 +75,11 @@ Partial Class frmResetAccount
         Me.pnlLogin.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.pnlLogin.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.pnlLogin.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.pnlLogin.Location = New System.Drawing.Point(30, 30)
+        Me.pnlLogin.Location = New System.Drawing.Point(40, 37)
+        Me.pnlLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlLogin.Name = "pnlLogin"
-        Me.pnlLogin.Padding = New System.Windows.Forms.Padding(10)
-        Me.pnlLogin.Size = New System.Drawing.Size(347, 542)
+        Me.pnlLogin.Padding = New System.Windows.Forms.Padding(13, 12, 13, 12)
+        Me.pnlLogin.Size = New System.Drawing.Size(463, 667)
         Me.pnlLogin.TabIndex = 17
         '
         'btnLogin
@@ -91,9 +94,10 @@ Partial Class frmResetAccount
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.IndicateFocus = True
-        Me.btnLogin.Location = New System.Drawing.Point(43, 297)
+        Me.btnLogin.Location = New System.Drawing.Point(57, 366)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(260, 45)
+        Me.btnLogin.Size = New System.Drawing.Size(347, 55)
         Me.btnLogin.TabIndex = 6
         Me.btnLogin.Text = "Sign up"
         '
@@ -103,9 +107,10 @@ Partial Class frmResetAccount
         Me.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guna2HtmlLabel1.ForeColor = System.Drawing.Color.GhostWhite
-        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(13, 202)
+        Me.guna2HtmlLabel1.Location = New System.Drawing.Point(17, 249)
+        Me.guna2HtmlLabel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.guna2HtmlLabel1.Name = "guna2HtmlLabel1"
-        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(321, 89)
+        Me.guna2HtmlLabel1.Size = New System.Drawing.Size(428, 110)
         Me.guna2HtmlLabel1.TabIndex = 5
         Me.guna2HtmlLabel1.TabStop = False
         Me.guna2HtmlLabel1.Text = "Don't have an account yet?"
@@ -122,26 +127,28 @@ Partial Class frmResetAccount
         Me.btnClose.ImageOffset = New System.Drawing.Point(0, 0)
         Me.btnClose.ImageRotate = 0!
         Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(931, 13)
+        Me.btnClose.Location = New System.Drawing.Point(1241, 16)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.PressedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
         Me.btnClose.PressedState.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Size = New System.Drawing.Size(30, 30)
+        Me.btnClose.Size = New System.Drawing.Size(40, 37)
         Me.btnClose.TabIndex = 0
         Me.btnClose.TabStop = False
         Me.btnClose.UseTransparentBackground = True
         '
-        'pnlSignUpProgress
+        'pnlResetAccountProgress
         '
-        Me.pnlSignUpProgress.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.pnlResetAccountProgress.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlSignUpProgress.BackColor = System.Drawing.Color.GhostWhite
-        Me.pnlSignUpProgress.Location = New System.Drawing.Point(383, 30)
-        Me.pnlSignUpProgress.Name = "pnlSignUpProgress"
-        Me.pnlSignUpProgress.Padding = New System.Windows.Forms.Padding(3)
-        Me.pnlSignUpProgress.Size = New System.Drawing.Size(560, 482)
-        Me.pnlSignUpProgress.TabIndex = 16
+        Me.pnlResetAccountProgress.BackColor = System.Drawing.Color.GhostWhite
+        Me.pnlResetAccountProgress.Location = New System.Drawing.Point(511, 37)
+        Me.pnlResetAccountProgress.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlResetAccountProgress.Name = "pnlResetAccountProgress"
+        Me.pnlResetAccountProgress.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlResetAccountProgress.Size = New System.Drawing.Size(747, 593)
+        Me.pnlResetAccountProgress.TabIndex = 16
         '
         'btnReset
         '
@@ -155,9 +162,10 @@ Partial Class frmResetAccount
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnReset.ForeColor = System.Drawing.Color.White
         Me.btnReset.IndicateFocus = True
-        Me.btnReset.Location = New System.Drawing.Point(533, 523)
+        Me.btnReset.Location = New System.Drawing.Point(711, 644)
+        Me.btnReset.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(260, 45)
+        Me.btnReset.Size = New System.Drawing.Size(347, 55)
         Me.btnReset.TabIndex = 63
         Me.btnReset.Text = "Reset"
         Me.btnReset.Visible = False
@@ -174,21 +182,23 @@ Partial Class frmResetAccount
         Me.btnNext.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnNext.ForeColor = System.Drawing.Color.White
         Me.btnNext.IndicateFocus = True
-        Me.btnNext.Location = New System.Drawing.Point(533, 523)
+        Me.btnNext.Location = New System.Drawing.Point(711, 644)
+        Me.btnNext.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(260, 45)
+        Me.btnNext.Size = New System.Drawing.Size(347, 55)
         Me.btnNext.TabIndex = 61
         Me.btnNext.Text = "Next"
         '
         'frmResetAccount
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(975, 604)
+        Me.ClientSize = New System.Drawing.Size(1300, 743)
         Me.Controls.Add(Me.pnlLoginContainer)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmResetAccount"
-        Me.Padding = New System.Windows.Forms.Padding(30)
+        Me.Padding = New System.Windows.Forms.Padding(40, 37, 40, 37)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmResetAccount"
         Me.pnlLoginContainer.ResumeLayout(False)
@@ -204,7 +214,7 @@ Partial Class frmResetAccount
     Private WithEvents btnLogin As Guna.UI2.WinForms.Guna2Button
     Private WithEvents guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Private WithEvents btnClose As Guna.UI2.WinForms.Guna2ImageButton
-    Friend WithEvents pnlSignUpProgress As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents pnlResetAccountProgress As Guna.UI2.WinForms.Guna2Panel
     Private WithEvents btnReset As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnNext As Guna.UI2.WinForms.Guna2Button
 End Class
