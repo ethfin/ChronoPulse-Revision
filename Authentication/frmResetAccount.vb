@@ -28,8 +28,8 @@
 
     Public Sub NavigateToNextStep(currentStep As Form)
         If TypeOf currentStep Is frmResetAccountEmail Then
-            LoadStep(New frmResetAccountQuestions)
-        ElseIf TypeOf currentStep Is frmResetAccountQuestions Then
+            LoadStep(New frmResetAccountPassword)
+        ElseIf TypeOf currentStep Is frmResetAccountPassword Then
             LoadStep(New frmResetAccountSecurity)
         ElseIf TypeOf currentStep Is frmResetAccountSecurity Then
             MessageBox.Show("Account reset process completed.")

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmResetAccountQuestions
+Partial Class frmResetAccountPassword
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class frmResetAccountQuestions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmResetAccountQuestions))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmResetAccountPassword))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtVerifyPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
@@ -33,6 +33,7 @@ Partial Class frmResetAccountQuestions
         Me.btnNext = New Guna.UI2.WinForms.Guna2Button()
         Me.lblWelcome1 = New System.Windows.Forms.Label()
         Me.lblError = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblError1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelLogin1.SuspendLayout()
         Me.SuspendLayout()
@@ -40,7 +41,7 @@ Partial Class frmResetAccountQuestions
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
-        Me.Label1.Location = New System.Drawing.Point(89, 140)
+        Me.Label1.Location = New System.Drawing.Point(89, 100)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(573, 66)
         Me.Label1.TabIndex = 14
@@ -60,7 +61,7 @@ Partial Class frmResetAccountQuestions
         Me.txtVerifyPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtVerifyPassword.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold)
         Me.txtVerifyPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtVerifyPassword.Location = New System.Drawing.Point(95, 342)
+        Me.txtVerifyPassword.Location = New System.Drawing.Point(95, 302)
         Me.txtVerifyPassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtVerifyPassword.MaxLength = 62
         Me.txtVerifyPassword.Name = "txtVerifyPassword"
@@ -83,7 +84,7 @@ Partial Class frmResetAccountQuestions
         Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold)
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPassword.Location = New System.Drawing.Point(95, 229)
+        Me.txtPassword.Location = New System.Drawing.Point(95, 189)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtPassword.MaxLength = 62
         Me.txtPassword.Name = "txtPassword"
@@ -101,7 +102,7 @@ Partial Class frmResetAccountQuestions
         Me.chkShowPassword2.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.chkShowPassword2.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkShowPassword2.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.chkShowPassword2.Location = New System.Drawing.Point(464, 395)
+        Me.chkShowPassword2.Location = New System.Drawing.Point(464, 355)
         Me.chkShowPassword2.Margin = New System.Windows.Forms.Padding(4)
         Me.chkShowPassword2.Name = "chkShowPassword2"
         Me.chkShowPassword2.Size = New System.Drawing.Size(199, 26)
@@ -120,7 +121,7 @@ Partial Class frmResetAccountQuestions
         Me.chkShowPassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.chkShowPassword.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkShowPassword.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.chkShowPassword.Location = New System.Drawing.Point(464, 282)
+        Me.chkShowPassword.Location = New System.Drawing.Point(464, 242)
         Me.chkShowPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.chkShowPassword.Name = "chkShowPassword"
         Me.chkShowPassword.Size = New System.Drawing.Size(199, 26)
@@ -148,6 +149,7 @@ Partial Class frmResetAccountQuestions
         'panelLogin1
         '
         Me.panelLogin1.BackColor = System.Drawing.Color.GhostWhite
+        Me.panelLogin1.Controls.Add(Me.lblError1)
         Me.panelLogin1.Controls.Add(Me.btnNext)
         Me.panelLogin1.Controls.Add(Me.lblWelcome1)
         Me.panelLogin1.Controls.Add(Me.Guna2PictureBox1)
@@ -209,15 +211,31 @@ Partial Class frmResetAccountQuestions
         Me.lblError.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblError.Visible = False
         '
-        'frmResetAccountQuestions
+        'lblError1
+        '
+        Me.lblError1.AutoSize = False
+        Me.lblError1.BackColor = System.Drawing.Color.Transparent
+        Me.lblError1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblError1.ForeColor = System.Drawing.Color.Red
+        Me.lblError1.Location = New System.Drawing.Point(95, 403)
+        Me.lblError1.Margin = New System.Windows.Forms.Padding(4)
+        Me.lblError1.Name = "lblError1"
+        Me.lblError1.Size = New System.Drawing.Size(552, 49)
+        Me.lblError1.TabIndex = 50
+        Me.lblError1.TabStop = False
+        Me.lblError1.Text = "Error"
+        Me.lblError1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblError1.Visible = False
+        '
+        'frmResetAccountPassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(729, 546)
         Me.Controls.Add(Me.panelLogin1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "frmResetAccountQuestions"
-        Me.Text = "frmResetAccountQuestions"
+        Me.Name = "frmResetAccountPassword"
+        Me.Text = "frmResetAccountPassword"
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelLogin1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -233,4 +251,5 @@ Partial Class frmResetAccountQuestions
     Friend WithEvents lblError As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents lblWelcome1 As Label
     Friend WithEvents btnNext As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblError1 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

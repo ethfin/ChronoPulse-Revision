@@ -298,10 +298,10 @@
     <Compile Include="Authentication\frmResetAccountEmail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authentication\frmResetAccountQuestions.Designer.vb">
-      <DependentUpon>frmResetAccountQuestions.vb</DependentUpon>
+    <Compile Include="Authentication\frmResetAccountPassword.Designer.vb">
+      <DependentUpon>frmResetAccountPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="Authentication\frmResetAccountQuestions.vb">
+    <Compile Include="Authentication\frmResetAccountPassword.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Authentication\frmResetAccountSecurity.Designer.vb">
@@ -430,8 +430,8 @@
     <EmbeddedResource Include="Authentication\frmResetAccountEmail.resx">
       <DependentUpon>frmResetAccountEmail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authentication\frmResetAccountQuestions.resx">
-      <DependentUpon>frmResetAccountQuestions.vb</DependentUpon>
+    <EmbeddedResource Include="Authentication\frmResetAccountPassword.resx">
+      <DependentUpon>frmResetAccountPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authentication\frmResetAccountSecurity.resx">
       <DependentUpon>frmResetAccountSecurity.vb</DependentUpon>
