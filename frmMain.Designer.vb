@@ -183,7 +183,7 @@ Partial Class frmMain
         Me.btnOCR.FillColor = System.Drawing.Color.Transparent
         Me.btnOCR.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnOCR.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnOCR.Image = CType(resources.GetObject("btnOCR.Image"), System.Drawing.Image)
+        Me.btnOCR.Image = Global.ChronoPulse_Revision.My.Resources.Resources.game_controller_blue
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnOCR.IndicateFocus = True
@@ -209,7 +209,7 @@ Partial Class frmMain
         Me.btnBudget.FillColor = System.Drawing.Color.Transparent
         Me.btnBudget.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnBudget.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnBudget.Image = CType(resources.GetObject("btnBudget.Image"), System.Drawing.Image)
+        Me.btnBudget.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDBudget
         Me.btnBudget.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnBudget.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnBudget.IndicateFocus = True
@@ -235,7 +235,7 @@ Partial Class frmMain
         Me.btnSavings.FillColor = System.Drawing.Color.Transparent
         Me.btnSavings.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnSavings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnSavings.Image = CType(resources.GetObject("btnSavings.Image"), System.Drawing.Image)
+        Me.btnSavings.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDSavings
         Me.btnSavings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnSavings.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnSavings.IndicateFocus = True
@@ -261,7 +261,7 @@ Partial Class frmMain
         Me.btnIncome.FillColor = System.Drawing.Color.Transparent
         Me.btnIncome.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnIncome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnIncome.Image = CType(resources.GetObject("btnIncome.Image"), System.Drawing.Image)
+        Me.btnIncome.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDIncome
         Me.btnIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnIncome.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnIncome.IndicateFocus = True
@@ -287,7 +287,7 @@ Partial Class frmMain
         Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
         Me.btnExpenses.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnExpenses.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnExpenses.Image = CType(resources.GetObject("btnExpenses.Image"), System.Drawing.Image)
+        Me.btnExpenses.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDExpenses
         Me.btnExpenses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnExpenses.IndicateFocus = True
@@ -313,7 +313,7 @@ Partial Class frmMain
         Me.btnAI.FillColor = System.Drawing.Color.Transparent
         Me.btnAI.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnAI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnAI.Image = Global.ChronoPulse_Revision.My.Resources.Resources.chat_orange
+        Me.btnAI.Image = Global.ChronoPulse_Revision.My.Resources.Resources.chat_blue
         Me.btnAI.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAI.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnAI.IndicateFocus = True
@@ -339,7 +339,7 @@ Partial Class frmMain
         Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
         Me.btnDashboard.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnDashboard.Image = CType(resources.GetObject("btnDashboard.Image"), System.Drawing.Image)
+        Me.btnDashboard.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dashboard_blue
         Me.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.ImageSize = New System.Drawing.Size(25, 25)
         Me.btnDashboard.IndicateFocus = True
