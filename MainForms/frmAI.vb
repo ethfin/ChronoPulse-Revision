@@ -8,23 +8,25 @@ Imports MySql.Data.MySqlClient
 Public Class frmAI
     Private ReadOnly httpClient As HttpClient
     Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/chat/completions"
-    Private dbConnection As MySqlConnection 
+    Private dbConnection As MySqlConnection
 
     Private Sub AppendFormattedMessage(sender As String, message As String, isAI As Boolean)
         ' Add timestamp
         Dim timestamp = DateTime.Now.ToString("HH:mm")
-        ChatHistoryRichTextBox.SelectionColor = Color.Gray
-        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 10)
+        ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 10, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText($"[{timestamp}] ")
 
         ' Format sender
-        ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.DarkGreen)
+        ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.FromArgb(241, 196, 15))
         ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 16, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText(sender & ": ")
 
         ' Format message
-        ChatHistoryRichTextBox.SelectionColor = Color.Black
+        ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
         ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 14)
+        ChatHistoryRichTextBox.BorderStyle = BorderStyle.None
+        ChatHistoryRichTextBox.BackColor = Color.FromArgb(8, 6, 26)
         AppendFormattedText(message)
 
         If isAI Then
@@ -68,10 +70,12 @@ Public Class frmAI
             End If
 
             ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", fontSize, fontStyle)
+            ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
             ChatHistoryRichTextBox.AppendText(text & " ")
         Next
         ChatHistoryRichTextBox.AppendText(Environment.NewLine)
     End Sub
+
 
 
     Public Sub New()

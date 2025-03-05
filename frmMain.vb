@@ -43,7 +43,7 @@ Public Class frmMain
     End Function
 
     ' The MouseDown event for the panel to initiate the form dragging
-    Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlHeader.MouseDown, pnlMenu.MouseDown, pbxLogo.MouseDown
+    Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlMenu.MouseDown, pbxLogo.MouseDown
         If e.Button = MouseButtons.Left Then
             ReleaseCapture()
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
@@ -144,7 +144,6 @@ Public Class frmMain
         ' Set the background color to dark  
         Me.BackColor = Color.FromArgb(20, 20, 22)
         pnlContainer.BackColor = Color.FromArgb(20, 20, 22)
-        pnlHeader.BackColor = Color.FromArgb(20, 20, 22)
         pnlMenu.BackColor = Color.FromArgb(20, 20, 22)
         ' Set the text color to light  
         lblUsername.ForeColor = Color.FromArgb(255, 255, 255)
@@ -172,7 +171,6 @@ Public Class frmMain
         ' Set the background color to dark
         Me.BackColor = Color.GhostWhite
         pnlContainer.BackColor = Color.GhostWhite
-        pnlHeader.BackColor = Color.GhostWhite
         pnlMenu.BackColor = Color.GhostWhite
         ' Set the text color to light
         lblUsername.ForeColor = Color.Black

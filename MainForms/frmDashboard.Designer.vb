@@ -60,7 +60,7 @@ Partial Class frmDashboard
         Me.dgvExpenses.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvExpenses.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.dgvExpenses.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -80,8 +80,7 @@ Partial Class frmDashboard
         Me.dgvExpenses.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvExpenses.EnableHeadersVisualStyles = True
         Me.dgvExpenses.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvExpenses.Location = New System.Drawing.Point(44, 41)
-        Me.dgvExpenses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvExpenses.Location = New System.Drawing.Point(33, 33)
         Me.dgvExpenses.Name = "dgvExpenses"
         Me.dgvExpenses.ReadOnly = True
         Me.dgvExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -96,14 +95,14 @@ Partial Class frmDashboard
         Me.dgvExpenses.RowHeadersVisible = False
         Me.dgvExpenses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dgvExpenses.RowTemplate.Height = 30
-        Me.dgvExpenses.Size = New System.Drawing.Size(1501, 679)
+        Me.dgvExpenses.Size = New System.Drawing.Size(1126, 552)
         Me.dgvExpenses.TabIndex = 21
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.Font = Nothing
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
         Me.dgvExpenses.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.dgvExpenses.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.dgvExpenses.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.dgvExpenses.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvExpenses.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvExpenses.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -125,12 +124,11 @@ Partial Class frmDashboard
         Me.dgExpenses.AllowUserToAddRows = False
         Me.dgExpenses.AllowUserToDeleteRows = False
         Me.dgExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgExpenses.Location = New System.Drawing.Point(87, 89)
-        Me.dgExpenses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgExpenses.Location = New System.Drawing.Point(65, 72)
         Me.dgExpenses.Name = "dgExpenses"
         Me.dgExpenses.ReadOnly = True
         Me.dgExpenses.RowHeadersWidth = 51
-        Me.dgExpenses.Size = New System.Drawing.Size(681, 274)
+        Me.dgExpenses.Size = New System.Drawing.Size(511, 223)
         Me.dgExpenses.TabIndex = 22
         '
         'chCost
@@ -139,13 +137,14 @@ Partial Class frmDashboard
         Me.chCost.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.chCost.Legends.Add(Legend1)
-        Me.chCost.Location = New System.Drawing.Point(87, 384)
+        Me.chCost.Location = New System.Drawing.Point(65, 312)
+        Me.chCost.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chCost.Name = "chCost"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.chCost.Series.Add(Series1)
-        Me.chCost.Size = New System.Drawing.Size(681, 304)
+        Me.chCost.Size = New System.Drawing.Size(511, 247)
         Me.chCost.TabIndex = 23
         Me.chCost.Text = "Bar Chart"
         '
@@ -155,13 +154,14 @@ Partial Class frmDashboard
         Me.chPie.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
         Me.chPie.Legends.Add(Legend2)
-        Me.chPie.Location = New System.Drawing.Point(802, 384)
+        Me.chPie.Location = New System.Drawing.Point(602, 312)
+        Me.chPie.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chPie.Name = "chPie"
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Me.chPie.Series.Add(Series2)
-        Me.chPie.Size = New System.Drawing.Size(583, 304)
+        Me.chPie.Size = New System.Drawing.Size(437, 247)
         Me.chPie.TabIndex = 24
         Me.chPie.Text = "Pie Chart"
         '
@@ -171,29 +171,29 @@ Partial Class frmDashboard
         Me.chLine.ChartAreas.Add(ChartArea3)
         Legend3.Name = "Legend1"
         Me.chLine.Legends.Add(Legend3)
-        Me.chLine.Location = New System.Drawing.Point(802, 89)
+        Me.chLine.Location = New System.Drawing.Point(602, 72)
+        Me.chLine.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chLine.Name = "chLine"
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
         Series3.Name = "Series1"
         Me.chLine.Series.Add(Series3)
-        Me.chLine.Size = New System.Drawing.Size(583, 274)
+        Me.chLine.Size = New System.Drawing.Size(437, 223)
         Me.chLine.TabIndex = 25
         Me.chLine.Text = "Line Chart"
         '
         'frmDashboard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1589, 761)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(1192, 618)
         Me.Controls.Add(Me.chLine)
         Me.Controls.Add(Me.chPie)
         Me.Controls.Add(Me.chCost)
         Me.Controls.Add(Me.dgExpenses)
         Me.Controls.Add(Me.dgvExpenses)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmDashboard"
         Me.Text = "frmDashboard"
         CType(Me.dgvExpenses, System.ComponentModel.ISupportInitialize).EndInit()

@@ -2,6 +2,7 @@
 
 Public Class frmSavings
     Private Sub frmSavings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dgvSavings.AllowUserToAddRows = False ' Prevents the extra empty row
         LoadSavingsGoals()
     End Sub
 

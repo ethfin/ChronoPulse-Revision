@@ -361,6 +361,12 @@
     <Compile Include="MainForms\frmDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForms\frmDemo.Designer.vb">
+      <DependentUpon>frmDemo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmDemo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForms\frmExpenses.Designer.vb">
       <DependentUpon>frmExpenses.vb</DependentUpon>
     </Compile>
@@ -456,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmDemo.resx">
+      <DependentUpon>frmDemo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmExpenses.resx">
       <DependentUpon>frmExpenses.vb</DependentUpon>
