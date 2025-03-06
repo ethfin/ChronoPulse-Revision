@@ -26,15 +26,20 @@
         form.Show()
     End Sub
 
-    Public Sub NavigateToNextStep(currentStep As Form)
-        If TypeOf currentStep Is frmResetAccountEmail Then
-            LoadStep(New frmResetAccountPassword)
-        ElseIf TypeOf currentStep Is frmResetAccountPassword Then
-            LoadStep(New frmResetAccountSecurity)
-        ElseIf TypeOf currentStep Is frmResetAccountSecurity Then
-            MessageBox.Show("Account reset process completed.")
-            frmLogin.Show()
-            Me.Close()
+    Public Sub NavigateToNextStep(currentForm As Form)
+        If TypeOf currentForm Is frmResetAccountEmail Then
+            ' Get the email from the email form
+            Dim emailForm As frmResetAccountEmail = DirectCast(currentForm, frmResetAccountEmail)
+
+            ' Create new security form instance and set the email
+            Dim securityForm As New frmResetAccountSecurity()
+            securityForm.lblWelcome1.Text = emailForm.UserEmail
+
+            ' Load the security form into the panel
+            LoadStep(securityForm)
+        ElseIf TypeOf currentForm Is frmResetAccountSecurity Then
+            ' Navigate to password form
+            LoadStep(New frmResetAccountPassword())
         End If
     End Sub
 End Class

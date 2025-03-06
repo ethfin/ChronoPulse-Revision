@@ -2,6 +2,13 @@
 Imports MySql.Data.MySqlClient
 
 Public Class frmResetAccountEmail
+
+    Public ReadOnly Property UserEmail As String
+        Get
+            Return txtEmail.Text
+        End Get
+    End Property
+
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         If ValidateInputFields() AndAlso CheckExistingUser(txtEmail.Text) Then
             Dim parentForm As frmResetAccount = CType(Me.ParentForm, frmResetAccount)

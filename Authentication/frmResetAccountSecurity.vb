@@ -29,10 +29,6 @@ Public Class frmResetAccountSecurity
     Public Shared Function ReleaseCapture() As Boolean
     End Function
 
-    Private Sub lblWelcome1_Click(sender As Object, e As EventArgs) Handles lblWelcome1.Click
-
-    End Sub
-
     Private Sub cbxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles cbxShowPassword.CheckedChanged
         If cbxShowPassword.Checked Then
             txtSQA1.PasswordChar = ""
@@ -257,41 +253,24 @@ Public Class frmResetAccountSecurity
         Dim email As String = lblWelcome1.Text
 
         ' Check if both combo boxes have selected items
-        If cmbSQ1.SelectedIndex = -1 OrElse cmbSQ2.SelectedIndex = -1 OrElse
-       cmbSQ1.SelectedItem Is Nothing OrElse cmbSQ2.SelectedItem Is Nothing Then
+        If cmbSQ1.SelectedIndex = -1 OrElse cmbSQ2.SelectedIndex = -1 Then
             MessageBox.Show("Please select both security questions.")
             Return
         End If
 
         If ValidateInputFields() Then
-            Dim conn As MySqlConnection = createDBConnection()
+            Dim conn As MySqlConnection = Common.createDBConnection()
 
             Try
                 conn.Open()
 
-                ' Use safe method to get selected text
-                Dim sq1 As String = GetSelectedItemText(cmbSQ1)
-                Dim sq2 As String = GetSelectedItemText(cmbSQ2)
-
-                ' Check if we have valid questions
-                If String.IsNullOrEmpty(sq1) OrElse String.IsNullOrEmpty(sq2) Then
-                    MessageBox.Show("Please select valid security questions.")
-                    Return
-                End If
-
-                ' Fixed query with correct question-answer relationships
-                Dim query As String = "SELECT COUNT(*) FROM dbaccounts WHERE email = @Email AND " &
-                                 "((securityQuestion1 = @SQ1 AND securityAnswer1 = @SQA1) OR " &
-                                 "(securityQuestion2 = @SQ1 AND securityAnswer2 = @SQA1)) AND " &
-                                 "((securityQuestion1 = @SQ2 AND securityAnswer1 = @SQA2) OR " &
-                                 "(securityQuestion2 = @SQ2 AND securityAnswer2 = @SQA2))"
-
+                Dim query As String = "SELECT COUNT(*) FROM dbaccounts WHERE email = @Email AND ((securityQuestion1 = @SQ1 AND securityAnswer1 = @SQA1) OR (securityQuestion2 = @SQ1 AND securityAnswer2 = @SQA1)) AND ((securityQuestion1 = @SQ2 AND securityAnswer1 = @SQA2) OR (securityQuestion2 = @SQ2 AND securityAnswer2 = @SQA2))"
                 Dim cmd As MySqlCommand = New MySqlCommand(query, conn)
 
                 cmd.Parameters.AddWithValue("@Email", email)
-                cmd.Parameters.AddWithValue("@SQ1", sq1)
+                cmd.Parameters.AddWithValue("@SQ1", cmbSQ1.SelectedItem.ToString())
                 cmd.Parameters.AddWithValue("@SQA1", txtSQA1.Text)
-                cmd.Parameters.AddWithValue("@SQ2", sq2)
+                cmd.Parameters.AddWithValue("@SQ2", cmbSQ2.SelectedItem.ToString())
                 cmd.Parameters.AddWithValue("@SQA2", txtSQA2.Text)
 
                 Dim result As Integer = Convert.ToInt32(cmd.ExecuteScalar())
@@ -352,9 +331,5 @@ Public Class frmResetAccountSecurity
             ' Clear the other combo box's selection to avoid duplicates
             cmbSQ1.SelectedIndex = -1
         End If
-    End Sub
-
-    Public Sub SetEmail(email As String)
-        lblWelcome1.Text = email
     End Sub
 End Class

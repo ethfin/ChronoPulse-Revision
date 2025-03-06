@@ -43,6 +43,7 @@ Public Class frmResetAccountPassword
                     lblError.Text = "Password has been reset successfully."
                     lblError.ForeColor = Color.Green
                     lblError.Show()
+
                     Dim parentForm As frmResetAccount = CType(Me.ParentForm, frmResetAccount)
                     parentForm.NavigateToNextStep(Me)
                 Catch ex As Exception
