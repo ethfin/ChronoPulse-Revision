@@ -442,33 +442,40 @@ Public Class frmOCR
         End If
 
         btnUploadData.Enabled = False
-        rtbAIResponse.Text = "Classifying and processing data..."
+        rtbAIResponse.Text = "Processing document..."
 
         Try
-            ' First classify the data
+            ' First classify the data (but don't show the detailed result)
             Dim classificationResult As String = Await ClassifyOCRDataWithAI(rtbOCR.Text)
-            rtbAIResponse.Text = classificationResult
 
             ' Extract JSON data from AI response
             Dim jsonData As JObject = ExtractJsonFromAIResponse(classificationResult)
 
             If jsonData IsNot Nothing AndAlso jsonData.HasValues Then
-                ' Confirm with user before uploading
+                ' Get the category for the confirmation message
                 Dim category As String = jsonData.Value(Of String)("category")
+
+                ' Confirm with user before uploading
                 Dim result = MessageBox.Show(
-                $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
-                "Confirm Upload",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question)
+                    $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
+                    "Confirm Upload",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
                     Dim success As Boolean = Await SaveOCRDataToDatabase(jsonData)
                     If success Then
                         MessageBox.Show($"Data has been successfully added to your {category.ToLower()} records.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        rtbAIResponse.Text = $"✓ Document processed and uploaded as {category}"
+                    Else
+                        rtbAIResponse.Text = "⚠️ Upload failed. Please try again."
                     End If
+                Else
+                    rtbAIResponse.Text = "Upload cancelled."
                 End If
             Else
                 MessageBox.Show("Could not extract valid data from the document. Please check the OCR results and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                rtbAIResponse.Text = "⚠️ Could not classify document. Please check the OCR text."
             End If
         Catch ex As Exception
             rtbAIResponse.Text = "Error: " & ex.Message

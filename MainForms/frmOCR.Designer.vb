@@ -65,7 +65,7 @@ Partial Class frmOCR
         'btnAnalyze
         '
         Me.btnAnalyze.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAnalyze.Location = New System.Drawing.Point(551, 415)
+        Me.btnAnalyze.Location = New System.Drawing.Point(497, 415)
         Me.btnAnalyze.Name = "btnAnalyze"
         Me.btnAnalyze.Size = New System.Drawing.Size(75, 23)
         Me.btnAnalyze.TabIndex = 3
@@ -85,11 +85,11 @@ Partial Class frmOCR
         'btnUploadData
         '
         Me.btnUploadData.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUploadData.Location = New System.Drawing.Point(632, 415)
+        Me.btnUploadData.Location = New System.Drawing.Point(578, 415)
         Me.btnUploadData.Name = "btnUploadData"
-        Me.btnUploadData.Size = New System.Drawing.Size(75, 23)
+        Me.btnUploadData.Size = New System.Drawing.Size(129, 23)
         Me.btnUploadData.TabIndex = 5
-        Me.btnUploadData.Text = "Analyze"
+        Me.btnUploadData.Text = "Add to Database"
         Me.btnUploadData.UseVisualStyleBackColor = True
         '
         'frmOCR
