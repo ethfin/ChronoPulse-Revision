@@ -34,6 +34,7 @@ Partial Class frmBudgeting
         Me.btnUpdateBudget = New Guna.UI2.WinForms.Guna2Button()
         Me.dgvBudgets = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.txtDescription = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.dgvBudgets, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -227,12 +228,31 @@ Partial Class frmBudgeting
         Me.txtDescription.Size = New System.Drawing.Size(260, 35)
         Me.txtDescription.TabIndex = 19
         '
+        'btnExport
+        '
+        Me.btnExport.Animated = True
+        Me.btnExport.BorderRadius = 15
+        Me.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnExport.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
+        Me.btnExport.Font = New System.Drawing.Font("Inter", 12.0!)
+        Me.btnExport.ForeColor = System.Drawing.Color.White
+        Me.btnExport.IndicateFocus = True
+        Me.btnExport.Location = New System.Drawing.Point(9, 259)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(112, 45)
+        Me.btnExport.TabIndex = 20
+        Me.btnExport.Text = "Export"
+        '
         'frmBudgeting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnExport)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.dgvBudgets)
         Me.Controls.Add(Me.btnUpdateBudget)
@@ -256,4 +276,5 @@ Partial Class frmBudgeting
     Private WithEvents btnUpdateBudget As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents dgvBudgets As Guna.UI2.WinForms.Guna2DataGridView
     Private WithEvents txtDescription As Guna.UI2.WinForms.Guna2TextBox
+    Private WithEvents btnExport As Guna.UI2.WinForms.Guna2Button
 End Class

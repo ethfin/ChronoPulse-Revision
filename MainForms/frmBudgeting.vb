@@ -131,4 +131,12 @@ Public Class frmBudgeting
             MessageBox.Show("Please select a budget to update.")
         End If
     End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        ' Create an instance of the ExportUtility class
+        Dim exporter As New ExportUtility()
+
+        ' Export the data
+        exporter.ExportToCSV(dgvBudgets, "Budget")
+    End Sub
 End Class

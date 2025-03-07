@@ -124,4 +124,13 @@ Public Class frmSavings
             MessageBox.Show("Please select a savings goal to update.")
         End If
     End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        ' Create an instance of the ExportUtility class
+        Dim exporter As New ExportUtility()
+
+        ' Export the data
+        exporter.ExportToCSV(dgvSavings, "Savings")
+    End Sub
+
 End Class

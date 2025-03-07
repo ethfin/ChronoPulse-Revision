@@ -71,4 +71,12 @@ Public Class frmIncome
         dgIncome.AllowUserToAddRows = False
         dgIncome.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        ' Create an instance of the ExportUtility class
+        Dim exporter As New ExportUtility()
+
+        ' Export the data
+        exporter.ExportToCSV(dgIncome, "Income")
+    End Sub
 End Class
