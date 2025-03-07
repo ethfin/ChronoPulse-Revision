@@ -28,6 +28,7 @@ Partial Class frmOCR
         Me.rtbAIResponse = New System.Windows.Forms.RichTextBox()
         Me.btnAnalyze = New System.Windows.Forms.Button()
         Me.btnClearAIHistory = New System.Windows.Forms.Button()
+        Me.btnUploadData = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'openFileDialog
@@ -64,7 +65,7 @@ Partial Class frmOCR
         'btnAnalyze
         '
         Me.btnAnalyze.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAnalyze.Location = New System.Drawing.Point(632, 415)
+        Me.btnAnalyze.Location = New System.Drawing.Point(551, 415)
         Me.btnAnalyze.Name = "btnAnalyze"
         Me.btnAnalyze.Size = New System.Drawing.Size(75, 23)
         Me.btnAnalyze.TabIndex = 3
@@ -81,11 +82,22 @@ Partial Class frmOCR
         Me.btnClearAIHistory.Text = "Clear"
         Me.btnClearAIHistory.UseVisualStyleBackColor = True
         '
+        'btnUploadData
+        '
+        Me.btnUploadData.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnUploadData.Location = New System.Drawing.Point(632, 415)
+        Me.btnUploadData.Name = "btnUploadData"
+        Me.btnUploadData.Size = New System.Drawing.Size(75, 23)
+        Me.btnUploadData.TabIndex = 5
+        Me.btnUploadData.Text = "Analyze"
+        Me.btnUploadData.UseVisualStyleBackColor = True
+        '
         'frmOCR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnUploadData)
         Me.Controls.Add(Me.btnClearAIHistory)
         Me.Controls.Add(Me.btnAnalyze)
         Me.Controls.Add(Me.rtbAIResponse)
@@ -102,4 +114,5 @@ Partial Class frmOCR
     Friend WithEvents rtbAIResponse As RichTextBox
     Friend WithEvents btnAnalyze As Button
     Friend WithEvents btnClearAIHistory As Button
+    Friend WithEvents btnUploadData As Button
 End Class

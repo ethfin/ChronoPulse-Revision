@@ -6,6 +6,7 @@ Imports System.IO
 Imports System.Text
 Imports Newtonsoft.Json
 Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
 
 Public Class frmOCR
     Private ReadOnly httpClient As HttpClient
@@ -182,6 +183,179 @@ Public Class frmOCR
         End Try
     End Function
 
+    Private Async Function ClassifyOCRDataWithAI(text As String) As Task(Of String)
+        Dim requestBody As New With {
+        .model = "deepseek-chat",
+        .messages = New List(Of Object) From {
+            New With {
+                .role = "system",
+                .content = "You are an AI assistant that analyzes OCR text from financial documents. " &
+                          "Classify the document into one of these categories: 'Income', 'Expense', or 'Savings'. " &
+                          "Then extract key financial information in JSON format with these fields based on category: " &
+                          "1. For Income: {""category"": ""Income"", ""source"": ""[source]"", ""amount"": [amount], ""date"": ""[date if available, otherwise today's date]""}" &
+                          "2. For Expense: {""category"": ""Expense"", ""item"": ""[item name]"", ""cost"": [amount], ""expenseCategory"": ""[category]"", ""description"": ""[brief description]"", ""date"": ""[date if available, otherwise today's date]""}" &
+                          "3. For Savings: {""category"": ""Savings"", ""goalName"": ""[goal name or purpose]"", ""targetAmount"": [target amount if available], ""currentAmount"": [current amount], ""targetDate"": ""[target date if available]""}"
+            },
+            New With {
+                .role = "user",
+                .content = $"Analyze and classify this OCR text into Income, Expense, or Savings category. Extract the relevant information in JSON format: {text}"
+            }
+        },
+        .temperature = 0.3,
+        .max_tokens = 1000
+    }
+
+        Dim jsonRequestBody As String = JsonConvert.SerializeObject(requestBody)
+        Dim content As New StringContent(jsonRequestBody, Encoding.UTF8, "application/json")
+
+        Try
+            Dim response As HttpResponseMessage = Await httpClient.PostAsync(DEEPSEEK_API_URL, content)
+            response.EnsureSuccessStatusCode()
+
+            Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
+            Dim aiResult = JsonConvert.DeserializeObject(Of DeepSeekResponse)(jsonResponse)
+
+            Return aiResult.choices(0).message.content
+        Catch ex As Exception
+            Return $"Error classifying text: {ex.Message}"
+        End Try
+    End Function
+
+    Private Function ExtractJsonFromAIResponse(response As String) As JObject
+        Try
+            ' Look for JSON pattern in the response
+            Dim jsonPattern As String = "\{(?:[^{}]|(?<open>\{)|(?<-open>\}))+(?(open)(?!))\}"
+            Dim match As Match = Regex.Match(response, jsonPattern)
+
+            If match.Success Then
+                Return JObject.Parse(match.Value)
+            Else
+                ' If no JSON found, return empty object
+                Return New JObject()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error extracting JSON data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return New JObject()
+        End Try
+    End Function
+
+    Private Async Function SaveOCRDataToDatabase(jsonData As JObject) As Task(Of Boolean)
+        If jsonData Is Nothing OrElse Not jsonData.HasValues Then
+            MessageBox.Show("No valid data to save.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        Dim category As String = jsonData.Value(Of String)("category")
+        Dim success As Boolean = False
+
+        Select Case category.ToLower()
+            Case "income"
+                success = Await SaveIncomeData(jsonData)
+            Case "expense"
+                success = Await SaveExpenseData(jsonData)
+            Case "savings"
+                success = Await SaveSavingsData(jsonData)
+            Case Else
+                MessageBox.Show("Unknown category: " & category, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+        End Select
+
+        Return success
+    End Function
+
+    Private Async Function SaveIncomeData(data As JObject) As Task(Of Boolean)
+        Try
+            Dim source As String = data.Value(Of String)("source")
+            Dim amount As Decimal = data.Value(Of Decimal)("amount")
+            Dim dateStr As String = data.Value(Of String)("date")
+            Dim incomeDate As Date
+
+            If Not Date.TryParse(dateStr, incomeDate) Then
+                incomeDate = DateTime.Now
+            End If
+
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "INSERT INTO user_income (UserID, Source, Amount, Date) VALUES (@UserID, @Source, @Amount, @Date)"
+                Using cmd As New MySqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                    cmd.Parameters.AddWithValue("@Source", source)
+                    cmd.Parameters.AddWithValue("@Amount", amount)
+                    cmd.Parameters.AddWithValue("@Date", incomeDate)
+                    Await cmd.ExecuteNonQueryAsync()
+                End Using
+            End Using
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Error saving income data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
+    Private Async Function SaveExpenseData(data As JObject) As Task(Of Boolean)
+        Try
+            Dim item As String = data.Value(Of String)("item")
+            Dim cost As Decimal = data.Value(Of Decimal)("cost")
+            Dim category As String = data.Value(Of String)("expenseCategory")
+            Dim description As String = data.Value(Of String)("description")
+            Dim dateStr As String = data.Value(Of String)("date")
+            Dim expenseDate As Date
+
+            If Not Date.TryParse(dateStr, expenseDate) Then
+                expenseDate = DateTime.Now
+            End If
+
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "INSERT INTO user_expenses (UserID, Item, Cost, Category, Description, date) VALUES (@UserID, @Item, @Cost, @Category, @Description, @Date)"
+                Using cmd As New MySqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                    cmd.Parameters.AddWithValue("@Item", item)
+                    cmd.Parameters.AddWithValue("@Cost", cost)
+                    cmd.Parameters.AddWithValue("@Category", category)
+                    cmd.Parameters.AddWithValue("@Description", description)
+                    cmd.Parameters.AddWithValue("@Date", expenseDate)
+                    Await cmd.ExecuteNonQueryAsync()
+                End Using
+            End Using
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Error saving expense data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
+    Private Async Function SaveSavingsData(data As JObject) As Task(Of Boolean)
+        Try
+            Dim goalName As String = data.Value(Of String)("goalName")
+            Dim targetAmount As Decimal = If(data("targetAmount") IsNot Nothing, data.Value(Of Decimal)("targetAmount"), 0)
+            Dim currentAmount As Decimal = If(data("currentAmount") IsNot Nothing, data.Value(Of Decimal)("currentAmount"), 0)
+            Dim dateStr As String = If(data("targetDate") IsNot Nothing, data.Value(Of String)("targetDate"), Date.Now.AddYears(1).ToString("yyyy-MM-dd"))
+            Dim targetDate As Date
+
+            If Not Date.TryParse(dateStr, targetDate) Then
+                targetDate = Date.Now.AddYears(1)
+            End If
+
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "INSERT INTO savings_goals (UserID, GoalName, TargetAmount, CurrentAmount, TargetDate) VALUES (@UserID, @GoalName, @TargetAmount, @CurrentAmount, @TargetDate)"
+                Using cmd As New MySqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                    cmd.Parameters.AddWithValue("@GoalName", goalName)
+                    cmd.Parameters.AddWithValue("@TargetAmount", targetAmount)
+                    cmd.Parameters.AddWithValue("@CurrentAmount", currentAmount)
+                    cmd.Parameters.AddWithValue("@TargetDate", targetDate)
+                    Await cmd.ExecuteNonQueryAsync()
+                End Using
+            End Using
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Error saving savings data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
     Private Sub SaveChatMessage(role As String, message As String, context As String)
         If String.IsNullOrEmpty(AccountData.UserID) Then
             Return
@@ -220,6 +394,8 @@ Public Class frmOCR
         End Try
     End Sub
 
+    
+
     Private Sub btnClearAIHistory_Click(sender As Object, e As EventArgs) Handles btnClearAIHistory.Click
         If String.IsNullOrEmpty(AccountData.UserID) Then
             Return
@@ -257,6 +433,48 @@ Public Class frmOCR
                 dbConnection.Close()
             End Try
         End If
+    End Sub
+
+    Private Async Sub btnUploadData_Click(sender As Object, e As EventArgs) Handles btnUploadData.Click
+        If String.IsNullOrWhiteSpace(rtbOCR.Text) Then
+            MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        btnUploadData.Enabled = False
+        rtbAIResponse.Text = "Classifying and processing data..."
+
+        Try
+            ' First classify the data
+            Dim classificationResult As String = Await ClassifyOCRDataWithAI(rtbOCR.Text)
+            rtbAIResponse.Text = classificationResult
+
+            ' Extract JSON data from AI response
+            Dim jsonData As JObject = ExtractJsonFromAIResponse(classificationResult)
+
+            If jsonData IsNot Nothing AndAlso jsonData.HasValues Then
+                ' Confirm with user before uploading
+                Dim category As String = jsonData.Value(Of String)("category")
+                Dim result = MessageBox.Show(
+                $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
+                "Confirm Upload",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question)
+
+                If result = DialogResult.Yes Then
+                    Dim success As Boolean = Await SaveOCRDataToDatabase(jsonData)
+                    If success Then
+                        MessageBox.Show($"Data has been successfully added to your {category.ToLower()} records.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                End If
+            Else
+                MessageBox.Show("Could not extract valid data from the document. Please check the OCR results and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            rtbAIResponse.Text = "Error: " & ex.Message
+        Finally
+            btnUploadData.Enabled = True
+        End Try
     End Sub
 End Class
 
