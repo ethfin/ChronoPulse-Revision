@@ -4,6 +4,7 @@ Public Class frmExpenses
 
     Private Sub frmExpenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadExpenses()
+        UpdateExperienceBar()
     End Sub
 
     Private Sub btnAddExpense_Click(sender As Object, e As EventArgs) Handles btnAddExpense.Click
@@ -21,6 +22,12 @@ Public Class frmExpenses
             MessageBox.Show("Please fill in all fields.")
             Return
         End If
+
+        UserExperience.AddXP(5)
+        UpdateExperienceBar()
+
+        MessageBox.Show("Expense added successfully. +5 XP")
+        LoadExpenses()
 
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
@@ -82,5 +89,10 @@ Public Class frmExpenses
 
         ' Export the data
         exporter.ExportToCSV(dgExpenses, "Expenses")
+    End Sub
+
+    Private Sub UpdateExperienceBar()
+        prgExperience.Value = CInt(UserExperience.GetProgressToNextLevel() * 100)
+        lblLevel.Text = $"Level {UserExperience.CurrentLevel}"
     End Sub
 End Class

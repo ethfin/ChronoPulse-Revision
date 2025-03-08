@@ -183,7 +183,7 @@ Partial Class frmMain
         Me.btnOCR.FillColor = System.Drawing.Color.Transparent
         Me.btnOCR.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnOCR.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnOCR.Image = Global.ChronoPulse_Revision.My.Resources.Resources.game_controller_blue
+        Me.btnOCR.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ocr
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnOCR.IndicateFocus = True
