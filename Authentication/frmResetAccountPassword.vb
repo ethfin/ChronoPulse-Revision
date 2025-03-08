@@ -1,128 +1,65 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Text.RegularExpressions
+﻿' In frmResetAccountPassword.vb
 Imports MySql.Data.MySqlClient
+Imports Common
 
 Public Class frmResetAccountPassword
+    Private _userEmail As String  ' Changed variable name to avoid conflict
 
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Const WM_SYSCOMMAND As Integer = &H112
-        Const SC_MAXIMIZE As Integer = &HF030
+    ' Fixed property implementation
+    Public Property UserEmail As String
+        Get
+            Return _userEmail  ' Return the private field
+        End Get
+        Set(value As String)
+            _userEmail = value  ' Set the private field
+        End Set
+    End Property
 
-        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_MAXIMIZE Then
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        Dim newPass As String = txtPassword.Text.Trim()
+        Dim confirmPass As String = txtVerifyPassword.Text.Trim()
+
+        If String.IsNullOrEmpty(_userEmail) Then
+            MessageBox.Show("Email information is missing. Please start over.")
             Return
         End If
 
-        MyBase.WndProc(m)
-    End Sub
+        If newPass = confirmPass Then
+            Using conn As MySqlConnection = createDBConnection()
+                conn.Open()
+                Dim query As String = "UPDATE dbaccounts SET Password = @Password WHERE Email = @Email"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@Password", newPass)
+                    cmd.Parameters.AddWithValue("@Email", _userEmail)
 
-    Public Const WM_NCLBUTTONDOWN As Integer = &HA1
-    Public Const HT_CAPTION As Integer = &H2
+                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("Password updated successfully.")
 
-    <DllImport("user32.dll")>
-    Public Shared Function SendMessage(hWnd As IntPtr, Msg As Integer, wParam As Integer, lParam As Integer) As Integer
-    End Function
-
-    <DllImport("user32.dll")>
-    Public Shared Function ReleaseCapture() As Boolean
-    End Function
-
-
-    Private Sub btnResetPassword_Click(sender As Object, e As EventArgs) Handles btnNext.Click
-        lblError.Text = ""
-
-        If txtPassword.Text = txtVerifyPassword.Text AndAlso txtPassword.Text <> "" Then
-            If ValidatePassword(txtPassword.Text) Then
-                Dim conn As MySqlConnection = createDBConnection()
-                Try
-                    conn.Open()
-                    Dim cmd As MySqlCommand = conn.CreateCommand
-                    cmd.CommandText = "UPDATE dbaccounts SET password = @password WHERE email = @email"
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text)
-                    cmd.Parameters.AddWithValue("@email", frmResetAccountSecurity.lblWelcome1.Text)
-                    cmd.ExecuteNonQuery()
-                    lblError.Text = "Password has been reset successfully."
-                    lblError.ForeColor = Color.Green
-                    lblError.Show()
-
-                    Dim parentForm As frmResetAccount = CType(Me.ParentForm, frmResetAccount)
-                    parentForm.NavigateToNextStep(Me)
-                Catch ex As Exception
-                    lblError.Text = "An error occurred while resetting the password. Please try again."
-                    lblError.ForeColor = Color.Red
-                    lblError.Show()
-                Finally
-                    conn.Close()
-                End Try
-            Else
-                lblError.Text = "Password does not meet the complexity requirements. Please try again."
-                lblError.ForeColor = Color.Red
-                lblError.Show()
-            End If
+                        ' Navigate back to login form
+                        ReturnToLogin()
+                    Else
+                        MessageBox.Show("Failed to update password. Email not found.")
+                    End If
+                End Using
+            End Using
         Else
-            lblError.Text = "Passwords do not match or are empty. Please try again."
-            lblError.ForeColor = Color.Red
-            lblError.Show()
+            MessageBox.Show("Passwords do not match.")
         End If
     End Sub
 
-    Private Sub chkShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowPassword.CheckedChanged
-        txtPassword.PasswordChar = If(chkShowPassword.Checked, "", "*")
-    End Sub
+    ' Add a method to handle returning to the login form
+    Private Sub ReturnToLogin()
+        ' Find the parent reset account form
+        Dim parentForm As Form = Me.FindForm()
 
-    Private Sub chkShowVerifyPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowPassword2.CheckedChanged
-        txtVerifyPassword.PasswordChar = If(chkShowPassword2.Checked, "", "*")
-    End Sub
+        ' Show the login form
+        Dim loginForm As New frmLogin()
+        loginForm.Show()
 
-    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
-        ComparePasswords()
-    End Sub
-
-    Private Sub txtVerifyPassword_TextChanged(sender As Object, e As EventArgs) Handles txtVerifyPassword.TextChanged
-        ComparePasswords()
-    End Sub
-
-    Private Sub ComparePasswords()
-        If txtPassword.Text = txtVerifyPassword.Text Then
-            If ValidatePassword(txtPassword.Text) Then
-                txtPassword.BorderColor = Color.Green
-                txtVerifyPassword.BorderColor = Color.Green
-                lblError.ForeColor = Color.Green
-                lblError.Text = "Password matches and meets requirements."
-            Else
-                txtPassword.BorderColor = Color.Red
-                txtVerifyPassword.BorderColor = Color.Red
-                lblError.ForeColor = Color.Red
-                lblError.Text = "Password must be at least 8 characters, contain numbers, and special characters, and should not include : ; "" ' / \\."
-            End If
-        Else
-            txtPassword.BorderColor = Color.Red
-            txtVerifyPassword.BorderColor = Color.Red
-            lblError.ForeColor = Color.Red
-            lblError.Text = "Passwords do not match."
+        ' Close the entire reset account form chain
+        If parentForm IsNot Nothing AndAlso TypeOf parentForm Is frmResetAccount Then
+            parentForm.Close()
         End If
-        lblError.Show()
-    End Sub
-
-    Function ValidatePassword(ByVal pwd As String) As Boolean
-        If Len(pwd) < 8 Then Return False
-
-        Dim hasNumber As New Regex("[0-9]")
-        Dim hasLetter As New Regex("[a-zA-Z]")
-        Dim hasSpecial As New Regex("[^a-zA-Z0-9]")
-        Dim invalidChars As New Regex("[ :;""'/\\]")
-
-        If hasNumber.Matches(pwd).Count < 1 OrElse hasLetter.Matches(pwd).Count < 1 OrElse hasSpecial.Matches(pwd).Count < 1 Then
-            Return False
-        End If
-
-        If invalidChars.Matches(pwd).Count > 0 Then
-            Return False
-        End If
-
-        Return True
-    End Function
-
-    Private Sub frmResetAccountPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtPassword.Select()
     End Sub
 End Class

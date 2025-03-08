@@ -227,7 +227,7 @@ Partial Class frmResetAccountPassword
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(547, 444)
         Me.Controls.Add(Me.panelLogin1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmResetAccountPassword"
         Me.Text = "frmResetAccountPassword"
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -38,8 +38,16 @@
             ' Load the security form into the panel
             LoadStep(securityForm)
         ElseIf TypeOf currentForm Is frmResetAccountSecurity Then
+            ' Create the password form and pass the email
+            Dim securityForm As frmResetAccountSecurity = DirectCast(currentForm, frmResetAccountSecurity)
+            Dim passwordForm As New frmResetAccountPassword()
+
+            ' Pass the email from the security form to the password form
+            passwordForm.UserEmail = securityForm.lblWelcome1.Text
+
             ' Navigate to password form
-            LoadStep(New frmResetAccountPassword())
+            LoadStep(passwordForm)
         End If
     End Sub
+
 End Class
