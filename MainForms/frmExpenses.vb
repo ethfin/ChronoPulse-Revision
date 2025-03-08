@@ -111,22 +111,22 @@ Public Class frmExpenses
         End Using
 
         dgExpenses.DataSource = dt
-        dgExpenses.AllowUserToAddRows = False
-        dgExpenses.BackgroundColor = Color.White
-        dgExpenses.BorderStyle = BorderStyle.None
-        dgExpenses.DefaultCellStyle.SelectionBackColor = Color.FromArgb(245, 245, 245)
-        dgExpenses.DefaultCellStyle.SelectionForeColor = Color.Black
-        dgExpenses.EnableHeadersVisualStyles = False
-        dgExpenses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        dgExpenses.ColumnHeadersDefaultCellStyle.BackColor = Color.White
-        dgExpenses.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
-        dgExpenses.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Regular)
-        dgExpenses.DefaultCellStyle.Font = New Font("Segoe UI", 9.5F, FontStyle.Regular)
-        dgExpenses.RowHeadersVisible = False
-        dgExpenses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgExpenses.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
-        dgExpenses.AllowUserToAddRows = False
-        dgExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
+        'dgExpenses.AllowUserToAddRows = False
+        'dgExpenses.BackgroundColor = Color.White
+        'dgExpenses.BorderStyle = BorderStyle.None
+        'dgExpenses.DefaultCellStyle.SelectionBackColor = Color.FromArgb(245, 245, 245)
+        'dgExpenses.DefaultCellStyle.SelectionForeColor = Color.Black
+        'dgExpenses.EnableHeadersVisualStyles = False
+        'dgExpenses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        'dgExpenses.ColumnHeadersDefaultCellStyle.BackColor = Color.White
+        'dgExpenses.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
+        'dgExpenses.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Regular)
+        'dgExpenses.DefaultCellStyle.Font = New Font("Segoe UI", 9.5F, FontStyle.Regular)
+        'dgExpenses.RowHeadersVisible = False
+        'dgExpenses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        'dgExpenses.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
+        'dgExpenses.AllowUserToAddRows = False
+        'dgExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
@@ -135,5 +135,100 @@ Public Class frmExpenses
 
         ' Export the data
         exporter.ExportToCSV(dgExpenses, "Expenses")
+    End Sub
+
+    Private Sub dgExpenses_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgExpenses.CellClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = dgExpenses.Rows(e.RowIndex)
+            txtItem.Text = row.Cells("ITEM").Value.ToString()
+            txtCost.Text = row.Cells("COST").Value.ToString().Replace("$", "")
+            cmbCategory.Text = row.Cells("CATEGORY").Value.ToString()
+            txtDescription.Text = row.Cells("DESCRIPTION").Value.ToString()
+        End If
+    End Sub
+
+    Private Sub btnUpdateExpenses_Click(sender As Object, e As EventArgs) Handles btnUpdateExpenses.Click
+        Dim item As String = txtItem.Text
+        Dim cost As Decimal
+        Dim category As String = cmbCategory.Text
+        Dim description As String = txtDescription.Text
+
+        If Not Decimal.TryParse(txtCost.Text, cost) Then
+            MessageBox.Show("Please enter a valid cost.")
+            Return
+        End If
+
+        If String.IsNullOrEmpty(item) OrElse String.IsNullOrEmpty(category) OrElse String.IsNullOrEmpty(description) Then
+            MessageBox.Show("Please fill in all fields.")
+            Return
+        End If
+
+        If dgExpenses.SelectedRows.Count > 0 OrElse dgExpenses.SelectedCells.Count > 0 Then
+            Dim rowIndex As Integer = If(dgExpenses.SelectedRows.Count > 0, dgExpenses.SelectedRows(0).Index, dgExpenses.SelectedCells(0).RowIndex)
+            Dim selectedItem As String = dgExpenses.Rows(rowIndex).Cells("ITEM").Value.ToString()
+            Dim selectedDate As String = dgExpenses.Rows(rowIndex).Cells("DATE").Value.ToString()
+
+            Try
+                Using connection As MySqlConnection = Common.createDBConnection()
+                    connection.Open()
+                    Dim query As String = "UPDATE user_expenses SET Item = @Item, Cost = @Cost, Category = @Category, Description = @Description WHERE UserID = @UserID AND Item = @OriginalItem AND DATE_FORMAT(date, '%m/%d/%Y') = @OriginalDate"
+                    Using cmd As New MySqlCommand(query, connection)
+                        cmd.Parameters.AddWithValue("@Item", item)
+                        cmd.Parameters.AddWithValue("@Cost", cost)
+                        cmd.Parameters.AddWithValue("@Category", category)
+                        cmd.Parameters.AddWithValue("@Description", description)
+                        cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                        cmd.Parameters.AddWithValue("@OriginalItem", selectedItem)
+                        cmd.Parameters.AddWithValue("@OriginalDate", selectedDate)
+                        cmd.ExecuteNonQuery()
+                    End Using
+                    MessageBox.Show("Expense updated successfully.")
+                    LoadExpenses() ' Refresh the DataGridView
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Please select an expense to update.")
+        End If
+    End Sub
+
+    Private Sub btnDeleteExpense_Click(sender As Object, e As EventArgs) Handles btnDeleteExpense.Click
+        If dgExpenses.SelectedRows.Count > 0 OrElse dgExpenses.SelectedCells.Count > 0 Then
+            ' Confirm before deleting
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this expense?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+                Dim rowIndex As Integer = If(dgExpenses.SelectedRows.Count > 0, dgExpenses.SelectedRows(0).Index, dgExpenses.SelectedCells(0).RowIndex)
+                Dim selectedItem As String = dgExpenses.Rows(rowIndex).Cells("ITEM").Value.ToString()
+                Dim selectedDate As String = dgExpenses.Rows(rowIndex).Cells("DATE").Value.ToString()
+
+                Try
+                    Using connection As MySqlConnection = Common.createDBConnection()
+                        connection.Open()
+                        Dim query As String = "DELETE FROM user_expenses WHERE UserID = @UserID AND Item = @Item AND DATE_FORMAT(date, '%m/%d/%Y') = @Date"
+
+                        Using cmd As New MySqlCommand(query, connection)
+                            cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                            cmd.Parameters.AddWithValue("@Item", selectedItem)
+                            cmd.Parameters.AddWithValue("@Date", selectedDate)
+                            cmd.ExecuteNonQuery()
+                        End Using
+
+                        MessageBox.Show("Expense deleted successfully.")
+                        LoadExpenses() ' Refresh the DataGridView
+
+                        ' Clear the form fields after deletion
+                        txtItem.Text = ""
+                        txtCost.Text = ""
+                        txtDescription.Text = ""
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("An error occurred: " & ex.Message)
+                End Try
+            End If
+        Else
+            MessageBox.Show("Please select an expense to delete.")
+        End If
     End Sub
 End Class

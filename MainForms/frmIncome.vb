@@ -72,22 +72,22 @@ Public Class frmIncome
         End Using
 
         dgIncome.DataSource = dt
-        dgIncome.AllowUserToAddRows = False
-        dgIncome.BackgroundColor = Color.White
-        dgIncome.BorderStyle = BorderStyle.None
-        dgIncome.DefaultCellStyle.SelectionBackColor = Color.FromArgb(245, 245, 245)
-        dgIncome.DefaultCellStyle.SelectionForeColor = Color.Black
-        dgIncome.EnableHeadersVisualStyles = False
-        dgIncome.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        dgIncome.ColumnHeadersDefaultCellStyle.BackColor = Color.White
-        dgIncome.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
-        dgIncome.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Regular)
-        dgIncome.DefaultCellStyle.Font = New Font("Segoe UI", 9.5F, FontStyle.Regular)
-        dgIncome.RowHeadersVisible = False
-        dgIncome.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgIncome.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
-        dgIncome.AllowUserToAddRows = False
-        dgIncome.CellBorderStyle = DataGridViewCellBorderStyle.None
+        'dgIncome.AllowUserToAddRows = False
+        'dgIncome.BackgroundColor = Color.White
+        'dgIncome.BorderStyle = BorderStyle.None
+        'dgIncome.DefaultCellStyle.SelectionBackColor = Color.FromArgb(245, 245, 245)
+        'dgIncome.DefaultCellStyle.SelectionForeColor = Color.Black
+        'dgIncome.EnableHeadersVisualStyles = False
+        'dgIncome.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        'dgIncome.ColumnHeadersDefaultCellStyle.BackColor = Color.White
+        'dgIncome.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
+        'dgIncome.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Regular)
+        'dgIncome.DefaultCellStyle.Font = New Font("Segoe UI", 9.5F, FontStyle.Regular)
+        'dgIncome.RowHeadersVisible = False
+        'dgIncome.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        'dgIncome.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
+        'dgIncome.AllowUserToAddRows = False
+        'dgIncome.CellBorderStyle = DataGridViewCellBorderStyle.None
     End Sub
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
@@ -96,5 +96,99 @@ Public Class frmIncome
 
         ' Export the data
         exporter.ExportToCSV(dgIncome, "Income")
+    End Sub
+
+    Private Sub dgIncome_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgIncome.CellClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = dgIncome.Rows(e.RowIndex)
+            txtSource.Text = row.Cells("SOURCE").Value.ToString()
+            txtAmount.Text = row.Cells("AMOUNT").Value.ToString().Replace("$", "")
+            dtpDate.Value = Convert.ToDateTime(row.Cells("DATE").Value)
+        End If
+    End Sub
+
+    Private Sub btnDeleteIncome_Click(sender As Object, e As EventArgs) Handles btnDeleteIncome.Click
+        If dgIncome.SelectedRows.Count > 0 OrElse dgIncome.SelectedCells.Count > 0 Then
+            ' Confirm before deleting
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this income record?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+                Dim rowIndex As Integer = If(dgIncome.SelectedRows.Count > 0, dgIncome.SelectedRows(0).Index, dgIncome.SelectedCells(0).RowIndex)
+                Dim selectedSource As String = dgIncome.Rows(rowIndex).Cells("SOURCE").Value.ToString()
+                Dim selectedDate As String = dgIncome.Rows(rowIndex).Cells("DATE").Value.ToString()
+
+                Try
+                    Using connection As MySqlConnection = Common.createDBConnection()
+                        connection.Open()
+                        Dim query As String = "DELETE FROM user_income WHERE UserID = @UserID AND Source = @Source AND DATE_FORMAT(Date, '%m/%d/%Y') = @Date"
+
+                        Using cmd As New MySqlCommand(query, connection)
+                            cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                            cmd.Parameters.AddWithValue("@Source", selectedSource)
+                            cmd.Parameters.AddWithValue("@Date", selectedDate)
+                            cmd.ExecuteNonQuery()
+                        End Using
+
+                        MessageBox.Show("Income record deleted successfully.")
+                        LoadIncomeData() ' Refresh the DataGridView
+
+                        ' Clear the form fields after deletion
+                        txtSource.Text = ""
+                        txtAmount.Text = ""
+                        dtpDate.Value = DateTime.Now
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("An error occurred: " & ex.Message)
+                End Try
+            End If
+        Else
+            MessageBox.Show("Please select an income record to delete.")
+        End If
+    End Sub
+
+    Private Sub btnUpdateIncome_Click(sender As Object, e As EventArgs) Handles btnUpdateIncome.Click
+        Dim source As String = txtSource.Text
+        Dim amount As Decimal
+        Dim incomeDate As Date = dtpDate.Value
+
+        If Not Decimal.TryParse(txtAmount.Text, amount) Then
+            MessageBox.Show("Please enter a valid amount.")
+            Return
+        End If
+
+        If String.IsNullOrEmpty(source) Then
+            MessageBox.Show("Please enter a source.")
+            Return
+        End If
+
+        If dgIncome.SelectedRows.Count > 0 OrElse dgIncome.SelectedCells.Count > 0 Then
+            Dim rowIndex As Integer = If(dgIncome.SelectedRows.Count > 0, dgIncome.SelectedRows(0).Index, dgIncome.SelectedCells(0).RowIndex)
+            Dim selectedSource As String = dgIncome.Rows(rowIndex).Cells("SOURCE").Value.ToString()
+            Dim selectedDate As String = dgIncome.Rows(rowIndex).Cells("DATE").Value.ToString()
+
+            Try
+                Using connection As MySqlConnection = Common.createDBConnection()
+                    connection.Open()
+                    Dim query As String = "UPDATE user_income SET Source = @Source, Amount = @Amount, Date = @Date WHERE UserID = @UserID AND Source = @OriginalSource AND DATE_FORMAT(Date, '%m/%d/%Y') = @OriginalDate"
+
+                    Using cmd As New MySqlCommand(query, connection)
+                        cmd.Parameters.AddWithValue("@Source", source)
+                        cmd.Parameters.AddWithValue("@Amount", amount)
+                        cmd.Parameters.AddWithValue("@Date", incomeDate)
+                        cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                        cmd.Parameters.AddWithValue("@OriginalSource", selectedSource)
+                        cmd.Parameters.AddWithValue("@OriginalDate", selectedDate)
+                        cmd.ExecuteNonQuery()
+                    End Using
+
+                    MessageBox.Show("Income record updated successfully.")
+                    LoadIncomeData() ' Refresh the DataGridView
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Please select an income record to update.")
+        End If
     End Sub
 End Class

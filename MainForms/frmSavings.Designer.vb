@@ -22,18 +22,19 @@ Partial Class frmSavings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtTargetAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtGoalName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtCurrentAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.dtpTargetDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.btnAddSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
         Me.dgvSavings = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.btnUpdateSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnDeleteSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnAddSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
         Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnUpdateSavingsGoal = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.dgvSavings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -117,65 +118,47 @@ Partial Class frmSavings
         Me.dtpTargetDate.TabIndex = 13
         Me.dtpTargetDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
         '
-        'btnAddSavingsGoal
-        '
-        Me.btnAddSavingsGoal.Animated = True
-        Me.btnAddSavingsGoal.BorderRadius = 15
-        Me.btnAddSavingsGoal.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddSavingsGoal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddSavingsGoal.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAddSavingsGoal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAddSavingsGoal.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnAddSavingsGoal.Font = New System.Drawing.Font("Inter", 12.0!)
-        Me.btnAddSavingsGoal.ForeColor = System.Drawing.Color.White
-        Me.btnAddSavingsGoal.IndicateFocus = True
-        Me.btnAddSavingsGoal.Location = New System.Drawing.Point(12, 159)
-        Me.btnAddSavingsGoal.Name = "btnAddSavingsGoal"
-        Me.btnAddSavingsGoal.Size = New System.Drawing.Size(112, 45)
-        Me.btnAddSavingsGoal.TabIndex = 14
-        Me.btnAddSavingsGoal.Text = "Add"
-        '
         'dgvSavings
         '
         Me.dgvSavings.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgvSavings.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgvSavings.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dgvSavings.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvSavings.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvSavings.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvSavings.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgvSavings.ColumnHeadersHeight = 22
         Me.dgvSavings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvSavings.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvSavings.DefaultCellStyle = DataGridViewCellStyle15
         Me.dgvSavings.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvSavings.Location = New System.Drawing.Point(278, 0)
         Me.dgvSavings.Name = "dgvSavings"
         Me.dgvSavings.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvSavings.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvSavings.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.dgvSavings.RowHeadersVisible = False
         Me.dgvSavings.Size = New System.Drawing.Size(522, 450)
         Me.dgvSavings.TabIndex = 15
@@ -201,23 +184,41 @@ Partial Class frmSavings
         Me.dgvSavings.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvSavings.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'btnUpdateSavingsGoal
+        'btnDeleteSavingsGoal
         '
-        Me.btnUpdateSavingsGoal.Animated = True
-        Me.btnUpdateSavingsGoal.BorderRadius = 15
-        Me.btnUpdateSavingsGoal.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnUpdateSavingsGoal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnUpdateSavingsGoal.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnUpdateSavingsGoal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnUpdateSavingsGoal.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnUpdateSavingsGoal.Font = New System.Drawing.Font("Inter", 12.0!)
-        Me.btnUpdateSavingsGoal.ForeColor = System.Drawing.Color.White
-        Me.btnUpdateSavingsGoal.IndicateFocus = True
-        Me.btnUpdateSavingsGoal.Location = New System.Drawing.Point(160, 159)
-        Me.btnUpdateSavingsGoal.Name = "btnUpdateSavingsGoal"
-        Me.btnUpdateSavingsGoal.Size = New System.Drawing.Size(112, 45)
-        Me.btnUpdateSavingsGoal.TabIndex = 16
-        Me.btnUpdateSavingsGoal.Text = "Update"
+        Me.btnDeleteSavingsGoal.Animated = True
+        Me.btnDeleteSavingsGoal.BorderRadius = 15
+        Me.btnDeleteSavingsGoal.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDeleteSavingsGoal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDeleteSavingsGoal.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDeleteSavingsGoal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDeleteSavingsGoal.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnDeleteSavingsGoal.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteSavingsGoal.ForeColor = System.Drawing.Color.Black
+        Me.btnDeleteSavingsGoal.IndicateFocus = True
+        Me.btnDeleteSavingsGoal.Location = New System.Drawing.Point(160, 200)
+        Me.btnDeleteSavingsGoal.Name = "btnDeleteSavingsGoal"
+        Me.btnDeleteSavingsGoal.Size = New System.Drawing.Size(112, 35)
+        Me.btnDeleteSavingsGoal.TabIndex = 25
+        Me.btnDeleteSavingsGoal.Text = "Delete"
+        '
+        'btnAddSavingsGoal
+        '
+        Me.btnAddSavingsGoal.Animated = True
+        Me.btnAddSavingsGoal.BorderRadius = 15
+        Me.btnAddSavingsGoal.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddSavingsGoal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddSavingsGoal.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddSavingsGoal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddSavingsGoal.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnAddSavingsGoal.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddSavingsGoal.ForeColor = System.Drawing.Color.Black
+        Me.btnAddSavingsGoal.IndicateFocus = True
+        Me.btnAddSavingsGoal.Location = New System.Drawing.Point(12, 159)
+        Me.btnAddSavingsGoal.Name = "btnAddSavingsGoal"
+        Me.btnAddSavingsGoal.Size = New System.Drawing.Size(112, 35)
+        Me.btnAddSavingsGoal.TabIndex = 26
+        Me.btnAddSavingsGoal.Text = "Add"
         '
         'btnExport
         '
@@ -227,15 +228,33 @@ Partial Class frmSavings
         Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnExport.FillColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
-        Me.btnExport.Font = New System.Drawing.Font("Inter", 12.0!)
-        Me.btnExport.ForeColor = System.Drawing.Color.White
+        Me.btnExport.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnExport.ForeColor = System.Drawing.Color.Black
         Me.btnExport.IndicateFocus = True
-        Me.btnExport.Location = New System.Drawing.Point(12, 210)
+        Me.btnExport.Location = New System.Drawing.Point(12, 200)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(112, 45)
-        Me.btnExport.TabIndex = 17
+        Me.btnExport.Size = New System.Drawing.Size(112, 35)
+        Me.btnExport.TabIndex = 27
         Me.btnExport.Text = "Export"
+        '
+        'btnUpdateSavingsGoal
+        '
+        Me.btnUpdateSavingsGoal.Animated = True
+        Me.btnUpdateSavingsGoal.BorderRadius = 15
+        Me.btnUpdateSavingsGoal.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdateSavingsGoal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdateSavingsGoal.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnUpdateSavingsGoal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnUpdateSavingsGoal.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnUpdateSavingsGoal.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdateSavingsGoal.ForeColor = System.Drawing.Color.Black
+        Me.btnUpdateSavingsGoal.IndicateFocus = True
+        Me.btnUpdateSavingsGoal.Location = New System.Drawing.Point(160, 159)
+        Me.btnUpdateSavingsGoal.Name = "btnUpdateSavingsGoal"
+        Me.btnUpdateSavingsGoal.Size = New System.Drawing.Size(112, 35)
+        Me.btnUpdateSavingsGoal.TabIndex = 28
+        Me.btnUpdateSavingsGoal.Text = "Update"
         '
         'frmSavings
         '
@@ -243,10 +262,11 @@ Partial Class frmSavings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.btnExport)
         Me.Controls.Add(Me.btnUpdateSavingsGoal)
-        Me.Controls.Add(Me.dgvSavings)
+        Me.Controls.Add(Me.btnExport)
         Me.Controls.Add(Me.btnAddSavingsGoal)
+        Me.Controls.Add(Me.btnDeleteSavingsGoal)
+        Me.Controls.Add(Me.dgvSavings)
         Me.Controls.Add(Me.dtpTargetDate)
         Me.Controls.Add(Me.txtCurrentAmount)
         Me.Controls.Add(Me.txtTargetAmount)
@@ -262,8 +282,9 @@ Partial Class frmSavings
     Private WithEvents txtGoalName As Guna.UI2.WinForms.Guna2TextBox
     Private WithEvents txtCurrentAmount As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dtpTargetDate As Guna.UI2.WinForms.Guna2DateTimePicker
-    Private WithEvents btnAddSavingsGoal As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents dgvSavings As Guna.UI2.WinForms.Guna2DataGridView
-    Private WithEvents btnUpdateSavingsGoal As Guna.UI2.WinForms.Guna2Button
+    Private WithEvents btnDeleteSavingsGoal As Guna.UI2.WinForms.Guna2Button
+    Private WithEvents btnAddSavingsGoal As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnExport As Guna.UI2.WinForms.Guna2Button
+    Private WithEvents btnUpdateSavingsGoal As Guna.UI2.WinForms.Guna2Button
 End Class

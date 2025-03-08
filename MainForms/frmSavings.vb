@@ -17,6 +17,11 @@ Public Class frmSavings
                         Dim dt As New DataTable()
                         dt.Load(reader)
                         dgvSavings.DataSource = dt
+
+                        ' Hide the GoalID column
+                        If dgvSavings.Columns.Contains("GoalID") Then
+                            dgvSavings.Columns("GoalID").Visible = False
+                        End If
                     End Using
                 End Using
             End Using
@@ -151,4 +156,41 @@ Public Class frmSavings
         exporter.ExportToCSV(dgvSavings, "Savings")
     End Sub
 
+    Private Sub btnDeleteSavingsGoal_Click(sender As Object, e As EventArgs) Handles btnDeleteSavingsGoal.Click
+        If dgvSavings.SelectedRows.Count > 0 Then
+            ' Confirm before deleting
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this savings goal?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+                Dim selectedRow As DataGridViewRow = dgvSavings.SelectedRows(0)
+                Dim goalID As Integer = Convert.ToInt32(selectedRow.Cells("GoalID").Value)
+
+                Try
+                    Using connection As MySqlConnection = Common.createDBConnection()
+                        connection.Open()
+                        Dim query As String = "DELETE FROM savings_goals WHERE GoalID = @GoalID AND UserID = @UserID"
+
+                        Using cmd As New MySqlCommand(query, connection)
+                            cmd.Parameters.AddWithValue("@GoalID", goalID)
+                            cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                            cmd.ExecuteNonQuery()
+                        End Using
+
+                        MessageBox.Show("Savings goal deleted successfully.")
+                        LoadSavingsGoals() ' Refresh the DataGridView
+
+                        ' Clear the form fields after deletion
+                        txtGoalName.Text = ""
+                        txtTargetAmount.Text = ""
+                        txtCurrentAmount.Text = ""
+                        dtpTargetDate.Value = DateTime.Now
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("An error occurred: " & ex.Message)
+                End Try
+            End If
+        Else
+            MessageBox.Show("Please select a savings goal to delete.")
+        End If
+    End Sub
 End Class

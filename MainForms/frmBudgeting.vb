@@ -32,13 +32,17 @@ Public Class frmBudgeting
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
-                Dim query As String = "SELECT BudgetID, CategoryID, Amount, StartDate, EndDate, Description FROM budgets WHERE UserID = @UserID"
+                Dim query As String = "SELECT BudgetID, CategoryID, Description, Amount, StartDate, EndDate FROM budgets WHERE UserID = @UserID"
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         Dim dt As New DataTable()
                         dt.Load(reader)
                         dgvBudgets.DataSource = dt
+
+                        ' Hide the ID columns
+                        dgvBudgets.Columns("BudgetID").Visible = False
+                        dgvBudgets.Columns("CategoryID").Visible = False
                     End Using
                 End Using
             End Using
@@ -156,5 +160,44 @@ Public Class frmBudgeting
 
         ' Export the data
         exporter.ExportToCSV(dgvBudgets, "Budget")
+    End Sub
+
+    Private Sub btnDeleteBudget_Click(sender As Object, e As EventArgs) Handles btnDeleteBudget.Click
+        If dgvBudgets.SelectedRows.Count > 0 Then
+            ' Confirm before deleting
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this budget?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+                Dim selectedRow As DataGridViewRow = dgvBudgets.SelectedRows(0)
+                Dim budgetID As Integer = Convert.ToInt32(selectedRow.Cells("BudgetID").Value)
+
+                Try
+                    Using connection As MySqlConnection = Common.createDBConnection()
+                        connection.Open()
+                        Dim query As String = "DELETE FROM budgets WHERE BudgetID = @BudgetID AND UserID = @UserID"
+
+                        Using cmd As New MySqlCommand(query, connection)
+                            cmd.Parameters.AddWithValue("@BudgetID", budgetID)
+                            cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                            cmd.ExecuteNonQuery()
+                        End Using
+
+                        MessageBox.Show("Budget deleted successfully.")
+                        LoadBudgets() ' Refresh the DataGridView
+
+                        ' Clear the form fields after deletion
+                        cmbCategory.SelectedIndex = -1
+                        txtBudgetAmount.Text = ""
+                        txtDescription.Text = ""
+                        dtpStartDate.Value = DateTime.Now
+                        dtpEndDate.Value = DateTime.Now
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("An error occurred: " & ex.Message)
+                End Try
+            End If
+        Else
+            MessageBox.Show("Please select a budget to delete.")
+        End If
     End Sub
 End Class
