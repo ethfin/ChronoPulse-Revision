@@ -335,6 +335,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Data\AccountData.vb" />
+    <Compile Include="Data\Achievement.vb" />
     <Compile Include="Data\common.vb" />
     <Compile Include="Data\ExportUtility.vb" />
     <Compile Include="Data\UserExperience.vb" />

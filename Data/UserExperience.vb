@@ -1,10 +1,42 @@
-﻿Public Class UserExperience
+﻿Imports MySql.Data.MySqlClient
+
+Public Class UserExperience
     Public Shared Property CurrentXP As Integer = 0
     Public Shared Property CurrentLevel As Integer = 1
 
     Private Shared ReadOnly XPThresholds As New Dictionary(Of Integer, Integer) From {
         {1, 100}, {2, 250}, {3, 500}, {4, 1000}, {5, 2000}
     }
+
+    Public Shared Sub LoadUserExperience(userID As Integer)
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String = "SELECT Level, Experience FROM user_experience WHERE UserID = @UserID"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", userID)
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        CurrentLevel = reader.GetInt32("Level")
+                        CurrentXP = reader.GetInt32("Experience")
+                    End If
+                End Using
+            End Using
+        End Using
+    End Sub
+
+    Public Shared Sub SaveUserExperience(userID As Integer)
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String = "INSERT INTO user_experience (UserID, Level, Experience) VALUES (@UserID, @Level, @Experience) " &
+                                  "ON DUPLICATE KEY UPDATE Level = @Level, Experience = @Experience"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", userID)
+                cmd.Parameters.AddWithValue("@Level", CurrentLevel)
+                cmd.Parameters.AddWithValue("@Experience", CurrentXP)
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
 
     Public Shared Sub AddXP(points As Integer)
         CurrentXP += points

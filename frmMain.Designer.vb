@@ -47,6 +47,8 @@ Partial Class frmMain
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.prgExperience = New Guna.UI2.WinForms.Guna2ProgressBar()
+        Me.lblLevel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
@@ -79,7 +81,7 @@ Partial Class frmMain
         Me.lblUsername.BackColor = System.Drawing.Color.Transparent
         Me.lblUsername.Font = New System.Drawing.Font("Pixelify Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.lblUsername.Location = New System.Drawing.Point(55, 19)
+        Me.lblUsername.Location = New System.Drawing.Point(46, 11)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(100, 25)
         Me.lblUsername.TabIndex = 2
@@ -161,6 +163,8 @@ Partial Class frmMain
         'Guna2Panel4
         '
         Me.Guna2Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(8, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.Guna2Panel4.Controls.Add(Me.lblLevel)
+        Me.Guna2Panel4.Controls.Add(Me.prgExperience)
         Me.Guna2Panel4.Controls.Add(Me.lblUsername)
         Me.Guna2Panel4.Controls.Add(Me.pbxUser)
         Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -449,6 +453,25 @@ Partial Class frmMain
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
+        'prgExperience
+        '
+        Me.prgExperience.Location = New System.Drawing.Point(46, 34)
+        Me.prgExperience.Name = "prgExperience"
+        Me.prgExperience.Size = New System.Drawing.Size(138, 16)
+        Me.prgExperience.TabIndex = 21
+        Me.prgExperience.Text = "Guna2ProgressBar1"
+        Me.prgExperience.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        '
+        'lblLevel
+        '
+        Me.lblLevel.BackColor = System.Drawing.Color.Transparent
+        Me.lblLevel.ForeColor = System.Drawing.Color.White
+        Me.lblLevel.Location = New System.Drawing.Point(146, 15)
+        Me.lblLevel.Name = "lblLevel"
+        Me.lblLevel.Size = New System.Drawing.Size(38, 15)
+        Me.lblLevel.TabIndex = 22
+        Me.lblLevel.Text = "Level 1"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -466,6 +489,7 @@ Partial Class frmMain
         Me.pnlMenu.ResumeLayout(False)
         Me.pnlMenu.PerformLayout()
         Me.Guna2Panel4.ResumeLayout(False)
+        Me.Guna2Panel4.PerformLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsDropDown.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -495,4 +519,6 @@ Partial Class frmMain
     Friend WithEvents btnBudget As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnOCR As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents prgExperience As Guna.UI2.WinForms.Guna2ProgressBar
+    Friend WithEvents lblLevel As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

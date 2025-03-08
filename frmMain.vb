@@ -62,6 +62,10 @@ Public Class frmMain
         ' Set the default form to load as frmDashboard
         LoadForm(New frmDashboard)
 
+        ' Load user experience data
+        UserExperience.LoadUserExperience(AccountData.UserID)
+        UpdateExperienceBar()
+
         ' Create and configure the ContextMenuStrip
         Dim contextMenu As New ContextMenuStrip()
         Dim showMenuItem As New ToolStripMenuItem("Show")
@@ -115,6 +119,11 @@ Public Class frmMain
         End If
     End Sub
     '-- End System Tray Icon --
+
+    Public Sub UpdateExperienceBar()
+        prgExperience.Value = CInt(UserExperience.GetProgressToNextLevel() * 100)
+        lblLevel.Text = $"Level {UserExperience.CurrentLevel}"
+    End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         ' Prompt for confirmation before logging out

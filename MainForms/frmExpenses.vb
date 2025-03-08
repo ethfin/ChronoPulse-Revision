@@ -4,7 +4,6 @@ Public Class frmExpenses
 
     Private Sub frmExpenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadExpenses()
-        UpdateExperienceBar()
     End Sub
 
     Private Sub btnAddExpense_Click(sender As Object, e As EventArgs) Handles btnAddExpense.Click
@@ -23,18 +22,12 @@ Public Class frmExpenses
             Return
         End If
 
-        UserExperience.AddXP(5)
-        UpdateExperienceBar()
-
-        MessageBox.Show("Expense added successfully. +5 XP")
-        LoadExpenses()
-
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
                 Dim query As String = "INSERT INTO user_expenses (UserID, Item, Cost, Category, Description, date) VALUES (@UserID, @Item, @Cost, @Category, @Description, @Date)"
                 Using cmd As New MySqlCommand(query, connection)
-                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID) ' Assuming AccountData.UserID holds the current user's ID
+                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                     cmd.Parameters.AddWithValue("@Item", item)
                     cmd.Parameters.AddWithValue("@Cost", cost)
                     cmd.Parameters.AddWithValue("@Category", category)
@@ -42,13 +35,43 @@ Public Class frmExpenses
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now)
                     cmd.ExecuteNonQuery()
                 End Using
+
+                ' Check if this is the user's first expense
+                Dim countQuery As String = "SELECT COUNT(*) FROM user_expenses WHERE UserID = @UserID"
+                Using countCmd As New MySqlCommand(countQuery, connection)
+                    countCmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                    Dim count As Integer = Convert.ToInt32(countCmd.ExecuteScalar())
+                    If count = 1 Then
+                        ' Unlock the "First Expense" achievement
+                        Dim achievement = AchievementManager._achievements.Find(Function(a) a.ID = 4)
+                        If achievement IsNot Nothing Then
+                            achievement.Unlock()
+                        End If
+                    End If
+                End Using
+
+                ' Add experience points
+                UserExperience.AddXP(5)
+
+                ' Save user experience data
+                UserExperience.SaveUserExperience(AccountData.UserID)
+
+                ' Update the experience bar in frmMain
+                Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                If mainForm IsNot Nothing Then
+                    mainForm.UpdateExperienceBar()
+                End If
+
+                MessageBox.Show("Expense added successfully.")
+                LoadExpenses() ' Refresh the DataGridView after adding a new expense
             End Using
-            MessageBox.Show("Expense added successfully.")
-            LoadExpenses() ' Refresh the DataGridView after adding a new expense
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
     End Sub
+
+
+
 
     Private Sub LoadExpenses()
         Dim query As String = "SELECT Item AS ITEM, CONCAT('$', Cost) AS COST, Category AS CATEGORY, Description AS DESCRIPTION, DATE_FORMAT(date, '%m/%d/%Y') AS DATE FROM user_expenses WHERE UserID = @UserID"
@@ -89,10 +112,5 @@ Public Class frmExpenses
 
         ' Export the data
         exporter.ExportToCSV(dgExpenses, "Expenses")
-    End Sub
-
-    Private Sub UpdateExperienceBar()
-        prgExperience.Value = CInt(UserExperience.GetProgressToNextLevel() * 100)
-        lblLevel.Text = $"Level {UserExperience.CurrentLevel}"
     End Sub
 End Class
