@@ -23,7 +23,6 @@ Partial Class frmOCR
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.openFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.rtbOCR = New System.Windows.Forms.RichTextBox()
         Me.rtbAIResponse = New System.Windows.Forms.RichTextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnOpenFile = New Guna.UI2.WinForms.Guna2Button()
@@ -37,27 +36,15 @@ Partial Class frmOCR
         '
         Me.openFileDialog.FileName = "openFileDialog"
         '
-        'rtbOCR
-        '
-        Me.rtbOCR.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        Me.rtbOCR.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.rtbOCR.Dock = System.Windows.Forms.DockStyle.Top
-        Me.rtbOCR.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.rtbOCR.Location = New System.Drawing.Point(0, 0)
-        Me.rtbOCR.Name = "rtbOCR"
-        Me.rtbOCR.Size = New System.Drawing.Size(800, 203)
-        Me.rtbOCR.TabIndex = 1
-        Me.rtbOCR.Text = ""
-        '
         'rtbAIResponse
         '
         Me.rtbAIResponse.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.rtbAIResponse.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rtbAIResponse.Dock = System.Windows.Forms.DockStyle.Fill
         Me.rtbAIResponse.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.rtbAIResponse.Location = New System.Drawing.Point(0, 203)
+        Me.rtbAIResponse.Location = New System.Drawing.Point(0, 0)
         Me.rtbAIResponse.Name = "rtbAIResponse"
-        Me.rtbAIResponse.Size = New System.Drawing.Size(800, 247)
+        Me.rtbAIResponse.Size = New System.Drawing.Size(800, 450)
         Me.rtbAIResponse.TabIndex = 2
         Me.rtbAIResponse.Text = ""
         '
@@ -91,7 +78,7 @@ Partial Class frmOCR
         Me.btnOpenFile.Name = "btnOpenFile"
         Me.btnOpenFile.Size = New System.Drawing.Size(112, 35)
         Me.btnOpenFile.TabIndex = 12
-        Me.btnOpenFile.Text = "Upload"
+        Me.btnOpenFile.Text = "Scan"
         '
         'btnAnalyze
         '
@@ -111,6 +98,7 @@ Partial Class frmOCR
         Me.btnAnalyze.Size = New System.Drawing.Size(112, 35)
         Me.btnAnalyze.TabIndex = 13
         Me.btnAnalyze.Text = "Analyze"
+        Me.btnAnalyze.Visible = False
         '
         'btnUploadData
         '
@@ -157,7 +145,6 @@ Partial Class frmOCR
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.rtbAIResponse)
-        Me.Controls.Add(Me.rtbOCR)
         Me.Name = "frmOCR"
         Me.Text = "frmOCR"
         Me.Guna2Panel1.ResumeLayout(False)
@@ -165,7 +152,6 @@ Partial Class frmOCR
 
     End Sub
     Friend WithEvents openFileDialog As OpenFileDialog
-    Friend WithEvents rtbOCR As RichTextBox
     Friend WithEvents rtbAIResponse As RichTextBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Private WithEvents btnClearAIHistory As Guna.UI2.WinForms.Guna2Button

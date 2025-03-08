@@ -12,6 +12,7 @@ Public Class frmOCR
     Private ReadOnly httpClient As HttpClient
     Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/chat/completions"
     Private dbConnection As MySqlConnection
+    Private _lastOcrText As String = String.Empty
 
     Public Sub New()
         InitializeComponent()
@@ -370,18 +371,31 @@ Public Class frmOCR
 
                 If openFileDialog.ShowDialog() = DialogResult.OK Then
                     Dim selectedFilePath As String = openFileDialog.FileName
-                    rtbOCR.Text = "Processing image, please wait..."
+
+                    ' Show processing message in AI response textbox
+                    rtbAIResponse.Text = "Processing image, please wait..."
+                    btnOpenFile.Enabled = False
+
+                    ' First perform OCR
                     Dim ocrResult As String = Await UploadImageToOCRSpace(selectedFilePath)
-                    rtbOCR.Text = ocrResult
+
+                    ' Store OCR text in the private field instead of the removed RichTextBox
+                    _lastOcrText = ocrResult
+
+                    ' Then perform AI analysis directly
+                    Dim analysis As String = Await GetAIAnalysis(ocrResult)
+                    rtbAIResponse.Text = analysis
                 End If
             End Using
         Catch ex As Exception
-            rtbOCR.Text = "Error: " & ex.Message
+            rtbAIResponse.Text = "Error: " & ex.Message
+        Finally
+            btnOpenFile.Enabled = True
         End Try
     End Sub
 
     Private Async Sub btnUploadData_Click(sender As Object, e As EventArgs) Handles btnUploadData.Click
-        If String.IsNullOrWhiteSpace(rtbOCR.Text) Then
+        If String.IsNullOrWhiteSpace(_lastOcrText) Then
             MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
@@ -391,7 +405,7 @@ Public Class frmOCR
 
         Try
             ' First classify the data (but don't show the detailed result)
-            Dim classificationResult As String = Await ClassifyOCRDataWithAI(rtbOCR.Text)
+            Dim classificationResult As String = Await ClassifyOCRDataWithAI(_lastOcrText)
 
             ' Extract JSON data from AI response
             Dim jsonData As JObject = ExtractJsonFromAIResponse(classificationResult)
@@ -402,10 +416,10 @@ Public Class frmOCR
 
                 ' Confirm with user before uploading
                 Dim result = MessageBox.Show(
-                    $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
-                    "Confirm Upload",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question)
+                $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
+                "Confirm Upload",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
                     Dim success As Boolean = Await SaveOCRDataToDatabase(jsonData)
@@ -469,19 +483,19 @@ Public Class frmOCR
     End Sub
 
     Private Async Sub btnAnalyze_Click_1(sender As Object, e As EventArgs) Handles btnAnalyze.Click
-        If String.IsNullOrWhiteSpace(rtbOCR.Text) Then
-            MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Return
-        End If
+        'If String.IsNullOrWhiteSpace(rtbOCR.Text) Then
+        '    MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    Return
+        'End If
 
-        btnAnalyze.Enabled = False
-        rtbAIResponse.Text = "Analyzing text..."
-        Try
-            Dim analysis As String = Await GetAIAnalysis(rtbOCR.Text)
-            rtbAIResponse.Text = analysis
-        Finally
-            btnAnalyze.Enabled = True
-        End Try
+        'btnAnalyze.Enabled = False
+        'rtbAIResponse.Text = "Analyzing text..."
+        'Try
+        '    Dim analysis As String = Await GetAIAnalysis(rtbOCR.Text)
+        '    rtbAIResponse.Text = analysis
+        'Finally
+        '    btnAnalyze.Enabled = True
+        'End Try
     End Sub
 End Class
 
