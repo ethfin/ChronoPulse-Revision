@@ -25,15 +25,33 @@ Public Class frmIncome
                 connection.Open()
                 Dim query As String = "INSERT INTO user_income (UserID, Source, Amount, Date) VALUES (@UserID, @Source, @Amount, @Date)"
                 Using cmd As New MySqlCommand(query, connection)
-                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID) ' Assuming AccountData.UserID holds the current user's ID
+                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                     cmd.Parameters.AddWithValue("@Source", source)
                     cmd.Parameters.AddWithValue("@Amount", amount)
                     cmd.Parameters.AddWithValue("@Date", incomeDate)
                     cmd.ExecuteNonQuery()
                 End Using
+
+                ' Add experience points
+                UserExperience.AddXP(5)
+
+                ' Save user experience data
+                UserExperience.SaveUserExperience(AccountData.UserID)
+
+                ' Update the experience bar in frmMain
+                Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                If mainForm IsNot Nothing Then
+                    mainForm.UpdateExperienceBar()
+
+                    ' Force the progress bar to refresh
+                    mainForm.prgExperience.Invalidate()
+                    mainForm.prgExperience.Refresh()
+                    mainForm.lblLevel.Refresh()
+                End If
+
+                MessageBox.Show("Income added successfully.")
+                LoadIncomeData() ' Refresh the DataGridView
             End Using
-            MessageBox.Show("Income added successfully.")
-            LoadIncomeData() ' Refresh the DataGridView after adding a new income
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try

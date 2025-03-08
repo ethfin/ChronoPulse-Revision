@@ -4,12 +4,13 @@ Public Class frmExpenses
 
     Private Sub frmExpenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadExpenses()
+        LoadCategories()
     End Sub
 
     Private Sub btnAddExpense_Click(sender As Object, e As EventArgs) Handles btnAddExpense.Click
         Dim item As String = txtItem.Text
         Dim cost As Decimal
-        Dim category As String = txtCategory.Text
+        Dim category As String = cmbCategory.Text
         Dim description As String = txtDescription.Text
 
         If Not Decimal.TryParse(txtCost.Text, cost) Then
@@ -60,6 +61,11 @@ Public Class frmExpenses
                 Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
                 If mainForm IsNot Nothing Then
                     mainForm.UpdateExperienceBar()
+
+                    ' Force the progress bar to refresh
+                    mainForm.prgExperience.Invalidate()
+                    mainForm.prgExperience.Refresh()
+                    mainForm.lblLevel.Refresh()
                 End If
 
                 MessageBox.Show("Expense added successfully.")
@@ -70,8 +76,25 @@ Public Class frmExpenses
         End Try
     End Sub
 
-
-
+    Private Sub LoadCategories()
+        Try
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "SELECT CategoryID, CategoryName FROM categories"
+                Using cmd As New MySqlCommand(query, connection)
+                    Using reader As MySqlDataReader = cmd.ExecuteReader()
+                        Dim dt As New DataTable()
+                        dt.Load(reader)
+                        cmbCategory.DataSource = dt
+                        cmbCategory.DisplayMember = "CategoryName"
+                        cmbCategory.ValueMember = "CategoryID"
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message)
+        End Try
+    End Sub
 
     Private Sub LoadExpenses()
         Dim query As String = "SELECT Item AS ITEM, CONCAT('$', Cost) AS COST, Category AS CATEGORY, Description AS DESCRIPTION, DATE_FORMAT(date, '%m/%d/%Y') AS DATE FROM user_expenses WHERE UserID = @UserID"

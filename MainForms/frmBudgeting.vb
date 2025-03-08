@@ -72,9 +72,27 @@ Public Class frmBudgeting
                     cmd.Parameters.AddWithValue("@Description", description)
                     cmd.ExecuteNonQuery()
                 End Using
+
+                ' Add experience points
+                UserExperience.AddXP(5)
+
+                ' Save user experience data
+                UserExperience.SaveUserExperience(AccountData.UserID)
+
+                ' Update the experience bar in frmMain
+                Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                If mainForm IsNot Nothing Then
+                    mainForm.UpdateExperienceBar()
+
+                    ' Force the progress bar to refresh
+                    mainForm.prgExperience.Invalidate()
+                    mainForm.prgExperience.Refresh()
+                    mainForm.lblLevel.Refresh()
+                End If
+
+                MessageBox.Show("Budget added successfully.")
+                LoadBudgets() ' Refresh the DataGridView
             End Using
-            MessageBox.Show("Budget added successfully.")
-            LoadBudgets() ' Refresh the DataGridView
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
