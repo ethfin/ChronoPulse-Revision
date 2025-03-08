@@ -123,23 +123,7 @@ Public Class frmOCR
         End Try
     End Function
 
-    Private Async Sub btnOpenFile_Click(sender As Object, e As EventArgs) Handles btnOpenFile.Click
-        Try
-            Using openFileDialog As New OpenFileDialog()
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
-                openFileDialog.Title = "Select an Image File"
 
-                If openFileDialog.ShowDialog() = DialogResult.OK Then
-                    Dim selectedFilePath As String = openFileDialog.FileName
-                    rtbOCR.Text = "Processing image, please wait..."
-                    Dim ocrResult As String = Await UploadImageToOCRSpace(selectedFilePath)
-                    rtbOCR.Text = ocrResult
-                End If
-            End Using
-        Catch ex As Exception
-            rtbOCR.Text = "Error: " & ex.Message
-        End Try
-    End Sub
 
     Private Async Function GetAIAnalysis(text As String) As Task(Of String)
         Dim requestBody As New With {
@@ -378,61 +362,22 @@ Public Class frmOCR
         End Try
     End Sub
 
-    Private Async Sub btnAnalyze_Click(sender As Object, e As EventArgs) Handles btnAnalyze.Click
-        If String.IsNullOrWhiteSpace(rtbOCR.Text) Then
-            MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Return
-        End If
-
-        btnAnalyze.Enabled = False
-        rtbAIResponse.Text = "Analyzing text..."
+    Private Async Sub btnOpenFile_Click(sender As Object, e As EventArgs) Handles btnOpenFile.Click
         Try
-            Dim analysis As String = Await GetAIAnalysis(rtbOCR.Text)
-            rtbAIResponse.Text = analysis
-        Finally
-            btnAnalyze.Enabled = True
+            Using openFileDialog As New OpenFileDialog()
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+                openFileDialog.Title = "Select an Image File"
+
+                If openFileDialog.ShowDialog() = DialogResult.OK Then
+                    Dim selectedFilePath As String = openFileDialog.FileName
+                    rtbOCR.Text = "Processing image, please wait..."
+                    Dim ocrResult As String = Await UploadImageToOCRSpace(selectedFilePath)
+                    rtbOCR.Text = ocrResult
+                End If
+            End Using
+        Catch ex As Exception
+            rtbOCR.Text = "Error: " & ex.Message
         End Try
-    End Sub
-
-    
-
-    Private Sub btnClearAIHistory_Click(sender As Object, e As EventArgs) Handles btnClearAIHistory.Click
-        If String.IsNullOrEmpty(AccountData.UserID) Then
-            Return
-        End If
-
-        Dim result = MessageBox.Show(
-            "Are you sure you want to clear your AI analysis history? This action cannot be undone.",
-            "Clear AI History",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning)
-
-        If result = DialogResult.Yes Then
-            Try
-                dbConnection.Open()
-                Using cmd As New MySqlCommand(
-                    "DELETE FROM chat_history WHERE UserID = @userId",
-                    dbConnection)
-                    cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
-                    cmd.ExecuteNonQuery()
-                End Using
-
-                rtbAIResponse.Clear()
-                MessageBox.Show(
-                    "AI analysis history has been cleared successfully.",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information)
-            Catch ex As Exception
-                MessageBox.Show(
-                    "Error clearing AI history: " & ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error)
-            Finally
-                dbConnection.Close()
-            End Try
-        End If
     End Sub
 
     Private Async Sub btnUploadData_Click(sender As Object, e As EventArgs) Handles btnUploadData.Click
@@ -481,6 +426,61 @@ Public Class frmOCR
             rtbAIResponse.Text = "Error: " & ex.Message
         Finally
             btnUploadData.Enabled = True
+        End Try
+    End Sub
+
+    Private Sub btnClearAIHistory_Click(sender As Object, e As EventArgs) Handles btnClearAIHistory.Click
+        If String.IsNullOrEmpty(AccountData.UserID) Then
+            Return
+        End If
+
+        Dim result = MessageBox.Show(
+            "Are you sure you want to clear your AI analysis history? This action cannot be undone.",
+            "Clear AI History",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning)
+
+        If result = DialogResult.Yes Then
+            Try
+                dbConnection.Open()
+                Using cmd As New MySqlCommand(
+                    "DELETE FROM chat_history WHERE UserID = @userId",
+                    dbConnection)
+                    cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
+                    cmd.ExecuteNonQuery()
+                End Using
+
+                rtbAIResponse.Clear()
+                MessageBox.Show(
+                    "AI analysis history has been cleared successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show(
+                    "Error clearing AI history: " & ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error)
+            Finally
+                dbConnection.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Async Sub btnAnalyze_Click_1(sender As Object, e As EventArgs) Handles btnAnalyze.Click
+        If String.IsNullOrWhiteSpace(rtbOCR.Text) Then
+            MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        btnAnalyze.Enabled = False
+        rtbAIResponse.Text = "Analyzing text..."
+        Try
+            Dim analysis As String = Await GetAIAnalysis(rtbOCR.Text)
+            rtbAIResponse.Text = analysis
+        Finally
+            btnAnalyze.Enabled = True
         End Try
     End Sub
 End Class
