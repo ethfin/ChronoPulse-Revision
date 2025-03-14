@@ -125,11 +125,11 @@ Public Class frmLogin
                     lblErrorMsg.Text = "Please try again in about 30 seconds."
                     lblErrorMsg.ForeColor = Color.Red
                     loginTimer = New Timer()
-                    loginTimer.Interval = 30000 ' 1 minute
+                    loginTimer.Interval = 30000
                     AddHandler loginTimer.Tick, AddressOf EnableLoginButton
                     loginTimer.Start()
                 Else
-                    'use lblErrorMsg to display error message
+                    'using lblErrorMsg to display error message
                     lblErrorMsg.Text = "Invalid username or password. Please try again."
                     lblErrorMsg.ForeColor = Color.Red
                     txtUsername.BorderColor = Color.Red

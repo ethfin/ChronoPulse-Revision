@@ -31,6 +31,8 @@ Partial Class frmMain
         Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlMenu = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblLevel = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.prgExperience = New Guna.UI2.WinForms.Guna2ProgressBar()
         Me.btnOCR = New Guna.UI2.WinForms.Guna2Button()
         Me.btnBudget = New Guna.UI2.WinForms.Guna2Button()
         Me.btnSavings = New Guna.UI2.WinForms.Guna2Button()
@@ -47,8 +49,6 @@ Partial Class frmMain
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.prgExperience = New Guna.UI2.WinForms.Guna2ProgressBar()
-        Me.lblLevel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
@@ -101,7 +101,7 @@ Partial Class frmMain
         Me.ckbxTheme.ImageRotate = 0!
         Me.ckbxTheme.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.IndicateFocus = True
-        Me.ckbxTheme.Location = New System.Drawing.Point(142, 566)
+        Me.ckbxTheme.Location = New System.Drawing.Point(142, 515)
         Me.ckbxTheme.Name = "ckbxTheme"
         Me.ckbxTheme.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.Size = New System.Drawing.Size(24, 24)
@@ -115,7 +115,7 @@ Partial Class frmMain
         Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
         Me.lblCurrentPanel.Font = New System.Drawing.Font("Pixelify Sans", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.lblCurrentPanel.Location = New System.Drawing.Point(12, 566)
+        Me.lblCurrentPanel.Location = New System.Drawing.Point(12, 515)
         Me.lblCurrentPanel.Name = "lblCurrentPanel"
         Me.lblCurrentPanel.Size = New System.Drawing.Size(124, 27)
         Me.lblCurrentPanel.TabIndex = 1
@@ -172,6 +172,26 @@ Partial Class frmMain
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Size = New System.Drawing.Size(194, 62)
         Me.Guna2Panel4.TabIndex = 11
+        '
+        'lblLevel
+        '
+        Me.lblLevel.BackColor = System.Drawing.Color.Transparent
+        Me.lblLevel.ForeColor = System.Drawing.Color.White
+        Me.lblLevel.Location = New System.Drawing.Point(146, 15)
+        Me.lblLevel.Name = "lblLevel"
+        Me.lblLevel.Size = New System.Drawing.Size(38, 15)
+        Me.lblLevel.TabIndex = 22
+        Me.lblLevel.Text = "Level 1"
+        '
+        'prgExperience
+        '
+        Me.prgExperience.BorderRadius = 5
+        Me.prgExperience.Location = New System.Drawing.Point(46, 34)
+        Me.prgExperience.Name = "prgExperience"
+        Me.prgExperience.Size = New System.Drawing.Size(138, 16)
+        Me.prgExperience.TabIndex = 21
+        Me.prgExperience.Text = "Guna2ProgressBar1"
+        Me.prgExperience.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
         '
         'btnOCR
         '
@@ -380,7 +400,7 @@ Partial Class frmMain
         Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnLogout.IconSize = 30
         Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogout.Location = New System.Drawing.Point(11, 475)
+        Me.btnLogout.Location = New System.Drawing.Point(11, 548)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(173, 45)
         Me.btnLogout.TabIndex = 2
@@ -452,25 +472,6 @@ Partial Class frmMain
         Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
-        '
-        'prgExperience
-        '
-        Me.prgExperience.Location = New System.Drawing.Point(46, 34)
-        Me.prgExperience.Name = "prgExperience"
-        Me.prgExperience.Size = New System.Drawing.Size(138, 16)
-        Me.prgExperience.TabIndex = 21
-        Me.prgExperience.Text = "Guna2ProgressBar1"
-        Me.prgExperience.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        '
-        'lblLevel
-        '
-        Me.lblLevel.BackColor = System.Drawing.Color.Transparent
-        Me.lblLevel.ForeColor = System.Drawing.Color.White
-        Me.lblLevel.Location = New System.Drawing.Point(146, 15)
-        Me.lblLevel.Name = "lblLevel"
-        Me.lblLevel.Size = New System.Drawing.Size(38, 15)
-        Me.lblLevel.TabIndex = 22
-        Me.lblLevel.Text = "Level 1"
         '
         'frmMain
         '

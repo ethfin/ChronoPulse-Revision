@@ -14,9 +14,8 @@ Public Class ExportUtility
         PDF
     End Enum
 
-    ' Constructor
     Public Sub New()
-        ' Default constructor
+
     End Sub
 
     ' Constructor with format specification
@@ -98,16 +97,14 @@ Public Class ExportUtility
     End Function
 
     Public Function ExportToExcel(dgv As DataGridView, formName As String) As Boolean
-        ' This would require Microsoft.Office.Interop.Excel reference
-        ' For now, we'll just show a message box
+        ' Require Microsoft.Office.Interop.Excel
         MessageBox.Show("Excel export functionality not yet implemented.", "Information",
                        MessageBoxButtons.OK, MessageBoxIcon.Information)
         Return False
     End Function
 
     Public Function ExportToPDF(dgv As DataGridView, formName As String) As Boolean
-        ' This would require a PDF library like iTextSharp
-        ' For now, we'll just show a message box
+        ' Require a PDF library like iTextSharp
         MessageBox.Show("PDF export functionality not yet implemented.", "Information",
                        MessageBoxButtons.OK, MessageBoxIcon.Information)
         Return False

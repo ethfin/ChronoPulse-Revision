@@ -86,13 +86,12 @@ Public Class frmAI
         httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " & apiKey)
         ' Initialize database connection
         dbConnection = createDBConnection()
-        ChatHistoryRichTextBox.BackColor = Color.White
-        ChatHistoryRichTextBox.BorderStyle = BorderStyle.FixedSingle
-        ChatHistoryRichTextBox.Font = New Font("Century Gothic", 14)
-        ChatHistoryRichTextBox.ForeColor = Color.Black
+        'ChatHistoryRichTextBox.BackColor = Color.White
+        'ChatHistoryRichTextBox.BorderStyle = BorderStyle.FixedSingle
+        'ChatHistoryRichTextBox.Font = New Font("Century Gothic", 14)
+        'ChatHistoryRichTextBox.ForeColor = Color.Black
         ChatHistoryRichTextBox.ReadOnly = True
         ChatHistoryRichTextBox.ScrollBars = RichTextBoxScrollBars.Vertical
-        LoadEnvironmentVariables()
         LoadChatHistory()
     End Sub
 
