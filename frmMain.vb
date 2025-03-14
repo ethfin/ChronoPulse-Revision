@@ -279,4 +279,8 @@ Public Class frmMain
     Private Sub btnOCR_Click(sender As Object, e As EventArgs) Handles btnOCR.Click
         LoadForm(New frmOCR)
     End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        LoadForm(New frmDemo)
+    End Sub
 End Class

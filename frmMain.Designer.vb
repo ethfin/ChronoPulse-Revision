@@ -49,6 +49,7 @@ Partial Class frmMain
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
@@ -140,6 +141,7 @@ Partial Class frmMain
         'pnlMenu
         '
         Me.pnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlMenu.Controls.Add(Me.Guna2Button1)
         Me.pnlMenu.Controls.Add(Me.ckbxTheme)
         Me.pnlMenu.Controls.Add(Me.lblCurrentPanel)
         Me.pnlMenu.Controls.Add(Me.Guna2Panel4)
@@ -473,6 +475,32 @@ Partial Class frmMain
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Guna2Button1.Animated = True
+        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.BorderRadius = 10
+        Me.Guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.Guna2Button1.Image = Global.ChronoPulse_Revision.My.Resources.Resources.arroba
+        Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.Guna2Button1.ImageSize = New System.Drawing.Size(30, 30)
+        Me.Guna2Button1.IndicateFocus = True
+        Me.Guna2Button1.Location = New System.Drawing.Point(11, 475)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(173, 45)
+        Me.Guna2Button1.TabIndex = 12
+        Me.Guna2Button1.Text = "DEMO"
+        Me.Guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.Guna2Button1.UseTransparentBackground = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -522,4 +550,5 @@ Partial Class frmMain
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents prgExperience As Guna.UI2.WinForms.Guna2ProgressBar
     Friend WithEvents lblLevel As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class
