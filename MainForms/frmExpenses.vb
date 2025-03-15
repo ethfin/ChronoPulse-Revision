@@ -172,7 +172,7 @@ Public Class frmExpenses
            .Text = "Category: " & category,
            .Location = New Point(130, 10),
            .AutoSize = False,
-           .Size = New Size(120, 20),
+           .Size = New Size(200, 20),
            .ForeColor = Color.White,
            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
            .TextAlign = ContentAlignment.MiddleLeft
@@ -197,7 +197,7 @@ Public Class frmExpenses
         Dim lblDescription As New Label With {
            .Name = "lblDescription" & expenseID.ToString(),
            .Text = "Note: " & description,
-           .Location = New Point(260, 10),
+           .Location = New Point(360, 10),
            .AutoSize = False,
            .Size = New Size(200, 20),
            .ForeColor = Color.White,
