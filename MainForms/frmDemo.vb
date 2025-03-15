@@ -4,7 +4,12 @@ Public Class frmDemo
     Private _CurrentContactPanelName As String = Nothing
     Private _ContactPanelsAddedCount As Integer = 0
 
-    Public Sub CreateContact()
+    ' Load the user's expenses when the form loads
+    Private Sub frmDemo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadExpensePanels()
+    End Sub
+
+    Public Sub createCard()
         Dim contactPanel As New Panel With {
             .BackColor = Color.White,
             .Size = New Size(420, 50),
@@ -16,7 +21,7 @@ Public Class frmDemo
         _ContactPanelsAddedCount += 1
     End Sub
 
-    Private Sub CreateContactDeleteBtn(panelName As String)
+    Private Sub createCardDelete(panelName As String)
         Dim contactDeleteButton As New Button With {
             .AutoSize = False,
             .Size = New Size(90, 30),
@@ -46,10 +51,10 @@ Public Class frmDemo
         End If
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         ' Existing contact code
-        CreateContact()
-        CreateContactDeleteBtn(_CurrentContactPanelName)
+        createCard()
+        createCardDelete(_CurrentContactPanelName)
 
         ' Load all user expenses in the panel
         LoadExpensePanels()
