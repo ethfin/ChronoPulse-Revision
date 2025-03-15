@@ -30,6 +30,7 @@ Partial Class frmMain
         Me.lblCurrentPanel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlMenu = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblLevel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.prgExperience = New Guna.UI2.WinForms.Guna2ProgressBar()
@@ -49,12 +50,14 @@ Partial Class frmMain
         Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsDropDown.SuspendLayout()
+        Me.pnlTop.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContainer
@@ -69,10 +72,10 @@ Partial Class frmMain
         Me.pnlContainer.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.pnlContainer.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.pnlContainer.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        Me.pnlContainer.Location = New System.Drawing.Point(194, 0)
+        Me.pnlContainer.Location = New System.Drawing.Point(194, 39)
         Me.pnlContainer.Name = "pnlContainer"
         Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30)
-        Me.pnlContainer.Size = New System.Drawing.Size(1090, 661)
+        Me.pnlContainer.Size = New System.Drawing.Size(1090, 622)
         Me.pnlContainer.TabIndex = 5
         '
         'lblUsername
@@ -102,7 +105,7 @@ Partial Class frmMain
         Me.ckbxTheme.ImageRotate = 0!
         Me.ckbxTheme.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.IndicateFocus = True
-        Me.ckbxTheme.Location = New System.Drawing.Point(142, 515)
+        Me.ckbxTheme.Location = New System.Drawing.Point(142, 476)
         Me.ckbxTheme.Name = "ckbxTheme"
         Me.ckbxTheme.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.Size = New System.Drawing.Size(24, 24)
@@ -116,7 +119,7 @@ Partial Class frmMain
         Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
         Me.lblCurrentPanel.Font = New System.Drawing.Font("Pixelify Sans", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.lblCurrentPanel.Location = New System.Drawing.Point(12, 515)
+        Me.lblCurrentPanel.Location = New System.Drawing.Point(12, 496)
         Me.lblCurrentPanel.Name = "lblCurrentPanel"
         Me.lblCurrentPanel.Size = New System.Drawing.Size(124, 27)
         Me.lblCurrentPanel.TabIndex = 1
@@ -157,10 +160,36 @@ Partial Class frmMain
         Me.pnlMenu.Controls.Add(Me.pbxLogo)
         Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
+        Me.pnlMenu.Location = New System.Drawing.Point(0, 39)
         Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(194, 661)
+        Me.pnlMenu.Size = New System.Drawing.Size(194, 622)
         Me.pnlMenu.TabIndex = 4
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Guna2Button1.Animated = True
+        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.BorderRadius = 10
+        Me.Guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.Guna2Button1.Image = Global.ChronoPulse_Revision.My.Resources.Resources.arroba
+        Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.Guna2Button1.ImageSize = New System.Drawing.Size(30, 30)
+        Me.Guna2Button1.IndicateFocus = True
+        Me.Guna2Button1.Location = New System.Drawing.Point(11, 475)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(173, 45)
+        Me.Guna2Button1.TabIndex = 12
+        Me.Guna2Button1.Text = "DEMO"
+        Me.Guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.Guna2Button1.UseTransparentBackground = True
         '
         'Guna2Panel4
         '
@@ -170,7 +199,7 @@ Partial Class frmMain
         Me.Guna2Panel4.Controls.Add(Me.lblUsername)
         Me.Guna2Panel4.Controls.Add(Me.pbxUser)
         Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 599)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 560)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Size = New System.Drawing.Size(194, 62)
         Me.Guna2Panel4.TabIndex = 11
@@ -475,31 +504,38 @@ Partial Class frmMain
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
-        'Guna2Button1
+        'pnlTop
         '
-        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Guna2Button1.Animated = True
-        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.BorderRadius = 10
-        Me.Guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.Guna2Button1.Image = Global.ChronoPulse_Revision.My.Resources.Resources.arroba
-        Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.Guna2Button1.ImageSize = New System.Drawing.Size(30, 30)
-        Me.Guna2Button1.IndicateFocus = True
-        Me.Guna2Button1.Location = New System.Drawing.Point(11, 475)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(173, 45)
-        Me.Guna2Button1.TabIndex = 12
-        Me.Guna2Button1.Text = "DEMO"
-        Me.Guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.Guna2Button1.UseTransparentBackground = True
+        Me.pnlTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlTop.BorderColor = System.Drawing.Color.DimGray
+        Me.pnlTop.Controls.Add(Me.btnClose)
+        Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlTop.CustomBorderThickness = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTop.Location = New System.Drawing.Point(0, 0)
+        Me.pnlTop.Name = "pnlTop"
+        Me.pnlTop.Size = New System.Drawing.Size(1284, 39)
+        Me.pnlTop.TabIndex = 0
+        '
+        'btnClose
+        '
+        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.btnClose.HoverState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
+        Me.btnClose.HoverState.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
+        Me.btnClose.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.btnClose.ImageRotate = 0!
+        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Location = New System.Drawing.Point(1251, 3)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.PressedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
+        Me.btnClose.PressedState.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Size = New System.Drawing.Size(30, 30)
+        Me.btnClose.TabIndex = 1
+        Me.btnClose.TabStop = False
+        Me.btnClose.UseTransparentBackground = True
         '
         'frmMain
         '
@@ -509,7 +545,9 @@ Partial Class frmMain
         Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Controls.Add(Me.pnlContainer)
         Me.Controls.Add(Me.pnlMenu)
+        Me.Controls.Add(Me.pnlTop)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -521,6 +559,7 @@ Partial Class frmMain
         Me.Guna2Panel4.PerformLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsDropDown.ResumeLayout(False)
+        Me.pnlTop.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -551,4 +590,6 @@ Partial Class frmMain
     Friend WithEvents prgExperience As Guna.UI2.WinForms.Guna2ProgressBar
     Friend WithEvents lblLevel As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents pnlTop As Guna.UI2.WinForms.Guna2Panel
+    Private WithEvents btnClose As Guna.UI2.WinForms.Guna2ImageButton
 End Class

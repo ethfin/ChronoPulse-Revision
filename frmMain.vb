@@ -43,7 +43,7 @@ Public Class frmMain
     End Function
 
     ' The MouseDown event for the panel to initiate the form dragging
-    Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlMenu.MouseDown, pbxLogo.MouseDown
+    Private Sub Panel_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlMenu.MouseDown, pbxLogo.MouseDown, pnlTop.MouseDown
         If e.Button = MouseButtons.Left Then
             ReleaseCapture()
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
@@ -282,5 +282,23 @@ Public Class frmMain
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         LoadForm(New frmDemo)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        ' Minimize to system tray instead of closing
+        Me.Hide()
+        NotifyIcon1.Visible = True
+    End Sub
+
+    ' Prevent window from being maximized using Windows + Up arrow key
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        Const WM_SYSCOMMAND As Integer = &H112
+        Const SC_MAXIMIZE As Integer = &HF030
+
+        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_MAXIMIZE Then
+            Return
+        End If
+
+        MyBase.WndProc(m)
     End Sub
 End Class

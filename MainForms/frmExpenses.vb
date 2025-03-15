@@ -134,55 +134,88 @@ Public Class frmExpenses
                                category As String, description As String, expenseDate As DateTime)
 
         Dim expensePanel As New Panel With {
-        .BackColor = Color.White,
-        .Size = New Size(420, 60),
-        .Name = "pnlExpense" & expenseID.ToString()
-    }
+           .BackColor = Color.FromArgb(13, 17, 64),
+           .Size = New Size(720, 60),
+           .Name = "pnlExpense" & expenseID.ToString(),
+           .BorderStyle = BorderStyle.FixedSingle
+       }
 
         ' Example labels for displaying expense data
         Dim lblItem As New Label With {
-        .Text = "Item: " & item,
-        .Location = New Point(10, 10),
-        .AutoSize = True
-    }
+           .Name = "lblItem" & expenseID.ToString(),
+           .Text = item,
+           .Location = New Point(10, 10),
+           .AutoSize = False,
+           .Size = New Size(110, 20),
+           .ForeColor = Color.White,
+           .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+           .TextAlign = ContentAlignment.MiddleLeft
+       }
+        AddHandler lblItem.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblItem)
 
         Dim lblCost As New Label With {
-        .Text = "Cost: $" & cost.ToString("F2"),
-        .Location = New Point(10, 30),
-        .AutoSize = True
-    }
+           .Name = "lblCost" & expenseID.ToString(),
+           .Text = "$" & cost.ToString("F2"),
+           .Location = New Point(10, 30),
+           .AutoSize = False,
+           .Size = New Size(100, 20),
+           .ForeColor = Color.White,
+           .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+           .TextAlign = ContentAlignment.MiddleLeft
+       }
+        AddHandler lblCost.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblCost)
 
         Dim lblCategory As New Label With {
-        .Text = "Category: " & category,
-        .Location = New Point(130, 10),
-        .AutoSize = True
-    }
+           .Name = "lblCategory" & expenseID.ToString(),
+           .Text = "Category: " & category,
+           .Location = New Point(130, 10),
+           .AutoSize = False,
+           .Size = New Size(120, 20),
+           .ForeColor = Color.White,
+           .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
+           .TextAlign = ContentAlignment.MiddleLeft
+       }
+        AddHandler lblCategory.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblCategory)
 
         Dim lblDate As New Label With {
-        .Text = "Date: " & expenseDate.ToShortDateString(),
-        .Location = New Point(130, 30),
-        .AutoSize = True
-    }
+           .Name = "lblDate" & expenseID.ToString(),
+           .Text = "Date: " & expenseDate.ToShortDateString(),
+           .Location = New Point(130, 30),
+           .AutoSize = False,
+           .Size = New Size(120, 20),
+           .ForeColor = Color.White,
+           .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
+           .TextAlign = ContentAlignment.MiddleLeft
+       }
+        AddHandler lblDate.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblDate)
 
         ' Optional: display description (could be in a separate label or tooltip)
         Dim lblDescription As New Label With {
-        .Text = "Desc: " & description,
-        .Location = New Point(260, 10),
-        .AutoSize = True
-    }
+           .Name = "lblDescription" & expenseID.ToString(),
+           .Text = "Note: " & description,
+           .Location = New Point(260, 10),
+           .AutoSize = False,
+           .Size = New Size(200, 20),
+           .ForeColor = Color.White,
+           .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
+           .TextAlign = ContentAlignment.MiddleLeft
+       }
+        AddHandler lblDescription.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblDescription)
 
         ' Create a delete button
         Dim deleteButton As New Button With {
-        .Text = "Remove",
-        .Size = New Size(80, 25),
-        .Location = New Point(320, 25),
-        .Name = "btnDeleteExpense" & expenseID.ToString()
-    }
+           .Text = "Remove",
+           .Size = New Size(80, 25),
+           .Location = New Point(620, 25),
+           .Name = "btnDeleteExpense" & expenseID.ToString(),
+           .ForeColor = Color.White,
+           .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular)
+       }
         AddHandler deleteButton.Click, Sub(sender, e) DeleteExpense(expenseID, expensePanel)
         expensePanel.Controls.Add(deleteButton)
 
@@ -196,11 +229,11 @@ Public Class frmExpenses
     Private Sub SelectExpensePanel(selectedPanel As Panel, item As String, cost As Decimal, category As String, description As String)
         ' Deselect all panels
         For Each panel As Panel In flpExpenses.Controls.OfType(Of Panel)()
-            panel.BackColor = Color.White
+            panel.BackColor = Color.FromArgb(13, 17, 64)
         Next
 
         ' Select the clicked panel
-        selectedPanel.BackColor = Color.LightBlue
+        selectedPanel.BackColor = Color.FromArgb(8, 6, 26)
 
         ' Populate the fields
         PopulateFields(item, cost, category, description)
@@ -230,7 +263,7 @@ Public Class frmExpenses
         End If
 
         ' Find the selected expense panel
-        Dim selectedPanel As Panel = flpExpenses.Controls.OfType(Of Panel)().FirstOrDefault(Function(p) p.BackColor = Color.LightBlue)
+        Dim selectedPanel As Panel = flpExpenses.Controls.OfType(Of Panel)().FirstOrDefault(Function(p) p.BackColor = Color.FromArgb(8, 6, 26))
         If selectedPanel Is Nothing Then
             MessageBox.Show("Please select an expense to update.")
             Return
@@ -248,7 +281,7 @@ Public Class frmExpenses
                     cmd.Parameters.AddWithValue("@Category", category)
                     cmd.Parameters.AddWithValue("@Description", description)
                     cmd.Parameters.AddWithValue("@ID", expenseID)
-                    cmd.ExecuteNonQuery()
+                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
                 End Using
                 MessageBox.Show("Expense updated successfully.")
                 LoadExpenses() ' Refresh the FlowLayoutPanel
@@ -275,6 +308,41 @@ Public Class frmExpenses
             flpExpenses.Controls.Remove(panelToRemove)
             panelToRemove.Dispose()
         End If
+    End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        ' Create an instance of the ExportUtility class
+        Dim exporter As New ExportUtility(ExportUtility.ExportFormat.CSV)
+
+        ' Create a DataGridView to hold the expense data
+        Dim dgv As New DataGridView()
+        dgv.Columns.Add("Item", "Item")
+        dgv.Columns.Add("Cost", "Cost")
+        dgv.Columns.Add("Category", "Category")
+        dgv.Columns.Add("Description", "Description")
+        dgv.Columns.Add("Date", "Date")
+
+        ' Populate the DataGridView with expense data
+        For Each panel As Panel In flpExpenses.Controls.OfType(Of Panel)()
+            Dim lblItem As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblItem"))
+            Dim lblCost As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblCost"))
+            Dim lblCategory As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblCategory"))
+            Dim lblDescription As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblDescription"))
+            Dim lblDate As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblDate"))
+
+            If lblItem IsNot Nothing AndAlso lblCost IsNot Nothing AndAlso lblCategory IsNot Nothing AndAlso lblDescription IsNot Nothing AndAlso lblDate IsNot Nothing Then
+                Dim item As String = lblItem.Text
+                Dim cost As String = lblCost.Text
+                Dim category As String = lblCategory.Text
+                Dim description As String = lblDescription.Text
+                Dim dateStr As String = lblDate.Text
+
+                dgv.Rows.Add(item, cost, category, description, dateStr)
+            End If
+        Next
+
+        ' Export the data
+        exporter.Export(dgv, "Expenses")
     End Sub
 
     ' ------------------------------------------------------------

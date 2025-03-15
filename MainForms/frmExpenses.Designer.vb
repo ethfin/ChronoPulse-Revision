@@ -23,7 +23,6 @@ Partial Class frmExpenses
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnDeleteExpense = New Guna.UI2.WinForms.Guna2Button()
         Me.btnUpdateExpenses = New Guna.UI2.WinForms.Guna2Button()
         Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAddExpense = New Guna.UI2.WinForms.Guna2Button()
@@ -39,7 +38,6 @@ Partial Class frmExpenses
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.btnDeleteExpense)
         Me.Guna2Panel1.Controls.Add(Me.btnUpdateExpenses)
         Me.Guna2Panel1.Controls.Add(Me.btnExport)
         Me.Guna2Panel1.Controls.Add(Me.btnAddExpense)
@@ -52,24 +50,6 @@ Partial Class frmExpenses
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(286, 540)
         Me.Guna2Panel1.TabIndex = 26
-        '
-        'btnDeleteExpense
-        '
-        Me.btnDeleteExpense.Animated = True
-        Me.btnDeleteExpense.BorderRadius = 15
-        Me.btnDeleteExpense.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDeleteExpense.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDeleteExpense.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDeleteExpense.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDeleteExpense.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnDeleteExpense.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteExpense.ForeColor = System.Drawing.Color.Black
-        Me.btnDeleteExpense.IndicateFocus = True
-        Me.btnDeleteExpense.Location = New System.Drawing.Point(160, 211)
-        Me.btnDeleteExpense.Name = "btnDeleteExpense"
-        Me.btnDeleteExpense.Size = New System.Drawing.Size(112, 35)
-        Me.btnDeleteExpense.TabIndex = 32
-        Me.btnDeleteExpense.Text = "Delete"
         '
         'btnUpdateExpenses
         '
@@ -241,7 +221,6 @@ Partial Class frmExpenses
 
     End Sub
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Private WithEvents btnDeleteExpense As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnUpdateExpenses As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnExport As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnAddExpense As Guna.UI2.WinForms.Guna2Button
