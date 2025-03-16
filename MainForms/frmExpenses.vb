@@ -164,7 +164,7 @@ Public Class frmExpenses
 
         Dim lblCost As New Label With {
            .Name = "lblCost" & expenseID.ToString(),
-           .Text = "$" & cost.ToString("F2"),
+           .Text = "Cost: " & cost.ToString("F2"),
            .Location = New Point(10, 30),
            .AutoSize = False,
            .Size = New Size(100, 20),

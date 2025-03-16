@@ -59,7 +59,7 @@ Public Class frmIncome
 
         Dim lblAmount As New Label With {
             .Name = "lblAmount" & incomeID.ToString(),
-            .Text = "$" & amount.ToString("F2"),
+            .Text = "Cost: " & amount.ToString("F2"),
             .Location = New Point(10, 30),
             .AutoSize = False,
             .Size = New Size(100, 20),

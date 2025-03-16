@@ -240,7 +240,7 @@ Public Class frmDashboard
         expensePanel.Controls.Add(lblItem)
 
         Dim lblCost As New Label With {
-            .Text = "$" & cost.ToString("F2"),
+            .Text = "Cost: " & cost.ToString("F2"),
             .Location = New Point(10, 30),
             .AutoSize = False,
             .Size = New Size(100, 20),
