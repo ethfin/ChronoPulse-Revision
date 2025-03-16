@@ -119,39 +119,39 @@ Public Class frmAI
             End Using
 
             ' Get budget information (using the budgets table)
-            Using cmdBudget As New MySqlCommand(
-                "SELECT c.CategoryName, b.Amount, b.StartDate, b.EndDate " &
-                "FROM budgets b " &
-                "INNER JOIN categories c ON b.CategoryID = c.CategoryID " &
-                "WHERE b.UserID = @userId " &
-                "AND CURRENT_DATE BETWEEN b.StartDate AND b.EndDate",
-                dbConnection)
-                cmdBudget.Parameters.AddWithValue("@userId", AccountData.UserID)
-                Using reader = cmdBudget.ExecuteReader()
-                    financialData.AppendLine(vbNewLine & "Budget Information:")
-                    While reader.Read()
-                        financialData.AppendLine(
-                $"- {reader("CategoryName")}: ${reader("Amount")} " &
-                $"(Valid: {CDate(reader("StartDate")).ToString("MM/dd/yyyy")} - {CDate(reader("EndDate")).ToString("MM/dd/yyyy")})")
-                    End While
-                End Using
-            End Using
+            'Using cmdBudget As New MySqlCommand(
+            '    "SELECT c.CategoryName, b.Amount, b.StartDate, b.EndDate " &
+            '    "FROM budgets b " &
+            '    "INNER JOIN categories c ON b.CategoryID = c.CategoryID " &
+            '    "WHERE b.UserID = @userId " &
+            '    "AND CURRENT_DATE BETWEEN b.StartDate AND b.EndDate",
+            '    dbConnection)
+            '    cmdBudget.Parameters.AddWithValue("@userId", AccountData.UserID)
+            '    Using reader = cmdBudget.ExecuteReader()
+            '        financialData.AppendLine(vbNewLine & "Budget Information:")
+            '        While reader.Read()
+            '            financialData.AppendLine(
+            '    $"- {reader("CategoryName")}: ${reader("Amount")} " &
+            '    $"(Valid: {CDate(reader("StartDate")).ToString("MM/dd/yyyy")} - {CDate(reader("EndDate")).ToString("MM/dd/yyyy")})")
+            '        End While
+            '    End Using
+            'End Using
 
 
             ' Get savings information (updated to match savings_goals table)
-            Using cmdSavings As New MySqlCommand(
-            "SELECT GoalName, TargetAmount, CurrentAmount, TargetDate " &
-            "FROM savings_goals WHERE UserID = @userId",
-            dbConnection)
-                cmdSavings.Parameters.AddWithValue("@userId", AccountData.UserID)
-                Using reader = cmdSavings.ExecuteReader()
-                    financialData.AppendLine(vbNewLine & "Savings Goals:")
-                    While reader.Read()
-                        financialData.AppendLine($"- {reader("GoalName")}: ${reader("CurrentAmount")}/${reader("TargetAmount")} " &
-                                           $"(Target: {CDate(reader("TargetDate")).ToString("MM/dd/yyyy")})")
-                    End While
-                End Using
-            End Using
+            'Using cmdSavings As New MySqlCommand(
+            '"SELECT GoalName, TargetAmount, CurrentAmount, TargetDate " &
+            '"FROM savings_goals WHERE UserID = @userId",
+            'dbConnection)
+            '    cmdSavings.Parameters.AddWithValue("@userId", AccountData.UserID)
+            '    Using reader = cmdSavings.ExecuteReader()
+            '        financialData.AppendLine(vbNewLine & "Savings Goals:")
+            '        While reader.Read()
+            '            financialData.AppendLine($"- {reader("GoalName")}: ${reader("CurrentAmount")}/${reader("TargetAmount")} " &
+            '                               $"(Target: {CDate(reader("TargetDate")).ToString("MM/dd/yyyy")})")
+            '        End While
+            '    End Using
+            'End Using
 
             ' Get income information (add this after the savings_goals query)
             Using cmdIncome As New MySqlCommand(
