@@ -32,12 +32,14 @@ Partial Class frmExpenses
         Me.txtItem = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.flpExpenses = New System.Windows.Forms.FlowLayoutPanel()
+        Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.dtpDate)
         Me.Guna2Panel1.Controls.Add(Me.btnUpdateExpenses)
         Me.Guna2Panel1.Controls.Add(Me.btnExport)
         Me.Guna2Panel1.Controls.Add(Me.btnAddExpense)
@@ -63,7 +65,7 @@ Partial Class frmExpenses
         Me.btnUpdateExpenses.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdateExpenses.ForeColor = System.Drawing.Color.Black
         Me.btnUpdateExpenses.IndicateFocus = True
-        Me.btnUpdateExpenses.Location = New System.Drawing.Point(160, 170)
+        Me.btnUpdateExpenses.Location = New System.Drawing.Point(160, 202)
         Me.btnUpdateExpenses.Name = "btnUpdateExpenses"
         Me.btnUpdateExpenses.Size = New System.Drawing.Size(112, 35)
         Me.btnUpdateExpenses.TabIndex = 31
@@ -81,7 +83,7 @@ Partial Class frmExpenses
         Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExport.ForeColor = System.Drawing.Color.Black
         Me.btnExport.IndicateFocus = True
-        Me.btnExport.Location = New System.Drawing.Point(12, 211)
+        Me.btnExport.Location = New System.Drawing.Point(12, 243)
         Me.btnExport.Name = "btnExport"
         Me.btnExport.Size = New System.Drawing.Size(112, 35)
         Me.btnExport.TabIndex = 30
@@ -99,7 +101,7 @@ Partial Class frmExpenses
         Me.btnAddExpense.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddExpense.ForeColor = System.Drawing.Color.Black
         Me.btnAddExpense.IndicateFocus = True
-        Me.btnAddExpense.Location = New System.Drawing.Point(12, 170)
+        Me.btnAddExpense.Location = New System.Drawing.Point(12, 202)
         Me.btnAddExpense.Name = "btnAddExpense"
         Me.btnAddExpense.Size = New System.Drawing.Size(112, 35)
         Me.btnAddExpense.TabIndex = 29
@@ -205,6 +207,21 @@ Partial Class frmExpenses
         Me.flpExpenses.Size = New System.Drawing.Size(840, 540)
         Me.flpExpenses.TabIndex = 0
         '
+        'dtpDate
+        '
+        Me.dtpDate.Checked = True
+        Me.dtpDate.FillColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
+        Me.dtpDate.ForeColor = System.Drawing.SystemColors.Control
+        Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.dtpDate.Location = New System.Drawing.Point(12, 160)
+        Me.dtpDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtpDate.Name = "dtpDate"
+        Me.dtpDate.Size = New System.Drawing.Size(260, 36)
+        Me.dtpDate.TabIndex = 33
+        Me.dtpDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
+        '
         'frmExpenses
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -230,4 +247,5 @@ Partial Class frmExpenses
     Private WithEvents txtItem As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents flpExpenses As FlowLayoutPanel
+    Friend WithEvents dtpDate As Guna.UI2.WinForms.Guna2DateTimePicker
 End Class

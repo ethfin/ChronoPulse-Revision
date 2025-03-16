@@ -17,6 +17,7 @@ Public Class frmExpenses
         Dim cost As Decimal
         Dim category As String = cmbCategory.Text
         Dim description As String = txtDescription.Text
+        Dim expenseDate As DateTime = dtpDate.Value
 
         If Not Decimal.TryParse(txtCost.Text, cost) Then
             MessageBox.Show("Please enter a valid cost.")
@@ -38,7 +39,7 @@ Public Class frmExpenses
                     cmd.Parameters.AddWithValue("@Cost", cost)
                     cmd.Parameters.AddWithValue("@Category", category)
                     cmd.Parameters.AddWithValue("@Description", description)
-                    cmd.Parameters.AddWithValue("@Date", DateTime.Now)
+                    cmd.Parameters.AddWithValue("@Date", expenseDate)
                     cmd.ExecuteNonQuery()
                 End Using
 
@@ -155,7 +156,7 @@ Public Class frmExpenses
            .TextAlign = ContentAlignment.MiddleLeft,
            .BackColor = Color.Transparent
        }
-        AddHandler lblItem.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
+        AddHandler lblItem.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description, expenseDate)
         expensePanel.Controls.Add(lblItem)
 
         Dim lblCost As New Label With {
@@ -169,7 +170,7 @@ Public Class frmExpenses
            .TextAlign = ContentAlignment.MiddleLeft,
            .BackColor = Color.Transparent
        }
-        AddHandler lblCost.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
+        AddHandler lblCost.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description, expenseDate)
         expensePanel.Controls.Add(lblCost)
 
         Dim lblCategory As New Label With {
@@ -183,7 +184,7 @@ Public Class frmExpenses
            .TextAlign = ContentAlignment.MiddleLeft,
            .BackColor = Color.Transparent
        }
-        AddHandler lblCategory.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
+        AddHandler lblCategory.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description, expenseDate)
         expensePanel.Controls.Add(lblCategory)
 
         Dim lblDate As New Label With {
@@ -197,7 +198,7 @@ Public Class frmExpenses
            .TextAlign = ContentAlignment.MiddleLeft,
            .BackColor = Color.Transparent
        }
-        AddHandler lblDate.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
+        AddHandler lblDate.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description, expenseDate)
         expensePanel.Controls.Add(lblDate)
 
         ' Optional: display description (could be in a separate label or tooltip)
@@ -212,7 +213,7 @@ Public Class frmExpenses
            .TextAlign = ContentAlignment.MiddleLeft,
            .BackColor = Color.Transparent
        }
-        AddHandler lblDescription.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
+        AddHandler lblDescription.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description, expenseDate)
         expensePanel.Controls.Add(lblDescription)
 
         ' Create a delete button
@@ -228,13 +229,13 @@ Public Class frmExpenses
         expensePanel.Controls.Add(deleteButton)
 
         ' Add click event handler to the panel
-        AddHandler expensePanel.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
+        AddHandler expensePanel.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description, expenseDate)
 
         ' Add this panel to the FlowLayoutPanel
         flpExpenses.Controls.Add(expensePanel)
     End Sub
 
-    Private Sub SelectExpensePanel(selectedPanel As Guna.UI2.WinForms.Guna2Panel, item As String, cost As Decimal, category As String, description As String)
+    Private Sub SelectExpensePanel(selectedPanel As Guna.UI2.WinForms.Guna2Panel, item As String, cost As Decimal, category As String, description As String, expenseDate As DateTime)
         ' Deselect all panels
         For Each panel As Guna.UI2.WinForms.Guna2Panel In flpExpenses.Controls.OfType(Of Guna.UI2.WinForms.Guna2Panel)()
             panel.FillColor = Color.FromArgb(13, 17, 64)
@@ -247,14 +248,15 @@ Public Class frmExpenses
         _CurrentExpensePanelName = selectedPanel.Name
 
         ' Populate the fields
-        PopulateFields(item, cost, category, description)
+        PopulateFields(item, cost, category, description, expenseDate)
     End Sub
 
-    Private Sub PopulateFields(item As String, cost As Decimal, category As String, description As String)
+    Private Sub PopulateFields(item As String, cost As Decimal, category As String, description As String, expenseDate As DateTime)
         txtItem.Text = item
         txtCost.Text = cost.ToString()
         cmbCategory.Text = category
         txtDescription.Text = description
+        dtpDate.Value = expenseDate
     End Sub
 
     Private Sub btnUpdateExpenses_Click(sender As Object, e As EventArgs) Handles btnUpdateExpenses.Click
@@ -262,6 +264,7 @@ Public Class frmExpenses
         Dim cost As Decimal
         Dim category As String = cmbCategory.Text
         Dim description As String = txtDescription.Text
+        Dim expenseDate As DateTime = dtpDate.Value
 
         If Not Decimal.TryParse(txtCost.Text, cost) Then
             MessageBox.Show("Please enter a valid cost.")
@@ -284,12 +287,13 @@ Public Class frmExpenses
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
-                Dim query As String = "UPDATE user_expenses SET Item = @Item, Cost = @Cost, Category = @Category, Description = @Description WHERE expense_id = @ID"
+                Dim query As String = "UPDATE user_expenses SET Item = @Item, Cost = @Cost, Category = @Category, Description = @Description, date = @Date WHERE expense_id = @ID"
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@Item", item)
                     cmd.Parameters.AddWithValue("@Cost", cost)
                     cmd.Parameters.AddWithValue("@Category", category)
                     cmd.Parameters.AddWithValue("@Description", description)
+                    cmd.Parameters.AddWithValue("@Date", expenseDate)
                     cmd.Parameters.AddWithValue("@ID", expenseID)
                     Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
                 End Using
