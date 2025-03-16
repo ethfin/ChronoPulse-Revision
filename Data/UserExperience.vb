@@ -39,7 +39,8 @@ Public Class UserExperience
     End Sub
 
     Public Shared Sub AddXP(points As Integer)
-        CurrentXP += points
+        Dim multiplier As Double = GetXPMultiplier(CurrentLevel)
+        CurrentXP += CInt(points * multiplier)
         CheckForLevelUp()
     End Sub
 
@@ -60,5 +61,14 @@ Public Class UserExperience
         Dim progress As Double = (CurrentXP - currentThreshold) / xpForNextLevel
 
         Return Math.Min(Math.Max(progress, 0), 1)
+    End Function
+
+    Private Shared Function GetXPMultiplier(level As Integer) As Double
+        If level < 2 Then
+            Return 1.0
+        End If
+
+        ' Increment the multiplier for levels 2 and above
+        Return 1.0 + (level - 1) * 2.0
     End Function
 End Class

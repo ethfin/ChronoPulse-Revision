@@ -133,6 +133,22 @@ Public Class frmMain
                 pbxUser.Image = My.Resources.pic1
             Case 2
                 pbxUser.Image = My.Resources.pic2
+            Case 3
+                pbxUser.Image = My.Resources.pic3
+            Case 4
+                pbxUser.Image = My.Resources.pic4
+            Case 5
+                pbxUser.Image = My.Resources.pic5
+            Case 6
+                pbxUser.Image = My.Resources.pic6
+            Case 7
+                pbxUser.Image = My.Resources.pic7
+            Case 8
+                pbxUser.Image = My.Resources.pic8
+            Case 9
+                pbxUser.Image = My.Resources.pic9
+            Case 10
+                pbxUser.Image = My.Resources.pic10
                 ' Add more cases as needed for additional levels
             Case Else
                 pbxUser.Image = My.Resources.user_white ' Default image if level is not specified

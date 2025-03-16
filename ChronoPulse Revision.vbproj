@@ -504,6 +504,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\pic10.jpg" />
+    <None Include="Resources\pic9.jpg" />
+    <None Include="Resources\pic8.jpg" />
+    <None Include="Resources\pic7.jpg" />
+    <None Include="Resources\pic6.jpg" />
+    <None Include="Resources\pic5.jpg" />
+    <None Include="Resources\pic4.jpg" />
+    <None Include="Resources\pic3.jpg" />
     <None Include="Resources\pic1.png" />
     <None Include="Resources\pic2.png" />
     <None Include="Resources\ocr.png" />
