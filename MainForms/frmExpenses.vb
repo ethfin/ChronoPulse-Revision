@@ -1,4 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
+'import guna framework
+Imports Guna.UI.WinForms
 
 Public Class frmExpenses
 
@@ -133,12 +135,13 @@ Public Class frmExpenses
     Private Sub CreateExpensePanel(expenseID As Integer, item As String, cost As Decimal,
                                category As String, description As String, expenseDate As DateTime)
 
-        Dim expensePanel As New Panel With {
-           .BackColor = Color.FromArgb(13, 17, 64),
+        Dim expensePanel As New Guna.UI2.WinForms.Guna2Panel With {
+           .FillColor = Color.FromArgb(13, 17, 64),
            .Size = New Size(720, 60),
            .Name = "pnlExpense" & expenseID.ToString(),
-           .BorderStyle = BorderStyle.FixedSingle
-       }
+           .BorderStyle = BorderStyle.FixedSingle,
+           .BorderRadius = 10
+        }
 
         ' Example labels for displaying expense data
         Dim lblItem As New Label With {
@@ -149,7 +152,8 @@ Public Class frmExpenses
            .Size = New Size(110, 20),
            .ForeColor = Color.White,
            .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
-           .TextAlign = ContentAlignment.MiddleLeft
+           .TextAlign = ContentAlignment.MiddleLeft,
+           .BackColor = Color.Transparent
        }
         AddHandler lblItem.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblItem)
@@ -162,7 +166,8 @@ Public Class frmExpenses
            .Size = New Size(100, 20),
            .ForeColor = Color.White,
            .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
-           .TextAlign = ContentAlignment.MiddleLeft
+           .TextAlign = ContentAlignment.MiddleLeft,
+           .BackColor = Color.Transparent
        }
         AddHandler lblCost.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblCost)
@@ -175,7 +180,8 @@ Public Class frmExpenses
            .Size = New Size(200, 20),
            .ForeColor = Color.White,
            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
-           .TextAlign = ContentAlignment.MiddleLeft
+           .TextAlign = ContentAlignment.MiddleLeft,
+           .BackColor = Color.Transparent
        }
         AddHandler lblCategory.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblCategory)
@@ -188,7 +194,8 @@ Public Class frmExpenses
            .Size = New Size(120, 20),
            .ForeColor = Color.White,
            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
-           .TextAlign = ContentAlignment.MiddleLeft
+           .TextAlign = ContentAlignment.MiddleLeft,
+           .BackColor = Color.Transparent
        }
         AddHandler lblDate.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblDate)
@@ -202,7 +209,8 @@ Public Class frmExpenses
            .Size = New Size(200, 20),
            .ForeColor = Color.White,
            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
-           .TextAlign = ContentAlignment.MiddleLeft
+           .TextAlign = ContentAlignment.MiddleLeft,
+           .BackColor = Color.Transparent
        }
         AddHandler lblDescription.Click, Sub(sender, e) SelectExpensePanel(expensePanel, item, cost, category, description)
         expensePanel.Controls.Add(lblDescription)
@@ -226,14 +234,17 @@ Public Class frmExpenses
         flpExpenses.Controls.Add(expensePanel)
     End Sub
 
-    Private Sub SelectExpensePanel(selectedPanel As Panel, item As String, cost As Decimal, category As String, description As String)
+    Private Sub SelectExpensePanel(selectedPanel As Guna.UI2.WinForms.Guna2Panel, item As String, cost As Decimal, category As String, description As String)
         ' Deselect all panels
-        For Each panel As Panel In flpExpenses.Controls.OfType(Of Panel)()
-            panel.BackColor = Color.FromArgb(13, 17, 64)
+        For Each panel As Guna.UI2.WinForms.Guna2Panel In flpExpenses.Controls.OfType(Of Guna.UI2.WinForms.Guna2Panel)()
+            panel.FillColor = Color.FromArgb(13, 17, 64)
         Next
 
         ' Select the clicked panel
-        selectedPanel.BackColor = Color.FromArgb(8, 6, 26)
+        selectedPanel.FillColor = Color.FromArgb(8, 6, 26)
+
+        ' Set the current expense panel name
+        _CurrentExpensePanelName = selectedPanel.Name
 
         ' Populate the fields
         PopulateFields(item, cost, category, description)
@@ -262,14 +273,13 @@ Public Class frmExpenses
             Return
         End If
 
-        ' Find the selected expense panel
-        Dim selectedPanel As Panel = flpExpenses.Controls.OfType(Of Panel)().FirstOrDefault(Function(p) p.BackColor = Color.FromArgb(8, 6, 26))
-        If selectedPanel Is Nothing Then
+        ' Check if an expense panel is selected
+        If String.IsNullOrEmpty(_CurrentExpensePanelName) Then
             MessageBox.Show("Please select an expense to update.")
             Return
         End If
 
-        Dim expenseID As Integer = Integer.Parse(selectedPanel.Name.Replace("pnlExpense", ""))
+        Dim expenseID As Integer = Integer.Parse(_CurrentExpensePanelName.Replace("pnlExpense", ""))
 
         Try
             Using connection As MySqlConnection = Common.createDBConnection()

@@ -159,7 +159,7 @@ Partial Class frmExpenses
         Me.txtDescription.Margin = New System.Windows.Forms.Padding(0)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PlaceholderForeColor = System.Drawing.Color.Silver
-        Me.txtDescription.PlaceholderText = "Description"
+        Me.txtDescription.PlaceholderText = "Note"
         Me.txtDescription.SelectedText = ""
         Me.txtDescription.Size = New System.Drawing.Size(260, 35)
         Me.txtDescription.TabIndex = 26
