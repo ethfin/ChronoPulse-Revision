@@ -30,7 +30,7 @@ Partial Class frmIncome
         Me.txtAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtSource = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flpIncome = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -106,6 +106,7 @@ Partial Class frmIncome
         'dtpDate
         '
         Me.dtpDate.Checked = True
+        Me.dtpDate.FillColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDate.ForeColor = System.Drawing.SystemColors.Control
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
@@ -163,20 +164,20 @@ Partial Class frmIncome
         '
         'Guna2Panel2
         '
-        Me.Guna2Panel2.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Guna2Panel2.Controls.Add(Me.flpIncome)
         Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel2.Location = New System.Drawing.Point(278, 0)
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Size = New System.Drawing.Size(522, 450)
         Me.Guna2Panel2.TabIndex = 30
         '
-        'FlowLayoutPanel1
+        'flpIncome
         '
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(522, 450)
-        Me.FlowLayoutPanel1.TabIndex = 0
+        Me.flpIncome.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flpIncome.Location = New System.Drawing.Point(0, 0)
+        Me.flpIncome.Name = "flpIncome"
+        Me.flpIncome.Size = New System.Drawing.Size(522, 450)
+        Me.flpIncome.TabIndex = 0
         '
         'frmIncome
         '
@@ -202,5 +203,5 @@ Partial Class frmIncome
     Private WithEvents txtAmount As Guna.UI2.WinForms.Guna2TextBox
     Private WithEvents txtSource As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents flpIncome As FlowLayoutPanel
 End Class

@@ -9,7 +9,7 @@ Public Class frmIncome
     End Sub
 
     Private Sub LoadIncomeData()
-        FlowLayoutPanel1.Controls.Clear()
+        flpIncome.Controls.Clear()
 
         Using connection As MySqlConnection = Common.createDBConnection()
             connection.Open()
@@ -94,11 +94,11 @@ Public Class frmIncome
 
         AddHandler incomePanel.Click, Sub(sender, e) SelectIncomePanel(incomePanel, source, amount, incomeDate)
 
-        FlowLayoutPanel1.Controls.Add(incomePanel)
+        flpIncome.Controls.Add(incomePanel)
     End Sub
 
     Private Sub SelectIncomePanel(selectedPanel As Guna.UI2.WinForms.Guna2Panel, source As String, amount As Decimal, incomeDate As DateTime)
-        For Each panel As Guna.UI2.WinForms.Guna2Panel In FlowLayoutPanel1.Controls.OfType(Of Guna.UI2.WinForms.Guna2Panel)()
+        For Each panel As Guna.UI2.WinForms.Guna2Panel In flpIncome.Controls.OfType(Of Guna.UI2.WinForms.Guna2Panel)()
             panel.FillColor = Color.FromArgb(13, 17, 64)
         Next
 
@@ -215,7 +215,7 @@ Public Class frmIncome
                 End Using
             End Using
 
-            FlowLayoutPanel1.Controls.Remove(panelToRemove)
+            flpIncome.Controls.Remove(panelToRemove)
             panelToRemove.Dispose()
         End If
     End Sub
@@ -228,7 +228,7 @@ Public Class frmIncome
         dgv.Columns.Add("Amount", "Amount")
         dgv.Columns.Add("Date", "Date")
 
-        For Each panel As Panel In FlowLayoutPanel1.Controls.OfType(Of Panel)()
+        For Each panel As Panel In flpIncome.Controls.OfType(Of Panel)()
             Dim lblSource As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblSource"))
             Dim lblAmount As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblAmount"))
             Dim lblDate As Label = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) lbl.Name.Contains("lblDate"))
