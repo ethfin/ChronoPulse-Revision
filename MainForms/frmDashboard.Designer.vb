@@ -168,7 +168,7 @@ Partial Class frmDashboard
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.chrtLine.Series.Add(Series1)
-        Me.chrtLine.Size = New System.Drawing.Size(496, 266)
+        Me.chrtLine.Size = New System.Drawing.Size(475, 266)
         Me.chrtLine.TabIndex = 4
         Me.chrtLine.Text = "Chart1"
         '
