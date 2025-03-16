@@ -402,6 +402,12 @@
     <Compile Include="MainForms\frmOCR.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForms\frmQuests.Designer.vb">
+      <DependentUpon>frmQuests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\frmQuests.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForms\frmSavings.Designer.vb">
       <DependentUpon>frmSavings.vb</DependentUpon>
     </Compile>
@@ -479,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmOCR.resx">
       <DependentUpon>frmOCR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\frmQuests.resx">
+      <DependentUpon>frmQuests.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmSavings.resx">
       <DependentUpon>frmSavings.vb</DependentUpon>

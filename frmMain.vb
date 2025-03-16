@@ -301,4 +301,8 @@ Public Class frmMain
 
         MyBase.WndProc(m)
     End Sub
+
+    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        LoadForm(New frmQuests)
+    End Sub
 End Class

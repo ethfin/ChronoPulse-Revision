@@ -8,6 +8,18 @@ Public Class UserExperience
         {1, 100}, {2, 250}, {3, 500}, {4, 1000}, {5, 2000}
     }
 
+    Public Shared Sub AddExperience(userId As Integer, xpToAdd As Integer)
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim sql As String = "UPDATE user_account SET Experience = Experience + @xp WHERE UserID=@uid"
+            Using cmd As New MySqlCommand(sql, connection)
+                cmd.Parameters.AddWithValue("@xp", xpToAdd)
+                cmd.Parameters.AddWithValue("@uid", userId)
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
     Public Shared Sub LoadUserExperience(userID As Integer)
         Using connection As MySqlConnection = Common.createDBConnection()
             connection.Open()
