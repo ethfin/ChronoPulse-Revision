@@ -26,7 +26,8 @@ Public Class frmDashboard
         lineSeries.BorderWidth = 3
 
         For Each row As DataRow In incomeData.Rows
-            lineSeries.Points.AddXY(row("Date").ToString(), Convert.ToDouble(row("Amount")))
+            Dim dateValue As DateTime = Convert.ToDateTime(row("Date"))
+            lineSeries.Points.AddXY(dateValue.ToString("MM/dd/yyyy"), Convert.ToDouble(row("Amount")))
         Next
 
         chrtLine.Series.Add(lineSeries)
