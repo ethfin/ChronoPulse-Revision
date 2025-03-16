@@ -39,7 +39,6 @@ Partial Class frmMain
         Me.btnExpenses = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAI = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.btnLogout = New FontAwesome.Sharp.IconButton()
         Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.ToolTip = New Guna.UI2.WinForms.Guna2HtmlToolTip()
@@ -116,7 +115,6 @@ Partial Class frmMain
         Me.pnlMenu.Controls.Add(Me.btnExpenses)
         Me.pnlMenu.Controls.Add(Me.btnAI)
         Me.pnlMenu.Controls.Add(Me.btnDashboard)
-        Me.pnlMenu.Controls.Add(Me.Guna2Separator1)
         Me.pnlMenu.Controls.Add(Me.btnLogout)
         Me.pnlMenu.Controls.Add(Me.pbxLogo)
         Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
@@ -144,7 +142,7 @@ Partial Class frmMain
         Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button1.ImageSize = New System.Drawing.Size(30, 30)
         Me.Guna2Button1.IndicateFocus = True
-        Me.Guna2Button1.Location = New System.Drawing.Point(11, 373)
+        Me.Guna2Button1.Location = New System.Drawing.Point(11, 381)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(173, 45)
         Me.Guna2Button1.TabIndex = 12
@@ -245,7 +243,7 @@ Partial Class frmMain
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnOCR.IndicateFocus = True
-        Me.btnOCR.Location = New System.Drawing.Point(11, 322)
+        Me.btnOCR.Location = New System.Drawing.Point(11, 330)
         Me.btnOCR.Name = "btnOCR"
         Me.btnOCR.Size = New System.Drawing.Size(173, 45)
         Me.btnOCR.TabIndex = 10
@@ -271,7 +269,7 @@ Partial Class frmMain
         Me.btnIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnIncome.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnIncome.IndicateFocus = True
-        Me.btnIncome.Location = New System.Drawing.Point(11, 271)
+        Me.btnIncome.Location = New System.Drawing.Point(11, 279)
         Me.btnIncome.Name = "btnIncome"
         Me.btnIncome.Size = New System.Drawing.Size(173, 45)
         Me.btnIncome.TabIndex = 7
@@ -297,7 +295,7 @@ Partial Class frmMain
         Me.btnExpenses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnExpenses.IndicateFocus = True
-        Me.btnExpenses.Location = New System.Drawing.Point(11, 220)
+        Me.btnExpenses.Location = New System.Drawing.Point(11, 228)
         Me.btnExpenses.Name = "btnExpenses"
         Me.btnExpenses.Size = New System.Drawing.Size(173, 45)
         Me.btnExpenses.TabIndex = 6
@@ -323,7 +321,7 @@ Partial Class frmMain
         Me.btnAI.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAI.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnAI.IndicateFocus = True
-        Me.btnAI.Location = New System.Drawing.Point(11, 169)
+        Me.btnAI.Location = New System.Drawing.Point(11, 177)
         Me.btnAI.Name = "btnAI"
         Me.btnAI.Size = New System.Drawing.Size(173, 45)
         Me.btnAI.TabIndex = 5
@@ -349,25 +347,13 @@ Partial Class frmMain
         Me.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.ImageSize = New System.Drawing.Size(25, 25)
         Me.btnDashboard.IndicateFocus = True
-        Me.btnDashboard.Location = New System.Drawing.Point(11, 118)
+        Me.btnDashboard.Location = New System.Drawing.Point(11, 126)
         Me.btnDashboard.Name = "btnDashboard"
         Me.btnDashboard.Size = New System.Drawing.Size(173, 45)
         Me.btnDashboard.TabIndex = 4
         Me.btnDashboard.Text = "Dashboard"
         Me.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.UseTransparentBackground = True
-        '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.FillColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Guna2Separator1.Location = New System.Drawing.Point(9, 87)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(176, 10)
-        Me.Guna2Separator1.TabIndex = 3
-        Me.Guna2Separator1.UseTransparentBackground = True
         '
         'btnLogout
         '
@@ -398,7 +384,7 @@ Partial Class frmMain
         Me.pbxLogo.ImageRotate = 0!
         Me.pbxLogo.Location = New System.Drawing.Point(9, 12)
         Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(176, 69)
+        Me.pbxLogo.Size = New System.Drawing.Size(176, 100)
         Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxLogo.TabIndex = 0
         Me.pbxLogo.TabStop = False
@@ -508,7 +494,6 @@ Partial Class frmMain
     Private WithEvents btnLogout As FontAwesome.Sharp.IconButton
     Private WithEvents ckbxTheme As Guna.UI2.WinForms.Guna2ImageCheckBox
     Private WithEvents pbxLogo As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents btnDashboard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ToolTip As Guna.UI2.WinForms.Guna2HtmlToolTip
     Friend WithEvents btnAI As Guna.UI2.WinForms.Guna2Button

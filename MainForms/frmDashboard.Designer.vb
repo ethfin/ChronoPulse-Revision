@@ -22,31 +22,37 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.flpDashboard = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblTotalExpenses = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblTotalIncome = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblCurrentMonthExp = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblCurrentMonthInc = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.chrtLine = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.lblCurrentMonthInc = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblCurrentMonthExp = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblTotalIncome = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblTotalExpenses = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.flpDashboard = New System.Windows.Forms.FlowLayoutPanel()
+        Me.lblCurrentMonthBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblTotalBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1.SuspendLayout()
-        Me.Guna2Panel2.SuspendLayout()
-        Me.Guna2Panel3.SuspendLayout()
-        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chrtLine, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel3.SuspendLayout()
+        Me.Guna2Panel2.SuspendLayout()
+        Me.Guna2Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.lblCurrentMonthBalance)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Panel4)
         Me.Guna2Panel1.Controls.Add(Me.chrtLine)
         Me.Guna2Panel1.Controls.Add(Me.lblCurrentMonthInc)
         Me.Guna2Panel1.Controls.Add(Me.lblCurrentMonthExp)
@@ -60,14 +66,85 @@ Partial Class frmDashboard
         Me.Guna2Panel1.Size = New System.Drawing.Size(1192, 618)
         Me.Guna2Panel1.TabIndex = 0
         '
-        'flpDashboard
+        'chrtLine
         '
-        Me.flpDashboard.AutoScroll = True
-        Me.flpDashboard.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.flpDashboard.Location = New System.Drawing.Point(12, 95)
-        Me.flpDashboard.Name = "flpDashboard"
-        Me.flpDashboard.Size = New System.Drawing.Size(568, 511)
-        Me.flpDashboard.TabIndex = 0
+        Me.chrtLine.BackColor = System.Drawing.Color.Transparent
+        ChartArea5.Name = "ChartArea1"
+        Me.chrtLine.ChartAreas.Add(ChartArea5)
+        Legend5.Name = "Legend1"
+        Me.chrtLine.Legends.Add(Legend5)
+        Me.chrtLine.Location = New System.Drawing.Point(586, 296)
+        Me.chrtLine.Name = "chrtLine"
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.chrtLine.Series.Add(Series5)
+        Me.chrtLine.Size = New System.Drawing.Size(475, 266)
+        Me.chrtLine.TabIndex = 4
+        Me.chrtLine.Text = "Chart1"
+        '
+        'lblCurrentMonthInc
+        '
+        Me.lblCurrentMonthInc.BackColor = System.Drawing.Color.Transparent
+        Me.lblCurrentMonthInc.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMonthInc.ForeColor = System.Drawing.Color.White
+        Me.lblCurrentMonthInc.Location = New System.Drawing.Point(187, 12)
+        Me.lblCurrentMonthInc.Name = "lblCurrentMonthInc"
+        Me.lblCurrentMonthInc.Size = New System.Drawing.Size(73, 25)
+        Me.lblCurrentMonthInc.TabIndex = 2
+        Me.lblCurrentMonthInc.Text = "Income"
+        '
+        'lblCurrentMonthExp
+        '
+        Me.lblCurrentMonthExp.BackColor = System.Drawing.Color.Transparent
+        Me.lblCurrentMonthExp.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMonthExp.ForeColor = System.Drawing.Color.White
+        Me.lblCurrentMonthExp.Location = New System.Drawing.Point(12, 12)
+        Me.lblCurrentMonthExp.Name = "lblCurrentMonthExp"
+        Me.lblCurrentMonthExp.Size = New System.Drawing.Size(80, 25)
+        Me.lblCurrentMonthExp.TabIndex = 1
+        Me.lblCurrentMonthExp.Text = "Expense"
+        '
+        'chrtPie
+        '
+        Me.chrtPie.BackColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
+        ChartArea6.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea6)
+        Legend6.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend6)
+        Me.chrtPie.Location = New System.Drawing.Point(586, 12)
+        Me.chrtPie.Name = "chrtPie"
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.chrtPie.Series.Add(Series6)
+        Me.chrtPie.Size = New System.Drawing.Size(475, 278)
+        Me.chrtPie.TabIndex = 3
+        Me.chrtPie.Text = "Chart1"
+        '
+        'Guna2Panel3
+        '
+        Me.Guna2Panel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel3.BorderRadius = 10
+        Me.Guna2Panel3.BorderThickness = 1
+        Me.Guna2Panel3.Controls.Add(Me.lblTotalIncome)
+        Me.Guna2Panel3.FillColor = System.Drawing.Color.LimeGreen
+        Me.Guna2Panel3.Location = New System.Drawing.Point(187, 43)
+        Me.Guna2Panel3.Name = "Guna2Panel3"
+        Me.Guna2Panel3.Size = New System.Drawing.Size(169, 46)
+        Me.Guna2Panel3.TabIndex = 2
+        '
+        'lblTotalIncome
+        '
+        Me.lblTotalIncome.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalIncome.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalIncome.ForeColor = System.Drawing.Color.White
+        Me.lblTotalIncome.Location = New System.Drawing.Point(3, 7)
+        Me.lblTotalIncome.Name = "lblTotalIncome"
+        Me.lblTotalIncome.Size = New System.Drawing.Size(57, 34)
+        Me.lblTotalIncome.TabIndex = 1
+        Me.lblTotalIncome.Text = "TEXT"
         '
         'Guna2Panel2
         '
@@ -78,20 +155,8 @@ Partial Class frmDashboard
         Me.Guna2Panel2.FillColor = System.Drawing.Color.IndianRed
         Me.Guna2Panel2.Location = New System.Drawing.Point(12, 43)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(281, 46)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(169, 46)
         Me.Guna2Panel2.TabIndex = 1
-        '
-        'Guna2Panel3
-        '
-        Me.Guna2Panel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel3.BorderRadius = 10
-        Me.Guna2Panel3.BorderThickness = 1
-        Me.Guna2Panel3.Controls.Add(Me.lblTotalIncome)
-        Me.Guna2Panel3.FillColor = System.Drawing.Color.LimeGreen
-        Me.Guna2Panel3.Location = New System.Drawing.Point(299, 43)
-        Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Size = New System.Drawing.Size(281, 46)
-        Me.Guna2Panel3.TabIndex = 2
         '
         'lblTotalExpenses
         '
@@ -100,77 +165,52 @@ Partial Class frmDashboard
         Me.lblTotalExpenses.ForeColor = System.Drawing.Color.White
         Me.lblTotalExpenses.Location = New System.Drawing.Point(3, 7)
         Me.lblTotalExpenses.Name = "lblTotalExpenses"
-        Me.lblTotalExpenses.Size = New System.Drawing.Size(234, 34)
+        Me.lblTotalExpenses.Size = New System.Drawing.Size(57, 34)
         Me.lblTotalExpenses.TabIndex = 0
-        Me.lblTotalExpenses.Text = "Guna2HtmlLabel1"
+        Me.lblTotalExpenses.Text = "TEXT"
         '
-        'lblTotalIncome
+        'flpDashboard
         '
-        Me.lblTotalIncome.BackColor = System.Drawing.Color.Transparent
-        Me.lblTotalIncome.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalIncome.ForeColor = System.Drawing.Color.White
-        Me.lblTotalIncome.Location = New System.Drawing.Point(3, 7)
-        Me.lblTotalIncome.Name = "lblTotalIncome"
-        Me.lblTotalIncome.Size = New System.Drawing.Size(234, 34)
-        Me.lblTotalIncome.TabIndex = 1
-        Me.lblTotalIncome.Text = "Guna2HtmlLabel1"
+        Me.flpDashboard.AutoScroll = True
+        Me.flpDashboard.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.flpDashboard.Location = New System.Drawing.Point(12, 95)
+        Me.flpDashboard.Name = "flpDashboard"
+        Me.flpDashboard.Size = New System.Drawing.Size(568, 511)
+        Me.flpDashboard.TabIndex = 0
         '
-        'lblCurrentMonthExp
+        'lblCurrentMonthBalance
         '
-        Me.lblCurrentMonthExp.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentMonthExp.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentMonthExp.ForeColor = System.Drawing.Color.White
-        Me.lblCurrentMonthExp.Location = New System.Drawing.Point(12, 12)
-        Me.lblCurrentMonthExp.Name = "lblCurrentMonthExp"
-        Me.lblCurrentMonthExp.Size = New System.Drawing.Size(169, 25)
-        Me.lblCurrentMonthExp.TabIndex = 1
-        Me.lblCurrentMonthExp.Text = "Guna2HtmlLabel1"
+        Me.lblCurrentMonthBalance.BackColor = System.Drawing.Color.Transparent
+        Me.lblCurrentMonthBalance.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMonthBalance.ForeColor = System.Drawing.Color.White
+        Me.lblCurrentMonthBalance.Location = New System.Drawing.Point(362, 12)
+        Me.lblCurrentMonthBalance.Name = "lblCurrentMonthBalance"
+        Me.lblCurrentMonthBalance.Size = New System.Drawing.Size(80, 25)
+        Me.lblCurrentMonthBalance.TabIndex = 5
+        Me.lblCurrentMonthBalance.Text = "Balance"
         '
-        'lblCurrentMonthInc
+        'Guna2Panel4
         '
-        Me.lblCurrentMonthInc.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentMonthInc.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentMonthInc.ForeColor = System.Drawing.Color.White
-        Me.lblCurrentMonthInc.Location = New System.Drawing.Point(299, 12)
-        Me.lblCurrentMonthInc.Name = "lblCurrentMonthInc"
-        Me.lblCurrentMonthInc.Size = New System.Drawing.Size(169, 25)
-        Me.lblCurrentMonthInc.TabIndex = 2
-        Me.lblCurrentMonthInc.Text = "Guna2HtmlLabel1"
+        Me.Guna2Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel4.BorderRadius = 10
+        Me.Guna2Panel4.BorderThickness = 1
+        Me.Guna2Panel4.Controls.Add(Me.lblTotalBalance)
+        Me.Guna2Panel4.FillColor = System.Drawing.Color.Orange
+        Me.Guna2Panel4.Location = New System.Drawing.Point(362, 43)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.Size = New System.Drawing.Size(169, 46)
+        Me.Guna2Panel4.TabIndex = 6
         '
-        'chrtPie
+        'lblTotalBalance
         '
-        Me.chrtPie.BackColor = System.Drawing.Color.Transparent
-        Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.chrtPie.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chrtPie.Legends.Add(Legend2)
-        Me.chrtPie.Location = New System.Drawing.Point(586, 12)
-        Me.chrtPie.Name = "chrtPie"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chrtPie.Series.Add(Series2)
-        Me.chrtPie.Size = New System.Drawing.Size(475, 278)
-        Me.chrtPie.TabIndex = 3
-        Me.chrtPie.Text = "Chart1"
-        '
-        'chrtLine
-        '
-        Me.chrtLine.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.chrtLine.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chrtLine.Legends.Add(Legend1)
-        Me.chrtLine.Location = New System.Drawing.Point(586, 296)
-        Me.chrtLine.Name = "chrtLine"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chrtLine.Series.Add(Series1)
-        Me.chrtLine.Size = New System.Drawing.Size(475, 266)
-        Me.chrtLine.TabIndex = 4
-        Me.chrtLine.Text = "Chart1"
+        Me.lblTotalBalance.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalBalance.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalBalance.ForeColor = System.Drawing.Color.White
+        Me.lblTotalBalance.Location = New System.Drawing.Point(3, 7)
+        Me.lblTotalBalance.Name = "lblTotalBalance"
+        Me.lblTotalBalance.Size = New System.Drawing.Size(57, 34)
+        Me.lblTotalBalance.TabIndex = 1
+        Me.lblTotalBalance.Text = "TEXT"
         '
         'frmDashboard
         '
@@ -184,12 +224,14 @@ Partial Class frmDashboard
         Me.Text = "frmDashboard"
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
-        Me.Guna2Panel2.ResumeLayout(False)
-        Me.Guna2Panel2.PerformLayout()
+        CType(Me.chrtLine, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
-        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chrtLine, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel2.ResumeLayout(False)
+        Me.Guna2Panel2.PerformLayout()
+        Me.Guna2Panel4.ResumeLayout(False)
+        Me.Guna2Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -204,4 +246,7 @@ Partial Class frmDashboard
     Friend WithEvents lblCurrentMonthInc As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents chrtPie As DataVisualization.Charting.Chart
     Friend WithEvents chrtLine As DataVisualization.Charting.Chart
+    Friend WithEvents lblCurrentMonthBalance As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents lblTotalBalance As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

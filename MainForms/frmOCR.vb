@@ -124,15 +124,13 @@ Public Class frmOCR
         End Try
     End Function
 
-
-
     Private Async Function GetAIAnalysis(text As String) As Task(Of String)
         Dim requestBody As New With {
             .model = "deepseek-chat",
             .messages = New List(Of Object) From {
                 New With {
                     .role = "system",
-                    .content = "You are an AI assistant that analyzes OCR text. Please analyze the text content for:" & vbCrLf &
+                    .content = "You are an AI assistant that analyzes OCR text. Please do not provide any response in Markdown format. Please analyze the text content for:" & vbCrLf &
                               "1. Key information extraction" & vbCrLf &
                               "2. Potential OCR errors and corrections" & vbCrLf &
                               "3. Document type identification" & vbCrLf &
@@ -157,7 +155,6 @@ Public Class frmOCR
             Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
             Dim aiResult = JsonConvert.DeserializeObject(Of DeepSeekResponse)(jsonResponse)
 
-            ' Save the analysis to chat history
             If Not String.IsNullOrEmpty(AccountData.UserID) Then
                 SaveChatMessage("ai", aiResult.choices(0).message.content, text)
             End If

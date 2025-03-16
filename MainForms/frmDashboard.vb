@@ -7,8 +7,14 @@ Public Class frmDashboard
         LoadUserExpenses()
         UpdateTotalExpensesLabel()
         UpdateTotalIncomeLabel()
+        UpdateTotalBalanceLabel()
         LoadPieChart()
         LoadLineChart()
+    End Sub
+
+    Private Sub UpdateTotalBalanceLabel()
+        Dim totalBalance As Decimal = GetCurrentTotalBalance()
+        lblTotalBalance.Text = totalBalance.ToString("F2")
     End Sub
 
     Private Sub LoadLineChart()
@@ -150,13 +156,20 @@ Public Class frmDashboard
 
     Private Sub UpdateTotalExpensesLabel()
         Dim totalExpenses As Decimal = GetTotalExpenses()
-        lblTotalExpenses.Text = totalExpenses.ToString("F2")
+        lblTotalExpenses.Text = "-" & totalExpenses.ToString("F2")
     End Sub
 
     Private Sub UpdateTotalIncomeLabel()
         Dim totalIncome As Decimal = GetTotalIncome()
-        lblTotalIncome.Text = totalIncome.ToString("F2")
+        lblTotalIncome.Text = "+" & totalIncome.ToString("F2")
     End Sub
+
+    Private Function GetCurrentTotalBalance() As Decimal
+        Dim totalIncome As Decimal = GetTotalIncome()
+        Dim totalExpenses As Decimal = GetTotalExpenses()
+        Return totalIncome - totalExpenses
+    End Function
+
 
     Private Function GetTotalExpenses() As Decimal
         Dim totalExpenses As Decimal = 0
@@ -192,6 +205,7 @@ Public Class frmDashboard
         flpDashboard.AutoScrollMinSize = New Size(0, 0)  ' Reset this if needed
         lblCurrentMonthExp.Text = DateTime.Now.ToString("MMMM") & " Expenses"
         lblCurrentMonthInc.Text = DateTime.Now.ToString("MMMM") & " Income"
+        lblCurrentMonthBalance.Text = DateTime.Now.ToString("MMMM") & " Balance"
     End Sub
 
     Private Sub LoadUserExpenses()
