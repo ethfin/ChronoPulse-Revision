@@ -62,17 +62,6 @@ Public Class frmQuests
         ' Check if the financial quest is already completed
         Dim questCompleted As Boolean = IsFinancialQuestAlreadyCompleted()
 
-        If leftover > 0 AndAlso Not questCompleted Then
-            ' Add experience points
-            UserExperience.AddExperience(AccountData.UserID, 50)
-
-            ' Save user experience data
-            UserExperience.SaveUserExperience(AccountData.UserID)
-
-            MarkFinancialQuestAsCompleted()
-            questCompleted = True
-        End If
-
         ' Create a Guna2Panel for the quest
         Dim questPanel As New Guna2Panel With {
             .FillColor = Color.FromArgb(13, 17, 64),
