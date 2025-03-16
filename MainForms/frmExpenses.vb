@@ -8,6 +8,10 @@ Public Class frmExpenses
     Private _ExpensePanelsAddedCount As Integer = 0
 
     Private Sub frmExpenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        flpExpenses.FlowDirection = FlowDirection.TopDown
+        flpExpenses.WrapContents = False  ' Add this line
+        flpExpenses.AutoScroll = True     ' Ensure this is set to True
+        flpExpenses.AutoScrollMinSize = New Size(0, 0)  ' Reset this if needed
         LoadExpenses()
         LoadCategories()
     End Sub

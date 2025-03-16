@@ -229,6 +229,7 @@ Partial Class frmExpenses
         Me.flpExpenses.Name = "flpExpenses"
         Me.flpExpenses.Size = New System.Drawing.Size(840, 540)
         Me.flpExpenses.TabIndex = 0
+        Me.flpExpenses.WrapContents = False
         '
         'frmExpenses
         '

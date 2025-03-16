@@ -185,6 +185,10 @@ Public Class frmDashboard
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadAllData()
+        flpDashboard.FlowDirection = FlowDirection.TopDown
+        flpDashboard.WrapContents = False  ' Add this line
+        flpDashboard.AutoScroll = True     ' Ensure this is set to True
+        flpDashboard.AutoScrollMinSize = New Size(0, 0)  ' Reset this if needed
         lblCurrentMonthExp.Text = DateTime.Now.ToString("MMMM") & " Expenses"
         lblCurrentMonthInc.Text = DateTime.Now.ToString("MMMM") & " Income"
     End Sub

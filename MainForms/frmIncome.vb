@@ -5,6 +5,10 @@ Public Class frmIncome
     Private _CurrentIncomePanelName As String = Nothing
 
     Private Sub frmIncome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        flpIncome.FlowDirection = FlowDirection.TopDown
+        flpIncome.WrapContents = False  ' Add this line
+        flpIncome.AutoScroll = True     ' Ensure this is set to True
+        flpIncome.AutoScrollMinSize = New Size(0, 0)  ' Reset this if needed
         LoadIncomeData()
     End Sub
 
