@@ -164,7 +164,7 @@ Public Class frmMain
         btnAI.Image = My.Resources.game_controller_blue
         btnExpenses.Image = My.Resources.btnDExpenses
         btnIncome.Image = My.Resources.btnDIncome
-        btnBudget.Image = My.Resources.btnDBudget
+        'btnBudget.Image = My.Resources.btnDBudget
         btnSavings.Image = My.Resources.btnDSavings
         btnAI.Image = My.Resources.chat_blue
         ' Set the button text color to white  
@@ -172,7 +172,7 @@ Public Class frmMain
         btnAI.ForeColor = Color.White
         btnExpenses.ForeColor = Color.White
         btnIncome.ForeColor = Color.White
-        btnBudget.ForeColor = Color.White
+        'btnBudget.ForeColor = Color.White
         btnSavings.ForeColor = Color.White
     End Sub
 
@@ -191,7 +191,7 @@ Public Class frmMain
         btnAI.Image = My.Resources.game_controller
         btnExpenses.Image = My.Resources.btnExpenses
         btnIncome.Image = My.Resources.btnIncome
-        btnBudget.Image = My.Resources.btnBudget
+        'btnBudget.Image = My.Resources.btnBudget
         btnSavings.Image = My.Resources.btnSavings
         btnAI.Image = My.Resources.chat_blue
         ' Set the button text color to black  
@@ -199,7 +199,7 @@ Public Class frmMain
         btnAI.ForeColor = Color.Black
         btnExpenses.ForeColor = Color.Black
         btnIncome.ForeColor = Color.Black
-        btnBudget.ForeColor = Color.Black
+        'btnBudget.ForeColor = Color.Black
         btnSavings.ForeColor = Color.Black
     End Sub
 
@@ -224,7 +224,7 @@ Public Class frmMain
     End Sub
 
     Private Sub btnBudget_MouseHover(sender As Object, e As EventArgs)
-        ToolTip.SetToolTip(btnBudget, "Budget")
+        'ToolTip.SetToolTip(btnBudget, "Budget")
     End Sub
 
     Private Sub btnSavings_MouseHover(sender As Object, e As EventArgs) Handles btnSavings.MouseHover
