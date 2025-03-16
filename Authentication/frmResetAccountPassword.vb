@@ -65,4 +65,21 @@ Public Class frmResetAccountPassword
         Dim loginForm As New frmLogin()
         loginForm.Show()
     End Sub
+
+    ' Add event handlers for the Show Password checkboxes
+    Private Sub chkShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowPassword.CheckedChanged
+        If chkShowPassword.Checked Then
+            txtPassword.PasswordChar = ControlChars.NullChar
+        Else
+            txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        End If
+    End Sub
+
+    Private Sub chkShowPassword2_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowPassword2.CheckedChanged
+        If chkShowPassword2.Checked Then
+            txtVerifyPassword.PasswordChar = ControlChars.NullChar
+        Else
+            txtVerifyPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        End If
+    End Sub
 End Class

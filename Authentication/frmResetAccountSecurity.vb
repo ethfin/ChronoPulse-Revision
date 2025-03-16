@@ -84,5 +84,25 @@ Public Class frmResetAccountSecurity
         End If
     End Sub
 
+    ' Add event handlers for the Show Password checkboxes
+    Private Sub cbxShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles cbxShowPassword.CheckedChanged
+        If cbxShowPassword.Checked Then
+            txtSQA1.PasswordChar = ControlChars.NullChar
+            txtSQA1Verify.PasswordChar = ControlChars.NullChar
+        Else
+            txtSQA1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+            txtSQA1Verify.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        End If
+    End Sub
+
+    Private Sub cbxShowPassword2_CheckedChanged(sender As Object, e As EventArgs) Handles cbxShowPassword2.CheckedChanged
+        If cbxShowPassword2.Checked Then
+            txtSQA2.PasswordChar = ControlChars.NullChar
+            txtSQA2Verify.PasswordChar = ControlChars.NullChar
+        Else
+            txtSQA2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+            txtSQA2Verify.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        End If
+    End Sub
 
 End Class
