@@ -385,6 +385,23 @@ Public Class frmOCR
                     ' Then perform AI analysis directly
                     Dim analysis As String = Await GetAIAnalysis(ocrResult)
                     rtbAIResponse.Text = analysis
+
+                    ' Add experience points
+                    UserExperience.AddXP(50)
+
+                    ' Save user experience data
+                    UserExperience.SaveUserExperience(AccountData.UserID)
+
+                    ' Update the experience bar in frmMain
+                    Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                    If mainForm IsNot Nothing Then
+                        mainForm.UpdateExperienceBar()
+
+                        ' Force the progress bar to refresh
+                        mainForm.prgExperience.Invalidate()
+                        mainForm.prgExperience.Refresh()
+                        mainForm.lblLevel.Refresh()
+                    End If
                 End If
             End Using
         Catch ex As Exception
@@ -416,16 +433,33 @@ Public Class frmOCR
 
                 ' Confirm with user before uploading
                 Dim result = MessageBox.Show(
-                $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
-                "Confirm Upload",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question)
+            $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
+            "Confirm Upload",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
                     Dim success As Boolean = Await SaveOCRDataToDatabase(jsonData)
                     If success Then
                         MessageBox.Show($"Data has been successfully added to your {category.ToLower()} records.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         rtbAIResponse.Text = $"✓ Document processed and uploaded as {category}"
+
+                        ' Add experience points
+                        UserExperience.AddXP(30)
+
+                        ' Save user experience data
+                        UserExperience.SaveUserExperience(AccountData.UserID)
+
+                        ' Update the experience bar in frmMain
+                        Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                        If mainForm IsNot Nothing Then
+                            mainForm.UpdateExperienceBar()
+
+                            ' Force the progress bar to refresh
+                            mainForm.prgExperience.Invalidate()
+                            mainForm.prgExperience.Refresh()
+                            mainForm.lblLevel.Refresh()
+                        End If
                     Else
                         rtbAIResponse.Text = "⚠️ Upload failed. Please try again."
                     End If
@@ -449,33 +483,50 @@ Public Class frmOCR
         End If
 
         Dim result = MessageBox.Show(
-            "Are you sure you want to clear your AI analysis history? This action cannot be undone.",
-            "Clear AI History",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning)
+        "Are you sure you want to clear your AI analysis history? This action cannot be undone.",
+        "Clear AI History",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning)
 
         If result = DialogResult.Yes Then
             Try
                 dbConnection.Open()
                 Using cmd As New MySqlCommand(
-                    "DELETE FROM chat_history WHERE UserID = @userId",
-                    dbConnection)
+                "DELETE FROM chat_history WHERE UserID = @userId",
+                dbConnection)
                     cmd.Parameters.AddWithValue("@userId", AccountData.UserID)
                     cmd.ExecuteNonQuery()
                 End Using
 
                 rtbAIResponse.Clear()
                 MessageBox.Show(
-                    "AI analysis history has been cleared successfully.",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information)
+                "AI analysis history has been cleared successfully.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information)
+
+                ' Add experience points
+                UserExperience.AddXP(5)
+
+                ' Save user experience data
+                UserExperience.SaveUserExperience(AccountData.UserID)
+
+                ' Update the experience bar in frmMain
+                Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                If mainForm IsNot Nothing Then
+                    mainForm.UpdateExperienceBar()
+
+                    ' Force the progress bar to refresh
+                    mainForm.prgExperience.Invalidate()
+                    mainForm.prgExperience.Refresh()
+                    mainForm.lblLevel.Refresh()
+                End If
             Catch ex As Exception
                 MessageBox.Show(
-                    "Error clearing AI history: " & ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error)
+                "Error clearing AI history: " & ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error)
             Finally
                 dbConnection.Close()
             End Try
@@ -493,6 +544,23 @@ Public Class frmOCR
         'Try
         '    Dim analysis As String = Await GetAIAnalysis(rtbOCR.Text)
         '    rtbAIResponse.Text = analysis
+
+        '    ' Add experience points
+        '    UserExperience.AddXP(15)
+
+        '    ' Save user experience data
+        '    UserExperience.SaveUserExperience(AccountData.UserID)
+
+        '    ' Update the experience bar in frmMain
+        '    Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+        '    If mainForm IsNot Nothing Then
+        '        mainForm.UpdateExperienceBar()
+
+        '        ' Force the progress bar to refresh
+        '        mainForm.prgExperience.Invalidate()
+        '        mainForm.prgExperience.Refresh()
+        '        mainForm.lblLevel.Refresh()
+        '    End If
         'Finally
         '    btnAnalyze.Enabled = True
         'End Try
