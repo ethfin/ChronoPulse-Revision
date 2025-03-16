@@ -22,7 +22,16 @@ Partial Class frmQuests
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.flpQuests = New System.Windows.Forms.FlowLayoutPanel()
         Me.SuspendLayout()
+        '
+        'flpQuests
+        '
+        Me.flpQuests.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flpQuests.Location = New System.Drawing.Point(0, 0)
+        Me.flpQuests.Name = "flpQuests"
+        Me.flpQuests.Size = New System.Drawing.Size(888, 576)
+        Me.flpQuests.TabIndex = 0
         '
         'frmQuests
         '
@@ -30,10 +39,13 @@ Partial Class frmQuests
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(888, 576)
+        Me.Controls.Add(Me.flpQuests)
         Me.ForeColor = System.Drawing.Color.White
         Me.Name = "frmQuests"
         Me.Text = "frmQuests"
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents flpQuests As FlowLayoutPanel
 End Class

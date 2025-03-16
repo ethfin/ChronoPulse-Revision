@@ -3,198 +3,208 @@ Imports Guna.UI2.WinForms
 
 Public Class frmQuests
 
-    Private flpQuests As FlowLayoutPanel
-
     Private Sub frmQuests_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Create a FlowLayoutPanel (like flpDashboard) at runtime
-        flpQuests = New FlowLayoutPanel With {
-            .Name = "flpQuests",
-            .FlowDirection = FlowDirection.TopDown,
-            .WrapContents = False,
-            .AutoScroll = True,
-            .Size = New Size(560, 400),
-            .Location = New Point(10, 10),
-            .BackColor = Color.Transparent
-        }
-        Me.Controls.Add(flpQuests)
-
-        GenerateFinancialQuests()
+        ' Ensure the quests table exists in the database
+        EnsureQuestTable()
+        LoadQuests()
     End Sub
 
-    Private Sub GenerateFinancialQuests()
-        Dim monthlyExpenses As Decimal = 0D
-        Dim monthlyIncome As Decimal = 0D
+    Private Sub LoadQuests()
+        flpQuests.Controls.Clear()
 
-        Dim currentMonth As Integer = DateTime.Now.Month
-        Dim currentYear As Integer = DateTime.Now.Year
+        Dim totalMonthlyIncome As Decimal = GetThisMonthIncome()
+        Dim totalMonthlyExpenses As Decimal = GetThisMonthExpenses()
+        Dim totalSaved As Decimal = totalMonthlyIncome - totalMonthlyExpenses
 
-        Using connection As MySqlConnection = Common.createDBConnection()
-            connection.Open()
-
-            ' Sum up monthly expenses
-            Dim expensesQuery As String =
-            "SELECT IFNULL(SUM(Cost),0) FROM user_expenses " &
-            "WHERE UserID=@UserID AND MONTH(date)=@Month AND YEAR(date)=@Year"
-
-            Using cmdExpenses As New MySqlCommand(expensesQuery, connection)
-                cmdExpenses.Parameters.AddWithValue("@UserID", AccountData.UserID)
-                cmdExpenses.Parameters.AddWithValue("@Month", currentMonth)
-                cmdExpenses.Parameters.AddWithValue("@Year", currentYear)
-                monthlyExpenses = Convert.ToDecimal(cmdExpenses.ExecuteScalar())
-            End Using
-
-            ' Sum up monthly income
-            Dim incomeQuery As String =
-            "SELECT IFNULL(SUM(Amount),0) FROM user_income " &
-            "WHERE UserID=@UserID AND MONTH(Date)=@Month AND YEAR(Date)=@Year"
-
-            Using cmdIncome As New MySqlCommand(incomeQuery, connection)
-                cmdIncome.Parameters.AddWithValue("@UserID", AccountData.UserID)
-                cmdIncome.Parameters.AddWithValue("@Month", currentMonth)
-                cmdIncome.Parameters.AddWithValue("@Year", currentYear)
-                monthlyIncome = Convert.ToDecimal(cmdIncome.ExecuteScalar())
-            End Using
-        End Using
-
-        Dim leftover As Decimal = monthlyIncome - monthlyExpenses
-        Dim saveSuggestion As Decimal = Math.Round(leftover * 0.2D, 2)
-
-        ' Check if the financial quest is already completed
-        Dim questCompleted As Boolean = IsFinancialQuestAlreadyCompleted()
-
-        ' Create a Guna2Panel for the quest
-        Dim questPanel As New Guna2Panel With {
-            .FillColor = Color.FromArgb(13, 17, 64),
-            .Size = New Size(540, 100),
-            .BorderStyle = BorderStyle.FixedSingle,
-            .BorderRadius = 10
-        }
-
-        ' Create a label for the quest text
-        Dim questMessage As String =
-        If(questCompleted,
-           "Congratulations! You have completed the financial quest for this month. A new quest has been generated.",
-           If(leftover > 0,
-              $"Try saving at least ${saveSuggestion} this month!",
-              "Your expenses exceed your income this month. Look for ways to reduce spending!"))
-
-        Dim lblQuest As New Label With {
-            .AutoSize = False,
-            .Size = New Size(520, 40),
-            .Location = New Point(10, 10),
-            .ForeColor = Color.White,
-            .Text = questMessage,
-            .Font = New Font("Century Gothic", 10, FontStyle.Regular),
-            .BackColor = Color.Transparent
-        }
-        questPanel.Controls.Add(lblQuest)
-
-        ' Create a Guna2ProgressBar instead of standard ProgressBar
-        Dim questProgress As New Guna2ProgressBar With {
-            .Name = "pbQuestProgress",
-            .Size = New Size(520, 20),
-            .Location = New Point(10, 60),
-            .Minimum = 0,
-            .Maximum = 100,
-            .BorderRadius = 5,
-            .ForeColor = Color.FromArgb(94, 148, 255),
-            .ProgressColor = Color.FromArgb(0, 192, 0),
-            .ProgressColor2 = Color.FromArgb(0, 192, 0)
-        }
-
-        ' Calculate progress value and set visual cue
-        If monthlyIncome > 0 Then
-            Dim progressValue As Integer = 0
-            If leftover > 0 Then
-                progressValue = CInt(Math.Min((leftover / monthlyIncome) * 100, 100))
-                questProgress.ProgressColor = Color.FromArgb(0, 192, 0)  ' Green for positive progress
-            Else
-                progressValue = 0
-                questProgress.ProgressColor = Color.Red  ' Red for negative balance
-            End If
-            questProgress.Value = progressValue
-        End If
-
-        questPanel.Controls.Add(questProgress)
-
-        ' Add the panel to the FlowLayoutPanel
-        flpQuests.Controls.Add(questPanel)
-
-        ' If the quest is completed, create a new quest based on the leftover amount
-        If questCompleted Then
-            CreateNewFinancialQuest(leftover)
-        End If
+        ' Example quests
+        CreateQuestPanel("Save $100 This Month", 100D, totalSaved)
+        CreateQuestPanel("Save $500 This Month", 500D, totalSaved)
     End Sub
 
-    Private Sub CreateNewFinancialQuest(startingPoint As Decimal)
-        Dim newSaveSuggestion As Decimal = Math.Round(startingPoint * 0.2D, 2)
-
-        ' Create a Guna2Panel for the new quest
-        Dim newQuestPanel As New Guna2Panel With {
-            .FillColor = Color.FromArgb(13, 17, 64),
-            .Size = New Size(540, 100),
-            .BorderStyle = BorderStyle.FixedSingle,
-            .BorderRadius = 10
-        }
-
-        ' Create a label for the new quest text
-        Dim newQuestMessage As String = $"Try saving at least ${newSaveSuggestion} this month!"
-
-        Dim lblNewQuest As New Label With {
-            .AutoSize = False,
-            .Size = New Size(520, 40),
-            .Location = New Point(10, 10),
-            .ForeColor = Color.White,
-            .Text = newQuestMessage,
-            .Font = New Font("Century Gothic", 10, FontStyle.Regular),
-            .BackColor = Color.Transparent
-        }
-        newQuestPanel.Controls.Add(lblNewQuest)
-
-        ' Create a Guna2ProgressBar for the new quest
-        Dim newQuestProgress As New Guna2ProgressBar With {
-            .Name = "pbNewQuestProgress",
-            .Size = New Size(520, 20),
-            .Location = New Point(10, 60),
-            .Minimum = 0,
-            .Maximum = 100,
-            .BorderRadius = 5,
-            .ForeColor = Color.FromArgb(94, 148, 255),
-            .ProgressColor = Color.FromArgb(0, 192, 0),
-            .ProgressColor2 = Color.FromArgb(0, 192, 0),
-            .Value = 0  ' Start at 0% since this is a new quest
-        }
-
-        newQuestPanel.Controls.Add(newQuestProgress)
-
-        ' Add the new quest panel to the FlowLayoutPanel
-        flpQuests.Controls.Add(newQuestPanel)
-    End Sub
-
-    Private Function IsFinancialQuestAlreadyCompleted() As Boolean
+    Private Sub EnsureQuestTable()
+        ' Creates the user_quests table if it doesn't exist
         Using connection As MySqlConnection = Common.createDBConnection()
             connection.Open()
-            Dim sql As String = "SELECT COUNT(*) FROM user_quests WHERE UserID=@uid AND Month=@month AND Year=@year AND QuestName='FinancialQuest'"
-            Using cmd As New MySqlCommand(sql, connection)
-                cmd.Parameters.AddWithValue("@uid", AccountData.UserID)
-                cmd.Parameters.AddWithValue("@month", DateTime.Now.Month)
-                cmd.Parameters.AddWithValue("@year", DateTime.Now.Year)
-                Return Convert.ToInt32(cmd.ExecuteScalar()) > 0
-            End Using
-        End Using
-    End Function
-
-    Private Sub MarkFinancialQuestAsCompleted()
-        Using connection As MySqlConnection = Common.createDBConnection()
-            connection.Open()
-            Dim sql As String = "INSERT INTO user_quests (UserID, QuestName, Month, Year, CompletedDate) VALUES (@uid, 'FinancialQuest', @month, @year, NOW())"
-            Using cmd As New MySqlCommand(sql, connection)
-                cmd.Parameters.AddWithValue("@uid", AccountData.UserID)
-                cmd.Parameters.AddWithValue("@month", DateTime.Now.Month)
-                cmd.Parameters.AddWithValue("@year", DateTime.Now.Year)
+            Dim query As String =
+                "CREATE TABLE IF NOT EXISTS `user_quests` (
+                    `UserID` INT NOT NULL,
+                    `QuestName` VARCHAR(255) NOT NULL,
+                    `IsCompleted` TINYINT DEFAULT 0,
+                    `CompletionDate` DATETIME NULL,
+                    PRIMARY KEY (`UserID`, `QuestName`)
+                );"
+            Using cmd As New MySqlCommand(query, connection)
                 cmd.ExecuteNonQuery()
             End Using
         End Using
+    End Sub
+
+    Private Function GetThisMonthIncome() As Decimal
+        Dim total As Decimal = 0
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String =
+                "SELECT COALESCE(SUM(Amount),0) FROM user_income
+                 WHERE UserID=@UserID
+                 AND MONTH(`Date`) = MONTH(CURRENT_DATE())
+                 AND YEAR(`Date`)  = YEAR(CURRENT_DATE())"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                total = Convert.ToDecimal(cmd.ExecuteScalar())
+            End Using
+        End Using
+        Return total
+    End Function
+
+    Private Function GetThisMonthExpenses() As Decimal
+        Dim total As Decimal = 0
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String =
+                "SELECT COALESCE(SUM(Cost),0) FROM user_expenses
+                 WHERE UserID=@UserID
+                 AND MONTH(`Date`) = MONTH(CURRENT_DATE())
+                 AND YEAR(`Date`)  = YEAR(CURRENT_DATE())"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                total = Convert.ToDecimal(cmd.ExecuteScalar())
+            End Using
+        End Using
+        Return total
+    End Function
+
+    Private Sub CreateQuestPanel(questName As String, goalAmount As Decimal, currentSaved As Decimal)
+        Dim questPanel As New Guna2Panel With {
+            .FillColor = Color.FromArgb(13, 17, 64),
+            .Size = New Size(560, 80),
+            .BorderStyle = BorderStyle.FixedSingle,
+            .BorderRadius = 10
+        }
+
+        Dim lblQuestName As New Label With {
+            .Text = questName,
+            .ForeColor = Color.White,
+            .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+            .Location = New Point(10, 10),
+            .Size = New Size(200, 20),
+            .BackColor = Color.Transparent
+        }
+        questPanel.Controls.Add(lblQuestName)
+
+        Dim lblProgress As New Label With {
+            .ForeColor = Color.White,
+            .Font = New Font("Century Gothic", 9.0F, FontStyle.Regular),
+            .Location = New Point(10, 30),
+            .Size = New Size(200, 20),
+            .BackColor = Color.Transparent
+        }
+
+        Dim progressValue As Decimal = Math.Max(0, Math.Min(1, currentSaved / goalAmount))
+        lblProgress.Text = String.Format("Progress: ${0:F2} / ${1:F2}", Math.Max(0, currentSaved), goalAmount)
+        questPanel.Controls.Add(lblProgress)
+
+        Dim prgQuest As New Guna2ProgressBar With {
+            .Location = New Point(10, 50),
+            .Size = New Size(300, 20),
+            .Value = CInt(progressValue * 100),
+            .FillColor = Color.Gray,
+            .ProgressColor = Color.LightGreen
+        }
+        questPanel.Controls.Add(prgQuest)
+
+        ' Check if quest is complete, if so, award XP if not already claimed
+        If progressValue >= 1D Then
+            ' If user hasn't completed the quest before, mark it complete and give XP
+            If Not IsQuestCompleted(questName) Then
+                CompleteQuest(questName)
+                UserExperience.AddXP(50)               ' Award 50 XP
+                UserExperience.SaveUserExperience(AccountData.UserID)  ' Save updated XP
+
+                ' Update the experience bar in frmMain (similar to frmExpenses)
+                Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
+                If mainForm IsNot Nothing Then
+                    mainForm.UpdateExperienceBar()
+                    mainForm.prgExperience.Invalidate()
+                    mainForm.prgExperience.Refresh()
+                    mainForm.lblLevel.Refresh()
+                End If
+
+                ' Optionally export quest info for your records
+                ExportQuestData(questName)
+            End If
+        End If
+
+        flpQuests.Controls.Add(questPanel)
+    End Sub
+
+    Private Function IsQuestCompleted(questName As String) As Boolean
+        ' Checks the user_quests table to see if the quest is already completed
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String =
+                "SELECT IsCompleted FROM user_quests
+                 WHERE UserID = @UserID AND QuestName = @QuestName LIMIT 1"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                cmd.Parameters.AddWithValue("@QuestName", questName)
+                Dim resultObj = cmd.ExecuteScalar()
+                If resultObj IsNot Nothing AndAlso Convert.ToInt32(resultObj) = 1 Then
+                    Return True
+                End If
+            End Using
+        End Using
+        Return False
+    End Function
+
+    Private Sub CompleteQuest(questName As String)
+        ' Mark the quest as completed in user_quests
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+
+            Dim query As String =
+                "INSERT INTO user_quests (UserID, QuestName, IsCompleted, CompletionDate)
+                 VALUES (@UserID, @QuestName, 1, NOW())
+                 ON DUPLICATE KEY UPDATE IsCompleted=1, CompletionDate=NOW()"
+
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                cmd.Parameters.AddWithValue("@QuestName", questName)
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    Private Sub ExportQuestData(questName As String)
+        ' Example of exporting quest completion data using ExportUtility
+        Dim dgv As New DataGridView()
+        dgv.Columns.Add("QuestName", "Quest Name")
+        dgv.Columns.Add("Completed", "Completed")
+        dgv.Columns.Add("CompletionDate", "Completion Date")
+
+        ' Pull the single quest's record from user_quests
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String =
+                "SELECT QuestName, IsCompleted, CompletionDate 
+                 FROM user_quests 
+                 WHERE UserID = @UserID AND QuestName=@QuestName"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                cmd.Parameters.AddWithValue("@QuestName", questName)
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        Dim rowIndex As Integer = dgv.Rows.Add()
+                        dgv.Rows(rowIndex).Cells("QuestName").Value = reader("QuestName").ToString()
+                        dgv.Rows(rowIndex).Cells("Completed").Value = (reader("IsCompleted").ToString() = "1").ToString()
+                        dgv.Rows(rowIndex).Cells("CompletionDate").Value = reader("CompletionDate").ToString()
+                    End While
+                End Using
+            End Using
+        End Using
+
+        ' Perform export
+        Dim expUtil As New ExportUtility(ExportUtility.ExportFormat.CSV)
+        expUtil.Export(dgv, "QuestCompletion")
     End Sub
 
 End Class

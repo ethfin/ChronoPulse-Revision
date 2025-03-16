@@ -76,6 +76,7 @@ Public Class frmMain
 
         contextMenu.Items.AddRange(New ToolStripItem() {showMenuItem, closeMenuItem})
         NotifyIcon1.ContextMenuStrip = contextMenu
+        UpdateUserProfileImage()
     End Sub
 
     ' Backup code for closing the application
@@ -123,6 +124,19 @@ Public Class frmMain
     Public Sub UpdateExperienceBar()
         prgExperience.Value = CInt(UserExperience.GetProgressToNextLevel() * 100)
         lblLevel.Text = $"Level {UserExperience.CurrentLevel}"
+        UpdateUserProfileImage()
+    End Sub
+
+    Private Sub UpdateUserProfileImage()
+        Select Case UserExperience.CurrentLevel
+            Case 1
+                pbxUser.Image = My.Resources.pic1
+            Case 2
+                pbxUser.Image = My.Resources.pic2
+                ' Add more cases as needed for additional levels
+            Case Else
+                pbxUser.Image = My.Resources.user_white ' Default image if level is not specified
+        End Select
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
