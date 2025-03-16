@@ -390,12 +390,6 @@
     <Compile Include="MainForms\frmExpenses.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForms\frmGames.Designer.vb">
-      <DependentUpon>frmGames.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MainForms\frmGames.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MainForms\frmIncome.Designer.vb">
       <DependentUpon>frmIncome.vb</DependentUpon>
     </Compile>
@@ -406,12 +400,6 @@
       <DependentUpon>frmOCR.vb</DependentUpon>
     </Compile>
     <Compile Include="MainForms\frmOCR.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForms\frmQuests.Designer.vb">
-      <DependentUpon>frmQuests.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MainForms\frmQuests.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForms\frmSavings.Designer.vb">
@@ -486,17 +474,11 @@
     <EmbeddedResource Include="MainForms\frmExpenses.resx">
       <DependentUpon>frmExpenses.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForms\frmGames.resx">
-      <DependentUpon>frmGames.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmIncome.resx">
       <DependentUpon>frmIncome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmOCR.resx">
       <DependentUpon>frmOCR.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForms\frmQuests.resx">
-      <DependentUpon>frmQuests.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmSavings.resx">
       <DependentUpon>frmSavings.vb</DependentUpon>

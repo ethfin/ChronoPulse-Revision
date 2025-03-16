@@ -115,10 +115,11 @@ Public Class frmDashboard
         pieSeries.Font = New Font("Century Gothic", 10, FontStyle.Regular)
         pieSeries.LabelForeColor = Color.White
 
-        ' Disable the labels inside the pie chart
+        ' Hide labels inside the pie chart
         pieSeries.IsValueShownAsLabel = False
+        pieSeries("PieLabelStyle") = "Disabled"
 
-        ' Set the legend text to display the category names and their associated colors
+        ' Set the legend text to display the category names
         For Each point As DataPoint In pieSeries.Points
             point.LegendText = point.AxisLabel
         Next
