@@ -22,20 +22,100 @@ Partial Class frmIncome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnUpdateIncome = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnAddIncome = New Guna.UI2.WinForms.Guna2Button()
+        Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.txtAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtSource = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.dgIncome = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.btnDeleteIncome = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnAddIncome = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnUpdateIncome = New Guna.UI2.WinForms.Guna2Button()
-        CType(Me.dgIncome, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Guna2Panel1.SuspendLayout()
+        Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.btnUpdateIncome)
+        Me.Guna2Panel1.Controls.Add(Me.btnExport)
+        Me.Guna2Panel1.Controls.Add(Me.btnAddIncome)
+        Me.Guna2Panel1.Controls.Add(Me.dtpDate)
+        Me.Guna2Panel1.Controls.Add(Me.txtAmount)
+        Me.Guna2Panel1.Controls.Add(Me.txtSource)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(278, 450)
+        Me.Guna2Panel1.TabIndex = 29
+        '
+        'btnUpdateIncome
+        '
+        Me.btnUpdateIncome.Animated = True
+        Me.btnUpdateIncome.BorderRadius = 15
+        Me.btnUpdateIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdateIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdateIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnUpdateIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnUpdateIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnUpdateIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnUpdateIncome.ForeColor = System.Drawing.Color.Black
+        Me.btnUpdateIncome.IndicateFocus = True
+        Me.btnUpdateIncome.Location = New System.Drawing.Point(157, 124)
+        Me.btnUpdateIncome.Name = "btnUpdateIncome"
+        Me.btnUpdateIncome.Size = New System.Drawing.Size(112, 35)
+        Me.btnUpdateIncome.TabIndex = 34
+        Me.btnUpdateIncome.Text = "Update"
+        '
+        'btnExport
+        '
+        Me.btnExport.Animated = True
+        Me.btnExport.BorderRadius = 15
+        Me.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnExport.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnExport.ForeColor = System.Drawing.Color.Black
+        Me.btnExport.IndicateFocus = True
+        Me.btnExport.Location = New System.Drawing.Point(12, 165)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(112, 35)
+        Me.btnExport.TabIndex = 33
+        Me.btnExport.Text = "Export"
+        '
+        'btnAddIncome
+        '
+        Me.btnAddIncome.Animated = True
+        Me.btnAddIncome.BorderRadius = 15
+        Me.btnAddIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
+        Me.btnAddIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddIncome.ForeColor = System.Drawing.Color.Black
+        Me.btnAddIncome.IndicateFocus = True
+        Me.btnAddIncome.Location = New System.Drawing.Point(12, 124)
+        Me.btnAddIncome.Name = "btnAddIncome"
+        Me.btnAddIncome.Size = New System.Drawing.Size(112, 35)
+        Me.btnAddIncome.TabIndex = 32
+        Me.btnAddIncome.Text = "Add"
+        '
+        'dtpDate
+        '
+        Me.dtpDate.Checked = True
+        Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDate.ForeColor = System.Drawing.SystemColors.Control
+        Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.dtpDate.Location = New System.Drawing.Point(9, 82)
+        Me.dtpDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtpDate.Name = "dtpDate"
+        Me.dtpDate.Size = New System.Drawing.Size(260, 36)
+        Me.dtpDate.TabIndex = 31
+        Me.dtpDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
         '
         'txtAmount
         '
@@ -57,7 +137,7 @@ Partial Class frmIncome
         Me.txtAmount.PlaceholderText = "Amount"
         Me.txtAmount.SelectedText = ""
         Me.txtAmount.Size = New System.Drawing.Size(260, 35)
-        Me.txtAmount.TabIndex = 9
+        Me.txtAmount.TabIndex = 30
         '
         'txtSource
         '
@@ -79,160 +159,24 @@ Partial Class frmIncome
         Me.txtSource.PlaceholderText = "Source"
         Me.txtSource.SelectedText = ""
         Me.txtSource.Size = New System.Drawing.Size(260, 35)
-        Me.txtSource.TabIndex = 8
+        Me.txtSource.TabIndex = 29
         '
-        'dtpDate
+        'Guna2Panel2
         '
-        Me.dtpDate.Checked = True
-        Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDate.ForeColor = System.Drawing.SystemColors.Control
-        Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.dtpDate.Location = New System.Drawing.Point(9, 82)
-        Me.dtpDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(260, 36)
-        Me.dtpDate.TabIndex = 10
-        Me.dtpDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
+        Me.Guna2Panel2.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel2.Location = New System.Drawing.Point(278, 0)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(522, 450)
+        Me.Guna2Panel2.TabIndex = 30
         '
-        'dgIncome
+        'FlowLayoutPanel1
         '
-        Me.dgIncome.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgIncome.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgIncome.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgIncome.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgIncome.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgIncome.ColumnHeadersHeight = 22
-        Me.dgIncome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgIncome.DefaultCellStyle = DataGridViewCellStyle7
-        Me.dgIncome.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgIncome.Location = New System.Drawing.Point(275, 0)
-        Me.dgIncome.Name = "dgIncome"
-        Me.dgIncome.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgIncome.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
-        Me.dgIncome.RowHeadersVisible = False
-        Me.dgIncome.RowHeadersWidth = 51
-        Me.dgIncome.Size = New System.Drawing.Size(525, 450)
-        Me.dgIncome.TabIndex = 16
-        Me.dgIncome.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.dgIncome.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgIncome.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.dgIncome.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgIncome.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgIncome.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        Me.dgIncome.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgIncome.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgIncome.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgIncome.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgIncome.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.dgIncome.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.dgIncome.ThemeStyle.HeaderStyle.Height = 22
-        Me.dgIncome.ThemeStyle.ReadOnly = False
-        Me.dgIncome.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.dgIncome.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.dgIncome.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgIncome.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgIncome.ThemeStyle.RowsStyle.Height = 22
-        Me.dgIncome.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgIncome.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'btnDeleteIncome
-        '
-        Me.btnDeleteIncome.Animated = True
-        Me.btnDeleteIncome.BorderRadius = 15
-        Me.btnDeleteIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDeleteIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDeleteIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDeleteIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDeleteIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnDeleteIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteIncome.ForeColor = System.Drawing.Color.Black
-        Me.btnDeleteIncome.IndicateFocus = True
-        Me.btnDeleteIncome.Location = New System.Drawing.Point(157, 165)
-        Me.btnDeleteIncome.Name = "btnDeleteIncome"
-        Me.btnDeleteIncome.Size = New System.Drawing.Size(112, 35)
-        Me.btnDeleteIncome.TabIndex = 25
-        Me.btnDeleteIncome.Text = "Delete"
-        '
-        'btnAddIncome
-        '
-        Me.btnAddIncome.Animated = True
-        Me.btnAddIncome.BorderRadius = 15
-        Me.btnAddIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAddIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAddIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnAddIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddIncome.ForeColor = System.Drawing.Color.Black
-        Me.btnAddIncome.IndicateFocus = True
-        Me.btnAddIncome.Location = New System.Drawing.Point(12, 124)
-        Me.btnAddIncome.Name = "btnAddIncome"
-        Me.btnAddIncome.Size = New System.Drawing.Size(112, 35)
-        Me.btnAddIncome.TabIndex = 26
-        Me.btnAddIncome.Text = "Add"
-        '
-        'btnExport
-        '
-        Me.btnExport.Animated = True
-        Me.btnExport.BorderRadius = 15
-        Me.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnExport.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.btnExport.ForeColor = System.Drawing.Color.Black
-        Me.btnExport.IndicateFocus = True
-        Me.btnExport.Location = New System.Drawing.Point(12, 165)
-        Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(112, 35)
-        Me.btnExport.TabIndex = 27
-        Me.btnExport.Text = "Export"
-        '
-        'btnUpdateIncome
-        '
-        Me.btnUpdateIncome.Animated = True
-        Me.btnUpdateIncome.BorderRadius = 15
-        Me.btnUpdateIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnUpdateIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnUpdateIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnUpdateIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnUpdateIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnUpdateIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdateIncome.ForeColor = System.Drawing.Color.Black
-        Me.btnUpdateIncome.IndicateFocus = True
-        Me.btnUpdateIncome.Location = New System.Drawing.Point(157, 124)
-        Me.btnUpdateIncome.Name = "btnUpdateIncome"
-        Me.btnUpdateIncome.Size = New System.Drawing.Size(112, 35)
-        Me.btnUpdateIncome.TabIndex = 28
-        Me.btnUpdateIncome.Text = "Add"
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(522, 450)
+        Me.FlowLayoutPanel1.TabIndex = 0
         '
         'frmIncome
         '
@@ -240,27 +184,23 @@ Partial Class frmIncome
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.btnUpdateIncome)
-        Me.Controls.Add(Me.btnExport)
-        Me.Controls.Add(Me.btnAddIncome)
-        Me.Controls.Add(Me.btnDeleteIncome)
-        Me.Controls.Add(Me.dgIncome)
-        Me.Controls.Add(Me.dtpDate)
-        Me.Controls.Add(Me.txtAmount)
-        Me.Controls.Add(Me.txtSource)
+        Me.Controls.Add(Me.Guna2Panel2)
+        Me.Controls.Add(Me.Guna2Panel1)
         Me.Name = "frmIncome"
         Me.Text = "frmIncome"
-        CType(Me.dgIncome, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Private WithEvents btnUpdateIncome As Guna.UI2.WinForms.Guna2Button
+    Private WithEvents btnExport As Guna.UI2.WinForms.Guna2Button
+    Private WithEvents btnAddIncome As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents dtpDate As Guna.UI2.WinForms.Guna2DateTimePicker
     Private WithEvents txtAmount As Guna.UI2.WinForms.Guna2TextBox
     Private WithEvents txtSource As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents dtpDate As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents dgIncome As Guna.UI2.WinForms.Guna2DataGridView
-    Private WithEvents btnDeleteIncome As Guna.UI2.WinForms.Guna2Button
-    Private WithEvents btnAddIncome As Guna.UI2.WinForms.Guna2Button
-    Private WithEvents btnExport As Guna.UI2.WinForms.Guna2Button
-    Private WithEvents btnUpdateIncome As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class
