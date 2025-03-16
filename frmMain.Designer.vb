@@ -59,6 +59,9 @@ Partial Class frmMain
         'pnlContainer
         '
         Me.pnlContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlContainer.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.pnlContainer.BorderRadius = 20
+        Me.pnlContainer.BorderThickness = 1
         Me.pnlContainer.CustomBorderColor = System.Drawing.Color.Silver
         Me.pnlContainer.CustomizableEdges.BottomLeft = False
         Me.pnlContainer.CustomizableEdges.BottomRight = False
@@ -172,12 +175,18 @@ Partial Class frmMain
         '
         'Guna2Panel4
         '
-        Me.Guna2Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(8, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.Guna2Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(8, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.Guna2Panel4.BorderRadius = 20
+        Me.Guna2Panel4.BorderThickness = 1
         Me.Guna2Panel4.Controls.Add(Me.lblLevel)
         Me.Guna2Panel4.Controls.Add(Me.prgExperience)
         Me.Guna2Panel4.Controls.Add(Me.lblUsername)
         Me.Guna2Panel4.Controls.Add(Me.pbxUser)
+        Me.Guna2Panel4.CustomizableEdges.BottomLeft = False
+        Me.Guna2Panel4.CustomizableEdges.BottomRight = False
         Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Guna2Panel4.FillColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(8, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.Guna2Panel4.Location = New System.Drawing.Point(0, 560)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Size = New System.Drawing.Size(194, 62)
@@ -435,10 +444,9 @@ Partial Class frmMain
         'pnlTop
         '
         Me.pnlTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.pnlTop.BorderColor = System.Drawing.Color.DimGray
+        Me.pnlTop.BorderColor = System.Drawing.Color.Transparent
         Me.pnlTop.Controls.Add(Me.btnClose)
         Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.pnlTop.CustomBorderThickness = New System.Windows.Forms.Padding(0, 0, 0, 1)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTop.Location = New System.Drawing.Point(0, 0)
         Me.pnlTop.Name = "pnlTop"
