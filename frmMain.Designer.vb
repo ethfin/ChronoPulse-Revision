@@ -238,7 +238,7 @@ Partial Class frmMain
         Me.btnOCR.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnOCR.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnOCR.FillColor = System.Drawing.Color.Transparent
-        Me.btnOCR.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOCR.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnOCR.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnOCR.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ocr
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -248,7 +248,7 @@ Partial Class frmMain
         Me.btnOCR.Name = "btnOCR"
         Me.btnOCR.Size = New System.Drawing.Size(173, 45)
         Me.btnOCR.TabIndex = 10
-        Me.btnOCR.Text = "OCR"
+        Me.btnOCR.Text = "Scanner"
         Me.btnOCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.UseTransparentBackground = True
         '
@@ -316,7 +316,7 @@ Partial Class frmMain
         Me.btnAI.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnAI.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnAI.FillColor = System.Drawing.Color.Transparent
-        Me.btnAI.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAI.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnAI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnAI.Image = Global.ChronoPulse_Revision.My.Resources.Resources.chat_blue
         Me.btnAI.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -326,7 +326,7 @@ Partial Class frmMain
         Me.btnAI.Name = "btnAI"
         Me.btnAI.Size = New System.Drawing.Size(173, 45)
         Me.btnAI.TabIndex = 5
-        Me.btnAI.Text = "AI Chatbot"
+        Me.btnAI.Text = "Chatbot"
         Me.btnAI.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAI.UseTransparentBackground = True
         '
