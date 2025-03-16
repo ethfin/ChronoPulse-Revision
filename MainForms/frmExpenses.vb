@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
-'import guna framework
 Imports Guna.UI.WinForms
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class frmExpenses
 
@@ -12,9 +12,85 @@ Public Class frmExpenses
         flpExpenses.WrapContents = False  ' Add this line
         flpExpenses.AutoScroll = True     ' Ensure this is set to True
         flpExpenses.AutoScrollMinSize = New Size(0, 0)  ' Reset this if needed
+        dtpDate.Value = DateTime.Now    ' Set the DateTimePicker to the current date
         LoadExpenses()
         LoadCategories()
+        LoadPieChart() ' Load the pie chart when the form loads
     End Sub
+
+    Private Sub LoadPieChart()
+        Dim expensesData As DataTable = GetCurrentMonthExpensesByCategory()
+        PopulatePieChart(expensesData)
+    End Sub
+
+    Private Sub PopulatePieChart(expensesData As DataTable)
+        chrtPie.Series.Clear()
+        Dim pieSeries As New Series("Expenses")
+        pieSeries.ChartType = SeriesChartType.Pie
+
+        Dim totalExpenses As Decimal = expensesData.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)("TotalCost"))
+
+        For Each row As DataRow In expensesData.Rows
+            Dim category As String = row("Category").ToString()
+            Dim totalCost As Decimal = Convert.ToDouble(row("TotalCost"))
+            Dim percentage As Decimal = (totalCost / totalExpenses) * 100
+            Dim point As DataPoint = New DataPoint() With {
+            .AxisLabel = $"{category} ({percentage:F2}%)",
+            .YValues = New Double() {totalCost}
+        }
+            pieSeries.Points.Add(point)
+        Next
+
+        chrtPie.Series.Add(pieSeries)
+
+        ' Configure the legend
+        chrtPie.Legends.Clear()
+        Dim legend As New Legend()
+        legend.Docking = Docking.Bottom
+        legend.Font = New Font("Century Gothic", 10, FontStyle.Bold)
+        legend.ForeColor = Color.White
+        legend.BackColor = Color.Transparent
+        chrtPie.Legends.Add(legend)
+
+        ' Set the background color of the chart area to transparent
+        chrtPie.ChartAreas(0).BackColor = Color.Transparent
+
+        ' Set the font style and color for the chart series
+        pieSeries.Font = New Font("Century Gothic", 10, FontStyle.Regular)
+        pieSeries.LabelForeColor = Color.White
+
+        ' Hide labels inside the pie chart
+        pieSeries.IsValueShownAsLabel = False
+        pieSeries("PieLabelStyle") = "Disabled"
+
+        ' Set the legend text to display the category names with percentages
+        For Each point As DataPoint In pieSeries.Points
+            point.LegendText = point.AxisLabel
+        Next
+
+        ' Add a title to the chart
+        chrtPie.Titles.Clear()
+        Dim title As New Title("Current Month")
+        title.Font = New Font("Century Gothic", 14, FontStyle.Bold)
+        title.ForeColor = Color.White
+        chrtPie.Titles.Add(title)
+    End Sub
+
+
+    Private Function GetCurrentMonthExpensesByCategory() As DataTable
+        Dim dt As New DataTable()
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+            Dim query As String = "SELECT Category, SUM(Cost) AS TotalCost FROM user_expenses WHERE UserID = @UserID AND MONTH(`Date`) = MONTH(CURRENT_DATE()) AND YEAR(`Date`) = YEAR(CURRENT_DATE()) GROUP BY Category"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    dt.Load(reader)
+                End Using
+            End Using
+        End Using
+        Return dt
+    End Function
 
     Private Sub btnAddExpense_Click(sender As Object, e As EventArgs) Handles btnAddExpense.Click
         Dim item As String = txtItem.Text
@@ -114,27 +190,70 @@ Public Class frmExpenses
             connection.Open()
 
             Dim query As String = "SELECT expense_id, Item, Cost, Category, Description, date " &
-                                  "FROM user_expenses WHERE UserID = @UserID ORDER BY date DESC"
+                             "FROM user_expenses WHERE UserID = @UserID ORDER BY date DESC"
 
             Using cmd As New MySqlCommand(query, connection)
                 cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
 
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
-                    While reader.Read()
-                        Dim expenseID As Integer = CInt(reader("expense_id"))
-                        Dim item As String = reader("Item").ToString()
-                        Dim cost As Decimal = CDec(reader("Cost"))
-                        Dim category As String = reader("Category").ToString()
-                        Dim description As String = reader("Description").ToString()
-                        Dim expenseDate As DateTime = CDate(reader("date"))
+                    Dim expensesByMonth As New Dictionary(Of String, List(Of Dictionary(Of String, Object)))()
 
-                        ' Create a panel for each expense record
-                        CreateExpensePanel(expenseID, item, cost, category, description, expenseDate)
+                    While reader.Read()
+                        Dim expense As New Dictionary(Of String, Object) From {
+                       {"expense_id", CInt(reader("expense_id"))},
+                       {"Item", reader("Item").ToString()},
+                       {"Cost", CDec(reader("Cost"))},
+                       {"Category", reader("Category").ToString()},
+                       {"Description", reader("Description").ToString()},
+                       {"date", CDate(reader("date"))}
+                   }
+
+                        Dim monthKey As String = CDate(expense("date")).ToString("MMMM yyyy")
+
+                        If Not expensesByMonth.ContainsKey(monthKey) Then
+                            expensesByMonth(monthKey) = New List(Of Dictionary(Of String, Object))()
+                        End If
+
+                        expensesByMonth(monthKey).Add(expense)
                     End While
+
+                    For Each monthKey As String In expensesByMonth.Keys
+                        ' Create a header panel for the month
+                        Dim monthHeaderPanel As New Guna.UI2.WinForms.Guna2Panel With {
+                       .FillColor = Color.FromArgb(173, 181, 211),
+                       .Size = New Size(720, 60),
+                       .Name = "pnlMonthHeader" & monthKey,
+                       .BorderStyle = BorderStyle.FixedSingle,
+                       .BorderRadius = 10
+                   }
+
+                        ' Add a label to display the month
+                        Dim lblMonth As New Label With {
+                       .Name = "lblMonth" & monthKey,
+                       .Text = monthKey,
+                       .Location = New Point((monthHeaderPanel.Width - 700) / 2, 5), ' Center the label
+                       .AutoSize = False,
+                       .Size = New Size(700, 50),
+                       .ForeColor = Color.Black,
+                       .Font = New Font("Century Gothic", 20, FontStyle.Bold),
+                       .TextAlign = ContentAlignment.MiddleCenter,
+                       .BackColor = Color.Transparent
+                   }
+                        monthHeaderPanel.Controls.Add(lblMonth)
+
+                        ' Add the month header panel to the FlowLayoutPanel
+                        flpExpenses.Controls.Add(monthHeaderPanel)
+
+                        ' Add the expenses for the month
+                        For Each expense As Dictionary(Of String, Object) In expensesByMonth(monthKey)
+                            CreateExpensePanel(CInt(expense("expense_id")), expense("Item").ToString(), CDec(expense("Cost")), expense("Category").ToString(), expense("Description").ToString(), CDate(expense("date")))
+                        Next
+                    Next
                 End Using
             End Using
         End Using
     End Sub
+
 
     Private Sub CreateExpensePanel(expenseID As Integer, item As String, cost As Decimal,
                                category As String, description As String, expenseDate As DateTime)
@@ -239,9 +358,11 @@ Public Class frmExpenses
     End Sub
 
     Private Sub SelectExpensePanel(selectedPanel As Guna.UI2.WinForms.Guna2Panel, item As String, cost As Decimal, category As String, description As String, expenseDate As DateTime)
-        ' Deselect all panels
+        ' Deselect all panels except month header panels
         For Each panel As Guna.UI2.WinForms.Guna2Panel In flpExpenses.Controls.OfType(Of Guna.UI2.WinForms.Guna2Panel)()
-            panel.FillColor = Color.FromArgb(13, 17, 64)
+            If Not panel.Name.StartsWith("pnlMonthHeader") Then
+                panel.FillColor = Color.FromArgb(13, 17, 64)
+            End If
         Next
 
         ' Select the clicked panel
@@ -253,6 +374,7 @@ Public Class frmExpenses
         ' Populate the fields
         PopulateFields(item, cost, category, description, expenseDate)
     End Sub
+
 
     Private Sub PopulateFields(item As String, cost As Decimal, category As String, description As String, expenseDate As DateTime)
         txtItem.Text = item

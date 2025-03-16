@@ -22,6 +22,9 @@ Partial Class frmIncome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnUpdateIncome = New Guna.UI2.WinForms.Guna2Button()
         Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
@@ -31,12 +34,15 @@ Partial Class frmIncome
         Me.txtSource = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.flpIncome = New System.Windows.Forms.FlowLayoutPanel()
+        Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
+        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.chrtPie)
         Me.Guna2Panel1.Controls.Add(Me.btnUpdateIncome)
         Me.Guna2Panel1.Controls.Add(Me.btnExport)
         Me.Guna2Panel1.Controls.Add(Me.btnAddIncome)
@@ -46,7 +52,7 @@ Partial Class frmIncome
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(278, 450)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(278, 596)
         Me.Guna2Panel1.TabIndex = 29
         '
         'btnUpdateIncome
@@ -61,9 +67,9 @@ Partial Class frmIncome
         Me.btnUpdateIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnUpdateIncome.ForeColor = System.Drawing.Color.Black
         Me.btnUpdateIncome.IndicateFocus = True
-        Me.btnUpdateIncome.Location = New System.Drawing.Point(157, 124)
+        Me.btnUpdateIncome.Location = New System.Drawing.Point(12, 165)
         Me.btnUpdateIncome.Name = "btnUpdateIncome"
-        Me.btnUpdateIncome.Size = New System.Drawing.Size(112, 35)
+        Me.btnUpdateIncome.Size = New System.Drawing.Size(257, 35)
         Me.btnUpdateIncome.TabIndex = 34
         Me.btnUpdateIncome.Text = "Update"
         '
@@ -79,9 +85,9 @@ Partial Class frmIncome
         Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnExport.ForeColor = System.Drawing.Color.Black
         Me.btnExport.IndicateFocus = True
-        Me.btnExport.Location = New System.Drawing.Point(12, 165)
+        Me.btnExport.Location = New System.Drawing.Point(12, 206)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(112, 35)
+        Me.btnExport.Size = New System.Drawing.Size(257, 35)
         Me.btnExport.TabIndex = 33
         Me.btnExport.Text = "Export"
         '
@@ -99,12 +105,13 @@ Partial Class frmIncome
         Me.btnAddIncome.IndicateFocus = True
         Me.btnAddIncome.Location = New System.Drawing.Point(12, 124)
         Me.btnAddIncome.Name = "btnAddIncome"
-        Me.btnAddIncome.Size = New System.Drawing.Size(112, 35)
+        Me.btnAddIncome.Size = New System.Drawing.Size(257, 35)
         Me.btnAddIncome.TabIndex = 32
         Me.btnAddIncome.Text = "Add"
         '
         'dtpDate
         '
+        Me.dtpDate.BorderRadius = 10
         Me.dtpDate.Checked = True
         Me.dtpDate.FillColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -172,7 +179,7 @@ Partial Class frmIncome
         Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel2.Location = New System.Drawing.Point(278, 0)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(522, 450)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(652, 596)
         Me.Guna2Panel2.TabIndex = 30
         '
         'flpIncome
@@ -180,21 +187,41 @@ Partial Class frmIncome
         Me.flpIncome.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flpIncome.Location = New System.Drawing.Point(0, 0)
         Me.flpIncome.Name = "flpIncome"
-        Me.flpIncome.Size = New System.Drawing.Size(522, 450)
+        Me.flpIncome.Size = New System.Drawing.Size(652, 596)
         Me.flpIncome.TabIndex = 0
+        '
+        'chrtPie
+        '
+        Me.chrtPie.BackColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineWidth = 0
+        ChartArea2.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend2)
+        Me.chrtPie.Location = New System.Drawing.Point(12, 247)
+        Me.chrtPie.Name = "chrtPie"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chrtPie.Series.Add(Series2)
+        Me.chrtPie.Size = New System.Drawing.Size(257, 328)
+        Me.chrtPie.TabIndex = 35
+        Me.chrtPie.Text = "Chart1"
         '
         'frmIncome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(930, 596)
         Me.Controls.Add(Me.Guna2Panel2)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Name = "frmIncome"
         Me.Text = "frmIncome"
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel2.ResumeLayout(False)
+        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -208,4 +235,5 @@ Partial Class frmIncome
     Private WithEvents txtSource As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents flpIncome As FlowLayoutPanel
+    Friend WithEvents chrtPie As DataVisualization.Charting.Chart
 End Class

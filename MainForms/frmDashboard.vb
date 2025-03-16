@@ -39,7 +39,7 @@ Public Class frmDashboard
         ' Add markers to the end points of the lines
         lineSeries.MarkerStyle = MarkerStyle.Circle
         lineSeries.MarkerSize = 8
-        lineSeries.MarkerColor = Color.Red
+        lineSeries.MarkerColor = Color.Blue
 
         chrtLine.Series.Add(lineSeries)
 

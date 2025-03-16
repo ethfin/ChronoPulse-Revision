@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms.DataVisualization.Charting
+Imports MySql.Data.MySqlClient
 
 Public Class frmIncome
 
@@ -9,26 +10,151 @@ Public Class frmIncome
         flpIncome.WrapContents = False  ' Add this line
         flpIncome.AutoScroll = True     ' Ensure this is set to True
         flpIncome.AutoScrollMinSize = New Size(0, 0)  ' Reset this if needed
+        dtpDate.Value = DateTime.Now    ' Set the DateTimePicker to the current date
         LoadIncomeData()
+        LoadPieChart() ' Load the pie chart when the form loads
     End Sub
 
-    Private Sub LoadIncomeData()
-        flpIncome.Controls.Clear()
+    Private Sub LoadPieChart()
+        Dim incomeData As DataTable = GetCurrentMonthIncomeBySource()
+        PopulatePieChart(incomeData)
+    End Sub
 
+    Private Sub PopulatePieChart(expensesData As DataTable)
+        chrtPie.Series.Clear()
+        Dim pieSeries As New Series("Expenses")
+        pieSeries.ChartType = SeriesChartType.Pie
+
+        Dim totalExpenses As Decimal = expensesData.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)("TotalAmount"))
+
+        For Each row As DataRow In expensesData.Rows
+            Dim category As String = row("Source").ToString()
+            Dim totalCost As Decimal = Convert.ToDecimal(row("TotalAmount"))
+            Dim percentage As Decimal = (totalCost / totalExpenses) * 100
+            Dim point As DataPoint = New DataPoint() With {
+           .AxisLabel = $"{category} ({percentage:F2}%)",
+           .YValues = New Double() {totalCost}
+       }
+            pieSeries.Points.Add(point)
+        Next
+
+        chrtPie.Series.Add(pieSeries)
+
+        ' Configure the legend
+        chrtPie.Legends.Clear()
+        Dim legend As New Legend()
+        legend.Docking = Docking.Bottom
+        legend.Font = New Font("Century Gothic", 10, FontStyle.Bold)
+        legend.ForeColor = Color.White
+        legend.BackColor = Color.Transparent
+        chrtPie.Legends.Add(legend)
+
+        ' Set the background color of the chart area to transparent
+        chrtPie.ChartAreas(0).BackColor = Color.Transparent
+
+        ' Set the font style and color for the chart series
+        pieSeries.Font = New Font("Century Gothic", 10, FontStyle.Regular)
+        pieSeries.LabelForeColor = Color.White
+
+        ' Hide labels inside the pie chart
+        pieSeries.IsValueShownAsLabel = False
+        pieSeries("PieLabelStyle") = "Disabled"
+
+        ' Set the legend text to display the category names with percentages
+        For Each point As DataPoint In pieSeries.Points
+            point.LegendText = point.AxisLabel
+        Next
+
+        ' Add a title to the chart
+        chrtPie.Titles.Clear()
+        Dim title As New Title("Current Month")
+        title.Font = New Font("Century Gothic", 14, FontStyle.Bold)
+        title.ForeColor = Color.White
+        chrtPie.Titles.Add(title)
+    End Sub
+
+
+    Private Function GetCurrentMonthIncomeBySource() As DataTable
+        Dim dt As New DataTable()
         Using connection As MySqlConnection = Common.createDBConnection()
             connection.Open()
-            Dim query As String = "SELECT IncomeID, Source, Amount, Date FROM user_income WHERE UserID = @UserID"
+            Dim query As String = "SELECT Source, SUM(Amount) AS TotalAmount FROM user_income WHERE UserID = @UserID AND MONTH(`Date`) = MONTH(CURRENT_DATE()) AND YEAR(`Date`) = YEAR(CURRENT_DATE()) GROUP BY Source"
             Using cmd As New MySqlCommand(query, connection)
                 cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
-                    While reader.Read()
-                        Dim incomeID As Integer = CInt(reader("IncomeID"))
-                        Dim source As String = reader("Source").ToString()
-                        Dim amount As Decimal = CDec(reader("Amount"))
-                        Dim incomeDate As DateTime = CDate(reader("Date"))
+                    dt.Load(reader)
+                End Using
+            End Using
+        End Using
+        Return dt
+    End Function
 
-                        CreateIncomePanel(incomeID, source, amount, incomeDate)
+    Private Sub LoadIncomeData()
+        ' Clear any existing controls
+        flpIncome.Controls.Clear()
+
+        ' Query the database for income records
+        Using connection As MySqlConnection = Common.createDBConnection()
+            connection.Open()
+
+            Dim query As String = "SELECT IncomeID, Source, Amount, Date " &
+                              "FROM user_income WHERE UserID = @UserID ORDER BY Date DESC"
+
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
+
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    Dim incomeByMonth As New Dictionary(Of String, List(Of Dictionary(Of String, Object)))()
+
+                    While reader.Read()
+                        Dim income As New Dictionary(Of String, Object) From {
+                        {"IncomeID", CInt(reader("IncomeID"))},
+                        {"Source", reader("Source").ToString()},
+                        {"Amount", CDec(reader("Amount"))},
+                        {"Date", CDate(reader("Date"))}
+                    }
+
+                        Dim monthKey As String = CDate(income("Date")).ToString("MMMM yyyy")
+
+                        If Not incomeByMonth.ContainsKey(monthKey) Then
+                            incomeByMonth(monthKey) = New List(Of Dictionary(Of String, Object))()
+                        End If
+
+                        incomeByMonth(monthKey).Add(income)
                     End While
+
+                    For Each monthKey As String In incomeByMonth.Keys
+                        ' Create a header panel for the month
+                        Dim monthHeaderPanel As New Guna.UI2.WinForms.Guna2Panel With {
+                        .FillColor = Color.FromArgb(173, 181, 211),
+                        .Size = New Size(720, 60),
+                        .Name = "pnlMonthHeader" & monthKey,
+                        .BorderStyle = BorderStyle.FixedSingle,
+                        .BorderRadius = 10
+                    }
+
+                        ' Add a label to display the month
+                        Dim lblMonth As New Label With {
+                        .Name = "lblMonth" & monthKey,
+                        .Text = monthKey,
+                        .Location = New Point((monthHeaderPanel.Width - 700) / 2, 5), ' Center the label
+                        .AutoSize = False,
+                        .Size = New Size(700, 50),
+                        .ForeColor = Color.Black,
+                        .Font = New Font("Century Gothic", 20, FontStyle.Bold),
+                        .TextAlign = ContentAlignment.MiddleCenter,
+                        .BackColor = Color.Transparent
+                    }
+                        monthHeaderPanel.Controls.Add(lblMonth)
+
+                        ' Add the month header panel to the FlowLayoutPanel
+                        flpIncome.Controls.Add(monthHeaderPanel)
+
+                        ' Add the income records for the month
+                        For Each income As Dictionary(Of String, Object) In incomeByMonth(monthKey)
+                            CreateIncomePanel(CInt(income("IncomeID")), income("Source").ToString(), CDec(income("Amount")), CDate(income("Date")))
+                        Next
+                    Next
                 End Using
             End Using
         End Using
@@ -102,15 +228,23 @@ Public Class frmIncome
     End Sub
 
     Private Sub SelectIncomePanel(selectedPanel As Guna.UI2.WinForms.Guna2Panel, source As String, amount As Decimal, incomeDate As DateTime)
+        ' Deselect all panels except month header panels
         For Each panel As Guna.UI2.WinForms.Guna2Panel In flpIncome.Controls.OfType(Of Guna.UI2.WinForms.Guna2Panel)()
-            panel.FillColor = Color.FromArgb(13, 17, 64)
+            If Not panel.Name.StartsWith("pnlMonthHeader") Then
+                panel.FillColor = Color.FromArgb(13, 17, 64)
+            End If
         Next
 
+        ' Select the clicked panel
         selectedPanel.FillColor = Color.FromArgb(8, 6, 26)
+
+        ' Set the current income panel name
         _CurrentIncomePanelName = selectedPanel.Name
 
+        ' Populate the fields
         PopulateFields(source, amount, incomeDate)
     End Sub
+
 
     Private Sub PopulateFields(source As String, amount As Decimal, incomeDate As DateTime)
         txtSource.Text = source

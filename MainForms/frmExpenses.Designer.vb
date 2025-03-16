@@ -22,6 +22,9 @@ Partial Class frmExpenses
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.btnUpdateExpenses = New Guna.UI2.WinForms.Guna2Button()
@@ -33,12 +36,15 @@ Partial Class frmExpenses
         Me.txtItem = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.flpExpenses = New System.Windows.Forms.FlowLayoutPanel()
+        Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
+        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.chrtPie)
         Me.Guna2Panel1.Controls.Add(Me.dtpDate)
         Me.Guna2Panel1.Controls.Add(Me.btnUpdateExpenses)
         Me.Guna2Panel1.Controls.Add(Me.btnExport)
@@ -50,11 +56,13 @@ Partial Class frmExpenses
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(286, 540)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(286, 631)
         Me.Guna2Panel1.TabIndex = 26
         '
         'dtpDate
         '
+        Me.dtpDate.BackColor = System.Drawing.Color.Transparent
+        Me.dtpDate.BorderRadius = 10
         Me.dtpDate.Checked = True
         Me.dtpDate.FillColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
@@ -80,9 +88,9 @@ Partial Class frmExpenses
         Me.btnUpdateExpenses.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdateExpenses.ForeColor = System.Drawing.Color.Black
         Me.btnUpdateExpenses.IndicateFocus = True
-        Me.btnUpdateExpenses.Location = New System.Drawing.Point(160, 202)
+        Me.btnUpdateExpenses.Location = New System.Drawing.Point(12, 243)
         Me.btnUpdateExpenses.Name = "btnUpdateExpenses"
-        Me.btnUpdateExpenses.Size = New System.Drawing.Size(112, 35)
+        Me.btnUpdateExpenses.Size = New System.Drawing.Size(260, 35)
         Me.btnUpdateExpenses.TabIndex = 31
         Me.btnUpdateExpenses.Text = "Update"
         '
@@ -98,9 +106,9 @@ Partial Class frmExpenses
         Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExport.ForeColor = System.Drawing.Color.Black
         Me.btnExport.IndicateFocus = True
-        Me.btnExport.Location = New System.Drawing.Point(12, 243)
+        Me.btnExport.Location = New System.Drawing.Point(12, 284)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(112, 35)
+        Me.btnExport.Size = New System.Drawing.Size(260, 35)
         Me.btnExport.TabIndex = 30
         Me.btnExport.Text = "Export"
         '
@@ -118,13 +126,14 @@ Partial Class frmExpenses
         Me.btnAddExpense.IndicateFocus = True
         Me.btnAddExpense.Location = New System.Drawing.Point(12, 202)
         Me.btnAddExpense.Name = "btnAddExpense"
-        Me.btnAddExpense.Size = New System.Drawing.Size(112, 35)
+        Me.btnAddExpense.Size = New System.Drawing.Size(260, 35)
         Me.btnAddExpense.TabIndex = 29
         Me.btnAddExpense.Text = "Add"
         '
         'cmbCategory
         '
         Me.cmbCategory.BackColor = System.Drawing.Color.Transparent
+        Me.cmbCategory.BorderRadius = 10
         Me.cmbCategory.BorderThickness = 0
         Me.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -217,7 +226,7 @@ Partial Class frmExpenses
         Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel2.Location = New System.Drawing.Point(286, 0)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(840, 540)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(946, 631)
         Me.Guna2Panel2.TabIndex = 27
         '
         'flpExpenses
@@ -227,22 +236,42 @@ Partial Class frmExpenses
         Me.flpExpenses.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpExpenses.Location = New System.Drawing.Point(0, 0)
         Me.flpExpenses.Name = "flpExpenses"
-        Me.flpExpenses.Size = New System.Drawing.Size(840, 540)
+        Me.flpExpenses.Size = New System.Drawing.Size(946, 631)
         Me.flpExpenses.TabIndex = 0
         Me.flpExpenses.WrapContents = False
+        '
+        'chrtPie
+        '
+        Me.chrtPie.BackColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineWidth = 0
+        ChartArea1.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend1)
+        Me.chrtPie.Location = New System.Drawing.Point(12, 338)
+        Me.chrtPie.Name = "chrtPie"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chrtPie.Series.Add(Series1)
+        Me.chrtPie.Size = New System.Drawing.Size(268, 259)
+        Me.chrtPie.TabIndex = 36
+        Me.chrtPie.Text = "Chart1"
         '
         'frmExpenses
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1126, 540)
+        Me.ClientSize = New System.Drawing.Size(1232, 631)
         Me.Controls.Add(Me.Guna2Panel2)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Name = "frmExpenses"
         Me.Text = "frmExpenses"
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel2.ResumeLayout(False)
+        CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -257,4 +286,5 @@ Partial Class frmExpenses
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents flpExpenses As FlowLayoutPanel
     Friend WithEvents dtpDate As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents chrtPie As DataVisualization.Charting.Chart
 End Class
