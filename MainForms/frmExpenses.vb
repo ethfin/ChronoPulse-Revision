@@ -24,8 +24,8 @@ Public Class frmExpenses
             Return
         End If
 
-        If String.IsNullOrEmpty(item) OrElse String.IsNullOrEmpty(category) OrElse String.IsNullOrEmpty(description) Then
-            MessageBox.Show("Please fill in all fields.")
+        If String.IsNullOrEmpty(item) OrElse String.IsNullOrEmpty(category) Then
+            MessageBox.Show("Please fill in Item and Cost fields.")
             Return
         End If
 
@@ -74,7 +74,6 @@ Public Class frmExpenses
                     mainForm.lblLevel.Refresh()
                 End If
 
-                MessageBox.Show("Expense added successfully.")
                 LoadExpenses() ' Refresh the DataGridView after adding a new expense
             End Using
         Catch ex As Exception

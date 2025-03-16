@@ -132,7 +132,6 @@ Public Class frmDashboard
         chrtPie.Titles.Add(title)
     End Sub
 
-
     Private Function GetCurrentMonthExpensesByCategory() As DataTable
         Dim dt As New DataTable()
         Using connection As MySqlConnection = Common.createDBConnection()

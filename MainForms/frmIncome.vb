@@ -152,7 +152,6 @@ Public Class frmIncome
                     mainForm.lblLevel.Refresh()
                 End If
 
-                MessageBox.Show("Income added successfully.")
                 LoadIncomeData()
             End Using
         Catch ex As Exception

@@ -257,8 +257,8 @@ Public Class frmMain
         'ToolTip.SetToolTip(btnBudget, "Budget")
     End Sub
 
-    Private Sub btnSavings_MouseHover(sender As Object, e As EventArgs) Handles btnSavings.MouseHover
-        ToolTip.SetToolTip(btnSavings, "Savings")
+    Private Sub btnSavings_MouseHover(sender As Object, e As EventArgs)
+        'ToolTip.SetToolTip(btnSavings, "Savings")
     End Sub
 
     Private Sub pbxUser_Click(sender As Object, e As EventArgs) Handles pbxUser.Click
@@ -298,12 +298,12 @@ Public Class frmMain
         LoadForm(New frmIncome)
     End Sub
 
-    Private Sub btnSavings_Click(sender As Object, e As EventArgs) Handles btnSavings.Click
-        LoadForm(New frmSavings)
+    Private Sub btnSavings_Click(sender As Object, e As EventArgs)
+        'LoadForm(New frmSavings)
     End Sub
 
     Private Sub btnBudget_Click(sender As Object, e As EventArgs)
-        LoadForm(New frmBudgeting)
+        'LoadForm(New frmBudgeting)
     End Sub
 
     Private Sub btnOCR_Click(sender As Object, e As EventArgs) Handles btnOCR.Click
