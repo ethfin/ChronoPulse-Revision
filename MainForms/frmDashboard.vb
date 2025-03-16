@@ -36,6 +36,11 @@ Public Class frmDashboard
             lineSeries.Points.AddXY(dateValue.ToString("MM/dd/yyyy"), Convert.ToDouble(row("Amount")))
         Next
 
+        ' Add markers to the end points of the lines
+        lineSeries.MarkerStyle = MarkerStyle.Circle
+        lineSeries.MarkerSize = 8
+        lineSeries.MarkerColor = Color.Red
+
         chrtLine.Series.Add(lineSeries)
 
         ' Configure the legend
@@ -100,8 +105,17 @@ Public Class frmDashboard
         Dim pieSeries As New Series("Expenses")
         pieSeries.ChartType = SeriesChartType.Pie
 
+        Dim totalExpenses As Decimal = expensesData.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)("TotalCost"))
+
         For Each row As DataRow In expensesData.Rows
-            pieSeries.Points.AddXY(row("Category").ToString(), Convert.ToDouble(row("TotalCost")))
+            Dim category As String = row("Category").ToString()
+            Dim totalCost As Decimal = Convert.ToDouble(row("TotalCost"))
+            Dim percentage As Decimal = (totalCost / totalExpenses) * 100
+            Dim point As DataPoint = New DataPoint() With {
+            .AxisLabel = $"{category} ({percentage:F2}%)",
+            .YValues = New Double() {totalCost}
+        }
+            pieSeries.Points.Add(point)
         Next
 
         chrtPie.Series.Add(pieSeries)
@@ -126,7 +140,7 @@ Public Class frmDashboard
         pieSeries.IsValueShownAsLabel = False
         pieSeries("PieLabelStyle") = "Disabled"
 
-        ' Set the legend text to display the category names
+        ' Set the legend text to display the category names with percentages
         For Each point As DataPoint In pieSeries.Points
             point.LegendText = point.AxisLabel
         Next
@@ -138,6 +152,7 @@ Public Class frmDashboard
         title.ForeColor = Color.White
         chrtPie.Titles.Add(title)
     End Sub
+
 
     Private Function GetCurrentMonthExpensesByCategory() As DataTable
         Dim dt As New DataTable()
@@ -235,7 +250,7 @@ Public Class frmDashboard
     Private Sub CreateExpensePanel(item As String, cost As Decimal, category As String, description As String, dateValue As DateTime)
         Dim expensePanel As New Guna.UI2.WinForms.Guna2Panel With {
             .FillColor = Color.FromArgb(13, 17, 64),
-            .Size = New Size(560, 60),
+            .Size = New Size(530, 60),
             .BorderStyle = BorderStyle.FixedSingle,
             .BorderRadius = 10,
             .Enabled = False ' Disable the panel

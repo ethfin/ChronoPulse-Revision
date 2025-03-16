@@ -22,12 +22,12 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.chrtLine = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.lblCurrentMonthInc = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -69,17 +69,17 @@ Partial Class frmDashboard
         'chrtLine
         '
         Me.chrtLine.BackColor = System.Drawing.Color.Transparent
-        ChartArea5.Name = "ChartArea1"
-        Me.chrtLine.ChartAreas.Add(ChartArea5)
-        Legend5.Name = "Legend1"
-        Me.chrtLine.Legends.Add(Legend5)
-        Me.chrtLine.Location = New System.Drawing.Point(586, 296)
+        ChartArea1.Name = "ChartArea1"
+        Me.chrtLine.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chrtLine.Legends.Add(Legend1)
+        Me.chrtLine.Location = New System.Drawing.Point(15, 306)
         Me.chrtLine.Name = "chrtLine"
-        Series5.ChartArea = "ChartArea1"
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Me.chrtLine.Series.Add(Series5)
-        Me.chrtLine.Size = New System.Drawing.Size(475, 266)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chrtLine.Series.Add(Series1)
+        Me.chrtLine.Size = New System.Drawing.Size(1046, 269)
         Me.chrtLine.TabIndex = 4
         Me.chrtLine.Text = "Chart1"
         '
@@ -109,16 +109,17 @@ Partial Class frmDashboard
         '
         Me.chrtPie.BackColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
-        ChartArea6.Name = "ChartArea1"
-        Me.chrtPie.ChartAreas.Add(ChartArea6)
-        Legend6.Name = "Legend1"
-        Me.chrtPie.Legends.Add(Legend6)
+        Me.chrtPie.BorderlineWidth = 0
+        ChartArea2.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend2)
         Me.chrtPie.Location = New System.Drawing.Point(586, 12)
         Me.chrtPie.Name = "chrtPie"
-        Series6.ChartArea = "ChartArea1"
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Me.chrtPie.Series.Add(Series6)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chrtPie.Series.Add(Series2)
         Me.chrtPie.Size = New System.Drawing.Size(475, 278)
         Me.chrtPie.TabIndex = 3
         Me.chrtPie.Text = "Chart1"
@@ -175,7 +176,7 @@ Partial Class frmDashboard
         Me.flpDashboard.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpDashboard.Location = New System.Drawing.Point(12, 95)
         Me.flpDashboard.Name = "flpDashboard"
-        Me.flpDashboard.Size = New System.Drawing.Size(568, 511)
+        Me.flpDashboard.Size = New System.Drawing.Size(568, 195)
         Me.flpDashboard.TabIndex = 0
         '
         'lblCurrentMonthBalance

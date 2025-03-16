@@ -81,7 +81,7 @@ Partial Class frmMain
         Me.lblUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblUsername.AutoSize = False
         Me.lblUsername.BackColor = System.Drawing.Color.Transparent
-        Me.lblUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.lblUsername.Location = New System.Drawing.Point(46, 11)
         Me.lblUsername.Name = "lblUsername"
@@ -96,7 +96,7 @@ Partial Class frmMain
         Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
         Me.lblCurrentPanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.lblCurrentPanel.Location = New System.Drawing.Point(16, 475)
+        Me.lblCurrentPanel.Location = New System.Drawing.Point(16, 494)
         Me.lblCurrentPanel.Name = "lblCurrentPanel"
         Me.lblCurrentPanel.Size = New System.Drawing.Size(117, 27)
         Me.lblCurrentPanel.TabIndex = 1
@@ -106,6 +106,7 @@ Partial Class frmMain
         'pnlMenu
         '
         Me.pnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlMenu.Controls.Add(Me.pbxLogo)
         Me.pnlMenu.Controls.Add(Me.Guna2Button1)
         Me.pnlMenu.Controls.Add(Me.ckbxTheme)
         Me.pnlMenu.Controls.Add(Me.lblCurrentPanel)
@@ -116,12 +117,11 @@ Partial Class frmMain
         Me.pnlMenu.Controls.Add(Me.btnAI)
         Me.pnlMenu.Controls.Add(Me.btnDashboard)
         Me.pnlMenu.Controls.Add(Me.btnLogout)
-        Me.pnlMenu.Controls.Add(Me.pbxLogo)
         Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnlMenu.Location = New System.Drawing.Point(0, 39)
+        Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(194, 622)
+        Me.pnlMenu.Size = New System.Drawing.Size(194, 661)
         Me.pnlMenu.TabIndex = 4
         '
         'Guna2Button1
@@ -136,7 +136,7 @@ Partial Class frmMain
         Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.Guna2Button1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.Guna2Button1.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnQuests
         Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -163,7 +163,7 @@ Partial Class frmMain
         Me.ckbxTheme.ImageRotate = 0!
         Me.ckbxTheme.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.IndicateFocus = True
-        Me.ckbxTheme.Location = New System.Drawing.Point(146, 475)
+        Me.ckbxTheme.Location = New System.Drawing.Point(146, 514)
         Me.ckbxTheme.Name = "ckbxTheme"
         Me.ckbxTheme.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.Size = New System.Drawing.Size(24, 24)
@@ -185,7 +185,7 @@ Partial Class frmMain
         Me.Guna2Panel4.CustomizableEdges.BottomRight = False
         Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Guna2Panel4.FillColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(8, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 560)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 599)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Size = New System.Drawing.Size(194, 62)
         Me.Guna2Panel4.TabIndex = 11
@@ -193,10 +193,11 @@ Partial Class frmMain
         'lblLevel
         '
         Me.lblLevel.BackColor = System.Drawing.Color.Transparent
+        Me.lblLevel.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLevel.ForeColor = System.Drawing.Color.White
         Me.lblLevel.Location = New System.Drawing.Point(146, 15)
         Me.lblLevel.Name = "lblLevel"
-        Me.lblLevel.Size = New System.Drawing.Size(38, 15)
+        Me.lblLevel.Size = New System.Drawing.Size(41, 18)
         Me.lblLevel.TabIndex = 22
         Me.lblLevel.Text = "Level 1"
         '
@@ -237,7 +238,7 @@ Partial Class frmMain
         Me.btnOCR.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnOCR.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnOCR.FillColor = System.Drawing.Color.Transparent
-        Me.btnOCR.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnOCR.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOCR.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnOCR.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ocr
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -263,7 +264,7 @@ Partial Class frmMain
         Me.btnIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnIncome.FillColor = System.Drawing.Color.Transparent
-        Me.btnIncome.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIncome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnIncome.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDIncome
         Me.btnIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -289,7 +290,7 @@ Partial Class frmMain
         Me.btnExpenses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnExpenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
-        Me.btnExpenses.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnExpenses.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExpenses.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnExpenses.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDExpenses
         Me.btnExpenses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -315,7 +316,7 @@ Partial Class frmMain
         Me.btnAI.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnAI.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnAI.FillColor = System.Drawing.Color.Transparent
-        Me.btnAI.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnAI.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnAI.Image = Global.ChronoPulse_Revision.My.Resources.Resources.chat_blue
         Me.btnAI.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -341,7 +342,7 @@ Partial Class frmMain
         Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
-        Me.btnDashboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnDashboard.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnDashboard.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dashboard_blue
         Me.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -361,14 +362,14 @@ Partial Class frmMain
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogout.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogout.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnLogout.IconChar = FontAwesome.Sharp.IconChar.DoorOpen
         Me.btnLogout.IconColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnLogout.IconSize = 30
         Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogout.Location = New System.Drawing.Point(11, 505)
+        Me.btnLogout.Location = New System.Drawing.Point(11, 544)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(173, 45)
         Me.btnLogout.TabIndex = 2
@@ -382,7 +383,7 @@ Partial Class frmMain
         Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
         Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Light
         Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(9, 12)
+        Me.pbxLogo.Location = New System.Drawing.Point(8, 12)
         Me.pbxLogo.Name = "pbxLogo"
         Me.pbxLogo.Size = New System.Drawing.Size(176, 100)
         Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -434,9 +435,9 @@ Partial Class frmMain
         Me.pnlTop.Controls.Add(Me.btnClose)
         Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTop.Location = New System.Drawing.Point(0, 0)
+        Me.pnlTop.Location = New System.Drawing.Point(194, 0)
         Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Size = New System.Drawing.Size(1284, 39)
+        Me.pnlTop.Size = New System.Drawing.Size(1090, 39)
         Me.pnlTop.TabIndex = 0
         '
         'btnClose
@@ -450,7 +451,7 @@ Partial Class frmMain
         Me.btnClose.ImageOffset = New System.Drawing.Point(0, 0)
         Me.btnClose.ImageRotate = 0!
         Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(1251, 3)
+        Me.btnClose.Location = New System.Drawing.Point(1057, 3)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.PressedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
         Me.btnClose.PressedState.ImageSize = New System.Drawing.Size(15, 15)
@@ -466,8 +467,8 @@ Partial Class frmMain
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Controls.Add(Me.pnlContainer)
-        Me.Controls.Add(Me.pnlMenu)
         Me.Controls.Add(Me.pnlTop)
+        Me.Controls.Add(Me.pnlMenu)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
