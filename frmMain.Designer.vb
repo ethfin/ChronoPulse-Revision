@@ -34,7 +34,6 @@ Partial Class frmMain
         Me.lblLevel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.prgExperience = New Guna.UI2.WinForms.Guna2ProgressBar()
         Me.btnOCR = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnBudget = New Guna.UI2.WinForms.Guna2Button()
         Me.btnSavings = New Guna.UI2.WinForms.Guna2Button()
         Me.btnIncome = New Guna.UI2.WinForms.Guna2Button()
         Me.btnExpenses = New Guna.UI2.WinForms.Guna2Button()
@@ -147,7 +146,6 @@ Partial Class frmMain
         Me.pnlMenu.Controls.Add(Me.lblCurrentPanel)
         Me.pnlMenu.Controls.Add(Me.Guna2Panel4)
         Me.pnlMenu.Controls.Add(Me.btnOCR)
-        Me.pnlMenu.Controls.Add(Me.btnBudget)
         Me.pnlMenu.Controls.Add(Me.btnSavings)
         Me.pnlMenu.Controls.Add(Me.btnIncome)
         Me.pnlMenu.Controls.Add(Me.btnExpenses)
@@ -214,39 +212,13 @@ Partial Class frmMain
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnOCR.IndicateFocus = True
-        Me.btnOCR.Location = New System.Drawing.Point(11, 424)
+        Me.btnOCR.Location = New System.Drawing.Point(11, 373)
         Me.btnOCR.Name = "btnOCR"
         Me.btnOCR.Size = New System.Drawing.Size(173, 45)
         Me.btnOCR.TabIndex = 10
         Me.btnOCR.Text = "OCR"
         Me.btnOCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.UseTransparentBackground = True
-        '
-        'btnBudget
-        '
-        Me.btnBudget.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnBudget.Animated = True
-        Me.btnBudget.BackColor = System.Drawing.Color.Transparent
-        Me.btnBudget.BorderRadius = 10
-        Me.btnBudget.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnBudget.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnBudget.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnBudget.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnBudget.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnBudget.FillColor = System.Drawing.Color.Transparent
-        Me.btnBudget.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.btnBudget.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnBudget.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDBudget
-        Me.btnBudget.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnBudget.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnBudget.IndicateFocus = True
-        Me.btnBudget.Location = New System.Drawing.Point(11, 373)
-        Me.btnBudget.Name = "btnBudget"
-        Me.btnBudget.Size = New System.Drawing.Size(173, 45)
-        Me.btnBudget.TabIndex = 9
-        Me.btnBudget.Text = "Budget"
-        Me.btnBudget.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnBudget.UseTransparentBackground = True
         '
         'btnSavings
         '
@@ -556,7 +528,6 @@ Partial Class frmMain
     Friend WithEvents btnExpenses As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnIncome As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSavings As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnBudget As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnOCR As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents prgExperience As Guna.UI2.WinForms.Guna2ProgressBar

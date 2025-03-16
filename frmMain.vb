@@ -223,7 +223,7 @@ Public Class frmMain
         ToolTip.SetToolTip(btnIncome, "Income")
     End Sub
 
-    Private Sub btnBudget_MouseHover(sender As Object, e As EventArgs) Handles btnBudget.MouseHover
+    Private Sub btnBudget_MouseHover(sender As Object, e As EventArgs)
         ToolTip.SetToolTip(btnBudget, "Budget")
     End Sub
 
@@ -272,7 +272,7 @@ Public Class frmMain
         LoadForm(New frmSavings)
     End Sub
 
-    Private Sub btnBudget_Click(sender As Object, e As EventArgs) Handles btnBudget.Click
+    Private Sub btnBudget_Click(sender As Object, e As EventArgs)
         LoadForm(New frmBudgeting)
     End Sub
 
