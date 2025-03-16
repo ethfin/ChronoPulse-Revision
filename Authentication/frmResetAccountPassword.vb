@@ -1,6 +1,6 @@
-﻿' In frmResetAccountPassword.vb
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 Imports Common
+Imports System.Text.RegularExpressions
 
 Public Class frmResetAccountPassword
     Private _userEmail As String  ' Changed variable name to avoid conflict
@@ -24,7 +24,7 @@ Public Class frmResetAccountPassword
             Return
         End If
 
-        If newPass = confirmPass Then
+        If ComparePasswords(newPass, confirmPass) Then
             Using conn As MySqlConnection = createDBConnection()
                 conn.Open()
                 Dim query As String = "UPDATE dbaccounts SET Password = @Password WHERE Email = @Email"
@@ -46,10 +46,33 @@ Public Class frmResetAccountPassword
                     End If
                 End Using
             End Using
-        Else
-            MessageBox.Show("Passwords do not match.")
         End If
     End Sub
+
+    Private Function ComparePasswords(password As String, verifyPassword As String) As Boolean
+        ' Check if passwords match
+        If password <> verifyPassword Then
+            ShowError("Passwords do not match.")
+            txtPassword.BorderColor = Color.Red
+            txtVerifyPassword.BorderColor = Color.Red
+            Return False
+        Else
+            HideError()
+            txtPassword.BorderColor = Color.FromArgb(213, 218, 223)
+            txtVerifyPassword.BorderColor = Color.FromArgb(213, 218, 223)
+        End If
+
+        ' Check if password is strong
+        Dim passwordPattern As String = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        If Not Regex.IsMatch(password, passwordPattern) Then
+            ShowError("Password must be at least 8 characters long, contain at least one special character, and one number.")
+            txtPassword.BorderColor = Color.Red
+            txtVerifyPassword.BorderColor = Color.Red
+            Return False
+        End If
+
+        Return True
+    End Function
 
     ' Add a method to handle returning to the login form
     Private Sub ReturnToLogin()
@@ -81,5 +104,23 @@ Public Class frmResetAccountPassword
         Else
             txtVerifyPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         End If
+    End Sub
+
+    Private Sub ShowError(message As String)
+        lblError1.Text = message
+        lblError1.ForeColor = Color.Red
+        lblError1.Visible = True
+    End Sub
+
+    Private Sub HideError()
+        lblError1.Hide()
+    End Sub
+
+    Private Sub txtPassword_Leave(sender As Object, e As EventArgs) Handles txtPassword.Leave
+        ComparePasswords(txtPassword.Text, txtVerifyPassword.Text)
+    End Sub
+
+    Private Sub txtVerifyPassword_Leave(sender As Object, e As EventArgs) Handles txtVerifyPassword.Leave
+        ComparePasswords(txtPassword.Text, txtVerifyPassword.Text)
     End Sub
 End Class

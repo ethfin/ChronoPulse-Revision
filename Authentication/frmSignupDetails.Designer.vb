@@ -189,9 +189,9 @@ Partial Class frmSignupDetails
         Me.lblErrorMsg.BackColor = System.Drawing.Color.Transparent
         Me.lblErrorMsg.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblErrorMsg.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblErrorMsg.Location = New System.Drawing.Point(296, 404)
+        Me.lblErrorMsg.Location = New System.Drawing.Point(151, 404)
         Me.lblErrorMsg.Name = "lblErrorMsg"
-        Me.lblErrorMsg.Size = New System.Drawing.Size(236, 43)
+        Me.lblErrorMsg.Size = New System.Drawing.Size(381, 66)
         Me.lblErrorMsg.TabIndex = 50
         Me.lblErrorMsg.TabStop = False
         Me.lblErrorMsg.Text = Nothing
