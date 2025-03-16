@@ -15,7 +15,7 @@ Public Class frmResetAccountPassword
         End Set
     End Property
 
-    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         Dim newPass As String = txtPassword.Text.Trim()
         Dim confirmPass As String = txtVerifyPassword.Text.Trim()
 
@@ -38,6 +38,9 @@ Public Class frmResetAccountPassword
 
                         ' Navigate back to login form
                         ReturnToLogin()
+
+                        ' Close the form
+                        Me.Close()
                     Else
                         MessageBox.Show("Failed to update password. Email not found.")
                     End If
@@ -51,15 +54,15 @@ Public Class frmResetAccountPassword
     ' Add a method to handle returning to the login form
     Private Sub ReturnToLogin()
         ' Find the parent reset account form
-        Dim parentForm As Form = Me.FindForm()
+        Dim parentForm As frmResetAccount = TryCast(Me.ParentForm, frmResetAccount)
+
+        ' Close the entire reset account form chain
+        If parentForm IsNot Nothing Then
+            parentForm.Close()
+        End If
 
         ' Show the login form
         Dim loginForm As New frmLogin()
         loginForm.Show()
-
-        ' Close the entire reset account form chain
-        If parentForm IsNot Nothing AndAlso TypeOf parentForm Is frmResetAccount Then
-            parentForm.Close()
-        End If
     End Sub
 End Class

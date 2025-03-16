@@ -28,7 +28,7 @@ Public Class frmResetAccountSecurity
         End Using
     End Sub
 
-    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         ' Validate that the answer for Question 1 is entered in the correct textboxes
         If String.IsNullOrWhiteSpace(txtSQA1.Text) OrElse String.IsNullOrWhiteSpace(txtSQA1Verify.Text) Then
             lblError.Text = "Please enter the answer for Question 1 in the correct fields."
