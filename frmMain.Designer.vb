@@ -44,8 +44,6 @@ Partial Class frmMain
         Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.ToolTip = New Guna.UI2.WinForms.Guna2HtmlToolTip()
         Me.cmsDropDown = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
-        Me.cmsSystemTray = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmsTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
@@ -408,7 +406,7 @@ Partial Class frmMain
         Me.cmsDropDown.BackColor = System.Drawing.Color.GhostWhite
         Me.cmsDropDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.cmsDropDown.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsDropDown.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmsSystemTray, Me.cmsTheme, Me.cmsLogout})
+        Me.cmsDropDown.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmsLogout})
         Me.cmsDropDown.Name = "cmsDropDown"
         Me.cmsDropDown.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmsDropDown.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
@@ -419,27 +417,13 @@ Partial Class frmMain
         Me.cmsDropDown.RenderStyle.SelectionForeColor = System.Drawing.Color.White
         Me.cmsDropDown.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
         Me.cmsDropDown.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsDropDown.Size = New System.Drawing.Size(145, 82)
-        '
-        'cmsSystemTray
-        '
-        Me.cmsSystemTray.CheckOnClick = True
-        Me.cmsSystemTray.Name = "cmsSystemTray"
-        Me.cmsSystemTray.Size = New System.Drawing.Size(144, 26)
-        Me.cmsSystemTray.Text = "System Tray"
-        '
-        'cmsTheme
-        '
-        Me.cmsTheme.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dark_mode
-        Me.cmsTheme.Name = "cmsTheme"
-        Me.cmsTheme.Size = New System.Drawing.Size(144, 26)
-        Me.cmsTheme.Text = "Light/Dark"
+        Me.cmsDropDown.Size = New System.Drawing.Size(185, 52)
         '
         'cmsLogout
         '
         Me.cmsLogout.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
         Me.cmsLogout.Name = "cmsLogout"
-        Me.cmsLogout.Size = New System.Drawing.Size(144, 26)
+        Me.cmsLogout.Size = New System.Drawing.Size(184, 26)
         Me.cmsLogout.Text = "Logout"
         '
         'NotifyIcon1
@@ -521,8 +505,6 @@ Partial Class frmMain
     Friend WithEvents ToolTip As Guna.UI2.WinForms.Guna2HtmlToolTip
     Friend WithEvents btnAI As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cmsDropDown As Guna.UI2.WinForms.Guna2ContextMenuStrip
-    Friend WithEvents cmsSystemTray As ToolStripMenuItem
-    Friend WithEvents cmsTheme As ToolStripMenuItem
     Friend WithEvents cmsLogout As ToolStripMenuItem
     Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents btnExpenses As Guna.UI2.WinForms.Guna2Button
