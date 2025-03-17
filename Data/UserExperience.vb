@@ -5,7 +5,7 @@ Public Class UserExperience
     Public Shared Property CurrentLevel As Integer = 1
 
     Private Shared ReadOnly XPThresholds As New Dictionary(Of Integer, Integer) From {
-        {1, 100}, {2, 250}, {3, 500}, {4, 1000}, {5, 2000}
+        {1, 100}, {2, 250}, {3, 500}, {4, 1000}, {5, 1500}, {6, 2000}, {7, 2500}, {8, 3000}, {9, 3500}, {10, 4000}
     }
 
     Public Shared Sub LoadUserExperience(userID As Integer)
