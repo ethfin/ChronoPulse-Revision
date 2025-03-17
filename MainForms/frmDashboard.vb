@@ -226,7 +226,7 @@ Public Class frmDashboard
     Private Sub LoadUserExpenses()
         Using connection As MySqlConnection = Common.createDBConnection()
             connection.Open()
-            Dim query As String = "SELECT Item, Cost, Category, Description, Date FROM user_expenses WHERE UserID = @UserID"
+            Dim query As String = "SELECT Item, Cost, Category, Description, Date FROM user_expenses WHERE UserID = @UserID ORDER BY Date DESC"
             Using cmd As New MySqlCommand(query, connection)
                 cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
@@ -246,6 +246,7 @@ Public Class frmDashboard
             End Using
         End Using
     End Sub
+
 
     Private Sub CreateExpensePanel(item As String, cost As Decimal, category As String, description As String, dateValue As DateTime)
         Dim expensePanel As New Guna.UI2.WinForms.Guna2Panel With {

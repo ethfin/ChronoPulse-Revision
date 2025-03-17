@@ -395,8 +395,8 @@ Public Class frmExpenses
             Return
         End If
 
-        If String.IsNullOrEmpty(item) OrElse String.IsNullOrEmpty(category) OrElse String.IsNullOrEmpty(description) Then
-            MessageBox.Show("Please fill in all fields.")
+        If String.IsNullOrEmpty(item) Then
+            MessageBox.Show("Please fill in the item field.")
             Return
         End If
 

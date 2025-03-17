@@ -366,12 +366,6 @@
     <Compile Include="MainForms\frmAI.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForms\frmBudgeting.Designer.vb">
-      <DependentUpon>frmBudgeting.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MainForms\frmBudgeting.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MainForms\frmDashboard.Designer.vb">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </Compile>
@@ -406,12 +400,6 @@
       <DependentUpon>frmQuests.vb</DependentUpon>
     </Compile>
     <Compile Include="MainForms\frmQuests.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForms\frmSettings.Designer.vb">
-      <DependentUpon>frmSettings.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MainForms\frmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -461,9 +449,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmAI.resx">
       <DependentUpon>frmAI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForms\frmBudgeting.resx">
-      <DependentUpon>frmBudgeting.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
