@@ -19,7 +19,12 @@ Public Class frmQuests
         ' Example quests
         CreateQuestPanel("Save $100 This Month", 100D, totalSaved)
         CreateQuestPanel("Save $500 This Month", 500D, totalSaved)
+        CreateQuestPanel("Save $1000 This Month", 1000D, totalSaved)
+        CreateQuestPanel("Save 10% of Your Income This Month", totalMonthlyIncome * 0.1D, totalSaved)
+        CreateQuestPanel("Save 20% of Your Income This Month", totalMonthlyIncome * 0.2D, totalSaved)
+        CreateQuestPanel("Save $2000 This Month", 2000D, totalSaved)
     End Sub
+
 
     Private Sub EnsureQuestTable()
         ' Creates the user_quests table if it doesn't exist
@@ -75,41 +80,41 @@ Public Class frmQuests
 
     Private Sub CreateQuestPanel(questName As String, goalAmount As Decimal, currentSaved As Decimal)
         Dim questPanel As New Guna2Panel With {
-            .FillColor = Color.FromArgb(13, 17, 64),
-            .Size = New Size(560, 80),
-            .BorderStyle = BorderStyle.FixedSingle,
-            .BorderRadius = 10
-        }
+        .FillColor = Color.FromArgb(13, 17, 64),
+        .Size = New Size(560, 80),
+        .BorderStyle = BorderStyle.FixedSingle,
+        .BorderRadius = 10
+    }
 
         Dim lblQuestName As New Label With {
-            .Text = questName,
-            .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
-            .Location = New Point(10, 10),
-            .Size = New Size(200, 20),
-            .BackColor = Color.Transparent
-        }
+        .Text = questName,
+        .ForeColor = Color.White,
+        .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+        .Location = New Point(10, 10),
+        .Size = New Size(200, 20),
+        .BackColor = Color.Transparent
+    }
         questPanel.Controls.Add(lblQuestName)
 
         Dim lblProgress As New Label With {
-            .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.0F, FontStyle.Regular),
-            .Location = New Point(10, 30),
-            .Size = New Size(200, 20),
-            .BackColor = Color.Transparent
-        }
+        .ForeColor = Color.White,
+        .Font = New Font("Century Gothic", 9.0F, FontStyle.Regular),
+        .Location = New Point(10, 30),
+        .Size = New Size(200, 20),
+        .BackColor = Color.Transparent
+    }
 
         Dim progressValue As Decimal = Math.Max(0, Math.Min(1, currentSaved / goalAmount))
         lblProgress.Text = String.Format("Progress: ${0:F2} / ${1:F2}", Math.Max(0, currentSaved), goalAmount)
         questPanel.Controls.Add(lblProgress)
 
         Dim prgQuest As New Guna2ProgressBar With {
-            .Location = New Point(10, 50),
-            .Size = New Size(300, 20),
-            .Value = CInt(progressValue * 100),
-            .FillColor = Color.Gray,
-            .ProgressColor = Color.LightGreen
-        }
+        .Location = New Point(10, 50),
+        .Size = New Size(300, 20),
+        .Value = CInt(progressValue * 100),
+        .FillColor = Color.Gray,
+        .ProgressColor = Color.LightGreen
+    }
         questPanel.Controls.Add(prgQuest)
 
         ' Check if quest is complete, if so, award XP if not already claimed
@@ -129,13 +134,14 @@ Public Class frmQuests
                     mainForm.lblLevel.Refresh()
                 End If
 
-                ' Optionally export quest info for your records
-                ExportQuestData(questName)
+                ' Display quest completion message
+                MessageBox.Show($"Quest complete! You have earned 50 points!", "Quest Completed", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
 
         flpQuests.Controls.Add(questPanel)
     End Sub
+
 
     Private Function IsQuestCompleted(questName As String) As Boolean
         ' Checks the user_quests table to see if the quest is already completed
