@@ -105,7 +105,7 @@ Partial Class frmSignupSecurity
         Me.cmbQuestion1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.cmbQuestion1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbQuestion1.ItemHeight = 30
-        Me.cmbQuestion1.Items.AddRange(New Object() {"What was the name of your first pet?", "What is your mother’s maiden name?", "What was the make and model of your first car?", "In what city were you born?", "What is the name of the town where you grew up?", "What was your favorite subject in school?", "What is your favorite childhood memory?", "What was the name of your elementary school?", "What was your childhood nickname?", "In what city did you meet your spouse/significant other?"})
+        Me.cmbQuestion1.Items.AddRange(New Object() {"What was the name of your first stuffed animal or doll?", "In what city did your parents meet?", "What was the first concert you ever attended?", "What is the name of the street where you grew up?", "What was the make and model of your first car?", "What was the name of your favorite teacher in elementary school?", "What was your childhood best friend’s nickname?", "What’s your pet’s name?", "What’s your favorite color?", "What’s your lucky number?"})
         Me.cmbQuestion1.Location = New System.Drawing.Point(28, 167)
         Me.cmbQuestion1.Name = "cmbQuestion1"
         Me.cmbQuestion1.Size = New System.Drawing.Size(497, 36)
@@ -122,7 +122,7 @@ Partial Class frmSignupSecurity
         Me.cmbQuestion2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
         Me.cmbQuestion2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbQuestion2.ItemHeight = 30
-        Me.cmbQuestion2.Items.AddRange(New Object() {"What was the name of your first pet?", "What is your mother’s maiden name?", "What was the make and model of your first car?", "In what city were you born?", "What is the name of the town where you grew up?", "What was your favorite subject in school?", "What is your favorite childhood memory?", "What was the name of your elementary school?", "What was your childhood nickname?", "In what city did you meet your spouse/significant other?"})
+        Me.cmbQuestion2.Items.AddRange(New Object() {"What was the name of your first stuffed animal or doll?", "In what city did your parents meet?", "What was the first concert you ever attended?", "What is the name of the street where you grew up?", "What was the make and model of your first car?", "What was the name of your favorite teacher in elementary school?", "What was your childhood best friend’s nickname?", "What’s your pet’s name?", "What’s your favorite color?", "What’s your lucky number?"})
         Me.cmbQuestion2.Location = New System.Drawing.Point(28, 315)
         Me.cmbQuestion2.Name = "cmbQuestion2"
         Me.cmbQuestion2.Size = New System.Drawing.Size(497, 36)

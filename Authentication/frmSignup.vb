@@ -135,7 +135,7 @@ Public Class frmSignup
                                       "VALUES (@Username, @Password, @Email, @FirstName, @LastName, @SecurityQuestion1, @SecurityQuestion2, @SecurityAnswer1, @SecurityAnswer2, @CreatedAt)"
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@Username", frmSignupDetails.txtUsername.Text)
-                    cmd.Parameters.AddWithValue("@Password", frmSignupDetails.txtPassword.Text)
+                    cmd.Parameters.AddWithValue("@Password", HashPassword(frmSignupDetails.txtPassword.Text)) ' Hash the password
                     cmd.Parameters.AddWithValue("@Email", frmSignupDetails.txtEmail.Text)
                     cmd.Parameters.AddWithValue("@FirstName", frmSignupDetails.txtFirstName.Text)
                     cmd.Parameters.AddWithValue("@LastName", frmSignupDetails.txtLastName.Text)

@@ -102,7 +102,7 @@ Public Class frmLogin
             Dim query As String = "SELECT COUNT(*) FROM dbaccounts WHERE username = @username AND password = @password"
             Dim cmd As New MySqlCommand(query, myDBConnection)
             cmd.Parameters.AddWithValue("@username", username)
-            cmd.Parameters.AddWithValue("@password", password)
+            cmd.Parameters.AddWithValue("@password", HashPassword(password)) ' Hash the password
 
             Dim count As Integer = CInt(cmd.ExecuteScalar())
 

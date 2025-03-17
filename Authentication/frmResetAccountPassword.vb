@@ -25,11 +25,13 @@ Public Class frmResetAccountPassword
         End If
 
         If ComparePasswords(newPass, confirmPass) Then
+            Dim hashedPassword As String = HashPassword(newPass)
+
             Using conn As MySqlConnection = createDBConnection()
                 conn.Open()
                 Dim query As String = "UPDATE dbaccounts SET Password = @Password WHERE Email = @Email"
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@Password", newPass)
+                    cmd.Parameters.AddWithValue("@Password", hashedPassword)
                     cmd.Parameters.AddWithValue("@Email", _userEmail)
 
                     Dim rowsAffected As Integer = cmd.ExecuteNonQuery()

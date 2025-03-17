@@ -352,6 +352,7 @@
     <Compile Include="Data\Achievement.vb" />
     <Compile Include="Data\common.vb" />
     <Compile Include="Data\ExportUtility.vb" />
+    <Compile Include="Data\PasswordUtils.vb" />
     <Compile Include="Data\UserExperience.vb" />
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
