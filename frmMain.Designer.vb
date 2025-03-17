@@ -28,6 +28,7 @@ Partial Class frmMain
         Me.lblUsername = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblCurrentPanel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlMenu = New Guna.UI2.WinForms.Guna2Panel()
+        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.ckbxTheme = New Guna.UI2.WinForms.Guna2ImageCheckBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
@@ -40,7 +41,6 @@ Partial Class frmMain
         Me.btnAI = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
         Me.btnLogout = New FontAwesome.Sharp.IconButton()
-        Me.pbxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.ToolTip = New Guna.UI2.WinForms.Guna2HtmlToolTip()
         Me.cmsDropDown = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,9 +48,9 @@ Partial Class frmMain
         Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlMenu.SuspendLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel4.SuspendLayout()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsDropDown.SuspendLayout()
         Me.pnlTop.SuspendLayout()
         Me.SuspendLayout()
@@ -72,8 +72,8 @@ Partial Class frmMain
         Me.pnlContainer.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.pnlContainer.Location = New System.Drawing.Point(194, 39)
         Me.pnlContainer.Name = "pnlContainer"
-        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
-        Me.pnlContainer.Size = New System.Drawing.Size(1090, 622)
+        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30)
+        Me.pnlContainer.Size = New System.Drawing.Size(1090, 682)
         Me.pnlContainer.TabIndex = 5
         '
         'lblUsername
@@ -96,7 +96,7 @@ Partial Class frmMain
         Me.lblCurrentPanel.BackColor = System.Drawing.Color.Transparent
         Me.lblCurrentPanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.lblCurrentPanel.Location = New System.Drawing.Point(16, 494)
+        Me.lblCurrentPanel.Location = New System.Drawing.Point(16, 524)
         Me.lblCurrentPanel.Name = "lblCurrentPanel"
         Me.lblCurrentPanel.Size = New System.Drawing.Size(117, 27)
         Me.lblCurrentPanel.TabIndex = 1
@@ -121,8 +121,22 @@ Partial Class frmMain
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(194, 661)
+        Me.pnlMenu.Size = New System.Drawing.Size(194, 721)
         Me.pnlMenu.TabIndex = 4
+        '
+        'pbxLogo
+        '
+        Me.pbxLogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
+        Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Light
+        Me.pbxLogo.ImageRotate = 0!
+        Me.pbxLogo.Location = New System.Drawing.Point(8, 12)
+        Me.pbxLogo.Name = "pbxLogo"
+        Me.pbxLogo.Size = New System.Drawing.Size(176, 100)
+        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxLogo.TabIndex = 0
+        Me.pbxLogo.TabStop = False
         '
         'Guna2Button1
         '
@@ -163,7 +177,7 @@ Partial Class frmMain
         Me.ckbxTheme.ImageRotate = 0!
         Me.ckbxTheme.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.IndicateFocus = True
-        Me.ckbxTheme.Location = New System.Drawing.Point(146, 514)
+        Me.ckbxTheme.Location = New System.Drawing.Point(139, 524)
         Me.ckbxTheme.Name = "ckbxTheme"
         Me.ckbxTheme.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ckbxTheme.Size = New System.Drawing.Size(24, 24)
@@ -185,7 +199,7 @@ Partial Class frmMain
         Me.Guna2Panel4.CustomizableEdges.BottomRight = False
         Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Guna2Panel4.FillColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(8, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 599)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 659)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Size = New System.Drawing.Size(194, 62)
         Me.Guna2Panel4.TabIndex = 11
@@ -369,26 +383,12 @@ Partial Class frmMain
         Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnLogout.IconSize = 30
         Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogout.Location = New System.Drawing.Point(11, 544)
+        Me.btnLogout.Location = New System.Drawing.Point(11, 608)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(173, 45)
         Me.btnLogout.TabIndex = 2
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = True
-        '
-        'pbxLogo
-        '
-        Me.pbxLogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
-        Me.pbxLogo.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ChronoPulse_Logo_Light
-        Me.pbxLogo.ImageRotate = 0!
-        Me.pbxLogo.Location = New System.Drawing.Point(8, 12)
-        Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(176, 100)
-        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxLogo.TabIndex = 0
-        Me.pbxLogo.TabStop = False
         '
         'ToolTip
         '
@@ -465,7 +465,7 @@ Partial Class frmMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1284, 661)
+        Me.ClientSize = New System.Drawing.Size(1284, 721)
         Me.Controls.Add(Me.pnlContainer)
         Me.Controls.Add(Me.pnlTop)
         Me.Controls.Add(Me.pnlMenu)
@@ -477,10 +477,10 @@ Partial Class frmMain
         Me.Text = "Main"
         Me.pnlMenu.ResumeLayout(False)
         Me.pnlMenu.PerformLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel4.ResumeLayout(False)
         Me.Guna2Panel4.PerformLayout()
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsDropDown.ResumeLayout(False)
         Me.pnlTop.ResumeLayout(False)
         Me.ResumeLayout(False)

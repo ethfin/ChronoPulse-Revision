@@ -155,6 +155,7 @@ Public Class frmExpenses
                 End If
 
                 LoadExpenses() ' Refresh the DataGridView after adding a new expense
+                LoadPieChart()
             End Using
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
@@ -440,6 +441,7 @@ Public Class frmExpenses
 
                 MessageBox.Show("Expense updated successfully.")
                 LoadExpenses() ' Refresh the FlowLayoutPanel
+                LoadPieChart()
             End Using
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)

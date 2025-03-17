@@ -291,6 +291,7 @@ Public Class frmIncome
                 End If
 
                 LoadIncomeData()
+                LoadPieChart()
             End Using
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
@@ -333,6 +334,7 @@ Public Class frmIncome
                 End Using
                 MessageBox.Show("Income record updated successfully.")
                 LoadIncomeData()
+                LoadPieChart()
             End Using
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
