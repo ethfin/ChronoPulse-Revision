@@ -22,12 +22,12 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblCurrentMonthBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
@@ -41,12 +41,18 @@ Partial Class frmDashboard
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblTotalExpenses = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.flpDashboard = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pbxUser = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         CType(Me.chrtLine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel3.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
+        CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -82,6 +88,7 @@ Partial Class frmDashboard
         Me.Guna2Panel4.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel4.BorderRadius = 10
         Me.Guna2Panel4.BorderThickness = 1
+        Me.Guna2Panel4.Controls.Add(Me.Guna2PictureBox2)
         Me.Guna2Panel4.Controls.Add(Me.lblTotalBalance)
         Me.Guna2Panel4.FillColor = System.Drawing.Color.Orange
         Me.Guna2Panel4.Location = New System.Drawing.Point(362, 43)
@@ -103,16 +110,16 @@ Partial Class frmDashboard
         'chrtLine
         '
         Me.chrtLine.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.chrtLine.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chrtLine.Legends.Add(Legend1)
-        Me.chrtLine.Location = New System.Drawing.Point(15, 306)
+        ChartArea5.Name = "ChartArea1"
+        Me.chrtLine.ChartAreas.Add(ChartArea5)
+        Legend5.Name = "Legend1"
+        Me.chrtLine.Legends.Add(Legend5)
+        Me.chrtLine.Location = New System.Drawing.Point(12, 337)
         Me.chrtLine.Name = "chrtLine"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chrtLine.Series.Add(Series1)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.chrtLine.Series.Add(Series5)
         Me.chrtLine.Size = New System.Drawing.Size(1046, 269)
         Me.chrtLine.TabIndex = 4
         Me.chrtLine.Text = "Chart1"
@@ -144,16 +151,16 @@ Partial Class frmDashboard
         Me.chrtPie.BackColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineWidth = 0
-        ChartArea2.Name = "ChartArea1"
-        Me.chrtPie.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chrtPie.Legends.Add(Legend2)
+        ChartArea6.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea6)
+        Legend6.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend6)
         Me.chrtPie.Location = New System.Drawing.Point(586, 12)
         Me.chrtPie.Name = "chrtPie"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chrtPie.Series.Add(Series2)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.chrtPie.Series.Add(Series6)
         Me.chrtPie.Size = New System.Drawing.Size(475, 278)
         Me.chrtPie.TabIndex = 3
         Me.chrtPie.Text = "Chart1"
@@ -163,6 +170,7 @@ Partial Class frmDashboard
         Me.Guna2Panel3.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel3.BorderRadius = 10
         Me.Guna2Panel3.BorderThickness = 1
+        Me.Guna2Panel3.Controls.Add(Me.Guna2PictureBox1)
         Me.Guna2Panel3.Controls.Add(Me.lblTotalIncome)
         Me.Guna2Panel3.FillColor = System.Drawing.Color.LimeGreen
         Me.Guna2Panel3.Location = New System.Drawing.Point(187, 43)
@@ -186,6 +194,7 @@ Partial Class frmDashboard
         Me.Guna2Panel2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel2.BorderRadius = 10
         Me.Guna2Panel2.BorderThickness = 1
+        Me.Guna2Panel2.Controls.Add(Me.pbxUser)
         Me.Guna2Panel2.Controls.Add(Me.lblTotalExpenses)
         Me.Guna2Panel2.FillColor = System.Drawing.Color.IndianRed
         Me.Guna2Panel2.Location = New System.Drawing.Point(12, 43)
@@ -210,8 +219,53 @@ Partial Class frmDashboard
         Me.flpDashboard.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpDashboard.Location = New System.Drawing.Point(12, 95)
         Me.flpDashboard.Name = "flpDashboard"
-        Me.flpDashboard.Size = New System.Drawing.Size(568, 195)
+        Me.flpDashboard.Size = New System.Drawing.Size(568, 236)
         Me.flpDashboard.TabIndex = 0
+        '
+        'pbxUser
+        '
+        Me.pbxUser.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.pbxUser.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxUser.FillColor = System.Drawing.Color.Transparent
+        Me.pbxUser.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnExpenses
+        Me.pbxUser.ImageRotate = 0!
+        Me.pbxUser.Location = New System.Drawing.Point(126, 8)
+        Me.pbxUser.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxUser.Name = "pbxUser"
+        Me.pbxUser.Size = New System.Drawing.Size(32, 32)
+        Me.pbxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxUser.TabIndex = 1
+        Me.pbxUser.TabStop = False
+        '
+        'Guna2PictureBox1
+        '
+        Me.Guna2PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2PictureBox1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox1.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnExpenses
+        Me.Guna2PictureBox1.ImageRotate = 0!
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(128, 8)
+        Me.Guna2PictureBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2PictureBox1.TabIndex = 2
+        Me.Guna2PictureBox1.TabStop = False
+        '
+        'Guna2PictureBox2
+        '
+        Me.Guna2PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Guna2PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2PictureBox2.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox2.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnExpenses
+        Me.Guna2PictureBox2.ImageRotate = 0!
+        Me.Guna2PictureBox2.Location = New System.Drawing.Point(127, 8)
+        Me.Guna2PictureBox2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2PictureBox2.Name = "Guna2PictureBox2"
+        Me.Guna2PictureBox2.Size = New System.Drawing.Size(32, 32)
+        Me.Guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2PictureBox2.TabIndex = 3
+        Me.Guna2PictureBox2.TabStop = False
         '
         'frmDashboard
         '
@@ -233,6 +287,9 @@ Partial Class frmDashboard
         Me.Guna2Panel3.PerformLayout()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
+        CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -250,4 +307,7 @@ Partial Class frmDashboard
     Friend WithEvents lblCurrentMonthBalance As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblTotalBalance As Guna.UI2.WinForms.Guna2HtmlLabel
+    Private WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
+    Private WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
+    Private WithEvents pbxUser As Guna.UI2.WinForms.Guna2PictureBox
 End Class

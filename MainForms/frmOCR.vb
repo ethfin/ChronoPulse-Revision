@@ -17,6 +17,7 @@ Public Class frmOCR
     Public Sub New()
         InitializeComponent()
         LoadEnvironmentVariables()
+        pbxScan.Visible = True
         httpClient = New HttpClient()
         Dim apiKey As String = GetAIApiKey()
         If Not String.IsNullOrEmpty(apiKey) Then
@@ -373,6 +374,7 @@ Public Class frmOCR
                     rtbAIResponse.Text = "Processing image, please wait..."
                     btnOpenFile.Enabled = False
                     btnUploadData.Enabled = False
+                    pbxScan.Visible = False
 
                     ' First perform OCR
                     Dim ocrResult As String = Await UploadImageToOCRSpace(selectedFilePath)

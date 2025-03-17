@@ -481,6 +481,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\analysis.png" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\btnQuests.png" />
     <None Include="Resources\pic10.jpg" />

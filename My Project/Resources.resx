@@ -127,20 +127,26 @@
   <data name="dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnDBudget" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnDBudget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pic2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnIncome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnIncome.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pic5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSavings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSavings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnDBudget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnDBudget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnBudget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnBudget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light-mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chat_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chat_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,6 +169,12 @@
   <data name="pic3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pic3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PixelifySans_VariableFont_wght" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PixelifySans-VariableFont_wght.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dashboard_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboard-blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,26 +190,14 @@
   <data name="pic7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pic7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnDSavings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnDSavings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnExpenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnExpenses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pic1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="game_controller" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\game-controller.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pic4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,11 +211,14 @@
   <data name="ocr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ocr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PixelifySans_VariableFont_wght" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PixelifySans-VariableFont_wght.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnExpenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnExpenses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chat_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chat_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSavings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSavings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pic4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChronoPulse_Logo_Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChronoPulse Logo v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,13 +229,13 @@
   <data name="arroba" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arroba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pic8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="light_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\light-mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pic6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\analysis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -29,7 +29,9 @@ Partial Class frmOCR
         Me.btnUploadData = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAnalyze = New Guna.UI2.WinForms.Guna2Button()
         Me.btnOpenFile = New Guna.UI2.WinForms.Guna2Button()
+        Me.pbxScan = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2Panel1.SuspendLayout()
+        CType(Me.pbxScan, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'openFileDialog
@@ -138,16 +140,37 @@ Partial Class frmOCR
         Me.btnOpenFile.TabIndex = 1
         Me.btnOpenFile.Text = "Scan"
         '
+        'pbxScan
+        '
+        Me.pbxScan.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pbxScan.BackColor = System.Drawing.Color.Transparent
+        Me.pbxScan.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxScan.FillColor = System.Drawing.Color.Transparent
+        Me.pbxScan.Image = Global.ChronoPulse_Revision.My.Resources.Resources.analysis
+        Me.pbxScan.ImageRotate = 0!
+        Me.pbxScan.Location = New System.Drawing.Point(341, 135)
+        Me.pbxScan.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxScan.Name = "pbxScan"
+        Me.pbxScan.Size = New System.Drawing.Size(95, 88)
+        Me.pbxScan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxScan.TabIndex = 7
+        Me.pbxScan.TabStop = False
+        Me.pbxScan.UseTransparentBackground = True
+        '
         'frmOCR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.pbxScan)
         Me.Controls.Add(Me.rtbAIResponse)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Name = "frmOCR"
         Me.Text = "frmOCR"
         Me.Guna2Panel1.ResumeLayout(False)
+        CType(Me.pbxScan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -158,4 +181,5 @@ Partial Class frmOCR
     Private WithEvents btnUploadData As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnAnalyze As Guna.UI2.WinForms.Guna2Button
     Private WithEvents btnOpenFile As Guna.UI2.WinForms.Guna2Button
+    Private WithEvents pbxScan As Guna.UI2.WinForms.Guna2PictureBox
 End Class
