@@ -254,7 +254,6 @@ Public Class frmExpenses
         End Using
     End Sub
 
-
     Private Sub CreateExpensePanel(expenseID As Integer, item As String, cost As Decimal,
                                category As String, description As String, expenseDate As DateTime)
 
@@ -412,6 +411,22 @@ Public Class frmExpenses
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
+
+                ' Check if the expense still exists
+                Dim checkQuery As String = "SELECT COUNT(*) FROM user_expenses WHERE expense_id = @ID"
+                Using checkCmd As New MySqlCommand(checkQuery, connection)
+                    checkCmd.Parameters.AddWithValue("@ID", expenseID)
+                    Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+                    If count = 0 Then
+                        Dim result As DialogResult = MessageBox.Show("That item no longer exists. Would you like to add it to your expenses?", "Item Not Found", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        If result = DialogResult.Yes Then
+                            btnAddExpense_Click(sender, e)
+                        End If
+                        Return
+                    End If
+                End Using
+
+                ' Update the expense
                 Dim query As String = "UPDATE user_expenses SET Item = @Item, Cost = @Cost, Category = @Category, Description = @Description, date = @Date WHERE expense_id = @ID"
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@Item", item)
@@ -420,8 +435,9 @@ Public Class frmExpenses
                     cmd.Parameters.AddWithValue("@Description", description)
                     cmd.Parameters.AddWithValue("@Date", expenseDate)
                     cmd.Parameters.AddWithValue("@ID", expenseID)
-                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                    cmd.ExecuteNonQuery()
                 End Using
+
                 MessageBox.Show("Expense updated successfully.")
                 LoadExpenses() ' Refresh the FlowLayoutPanel
             End Using
@@ -429,6 +445,7 @@ Public Class frmExpenses
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
     End Sub
+
 
     Private Sub DeleteExpense(expenseID As Integer, panelToRemove As Panel)
         ' First remove from DB
@@ -446,6 +463,7 @@ Public Class frmExpenses
             ' Remove the panel from the flow layout
             flpExpenses.Controls.Remove(panelToRemove)
             panelToRemove.Dispose()
+            LoadExpenses() ' Refresh the FlowLayoutPanel
         End If
     End Sub
 

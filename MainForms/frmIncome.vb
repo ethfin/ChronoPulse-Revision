@@ -354,6 +354,7 @@ Public Class frmIncome
 
             flpIncome.Controls.Remove(panelToRemove)
             panelToRemove.Dispose()
+            LoadIncomeData()
         End If
     End Sub
 
