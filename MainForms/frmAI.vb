@@ -13,16 +13,22 @@ Public Class frmAI
     Private Sub AppendFormattedMessage(sender As String, message As String, isAI As Boolean)
         ' Add timestamp
         Dim timestamp = DateTime.Now.ToString("HH:mm")
+        ChatHistoryRichTextBox.SelectionStart = ChatHistoryRichTextBox.TextLength
+        ChatHistoryRichTextBox.SelectionLength = 0
         ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
         ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 10, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText($"[{timestamp}] ")
 
         ' Format sender
+        ChatHistoryRichTextBox.SelectionStart = ChatHistoryRichTextBox.TextLength
+        ChatHistoryRichTextBox.SelectionLength = 0
         ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.FromArgb(241, 196, 15))
         ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 16, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText(sender & ": ")
 
         ' Format message
+        ChatHistoryRichTextBox.SelectionStart = ChatHistoryRichTextBox.TextLength
+        ChatHistoryRichTextBox.SelectionLength = 0
         ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
         ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 14)
         ChatHistoryRichTextBox.BorderStyle = BorderStyle.None
@@ -75,8 +81,6 @@ Public Class frmAI
         Next
         ChatHistoryRichTextBox.AppendText(Environment.NewLine)
     End Sub
-
-
 
     Public Sub New()
         InitializeComponent()
