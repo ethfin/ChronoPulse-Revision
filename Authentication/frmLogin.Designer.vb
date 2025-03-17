@@ -62,7 +62,7 @@ Partial Class frmLogin
         Me.pnlLoginContainer.Controls.Add(Me.pbxBackground)
         Me.pnlLoginContainer.Controls.Add(Me.Guna2PictureBox1)
         Me.pnlLoginContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlLoginContainer.FillColor = System.Drawing.Color.GhostWhite
+        Me.pnlLoginContainer.FillColor = System.Drawing.Color.Transparent
         Me.pnlLoginContainer.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlLoginContainer.Location = New System.Drawing.Point(1, 1)
         Me.pnlLoginContainer.Name = "pnlLoginContainer"
@@ -87,6 +87,7 @@ Partial Class frmLogin
         'cbxShowPassword
         '
         Me.cbxShowPassword.AutoSize = True
+        Me.cbxShowPassword.BackColor = System.Drawing.Color.Transparent
         Me.cbxShowPassword.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cbxShowPassword.CheckedState.BorderRadius = 0
         Me.cbxShowPassword.CheckedState.BorderThickness = 0
@@ -101,6 +102,7 @@ Partial Class frmLogin
         Me.cbxShowPassword.UncheckedState.BorderRadius = 0
         Me.cbxShowPassword.UncheckedState.BorderThickness = 0
         Me.cbxShowPassword.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.cbxShowPassword.UseVisualStyleBackColor = False
         '
         'guna2HtmlLabel5
         '
@@ -129,6 +131,7 @@ Partial Class frmLogin
         'lnklblResetAccount
         '
         Me.lnklblResetAccount.AutoSize = True
+        Me.lnklblResetAccount.BackColor = System.Drawing.Color.Transparent
         Me.lnklblResetAccount.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lnklblResetAccount.LinkColor = System.Drawing.Color.Black
         Me.lnklblResetAccount.Location = New System.Drawing.Point(83, 490)
@@ -141,6 +144,7 @@ Partial Class frmLogin
         'lnklblSignup
         '
         Me.lnklblSignup.AutoSize = True
+        Me.lnklblSignup.BackColor = System.Drawing.Color.Transparent
         Me.lnklblSignup.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lnklblSignup.ForeColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(12, Byte), Integer))
         Me.lnklblSignup.LinkColor = System.Drawing.Color.Black
@@ -166,6 +170,7 @@ Partial Class frmLogin
         'btnLogin
         '
         Me.btnLogin.Animated = True
+        Me.btnLogin.BackColor = System.Drawing.Color.Transparent
         Me.btnLogin.BorderRadius = 15
         Me.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
@@ -184,6 +189,7 @@ Partial Class frmLogin
         'txtPassword
         '
         Me.txtPassword.Animated = True
+        Me.txtPassword.BackColor = System.Drawing.Color.Transparent
         Me.txtPassword.BorderRadius = 10
         Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtPassword.DefaultText = ""
@@ -208,6 +214,7 @@ Partial Class frmLogin
         'txtUsername
         '
         Me.txtUsername.Animated = True
+        Me.txtUsername.BackColor = System.Drawing.Color.Transparent
         Me.txtUsername.BorderRadius = 10
         Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtUsername.DefaultText = ""
@@ -274,8 +281,9 @@ Partial Class frmLogin
         '
         'pbxBackground
         '
+        Me.pbxBackground.BackColor = System.Drawing.Color.Transparent
         Me.pbxBackground.BorderRadius = 30
-        Me.pbxBackground.FillColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(212, Byte), Integer))
+        Me.pbxBackground.FillColor = System.Drawing.Color.Transparent
         Me.pbxBackground.Image = Global.ChronoPulse_Revision.My.Resources.Resources.background
         Me.pbxBackground.ImageRotate = 0!
         Me.pbxBackground.Location = New System.Drawing.Point(446, 33)

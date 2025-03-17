@@ -26,6 +26,7 @@ Partial Class frmIncome
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnUpdateIncome = New Guna.UI2.WinForms.Guna2Button()
         Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAddIncome = New Guna.UI2.WinForms.Guna2Button()
@@ -34,10 +35,9 @@ Partial Class frmIncome
         Me.txtSource = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.flpIncome = New System.Windows.Forms.FlowLayoutPanel()
-        Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel1.SuspendLayout()
-        Me.Guna2Panel2.SuspendLayout()
         CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -55,6 +55,25 @@ Partial Class frmIncome
         Me.Guna2Panel1.Size = New System.Drawing.Size(278, 596)
         Me.Guna2Panel1.TabIndex = 29
         '
+        'chrtPie
+        '
+        Me.chrtPie.BackColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
+        Me.chrtPie.BorderlineWidth = 0
+        ChartArea2.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend2)
+        Me.chrtPie.Location = New System.Drawing.Point(12, 247)
+        Me.chrtPie.Name = "chrtPie"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chrtPie.Series.Add(Series2)
+        Me.chrtPie.Size = New System.Drawing.Size(257, 328)
+        Me.chrtPie.TabIndex = 35
+        Me.chrtPie.Text = "Chart1"
+        '
         'btnUpdateIncome
         '
         Me.btnUpdateIncome.Animated = True
@@ -64,14 +83,14 @@ Partial Class frmIncome
         Me.btnUpdateIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnUpdateIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnUpdateIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnUpdateIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnUpdateIncome.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnUpdateIncome.ForeColor = System.Drawing.Color.Black
         Me.btnUpdateIncome.IndicateFocus = True
         Me.btnUpdateIncome.Location = New System.Drawing.Point(12, 165)
         Me.btnUpdateIncome.Name = "btnUpdateIncome"
         Me.btnUpdateIncome.Size = New System.Drawing.Size(257, 35)
         Me.btnUpdateIncome.TabIndex = 34
-        Me.btnUpdateIncome.Text = "Update"
+        Me.btnUpdateIncome.Text = "UPDATE"
         '
         'btnExport
         '
@@ -82,14 +101,14 @@ Partial Class frmIncome
         Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnExport.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnExport.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnExport.ForeColor = System.Drawing.Color.Black
         Me.btnExport.IndicateFocus = True
         Me.btnExport.Location = New System.Drawing.Point(12, 206)
         Me.btnExport.Name = "btnExport"
         Me.btnExport.Size = New System.Drawing.Size(257, 35)
         Me.btnExport.TabIndex = 33
-        Me.btnExport.Text = "Export"
+        Me.btnExport.Text = "EXPORT"
         '
         'btnAddIncome
         '
@@ -100,21 +119,21 @@ Partial Class frmIncome
         Me.btnAddIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnAddIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnAddIncome.FillColor = System.Drawing.Color.FromArgb(CType(CType(173, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.btnAddIncome.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddIncome.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
         Me.btnAddIncome.ForeColor = System.Drawing.Color.Black
         Me.btnAddIncome.IndicateFocus = True
         Me.btnAddIncome.Location = New System.Drawing.Point(12, 124)
         Me.btnAddIncome.Name = "btnAddIncome"
         Me.btnAddIncome.Size = New System.Drawing.Size(257, 35)
         Me.btnAddIncome.TabIndex = 32
-        Me.btnAddIncome.Text = "Add"
+        Me.btnAddIncome.Text = "ADD"
         '
         'dtpDate
         '
         Me.dtpDate.BorderRadius = 10
         Me.dtpDate.Checked = True
         Me.dtpDate.FillColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDate.Font = New System.Drawing.Font("Pixelify Sans", 11.25!, System.Drawing.FontStyle.Bold)
         Me.dtpDate.ForeColor = System.Drawing.SystemColors.Control
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.dtpDate.Location = New System.Drawing.Point(9, 82)
@@ -138,13 +157,13 @@ Partial Class frmIncome
         Me.txtAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtAmount.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(14, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.txtAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtAmount.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.txtAmount.Font = New System.Drawing.Font("Pixelify Sans", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtAmount.Location = New System.Drawing.Point(9, 44)
         Me.txtAmount.Margin = New System.Windows.Forms.Padding(0)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.PlaceholderForeColor = System.Drawing.Color.Silver
-        Me.txtAmount.PlaceholderText = "Amount"
+        Me.txtAmount.PlaceholderText = "AMOUNT"
         Me.txtAmount.SelectedText = ""
         Me.txtAmount.Size = New System.Drawing.Size(260, 35)
         Me.txtAmount.TabIndex = 30
@@ -162,13 +181,13 @@ Partial Class frmIncome
         Me.txtSource.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.txtSource.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(14, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.txtSource.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSource.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.txtSource.Font = New System.Drawing.Font("Pixelify Sans", 12.0!, System.Drawing.FontStyle.Bold)
         Me.txtSource.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtSource.Location = New System.Drawing.Point(9, 9)
         Me.txtSource.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSource.Name = "txtSource"
         Me.txtSource.PlaceholderForeColor = System.Drawing.Color.Silver
-        Me.txtSource.PlaceholderText = "Source"
+        Me.txtSource.PlaceholderText = "SOURCE"
         Me.txtSource.SelectedText = ""
         Me.txtSource.Size = New System.Drawing.Size(260, 35)
         Me.txtSource.TabIndex = 29
@@ -190,25 +209,6 @@ Partial Class frmIncome
         Me.flpIncome.Size = New System.Drawing.Size(652, 596)
         Me.flpIncome.TabIndex = 0
         '
-        'chrtPie
-        '
-        Me.chrtPie.BackColor = System.Drawing.Color.Transparent
-        Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
-        Me.chrtPie.BorderlineWidth = 0
-        ChartArea2.Name = "ChartArea1"
-        Me.chrtPie.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chrtPie.Legends.Add(Legend2)
-        Me.chrtPie.Location = New System.Drawing.Point(12, 247)
-        Me.chrtPie.Name = "chrtPie"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chrtPie.Series.Add(Series2)
-        Me.chrtPie.Size = New System.Drawing.Size(257, 328)
-        Me.chrtPie.TabIndex = 35
-        Me.chrtPie.Text = "Chart1"
-        '
         'frmIncome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -220,8 +220,8 @@ Partial Class frmIncome
         Me.Name = "frmIncome"
         Me.Text = "frmIncome"
         Me.Guna2Panel1.ResumeLayout(False)
-        Me.Guna2Panel2.ResumeLayout(False)
         CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

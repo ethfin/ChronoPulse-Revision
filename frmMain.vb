@@ -55,8 +55,6 @@ Public Class frmMain
         lblUsername.Text = AccountData.Username
         ' Add round corners by 10 to btnLogout
         btnLogout.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLogout.Width, btnLogout.Height, 10, 10))
-        ' Remove the 3D effect from the button
-        btnLogout.FlatAppearance.BorderSize = 0
         ' Lock the minimum resize of the form to (800, 500)
         Me.MinimumSize = New Size(800, 500)
         ' Set the default form to load as frmDashboard

@@ -29,6 +29,9 @@ Partial Class frmDashboard
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblCurrentMonthBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblTotalBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.chrtLine = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.lblCurrentMonthInc = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblCurrentMonthExp = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -38,15 +41,12 @@ Partial Class frmDashboard
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblTotalExpenses = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.flpDashboard = New System.Windows.Forms.FlowLayoutPanel()
-        Me.lblCurrentMonthBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblTotalBalance = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1.SuspendLayout()
+        Me.Guna2Panel4.SuspendLayout()
         CType(Me.chrtLine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel3.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
-        Me.Guna2Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -65,6 +65,40 @@ Partial Class frmDashboard
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(1192, 618)
         Me.Guna2Panel1.TabIndex = 0
+        '
+        'lblCurrentMonthBalance
+        '
+        Me.lblCurrentMonthBalance.BackColor = System.Drawing.Color.Transparent
+        Me.lblCurrentMonthBalance.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMonthBalance.ForeColor = System.Drawing.Color.White
+        Me.lblCurrentMonthBalance.Location = New System.Drawing.Point(362, 12)
+        Me.lblCurrentMonthBalance.Name = "lblCurrentMonthBalance"
+        Me.lblCurrentMonthBalance.Size = New System.Drawing.Size(78, 25)
+        Me.lblCurrentMonthBalance.TabIndex = 5
+        Me.lblCurrentMonthBalance.Text = "Balance"
+        '
+        'Guna2Panel4
+        '
+        Me.Guna2Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel4.BorderRadius = 10
+        Me.Guna2Panel4.BorderThickness = 1
+        Me.Guna2Panel4.Controls.Add(Me.lblTotalBalance)
+        Me.Guna2Panel4.FillColor = System.Drawing.Color.Orange
+        Me.Guna2Panel4.Location = New System.Drawing.Point(362, 43)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.Size = New System.Drawing.Size(169, 46)
+        Me.Guna2Panel4.TabIndex = 6
+        '
+        'lblTotalBalance
+        '
+        Me.lblTotalBalance.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalBalance.Font = New System.Drawing.Font("Pixelify Sans", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalBalance.ForeColor = System.Drawing.Color.White
+        Me.lblTotalBalance.Location = New System.Drawing.Point(3, 7)
+        Me.lblTotalBalance.Name = "lblTotalBalance"
+        Me.lblTotalBalance.Size = New System.Drawing.Size(67, 35)
+        Me.lblTotalBalance.TabIndex = 1
+        Me.lblTotalBalance.Text = "TEXT"
         '
         'chrtLine
         '
@@ -86,18 +120,18 @@ Partial Class frmDashboard
         'lblCurrentMonthInc
         '
         Me.lblCurrentMonthInc.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentMonthInc.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMonthInc.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentMonthInc.ForeColor = System.Drawing.Color.White
         Me.lblCurrentMonthInc.Location = New System.Drawing.Point(187, 12)
         Me.lblCurrentMonthInc.Name = "lblCurrentMonthInc"
-        Me.lblCurrentMonthInc.Size = New System.Drawing.Size(73, 25)
+        Me.lblCurrentMonthInc.Size = New System.Drawing.Size(70, 25)
         Me.lblCurrentMonthInc.TabIndex = 2
         Me.lblCurrentMonthInc.Text = "Income"
         '
         'lblCurrentMonthExp
         '
         Me.lblCurrentMonthExp.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentMonthExp.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMonthExp.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentMonthExp.ForeColor = System.Drawing.Color.White
         Me.lblCurrentMonthExp.Location = New System.Drawing.Point(12, 12)
         Me.lblCurrentMonthExp.Name = "lblCurrentMonthExp"
@@ -139,11 +173,11 @@ Partial Class frmDashboard
         'lblTotalIncome
         '
         Me.lblTotalIncome.BackColor = System.Drawing.Color.Transparent
-        Me.lblTotalIncome.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalIncome.Font = New System.Drawing.Font("Pixelify Sans", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalIncome.ForeColor = System.Drawing.Color.White
         Me.lblTotalIncome.Location = New System.Drawing.Point(3, 7)
         Me.lblTotalIncome.Name = "lblTotalIncome"
-        Me.lblTotalIncome.Size = New System.Drawing.Size(57, 34)
+        Me.lblTotalIncome.Size = New System.Drawing.Size(67, 35)
         Me.lblTotalIncome.TabIndex = 1
         Me.lblTotalIncome.Text = "TEXT"
         '
@@ -162,11 +196,11 @@ Partial Class frmDashboard
         'lblTotalExpenses
         '
         Me.lblTotalExpenses.BackColor = System.Drawing.Color.Transparent
-        Me.lblTotalExpenses.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalExpenses.Font = New System.Drawing.Font("Pixelify Sans", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalExpenses.ForeColor = System.Drawing.Color.White
         Me.lblTotalExpenses.Location = New System.Drawing.Point(3, 7)
         Me.lblTotalExpenses.Name = "lblTotalExpenses"
-        Me.lblTotalExpenses.Size = New System.Drawing.Size(57, 34)
+        Me.lblTotalExpenses.Size = New System.Drawing.Size(67, 35)
         Me.lblTotalExpenses.TabIndex = 0
         Me.lblTotalExpenses.Text = "TEXT"
         '
@@ -178,40 +212,6 @@ Partial Class frmDashboard
         Me.flpDashboard.Name = "flpDashboard"
         Me.flpDashboard.Size = New System.Drawing.Size(568, 195)
         Me.flpDashboard.TabIndex = 0
-        '
-        'lblCurrentMonthBalance
-        '
-        Me.lblCurrentMonthBalance.BackColor = System.Drawing.Color.Transparent
-        Me.lblCurrentMonthBalance.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentMonthBalance.ForeColor = System.Drawing.Color.White
-        Me.lblCurrentMonthBalance.Location = New System.Drawing.Point(362, 12)
-        Me.lblCurrentMonthBalance.Name = "lblCurrentMonthBalance"
-        Me.lblCurrentMonthBalance.Size = New System.Drawing.Size(80, 25)
-        Me.lblCurrentMonthBalance.TabIndex = 5
-        Me.lblCurrentMonthBalance.Text = "Balance"
-        '
-        'Guna2Panel4
-        '
-        Me.Guna2Panel4.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel4.BorderRadius = 10
-        Me.Guna2Panel4.BorderThickness = 1
-        Me.Guna2Panel4.Controls.Add(Me.lblTotalBalance)
-        Me.Guna2Panel4.FillColor = System.Drawing.Color.Orange
-        Me.Guna2Panel4.Location = New System.Drawing.Point(362, 43)
-        Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(169, 46)
-        Me.Guna2Panel4.TabIndex = 6
-        '
-        'lblTotalBalance
-        '
-        Me.lblTotalBalance.BackColor = System.Drawing.Color.Transparent
-        Me.lblTotalBalance.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalBalance.ForeColor = System.Drawing.Color.White
-        Me.lblTotalBalance.Location = New System.Drawing.Point(3, 7)
-        Me.lblTotalBalance.Name = "lblTotalBalance"
-        Me.lblTotalBalance.Size = New System.Drawing.Size(57, 34)
-        Me.lblTotalBalance.TabIndex = 1
-        Me.lblTotalBalance.Text = "TEXT"
         '
         'frmDashboard
         '
@@ -225,14 +225,14 @@ Partial Class frmDashboard
         Me.Text = "frmDashboard"
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
+        Me.Guna2Panel4.ResumeLayout(False)
+        Me.Guna2Panel4.PerformLayout()
         CType(Me.chrtLine, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chrtPie, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
-        Me.Guna2Panel4.ResumeLayout(False)
-        Me.Guna2Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

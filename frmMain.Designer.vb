@@ -40,13 +40,13 @@ Partial Class frmMain
         Me.btnExpenses = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAI = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnLogout = New FontAwesome.Sharp.IconButton()
         Me.ToolTip = New Guna.UI2.WinForms.Guna2HtmlToolTip()
         Me.cmsDropDown = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnLogout = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlMenu.SuspendLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel4.SuspendLayout()
@@ -106,6 +106,7 @@ Partial Class frmMain
         'pnlMenu
         '
         Me.pnlMenu.BackColor = System.Drawing.Color.Transparent
+        Me.pnlMenu.Controls.Add(Me.btnLogout)
         Me.pnlMenu.Controls.Add(Me.pbxLogo)
         Me.pnlMenu.Controls.Add(Me.Guna2Button1)
         Me.pnlMenu.Controls.Add(Me.ckbxTheme)
@@ -116,7 +117,6 @@ Partial Class frmMain
         Me.pnlMenu.Controls.Add(Me.btnExpenses)
         Me.pnlMenu.Controls.Add(Me.btnAI)
         Me.pnlMenu.Controls.Add(Me.btnDashboard)
-        Me.pnlMenu.Controls.Add(Me.btnLogout)
         Me.pnlMenu.CustomBorderColor = System.Drawing.Color.White
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
@@ -370,26 +370,6 @@ Partial Class frmMain
         Me.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.UseTransparentBackground = True
         '
-        'btnLogout
-        '
-        Me.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnLogout.FlatAppearance.BorderSize = 0
-        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogout.ForeColor = System.Drawing.Color.White
-        Me.btnLogout.IconChar = FontAwesome.Sharp.IconChar.DoorOpen
-        Me.btnLogout.IconColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnLogout.IconSize = 30
-        Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogout.Location = New System.Drawing.Point(11, 608)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(173, 45)
-        Me.btnLogout.TabIndex = 2
-        Me.btnLogout.Text = "Logout"
-        Me.btnLogout.UseVisualStyleBackColor = True
-        '
         'ToolTip
         '
         Me.ToolTip.AllowLinksHandling = True
@@ -461,6 +441,32 @@ Partial Class frmMain
         Me.pnlTop.Size = New System.Drawing.Size(1090, 39)
         Me.pnlTop.TabIndex = 0
         '
+        'btnLogout
+        '
+        Me.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnLogout.Animated = True
+        Me.btnLogout.BackColor = System.Drawing.Color.Transparent
+        Me.btnLogout.BorderRadius = 10
+        Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLogout.FillColor = System.Drawing.Color.Transparent
+        Me.btnLogout.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.btnLogout.ForeColor = System.Drawing.Color.White
+        Me.btnLogout.Image = Global.ChronoPulse_Revision.My.Resources.Resources.logout
+        Me.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnLogout.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnLogout.IndicateFocus = True
+        Me.btnLogout.Location = New System.Drawing.Point(11, 608)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(173, 45)
+        Me.btnLogout.TabIndex = 13
+        Me.btnLogout.Text = "Logout"
+        Me.btnLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnLogout.UseTransparentBackground = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -494,7 +500,6 @@ Partial Class frmMain
     Private WithEvents lblCurrentPanel As Guna.UI2.WinForms.Guna2HtmlLabel
     Private WithEvents pbxUser As Guna.UI2.WinForms.Guna2PictureBox
     Private WithEvents pnlMenu As Guna.UI2.WinForms.Guna2Panel
-    Private WithEvents btnLogout As FontAwesome.Sharp.IconButton
     Private WithEvents ckbxTheme As Guna.UI2.WinForms.Guna2ImageCheckBox
     Private WithEvents pbxLogo As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents btnDashboard As Guna.UI2.WinForms.Guna2Button
@@ -512,4 +517,5 @@ Partial Class frmMain
     Private WithEvents btnClose As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlTop As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents btnLogout As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -47,7 +47,7 @@ Public Class frmDashboard
         chrtLine.Legends.Clear()
         Dim legend As New Legend()
         legend.Docking = Docking.Right
-        legend.Font = New Font("Century Gothic", 10, FontStyle.Bold)
+        legend.Font = New Font("Pixelify Sans", 10, FontStyle.Bold)
         legend.ForeColor = Color.White
         legend.BackColor = Color.Transparent
         chrtLine.Legends.Add(legend)
@@ -56,7 +56,7 @@ Public Class frmDashboard
         chrtLine.ChartAreas(0).BackColor = Color.Transparent
 
         ' Set the font style and color for the chart series
-        lineSeries.Font = New Font("Century Gothic", 10, FontStyle.Regular)
+        lineSeries.Font = New Font("Pixelify Sans", 10, FontStyle.Regular)
         lineSeries.LabelForeColor = Color.White
 
         ' Set the axis labels and lines to white
@@ -75,7 +75,7 @@ Public Class frmDashboard
         ' Add a title to the chart
         chrtLine.Titles.Clear()
         Dim title As New Title("Current Month Income")
-        title.Font = New Font("Century Gothic", 14, FontStyle.Bold)
+        title.Font = New Font("Pixelify Sans", 14, FontStyle.Bold)
         title.ForeColor = Color.White
         chrtLine.Titles.Add(title)
     End Sub
@@ -124,7 +124,7 @@ Public Class frmDashboard
         chrtPie.Legends.Clear()
         Dim legend As New Legend()
         legend.Docking = Docking.Right
-        legend.Font = New Font("Century Gothic", 10, FontStyle.Bold)
+        legend.Font = New Font("Pixelify Sans", 10, FontStyle.Bold)
         legend.ForeColor = Color.White
         legend.BackColor = Color.Transparent
         chrtPie.Legends.Add(legend)
@@ -133,7 +133,7 @@ Public Class frmDashboard
         chrtPie.ChartAreas(0).BackColor = Color.Transparent
 
         ' Set the font style and color for the chart series
-        pieSeries.Font = New Font("Century Gothic", 10, FontStyle.Regular)
+        pieSeries.Font = New Font("Pixelify Sans", 10, FontStyle.Regular)
         pieSeries.LabelForeColor = Color.White
 
         ' Hide labels inside the pie chart
@@ -148,7 +148,7 @@ Public Class frmDashboard
         ' Add a title to the chart
         chrtPie.Titles.Clear()
         Dim title As New Title("Current Month")
-        title.Font = New Font("Century Gothic", 14, FontStyle.Bold)
+        title.Font = New Font("Pixelify Sans", 14, FontStyle.Bold)
         title.ForeColor = Color.White
         chrtPie.Titles.Add(title)
     End Sub
@@ -263,7 +263,7 @@ Public Class frmDashboard
             .AutoSize = False,
             .Size = New Size(110, 20),
             .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+            .Font = New Font("Pixelify Sans", 9.75F, FontStyle.Bold),
             .TextAlign = ContentAlignment.MiddleLeft,
             .BackColor = Color.Transparent
         }
@@ -275,7 +275,7 @@ Public Class frmDashboard
             .AutoSize = False,
             .Size = New Size(100, 20),
             .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+            .Font = New Font("Pixelify Sans", 9.75F, FontStyle.Bold),
             .TextAlign = ContentAlignment.MiddleLeft,
             .BackColor = Color.Transparent
         }
@@ -287,7 +287,7 @@ Public Class frmDashboard
             .AutoSize = False,
             .Size = New Size(200, 20),
             .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
+            .Font = New Font("Pixelify Sans", 9.75F, FontStyle.Regular),
             .TextAlign = ContentAlignment.MiddleLeft,
             .BackColor = Color.Transparent
         }
@@ -299,7 +299,7 @@ Public Class frmDashboard
             .AutoSize = False,
             .Size = New Size(120, 20),
             .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
+            .Font = New Font("Pixelify Sans", 9.75F, FontStyle.Regular),
             .TextAlign = ContentAlignment.MiddleLeft,
             .BackColor = Color.Transparent
         }
@@ -311,7 +311,7 @@ Public Class frmDashboard
             .AutoSize = False,
             .Size = New Size(200, 20),
             .ForeColor = Color.White,
-            .Font = New Font("Century Gothic", 9.75F, FontStyle.Regular),
+            .Font = New Font("Pixelify Sans", 9.75F, FontStyle.Regular),
             .TextAlign = ContentAlignment.MiddleLeft,
             .BackColor = Color.Transparent
         }

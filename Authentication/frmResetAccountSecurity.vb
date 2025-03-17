@@ -18,8 +18,8 @@ Public Class frmResetAccountSecurity
 
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     If reader.Read() Then
-                        cmbSQ1.Text = reader("SecurityQuestion1").ToString()
-                        cmbSQ2.Text = reader("SecurityQuestion2").ToString()
+                        SQ1.Text = reader("SecurityQuestion1").ToString()
+                        SQ2.Text = reader("SecurityQuestion2").ToString()
                         storedAnswer1 = reader("SecurityAnswer1").ToString()
                         storedAnswer2 = reader("SecurityAnswer2").ToString()
                     End If

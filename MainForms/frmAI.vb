@@ -16,21 +16,21 @@ Public Class frmAI
         ChatHistoryRichTextBox.SelectionStart = ChatHistoryRichTextBox.TextLength
         ChatHistoryRichTextBox.SelectionLength = 0
         ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
-        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 10, FontStyle.Bold)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 10, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText($"[{timestamp}] ")
 
         ' Format sender
         ChatHistoryRichTextBox.SelectionStart = ChatHistoryRichTextBox.TextLength
         ChatHistoryRichTextBox.SelectionLength = 0
         ChatHistoryRichTextBox.SelectionColor = If(isAI, Color.RoyalBlue, Color.FromArgb(241, 196, 15))
-        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 16, FontStyle.Bold)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 16, FontStyle.Bold)
         ChatHistoryRichTextBox.AppendText(sender & ": ")
 
         ' Format message
         ChatHistoryRichTextBox.SelectionStart = ChatHistoryRichTextBox.TextLength
         ChatHistoryRichTextBox.SelectionLength = 0
         ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
-        ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", 14)
+        ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", 14)
         ChatHistoryRichTextBox.BorderStyle = BorderStyle.None
         ChatHistoryRichTextBox.BackColor = Color.FromArgb(8, 6, 26)
         AppendFormattedText(message)
@@ -75,7 +75,7 @@ Public Class frmAI
                 text = text.TrimStart("#"c)
             End If
 
-            ChatHistoryRichTextBox.SelectionFont = New Font("Century Gothic", fontSize, fontStyle)
+            ChatHistoryRichTextBox.SelectionFont = New Font("Pixelify Sans", fontSize, fontStyle)
             ChatHistoryRichTextBox.SelectionColor = Color.FromArgb(173, 181, 211)
             ChatHistoryRichTextBox.AppendText(text & " ")
         Next
@@ -92,7 +92,7 @@ Public Class frmAI
         dbConnection = createDBConnection()
         'ChatHistoryRichTextBox.BackColor = Color.White
         'ChatHistoryRichTextBox.BorderStyle = BorderStyle.FixedSingle
-        'ChatHistoryRichTextBox.Font = New Font("Century Gothic", 14)
+        'ChatHistoryRichTextBox.Font = New Font("Pixelify Sans", 14)
         'ChatHistoryRichTextBox.ForeColor = Color.Black
         ChatHistoryRichTextBox.ReadOnly = True
         ChatHistoryRichTextBox.ScrollBars = RichTextBoxScrollBars.Vertical

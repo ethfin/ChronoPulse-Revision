@@ -89,7 +89,7 @@ Public Class frmQuests
         Dim lblQuestName As New Label With {
         .Text = questName,
         .ForeColor = Color.White,
-        .Font = New Font("Century Gothic", 9.75F, FontStyle.Bold),
+        .Font = New Font("Pixelify Sans", 9.75F, FontStyle.Bold),
         .Location = New Point(10, 10),
         .Size = New Size(200, 20),
         .BackColor = Color.Transparent
@@ -98,7 +98,7 @@ Public Class frmQuests
 
         Dim lblProgress As New Label With {
         .ForeColor = Color.White,
-        .Font = New Font("Century Gothic", 9.0F, FontStyle.Regular),
+        .Font = New Font("Pixelify Sans", 9.0F, FontStyle.Regular),
         .Location = New Point(10, 30),
         .Size = New Size(200, 20),
         .BackColor = Color.Transparent
