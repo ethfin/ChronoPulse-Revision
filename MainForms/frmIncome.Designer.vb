@@ -22,9 +22,9 @@ Partial Class frmIncome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnUpdateIncome = New Guna.UI2.WinForms.Guna2Button()
@@ -60,16 +60,16 @@ Partial Class frmIncome
         Me.chrtPie.BackColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineWidth = 0
-        ChartArea2.Name = "ChartArea1"
-        Me.chrtPie.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chrtPie.Legends.Add(Legend2)
+        ChartArea1.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend1)
         Me.chrtPie.Location = New System.Drawing.Point(12, 247)
         Me.chrtPie.Name = "chrtPie"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chrtPie.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chrtPie.Series.Add(Series1)
         Me.chrtPie.Size = New System.Drawing.Size(257, 328)
         Me.chrtPie.TabIndex = 35
         Me.chrtPie.Text = "Chart1"
@@ -89,7 +89,7 @@ Partial Class frmIncome
         Me.btnUpdateIncome.Location = New System.Drawing.Point(12, 165)
         Me.btnUpdateIncome.Name = "btnUpdateIncome"
         Me.btnUpdateIncome.Size = New System.Drawing.Size(257, 35)
-        Me.btnUpdateIncome.TabIndex = 34
+        Me.btnUpdateIncome.TabIndex = 5
         Me.btnUpdateIncome.Text = "UPDATE"
         '
         'btnExport
@@ -107,7 +107,7 @@ Partial Class frmIncome
         Me.btnExport.Location = New System.Drawing.Point(12, 206)
         Me.btnExport.Name = "btnExport"
         Me.btnExport.Size = New System.Drawing.Size(257, 35)
-        Me.btnExport.TabIndex = 33
+        Me.btnExport.TabIndex = 6
         Me.btnExport.Text = "EXPORT"
         '
         'btnAddIncome
@@ -125,7 +125,7 @@ Partial Class frmIncome
         Me.btnAddIncome.Location = New System.Drawing.Point(12, 124)
         Me.btnAddIncome.Name = "btnAddIncome"
         Me.btnAddIncome.Size = New System.Drawing.Size(257, 35)
-        Me.btnAddIncome.TabIndex = 32
+        Me.btnAddIncome.TabIndex = 4
         Me.btnAddIncome.Text = "ADD"
         '
         'dtpDate
@@ -141,7 +141,7 @@ Partial Class frmIncome
         Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(260, 36)
-        Me.dtpDate.TabIndex = 31
+        Me.dtpDate.TabIndex = 3
         Me.dtpDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
         '
         'txtAmount
@@ -166,7 +166,7 @@ Partial Class frmIncome
         Me.txtAmount.PlaceholderText = "AMOUNT"
         Me.txtAmount.SelectedText = ""
         Me.txtAmount.Size = New System.Drawing.Size(260, 35)
-        Me.txtAmount.TabIndex = 30
+        Me.txtAmount.TabIndex = 2
         '
         'txtSource
         '
@@ -190,7 +190,7 @@ Partial Class frmIncome
         Me.txtSource.PlaceholderText = "SOURCE"
         Me.txtSource.SelectedText = ""
         Me.txtSource.Size = New System.Drawing.Size(260, 35)
-        Me.txtSource.TabIndex = 29
+        Me.txtSource.TabIndex = 1
         '
         'Guna2Panel2
         '

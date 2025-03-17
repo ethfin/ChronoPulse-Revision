@@ -42,7 +42,7 @@ Partial Class frmResetAccount
         Me.pnlResetContainer.FillColor = System.Drawing.Color.GhostWhite
         Me.pnlResetContainer.Location = New System.Drawing.Point(1, 1)
         Me.pnlResetContainer.Name = "pnlResetContainer"
-        Me.pnlResetContainer.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
+        Me.pnlResetContainer.Padding = New System.Windows.Forms.Padding(30)
         Me.pnlResetContainer.Size = New System.Drawing.Size(973, 602)
         Me.pnlResetContainer.TabIndex = 3
         '
@@ -57,6 +57,7 @@ Partial Class frmResetAccount
         Me.lnklblGoBack.TabIndex = 62
         Me.lnklblGoBack.TabStop = True
         Me.lnklblGoBack.Text = "Go back"
+        Me.lnklblGoBack.Visible = False
         '
         'pnlLogin
         '
@@ -71,7 +72,7 @@ Partial Class frmResetAccount
         Me.pnlLogin.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.pnlLogin.Location = New System.Drawing.Point(30, 30)
         Me.pnlLogin.Name = "pnlLogin"
-        Me.pnlLogin.Padding = New System.Windows.Forms.Padding(10, 10, 10, 10)
+        Me.pnlLogin.Padding = New System.Windows.Forms.Padding(10)
         Me.pnlLogin.Size = New System.Drawing.Size(347, 542)
         Me.pnlLogin.TabIndex = 17
         '
@@ -135,7 +136,7 @@ Partial Class frmResetAccount
         Me.pnlResetAccountProgress.BackColor = System.Drawing.Color.GhostWhite
         Me.pnlResetAccountProgress.Location = New System.Drawing.Point(383, 30)
         Me.pnlResetAccountProgress.Name = "pnlResetAccountProgress"
-        Me.pnlResetAccountProgress.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pnlResetAccountProgress.Padding = New System.Windows.Forms.Padding(3)
         Me.pnlResetAccountProgress.Size = New System.Drawing.Size(578, 524)
         Me.pnlResetAccountProgress.TabIndex = 16
         '
@@ -147,7 +148,7 @@ Partial Class frmResetAccount
         Me.Controls.Add(Me.pnlResetContainer)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmResetAccount"
-        Me.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
+        Me.Padding = New System.Windows.Forms.Padding(30)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmResetAccount"
         Me.pnlResetContainer.ResumeLayout(False)

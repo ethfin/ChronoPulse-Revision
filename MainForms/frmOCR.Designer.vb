@@ -77,7 +77,7 @@ Partial Class frmOCR
         Me.btnClearAIHistory.Location = New System.Drawing.Point(676, 19)
         Me.btnClearAIHistory.Name = "btnClearAIHistory"
         Me.btnClearAIHistory.Size = New System.Drawing.Size(112, 35)
-        Me.btnClearAIHistory.TabIndex = 15
+        Me.btnClearAIHistory.TabIndex = 4
         Me.btnClearAIHistory.Text = "Clear"
         '
         'btnUploadData
@@ -96,7 +96,7 @@ Partial Class frmOCR
         Me.btnUploadData.Location = New System.Drawing.Point(558, 19)
         Me.btnUploadData.Name = "btnUploadData"
         Me.btnUploadData.Size = New System.Drawing.Size(112, 35)
-        Me.btnUploadData.TabIndex = 14
+        Me.btnUploadData.TabIndex = 3
         Me.btnUploadData.Text = "Save"
         '
         'btnAnalyze
@@ -115,7 +115,7 @@ Partial Class frmOCR
         Me.btnAnalyze.Location = New System.Drawing.Point(440, 19)
         Me.btnAnalyze.Name = "btnAnalyze"
         Me.btnAnalyze.Size = New System.Drawing.Size(112, 35)
-        Me.btnAnalyze.TabIndex = 13
+        Me.btnAnalyze.TabIndex = 2
         Me.btnAnalyze.Text = "Analyze"
         Me.btnAnalyze.Visible = False
         '
@@ -135,7 +135,7 @@ Partial Class frmOCR
         Me.btnOpenFile.Location = New System.Drawing.Point(12, 19)
         Me.btnOpenFile.Name = "btnOpenFile"
         Me.btnOpenFile.Size = New System.Drawing.Size(112, 35)
-        Me.btnOpenFile.TabIndex = 12
+        Me.btnOpenFile.TabIndex = 1
         Me.btnOpenFile.Text = "Scan"
         '
         'frmOCR

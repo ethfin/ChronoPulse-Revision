@@ -372,6 +372,7 @@ Public Class frmOCR
                     ' Show processing message in AI response textbox
                     rtbAIResponse.Text = "Processing image, please wait..."
                     btnOpenFile.Enabled = False
+                    btnUploadData.Enabled = False
 
                     ' First perform OCR
                     Dim ocrResult As String = Await UploadImageToOCRSpace(selectedFilePath)
@@ -405,6 +406,7 @@ Public Class frmOCR
             rtbAIResponse.Text = "Error: " & ex.Message
         Finally
             btnOpenFile.Enabled = True
+            btnUploadData.Enabled = True
         End Try
     End Sub
 
@@ -415,6 +417,7 @@ Public Class frmOCR
         End If
 
         btnUploadData.Enabled = False
+        btnOpenFile.Enabled = False
         rtbAIResponse.Text = "Processing document..."
 
         Try
@@ -471,6 +474,7 @@ Public Class frmOCR
             rtbAIResponse.Text = "Error: " & ex.Message
         Finally
             btnUploadData.Enabled = True
+            btnOpenFile.Enabled = True
         End Try
     End Sub
 

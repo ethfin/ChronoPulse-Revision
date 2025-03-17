@@ -71,7 +71,7 @@ Partial Class frmAI
         Me.btnClearHistory.Location = New System.Drawing.Point(1052, 20)
         Me.btnClearHistory.Name = "btnClearHistory"
         Me.btnClearHistory.Size = New System.Drawing.Size(112, 35)
-        Me.btnClearHistory.TabIndex = 12
+        Me.btnClearHistory.TabIndex = 3
         Me.btnClearHistory.Text = "Clear"
         '
         'SendButton
@@ -90,7 +90,7 @@ Partial Class frmAI
         Me.SendButton.Location = New System.Drawing.Point(934, 21)
         Me.SendButton.Name = "SendButton"
         Me.SendButton.Size = New System.Drawing.Size(112, 35)
-        Me.SendButton.TabIndex = 11
+        Me.SendButton.TabIndex = 2
         Me.SendButton.Text = "Send"
         '
         'UserInputTextBox
@@ -116,7 +116,7 @@ Partial Class frmAI
         Me.UserInputTextBox.PlaceholderText = "Type here..."
         Me.UserInputTextBox.SelectedText = ""
         Me.UserInputTextBox.Size = New System.Drawing.Size(922, 37)
-        Me.UserInputTextBox.TabIndex = 10
+        Me.UserInputTextBox.TabIndex = 1
         '
         'frmAI
         '

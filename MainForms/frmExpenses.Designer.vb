@@ -22,9 +22,9 @@ Partial Class frmExpenses
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.chrtPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -64,16 +64,16 @@ Partial Class frmExpenses
         Me.chrtPie.BackColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineColor = System.Drawing.Color.Transparent
         Me.chrtPie.BorderlineWidth = 0
-        ChartArea1.Name = "ChartArea1"
-        Me.chrtPie.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chrtPie.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        Me.chrtPie.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.chrtPie.Legends.Add(Legend3)
         Me.chrtPie.Location = New System.Drawing.Point(12, 338)
         Me.chrtPie.Name = "chrtPie"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chrtPie.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.chrtPie.Series.Add(Series3)
         Me.chrtPie.Size = New System.Drawing.Size(268, 259)
         Me.chrtPie.TabIndex = 36
         Me.chrtPie.Text = "Chart1"
@@ -92,7 +92,7 @@ Partial Class frmExpenses
         Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(260, 36)
-        Me.dtpDate.TabIndex = 33
+        Me.dtpDate.TabIndex = 5
         Me.dtpDate.Value = New Date(2025, 2, 28, 13, 5, 3, 13)
         '
         'btnUpdateExpenses
@@ -110,7 +110,7 @@ Partial Class frmExpenses
         Me.btnUpdateExpenses.Location = New System.Drawing.Point(12, 243)
         Me.btnUpdateExpenses.Name = "btnUpdateExpenses"
         Me.btnUpdateExpenses.Size = New System.Drawing.Size(260, 35)
-        Me.btnUpdateExpenses.TabIndex = 31
+        Me.btnUpdateExpenses.TabIndex = 7
         Me.btnUpdateExpenses.Text = "UPDATE"
         '
         'btnExport
@@ -128,7 +128,7 @@ Partial Class frmExpenses
         Me.btnExport.Location = New System.Drawing.Point(12, 284)
         Me.btnExport.Name = "btnExport"
         Me.btnExport.Size = New System.Drawing.Size(260, 35)
-        Me.btnExport.TabIndex = 30
+        Me.btnExport.TabIndex = 8
         Me.btnExport.Text = "EXPORT"
         '
         'btnAddExpense
@@ -146,7 +146,7 @@ Partial Class frmExpenses
         Me.btnAddExpense.Location = New System.Drawing.Point(12, 202)
         Me.btnAddExpense.Name = "btnAddExpense"
         Me.btnAddExpense.Size = New System.Drawing.Size(260, 35)
-        Me.btnAddExpense.TabIndex = 29
+        Me.btnAddExpense.TabIndex = 6
         Me.btnAddExpense.Text = "ADD"
         '
         'cmbCategory
@@ -165,7 +165,7 @@ Partial Class frmExpenses
         Me.cmbCategory.Location = New System.Drawing.Point(12, 45)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.Size = New System.Drawing.Size(260, 36)
-        Me.cmbCategory.TabIndex = 28
+        Me.cmbCategory.TabIndex = 2
         '
         'txtCost
         '
@@ -189,7 +189,7 @@ Partial Class frmExpenses
         Me.txtCost.PlaceholderText = "COST"
         Me.txtCost.SelectedText = ""
         Me.txtCost.Size = New System.Drawing.Size(260, 35)
-        Me.txtCost.TabIndex = 27
+        Me.txtCost.TabIndex = 4
         '
         'txtDescription
         '
@@ -213,7 +213,7 @@ Partial Class frmExpenses
         Me.txtDescription.PlaceholderText = "NOTE"
         Me.txtDescription.SelectedText = ""
         Me.txtDescription.Size = New System.Drawing.Size(260, 35)
-        Me.txtDescription.TabIndex = 26
+        Me.txtDescription.TabIndex = 3
         '
         'txtItem
         '
@@ -237,7 +237,7 @@ Partial Class frmExpenses
         Me.txtItem.PlaceholderText = "ITEM"
         Me.txtItem.SelectedText = ""
         Me.txtItem.Size = New System.Drawing.Size(260, 35)
-        Me.txtItem.TabIndex = 25
+        Me.txtItem.TabIndex = 1
         '
         'Guna2Panel2
         '

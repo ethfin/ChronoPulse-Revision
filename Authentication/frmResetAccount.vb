@@ -105,4 +105,9 @@ Public Class frmResetAccount
             LoadStep(passwordForm)
         End If
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        frmLogin.Show()
+        Me.Close()
+    End Sub
 End Class
