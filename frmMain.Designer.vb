@@ -45,8 +45,8 @@ Partial Class frmMain
         Me.cmsDropDown = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.cmsLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
         Me.pnlMenu.SuspendLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel4.SuspendLayout()
@@ -57,7 +57,7 @@ Partial Class frmMain
         '
         'pnlContainer
         '
-        Me.pnlContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlContainer.BackColor = System.Drawing.Color.Transparent
         Me.pnlContainer.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.pnlContainer.BorderRadius = 20
         Me.pnlContainer.BorderThickness = 1
@@ -72,7 +72,7 @@ Partial Class frmMain
         Me.pnlContainer.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.pnlContainer.Location = New System.Drawing.Point(194, 39)
         Me.pnlContainer.Name = "pnlContainer"
-        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(30)
+        Me.pnlContainer.Padding = New System.Windows.Forms.Padding(20, 30, 20, 20)
         Me.pnlContainer.Size = New System.Drawing.Size(1090, 682)
         Me.pnlContainer.TabIndex = 5
         '
@@ -105,7 +105,7 @@ Partial Class frmMain
         '
         'pnlMenu
         '
-        Me.pnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlMenu.BackColor = System.Drawing.Color.Transparent
         Me.pnlMenu.Controls.Add(Me.pbxLogo)
         Me.pnlMenu.Controls.Add(Me.Guna2Button1)
         Me.pnlMenu.Controls.Add(Me.ckbxTheme)
@@ -151,7 +151,7 @@ Partial Class frmMain
         Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2Button1.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
         Me.Guna2Button1.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnQuests
         Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button1.ImageSize = New System.Drawing.Size(30, 30)
@@ -253,7 +253,7 @@ Partial Class frmMain
         Me.btnOCR.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnOCR.FillColor = System.Drawing.Color.Transparent
         Me.btnOCR.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.btnOCR.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnOCR.ForeColor = System.Drawing.Color.White
         Me.btnOCR.Image = Global.ChronoPulse_Revision.My.Resources.Resources.ocr
         Me.btnOCR.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnOCR.ImageSize = New System.Drawing.Size(30, 30)
@@ -279,7 +279,7 @@ Partial Class frmMain
         Me.btnIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnIncome.FillColor = System.Drawing.Color.Transparent
         Me.btnIncome.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIncome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnIncome.ForeColor = System.Drawing.Color.White
         Me.btnIncome.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDIncome
         Me.btnIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnIncome.ImageSize = New System.Drawing.Size(30, 30)
@@ -305,7 +305,7 @@ Partial Class frmMain
         Me.btnExpenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnExpenses.FillColor = System.Drawing.Color.Transparent
         Me.btnExpenses.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExpenses.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnExpenses.ForeColor = System.Drawing.Color.White
         Me.btnExpenses.Image = Global.ChronoPulse_Revision.My.Resources.Resources.btnDExpenses
         Me.btnExpenses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnExpenses.ImageSize = New System.Drawing.Size(30, 30)
@@ -331,7 +331,7 @@ Partial Class frmMain
         Me.btnAI.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnAI.FillColor = System.Drawing.Color.Transparent
         Me.btnAI.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.btnAI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnAI.ForeColor = System.Drawing.Color.White
         Me.btnAI.Image = Global.ChronoPulse_Revision.My.Resources.Resources.chat_blue
         Me.btnAI.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAI.ImageSize = New System.Drawing.Size(30, 30)
@@ -357,7 +357,7 @@ Partial Class frmMain
         Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
         Me.btnDashboard.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnDashboard.ForeColor = System.Drawing.Color.White
         Me.btnDashboard.Image = Global.ChronoPulse_Revision.My.Resources.Resources.dashboard_blue
         Me.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnDashboard.ImageSize = New System.Drawing.Size(25, 25)
@@ -377,7 +377,7 @@ Partial Class frmMain
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Font = New System.Drawing.Font("Pixelify Sans", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogout.ForeColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnLogout.ForeColor = System.Drawing.Color.White
         Me.btnLogout.IconChar = FontAwesome.Sharp.IconChar.DoorOpen
         Me.btnLogout.IconColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(160, Byte), Integer))
         Me.btnLogout.IconFont = FontAwesome.Sharp.IconFont.[Auto]
@@ -428,18 +428,6 @@ Partial Class frmMain
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
-        'pnlTop
-        '
-        Me.pnlTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.pnlTop.BorderColor = System.Drawing.Color.Transparent
-        Me.pnlTop.Controls.Add(Me.btnClose)
-        Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTop.Location = New System.Drawing.Point(194, 0)
-        Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Size = New System.Drawing.Size(1090, 39)
-        Me.pnlTop.TabIndex = 0
-        '
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -460,11 +448,25 @@ Partial Class frmMain
         Me.btnClose.TabStop = False
         Me.btnClose.UseTransparentBackground = True
         '
+        'pnlTop
+        '
+        Me.pnlTop.BackColor = System.Drawing.Color.Transparent
+        Me.pnlTop.BorderColor = System.Drawing.Color.Transparent
+        Me.pnlTop.Controls.Add(Me.btnClose)
+        Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTop.ForeColor = System.Drawing.Color.White
+        Me.pnlTop.Location = New System.Drawing.Point(194, 0)
+        Me.pnlTop.Name = "pnlTop"
+        Me.pnlTop.Size = New System.Drawing.Size(1090, 39)
+        Me.pnlTop.TabIndex = 0
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(6, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1284, 721)
         Me.Controls.Add(Me.pnlContainer)
         Me.Controls.Add(Me.pnlTop)
@@ -507,7 +509,7 @@ Partial Class frmMain
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents prgExperience As Guna.UI2.WinForms.Guna2ProgressBar
     Friend WithEvents lblLevel As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents pnlTop As Guna.UI2.WinForms.Guna2Panel
     Private WithEvents btnClose As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents pnlTop As Guna.UI2.WinForms.Guna2Panel
 End Class

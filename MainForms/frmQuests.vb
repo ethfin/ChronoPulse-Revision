@@ -110,7 +110,7 @@ Public Class frmQuests
 
         Dim prgQuest As New Guna2ProgressBar With {
         .Location = New Point(10, 50),
-        .Size = New Size(300, 20),
+        .Size = New Size(530, 20),
         .Value = CInt(progressValue * 100),
         .FillColor = Color.Gray,
         .ProgressColor = Color.LightGreen
