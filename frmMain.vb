@@ -176,7 +176,7 @@ Public Class frmMain
         ' Add a title label for the leaderboard
         Dim lblTitle As New Label()
         lblTitle.Text = "Leaderboard"
-        lblTitle.Font = New Font("Microsoft Sans Serif", 12, FontStyle.Bold)
+        lblTitle.Font = New Font("Pixelify Sans", 15.75, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
         lblTitle.AutoSize = False
         lblTitle.TextAlign = ContentAlignment.MiddleCenter
