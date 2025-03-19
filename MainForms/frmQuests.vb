@@ -104,7 +104,12 @@ Public Class frmQuests
         .BackColor = Color.Transparent
     }
 
-        Dim progressValue As Decimal = Math.Max(0, Math.Min(1, currentSaved / goalAmount))
+        Dim progressValue As Decimal
+        If goalAmount <> 0 Then
+            progressValue = Math.Max(0, Math.Min(1, currentSaved / goalAmount))
+        Else
+            progressValue = 0 ' or handle it in a way that makes sense for your application
+        End If
         lblProgress.Text = String.Format("Progress: ${0:F2} / ${1:F2}", Math.Max(0, currentSaved), goalAmount)
         questPanel.Controls.Add(lblProgress)
 

@@ -46,6 +46,7 @@ Partial Class frmMain
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
+        Me.chkToggleHide = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.pnlMenu.SuspendLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel4.SuspendLayout()
@@ -431,6 +432,7 @@ Partial Class frmMain
         '
         Me.pnlTop.BackColor = System.Drawing.Color.Transparent
         Me.pnlTop.BorderColor = System.Drawing.Color.Transparent
+        Me.pnlTop.Controls.Add(Me.chkToggleHide)
         Me.pnlTop.Controls.Add(Me.btnClose)
         Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
@@ -439,6 +441,24 @@ Partial Class frmMain
         Me.pnlTop.Name = "pnlTop"
         Me.pnlTop.Size = New System.Drawing.Size(1090, 39)
         Me.pnlTop.TabIndex = 0
+        '
+        'chkToggleHide
+        '
+        Me.chkToggleHide.AutoSize = True
+        Me.chkToggleHide.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.chkToggleHide.CheckedState.BorderRadius = 0
+        Me.chkToggleHide.CheckedState.BorderThickness = 0
+        Me.chkToggleHide.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.chkToggleHide.Font = New System.Drawing.Font("Pixelify Sans", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkToggleHide.Location = New System.Drawing.Point(6, 10)
+        Me.chkToggleHide.Name = "chkToggleHide"
+        Me.chkToggleHide.Size = New System.Drawing.Size(111, 17)
+        Me.chkToggleHide.TabIndex = 2
+        Me.chkToggleHide.Text = "Hide Username"
+        Me.chkToggleHide.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.chkToggleHide.UncheckedState.BorderRadius = 0
+        Me.chkToggleHide.UncheckedState.BorderThickness = 0
+        Me.chkToggleHide.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
         'frmMain
         '
@@ -463,6 +483,7 @@ Partial Class frmMain
         CType(Me.pbxUser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsDropDown.ResumeLayout(False)
         Me.pnlTop.ResumeLayout(False)
+        Me.pnlTop.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -489,4 +510,5 @@ Partial Class frmMain
     Friend WithEvents pnlTop As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents btnLogout As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlLeaderboard As FlowLayoutPanel
+    Friend WithEvents chkToggleHide As Guna.UI2.WinForms.Guna2CheckBox
 End Class

@@ -61,8 +61,10 @@ Public Class frmMain
         LoadForm(New frmDashboard)
 
         ' Load user experience data
-        UserExperience.LoadUserExperience(AccountData.UserID)
-        UpdateExperienceBar()
+        If Not String.IsNullOrEmpty(AccountData.UserID) Then
+            UserExperience.LoadUserExperience(AccountData.UserID)
+            UpdateExperienceBar()
+        End If
 
         ' Load and display leaderboard
         LoadLeaderboard()
@@ -78,8 +80,48 @@ Public Class frmMain
         contextMenu.Items.AddRange(New ToolStripItem() {showMenuItem, closeMenuItem})
         NotifyIcon1.ContextMenuStrip = contextMenu
         UpdateUserProfileImage()
+        chkToggleHide.Checked = GetHideNameSetting(AccountData.UserID)
+        lblUsername.Text = If(chkToggleHide.Checked, "Anonymous", AccountData.Username)
     End Sub
 
+    Private Sub chkToggleHide_CheckedChanged(sender As Object, e As EventArgs) Handles chkToggleHide.CheckedChanged
+        Dim hideName As Boolean = chkToggleHide.Checked
+        UpdateHideNameInLeaderboard(AccountData.UserID, hideName)
+        lblUsername.Text = If(hideName, "Anonymous", AccountData.Username)
+        LoadLeaderboard()
+    End Sub
+
+    Private Function GetHideNameSetting(userID As Integer) As Boolean
+        Try
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "SELECT HideNameInLeaderboard FROM dbaccounts WHERE UserID = @UserID"
+                Using cmd As New MySqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@UserID", userID)
+                    Return Convert.ToBoolean(cmd.ExecuteScalar())
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving hide name setting: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
+    Private Sub UpdateHideNameInLeaderboard(userID As Integer, hideName As Boolean)
+        Try
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "UPDATE dbaccounts SET HideNameInLeaderboard = @HideName WHERE UserID = @UserID"
+                Using cmd As New MySqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@HideName", hideName)
+                    cmd.Parameters.AddWithValue("@UserID", userID)
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error updating hide name setting: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
     '-- System Tray Icon --
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -184,7 +226,7 @@ Public Class frmMain
         pnlLeaderboard.Controls.Add(flpLeaderboard)
 
         ' Get top users from the database (max 10)
-        Dim topUsers As List(Of Tuple(Of String, Integer, Integer)) = GetTopUsers(10)
+        Dim topUsers As List(Of Tuple(Of String, Integer, Integer, Boolean)) = GetTopUsers(10)
 
         ' Display each user in the leaderboard
         For i As Integer = 0 To topUsers.Count - 1
@@ -212,16 +254,16 @@ Public Class frmMain
             End Select
 
             ' Add rank indicator (1st, 2nd, 3rd, etc.)
-            Dim lblRank As New Guna.UI2.WinForms.Guna2HtmlLabel()
-            lblRank.Text = $"#{i + 1}"
-            lblRank.ForeColor = If(i = 0, Color.Gold, If(i = 1, Color.Silver, If(i = 2, Color.SandyBrown, Color.White)))
-            lblRank.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
-            lblRank.Location = New Point(userPanel.Width - 30, 5)
-            lblRank.AutoSize = True
+            'Dim lblRank As New Guna.UI2.WinForms.Guna2HtmlLabel()
+            'lblRank.Text = $"#{i + 1}"
+            'lblRank.ForeColor = If(i = 0, Color.Gold, If(i = 1, Color.Silver, If(i = 2, Color.SandyBrown, Color.White)))
+            'lblRank.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
+            'lblRank.Location = New Point(userPanel.Width - 30, 5)
+            'lblRank.AutoSize = True
 
             ' Username label with gradient effect
             Dim lblUsername As New Guna.UI2.WinForms.Guna2HtmlLabel()
-            lblUsername.Text = topUsers(i).Item1
+            lblUsername.Text = If(topUsers(i).Item4, "Anonymous", topUsers(i).Item1)
             lblUsername.ForeColor = Color.White
             lblUsername.Location = New Point(40, 5)
             lblUsername.AutoSize = True
@@ -242,7 +284,7 @@ Public Class frmMain
             lblLevel.Text = "Lvl " & topUsers(i).Item2.ToString()
             lblLevel.ForeColor = Color.Aqua
             lblLevel.Font = New Font("Microsoft Sans Serif", 8, FontStyle.Bold)
-            lblLevel.Location = New Point(userPanel.Width - 80, 5)
+            lblLevel.Location = New Point(userPanel.Width - 40, 5)
             lblLevel.AutoSize = True
 
             ' Add effects on hover
@@ -257,7 +299,7 @@ Public Class frmMain
             ' Assemble panel
             userPanel.Controls.Add(pbxUserIcon)
             userPanel.Controls.Add(lblUsername)
-            userPanel.Controls.Add(lblRank)
+            'userPanel.Controls.Add(lblRank)
             userPanel.Controls.Add(lblLevel)
             userPanel.Controls.Add(prgXP)
 
@@ -277,19 +319,20 @@ Public Class frmMain
         End If
     End Sub
 
+
     ' Function to get top users from the database
-    Private Function GetTopUsers(ByVal limit As Integer) As List(Of Tuple(Of String, Integer, Integer))
-        Dim topUsers As New List(Of Tuple(Of String, Integer, Integer))
+    Private Function GetTopUsers(ByVal limit As Integer) As List(Of Tuple(Of String, Integer, Integer, Boolean))
+        Dim topUsers As New List(Of Tuple(Of String, Integer, Integer, Boolean))
 
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
-                ' Updated query to use dbaccounts table instead of users
-                Dim query As String = "SELECT a.Username, e.Level, e.Experience " &
-                              "FROM user_experience e " &
-                              "INNER JOIN dbaccounts a ON e.UserID = a.UserID " &
-                              "ORDER BY e.Level DESC, e.Experience DESC " &
-                              "LIMIT @Limit"
+                ' Updated query to use dbaccounts table and include HideNameInLeaderboard column
+                Dim query As String = "SELECT a.Username, e.Level, e.Experience, a.HideNameInLeaderboard " &
+                                  "FROM user_experience e " &
+                                  "INNER JOIN dbaccounts a ON e.UserID = a.UserID " &
+                                  "ORDER BY e.Level DESC, e.Experience DESC " &
+                                  "LIMIT @Limit"
 
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@Limit", limit)
@@ -299,9 +342,10 @@ Public Class frmMain
                             Dim username As String = reader.GetString("Username")
                             Dim level As Integer = reader.GetInt32("Level")
                             Dim experience As Integer = reader.GetInt32("Experience")
+                            Dim hideName As Boolean = reader.GetBoolean("HideNameInLeaderboard")
 
                             ' Add to list
-                            topUsers.Add(New Tuple(Of String, Integer, Integer)(username, level, experience))
+                            topUsers.Add(New Tuple(Of String, Integer, Integer, Boolean)(username, level, experience, hideName))
                         End While
                     End Using
                 End Using
