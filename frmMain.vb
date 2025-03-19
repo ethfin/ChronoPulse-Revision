@@ -183,14 +183,14 @@ Public Class frmMain
         lblTitle.Size = New Size(pnlLeaderboard.Width - 10, 30)
         pnlLeaderboard.Controls.Add(lblTitle)
 
-        ' Get top users from the database (max 5)
-        Dim topUsers As List(Of Tuple(Of String, Integer, Integer)) = GetTopUsers(5)
+        ' Get top users from the database (max 10)
+        Dim topUsers As List(Of Tuple(Of String, Integer, Integer)) = GetTopUsers(10)
 
         ' Display each user in the leaderboard
         For i As Integer = 0 To topUsers.Count - 1
             ' Create a panel for each user entry using Guna2Panel for better styling
             Dim userPanel As New Guna.UI2.WinForms.Guna2Panel()
-            userPanel.Size = New Size(pnlLeaderboard.Width - 14, 40)
+            userPanel.Size = New Size(pnlLeaderboard.Width - 20, 40)
             userPanel.FillColor = Color.FromArgb(6, 8, 31)
             userPanel.BorderColor = If(i = 0, Color.Gold, If(i = 1, Color.Silver, If(i = 2, Color.SandyBrown, Color.FromArgb(64, 64, 64))))
             userPanel.BorderThickness = 1
@@ -216,7 +216,7 @@ Public Class frmMain
             lblRank.Text = $"#{i + 1}"
             lblRank.ForeColor = If(i = 0, Color.Gold, If(i = 1, Color.Silver, If(i = 2, Color.SandyBrown, Color.White)))
             lblRank.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
-            lblRank.Location = New Point(userPanel.Width - 30, 10)
+            lblRank.Location = New Point(userPanel.Width - 30, 5)
             lblRank.AutoSize = True
 
             ' Username label with gradient effect
@@ -235,14 +235,14 @@ Public Class frmMain
             prgXP.ProgressColor2 = Color.FromArgb(0, 180, 255)
             prgXP.BorderRadius = 5
             prgXP.Location = New Point(40, 25)
-            prgXP.Size = New Size(110, 8)
+            prgXP.Size = New Size(userPanel.Width - 50, 8)
 
             ' Level label with custom styling
             Dim lblLevel As New Guna.UI2.WinForms.Guna2HtmlLabel()
             lblLevel.Text = "Lvl " & topUsers(i).Item2.ToString()
             lblLevel.ForeColor = Color.Aqua
             lblLevel.Font = New Font("Microsoft Sans Serif", 8, FontStyle.Bold)
-            lblLevel.Location = New Point(170, 10)
+            lblLevel.Location = New Point(userPanel.Width - 80, 5)
             lblLevel.AutoSize = True
 
             ' Add effects on hover
