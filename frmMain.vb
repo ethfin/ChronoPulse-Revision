@@ -80,17 +80,6 @@ Public Class frmMain
         UpdateUserProfileImage()
     End Sub
 
-    ' Backup code for closing the application
-    'Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-    '    ' Ask for confirmation before closing the application
-    '    Dim result As DialogResult = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-    '    If result = DialogResult.No Then
-    '        e.Cancel = True ' Cancel the form closing event
-    '    End If
-    '    If result = DialogResult.Yes Then
-    '        frmLogin.Close() ' Close the application
-    '    End If
-    'End Sub
 
     '-- System Tray Icon --
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -183,6 +172,17 @@ Public Class frmMain
         lblTitle.Size = New Size(pnlLeaderboard.Width - 10, 30)
         pnlLeaderboard.Controls.Add(lblTitle)
 
+        ' Create a FlowLayoutPanel for the leaderboard
+        Dim flpLeaderboard As New FlowLayoutPanel()
+        flpLeaderboard.FlowDirection = FlowDirection.TopDown
+        flpLeaderboard.WrapContents = False
+        flpLeaderboard.AutoScroll = True
+        flpLeaderboard.HorizontalScroll.Enabled = False
+        flpLeaderboard.HorizontalScroll.Visible = False
+        flpLeaderboard.Size = New Size(pnlLeaderboard.Width - 10, pnlLeaderboard.Height - 40)
+        flpLeaderboard.Location = New Point(5, 35)
+        pnlLeaderboard.Controls.Add(flpLeaderboard)
+
         ' Get top users from the database (max 10)
         Dim topUsers As List(Of Tuple(Of String, Integer, Integer)) = GetTopUsers(10)
 
@@ -190,7 +190,7 @@ Public Class frmMain
         For i As Integer = 0 To topUsers.Count - 1
             ' Create a panel for each user entry using Guna2Panel for better styling
             Dim userPanel As New Guna.UI2.WinForms.Guna2Panel()
-            userPanel.Size = New Size(pnlLeaderboard.Width - 20, 40)
+            userPanel.Size = New Size(flpLeaderboard.Width - 30, 40)
             userPanel.FillColor = Color.FromArgb(6, 8, 31)
             userPanel.BorderColor = If(i = 0, Color.Gold, If(i = 1, Color.Silver, If(i = 2, Color.SandyBrown, Color.FromArgb(64, 64, 64))))
             userPanel.BorderThickness = 1
@@ -262,7 +262,7 @@ Public Class frmMain
             userPanel.Controls.Add(prgXP)
 
             ' Add panel to leaderboard
-            pnlLeaderboard.Controls.Add(userPanel)
+            flpLeaderboard.Controls.Add(userPanel)
         Next
 
         ' Add message if no users found
@@ -272,8 +272,8 @@ Public Class frmMain
             lblNoUsers.ForeColor = Color.White
             lblNoUsers.AutoSize = False
             lblNoUsers.TextAlign = ContentAlignment.MiddleCenter
-            lblNoUsers.Size = New Size(pnlLeaderboard.Width - 10, 30)
-            pnlLeaderboard.Controls.Add(lblNoUsers)
+            lblNoUsers.Size = New Size(flpLeaderboard.Width - 10, 30)
+            flpLeaderboard.Controls.Add(lblNoUsers)
         End If
     End Sub
 
@@ -313,71 +313,6 @@ Public Class frmMain
 
         Return topUsers
     End Function
-
-    'Private Sub ckbxTheme_CheckedChanged(sender As Object, e As EventArgs) Handles ckbxTheme.CheckedChanged
-    '    ' Toggle the theme based on the checkbox state
-    '    If ckbxTheme.Checked Then
-    '        ' Set the dark theme
-    '        SetDarkTheme()
-    '    Else
-    '        ' Set the light theme
-    '        SetLightTheme()
-    '    End If
-    'End Sub
-
-    'Private Sub SetDarkTheme()
-    '    ' Set the background color to dark  
-    '    Me.BackColor = Color.FromArgb(20, 20, 22)
-    '    pnlContainer.BackColor = Color.FromArgb(20, 20, 22)
-    '    pnlMenu.BackColor = Color.FromArgb(20, 20, 22)
-    '    ' Set the text color to light  
-    '    lblUsername.ForeColor = Color.FromArgb(255, 255, 255)
-    '    lblCurrentPanel.ForeColor = Color.FromArgb(255, 255, 255)
-    '    ' Set the Logo to a different image  
-    '    pbxLogo.Image = My.Resources.ChronoPulse_Logo_Light
-    '    pbxUser.Image = My.Resources.user_white
-    '    btnDashboard.Image = My.Resources.dashboard_blue
-    '    btnAI.Image = My.Resources.game_controller_blue
-    '    btnExpenses.Image = My.Resources.btnDExpenses
-    '    btnIncome.Image = My.Resources.btnDIncome
-    '    'btnBudget.Image = My.Resources.btnDBudget
-    '    btnSavings.Image = My.Resources.btnDSavings
-    '    btnAI.Image = My.Resources.chat_blue
-    '    ' Set the button text color to white  
-    '    btnDashboard.ForeColor = Color.White
-    '    btnAI.ForeColor = Color.White
-    '    btnExpenses.ForeColor = Color.White
-    '    btnIncome.ForeColor = Color.White
-    '    'btnBudget.ForeColor = Color.White
-    '    btnSavings.ForeColor = Color.White
-    'End Sub
-
-    'Private Sub SetLightTheme()
-    '    ' Set the background color to dark
-    '    Me.BackColor = Color.GhostWhite
-    '    pnlContainer.BackColor = Color.GhostWhite
-    '    pnlMenu.BackColor = Color.GhostWhite
-    '    ' Set the text color to light
-    '    lblUsername.ForeColor = Color.Black
-    '    lblCurrentPanel.ForeColor = Color.Black
-    '    ' Set the Logo to a different image
-    '    pbxLogo.Image = My.Resources.ChronoPulse_Logo_Dark
-    '    pbxUser.Image = My.Resources.user
-    '    btnDashboard.Image = My.Resources.dashboard
-    '    btnAI.Image = My.Resources.game_controller
-    '    btnExpenses.Image = My.Resources.btnExpenses
-    '    btnIncome.Image = My.Resources.btnIncome
-    '    'btnBudget.Image = My.Resources.btnBudget
-    '    btnSavings.Image = My.Resources.btnSavings
-    '    btnAI.Image = My.Resources.chat_blue
-    '    ' Set the button text color to black  
-    '    btnDashboard.ForeColor = Color.Black
-    '    btnAI.ForeColor = Color.Black
-    '    btnExpenses.ForeColor = Color.Black
-    '    btnIncome.ForeColor = Color.Black
-    '    'btnBudget.ForeColor = Color.Black
-    '    btnSavings.ForeColor = Color.Black
-    'End Sub
 
     <DllImport("Gdi32.dll")>
     Private Shared Function CreateRoundRectRgn(ByVal x1 As Integer, ByVal y1 As Integer, ByVal x2 As Integer, ByVal y2 As Integer, ByVal cx As Integer, ByVal cy As Integer) As IntPtr
