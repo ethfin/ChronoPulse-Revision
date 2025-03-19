@@ -426,9 +426,20 @@ Public Class frmOCR
         Try
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
-                Dim query As String = "SELECT COUNT(*) FROM (SELECT ImageHash FROM user_income WHERE ImageHash = @ImageHash UNION ALL SELECT ImageHash FROM user_expenses WHERE ImageHash = @ImageHash) AS combined"
+
+                ' Compare both image hash AND user ID:
+                Dim query As String =
+                "SELECT COUNT(*) FROM (
+                    SELECT ImageHash FROM user_income 
+                        WHERE ImageHash = @ImageHash AND UserID = @UserID
+                    UNION ALL
+                    SELECT ImageHash FROM user_expenses 
+                        WHERE ImageHash = @ImageHash AND UserID = @UserID
+                ) AS combined"
+
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@ImageHash", imageHash)
+                    cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                     Dim count As Integer = Convert.ToInt32(Await cmd.ExecuteScalarAsync())
                     Return count > 0
                 End Using
@@ -438,6 +449,24 @@ Public Class frmOCR
             Return False
         End Try
     End Function
+
+
+    'Private Async Function IsImageHashDuplicate(imageHash As String) As Task(Of Boolean)
+    '    Try
+    '        Using connection As MySqlConnection = Common.createDBConnection()
+    '            connection.Open()
+    '            Dim query As String = "SELECT COUNT(*) FROM (SELECT ImageHash FROM user_income WHERE ImageHash = @ImageHash UNION ALL SELECT ImageHash FROM user_expenses WHERE ImageHash = @ImageHash) AS combined"
+    '            Using cmd As New MySqlCommand(query, connection)
+    '                cmd.Parameters.AddWithValue("@ImageHash", imageHash)
+    '                Dim count As Integer = Convert.ToInt32(Await cmd.ExecuteScalarAsync())
+    '                Return count > 0
+    '            End Using
+    '        End Using
+    '    Catch ex As Exception
+    '        MessageBox.Show("Error checking image hash: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        Return False
+    '    End Try
+    'End Function
 
     Private Async Sub btnUploadData_Click(sender As Object, e As EventArgs) Handles btnUploadData.Click
         If String.IsNullOrWhiteSpace(_lastOcrText) Then
