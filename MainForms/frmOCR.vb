@@ -7,12 +7,23 @@ Imports System.Text
 Imports Newtonsoft.Json
 Imports MySql.Data.MySqlClient
 Imports System.Text.RegularExpressions
+Imports System.Security.Cryptography
 
 Public Class frmOCR
     Private ReadOnly httpClient As HttpClient
     Private Const DEEPSEEK_API_URL As String = "https://api.deepseek.com/chat/completions"
     Private dbConnection As MySqlConnection
     Private _lastOcrText As String = String.Empty
+    Private _lastImageHash As String = String.Empty
+
+    Private Function CalculateImageHash(filePath As String) As String
+        Using sha256 As SHA256 = SHA256.Create()
+            Using fileStream As FileStream = File.OpenRead(filePath)
+                Dim hashBytes As Byte() = sha256.ComputeHash(fileStream)
+                Return BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant()
+            End Using
+        End Using
+    End Function
 
     Public Sub New()
         InitializeComponent()
@@ -222,7 +233,7 @@ Public Class frmOCR
         End Try
     End Function
 
-    Private Async Function SaveOCRDataToDatabase(jsonData As JObject) As Task(Of Boolean)
+    Private Async Function SaveOCRDataToDatabase(jsonData As JObject, imageHash As String) As Task(Of Boolean)
         If jsonData Is Nothing OrElse Not jsonData.HasValues Then
             MessageBox.Show("No valid data to save.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
@@ -233,9 +244,9 @@ Public Class frmOCR
 
         Select Case category.ToLower()
             Case "income"
-                success = Await SaveIncomeData(jsonData)
+                success = Await SaveIncomeData(jsonData, imageHash)
             Case "expense"
-                success = Await SaveExpenseData(jsonData)
+                success = Await SaveExpenseData(jsonData, imageHash)
             Case "savings"
                 success = Await SaveSavingsData(jsonData)
             Case Else
@@ -246,7 +257,7 @@ Public Class frmOCR
         Return success
     End Function
 
-    Private Async Function SaveIncomeData(data As JObject) As Task(Of Boolean)
+    Private Async Function SaveIncomeData(data As JObject, imageHash As String) As Task(Of Boolean)
         Try
             Dim source As String = data.Value(Of String)("source")
             Dim amount As Decimal = data.Value(Of Decimal)("amount")
@@ -259,12 +270,13 @@ Public Class frmOCR
 
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
-                Dim query As String = "INSERT INTO user_income (UserID, Source, Amount, Date) VALUES (@UserID, @Source, @Amount, @Date)"
+                Dim query As String = "INSERT INTO user_income (UserID, Source, Amount, Date, ImageHash) VALUES (@UserID, @Source, @Amount, @Date, @ImageHash)"
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                     cmd.Parameters.AddWithValue("@Source", source)
                     cmd.Parameters.AddWithValue("@Amount", amount)
                     cmd.Parameters.AddWithValue("@Date", incomeDate)
+                    cmd.Parameters.AddWithValue("@ImageHash", imageHash)
                     Await cmd.ExecuteNonQueryAsync()
                 End Using
             End Using
@@ -275,7 +287,7 @@ Public Class frmOCR
         End Try
     End Function
 
-    Private Async Function SaveExpenseData(data As JObject) As Task(Of Boolean)
+    Private Async Function SaveExpenseData(data As JObject, imageHash As String) As Task(Of Boolean)
         Try
             Dim item As String = data.Value(Of String)("item")
             Dim cost As Decimal = data.Value(Of Decimal)("cost")
@@ -290,7 +302,7 @@ Public Class frmOCR
 
             Using connection As MySqlConnection = Common.createDBConnection()
                 connection.Open()
-                Dim query As String = "INSERT INTO user_expenses (UserID, Item, Cost, Category, Description, date) VALUES (@UserID, @Item, @Cost, @Category, @Description, @Date)"
+                Dim query As String = "INSERT INTO user_expenses (UserID, Item, Cost, Category, Description, Date, ImageHash) VALUES (@UserID, @Item, @Cost, @Category, @Description, @Date, @ImageHash)"
                 Using cmd As New MySqlCommand(query, connection)
                     cmd.Parameters.AddWithValue("@UserID", AccountData.UserID)
                     cmd.Parameters.AddWithValue("@Item", item)
@@ -298,6 +310,7 @@ Public Class frmOCR
                     cmd.Parameters.AddWithValue("@Category", category)
                     cmd.Parameters.AddWithValue("@Description", description)
                     cmd.Parameters.AddWithValue("@Date", expenseDate)
+                    cmd.Parameters.AddWithValue("@ImageHash", imageHash)
                     Await cmd.ExecuteNonQueryAsync()
                 End Using
             End Using
@@ -370,34 +383,31 @@ Public Class frmOCR
                 If openFileDialog.ShowDialog() = DialogResult.OK Then
                     Dim selectedFilePath As String = openFileDialog.FileName
 
-                    ' Show processing message in AI response textbox
+                    Dim imageHash As String = CalculateImageHash(selectedFilePath)
+                    _lastImageHash = imageHash  ' Store the image hash
+
+                    If Await IsImageHashDuplicate(imageHash) Then
+                        MessageBox.Show("This image has already been uploaded.", "Duplicate Image", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+
                     rtbAIResponse.Text = "Processing image, please wait..."
                     btnOpenFile.Enabled = False
                     btnUploadData.Enabled = False
                     pbxScan.Visible = False
 
-                    ' First perform OCR
                     Dim ocrResult As String = Await UploadImageToOCRSpace(selectedFilePath)
-
-                    ' Store OCR text in the private field instead of the removed RichTextBox
                     _lastOcrText = ocrResult
 
-                    ' Then perform AI analysis directly
                     Dim analysis As String = Await GetAIAnalysis(ocrResult)
                     rtbAIResponse.Text = analysis
 
-                    ' Add experience points
                     UserExperience.AddXP(50)
-
-                    ' Save user experience data
                     UserExperience.SaveUserExperience(AccountData.UserID)
 
-                    ' Update the experience bar in frmMain
                     Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
                     If mainForm IsNot Nothing Then
                         mainForm.UpdateExperienceBar()
-
-                        ' Force the progress bar to refresh
                         mainForm.prgExperience.Invalidate()
                         mainForm.prgExperience.Refresh()
                         mainForm.lblLevel.Refresh()
@@ -412,6 +422,23 @@ Public Class frmOCR
         End Try
     End Sub
 
+    Private Async Function IsImageHashDuplicate(imageHash As String) As Task(Of Boolean)
+        Try
+            Using connection As MySqlConnection = Common.createDBConnection()
+                connection.Open()
+                Dim query As String = "SELECT COUNT(*) FROM (SELECT ImageHash FROM user_income WHERE ImageHash = @ImageHash UNION ALL SELECT ImageHash FROM user_expenses WHERE ImageHash = @ImageHash) AS combined"
+                Using cmd As New MySqlCommand(query, connection)
+                    cmd.Parameters.AddWithValue("@ImageHash", imageHash)
+                    Dim count As Integer = Convert.ToInt32(Await cmd.ExecuteScalarAsync())
+                    Return count > 0
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error checking image hash: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
     Private Async Sub btnUploadData_Click(sender As Object, e As EventArgs) Handles btnUploadData.Click
         If String.IsNullOrWhiteSpace(_lastOcrText) Then
             MessageBox.Show("Please scan a document first.", "No Text", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -423,41 +450,31 @@ Public Class frmOCR
         rtbAIResponse.Text = "Processing document..."
 
         Try
-            ' First classify the data (but don't show the detailed result)
             Dim classificationResult As String = Await ClassifyOCRDataWithAI(_lastOcrText)
-
-            ' Extract JSON data from AI response
             Dim jsonData As JObject = ExtractJsonFromAIResponse(classificationResult)
 
             If jsonData IsNot Nothing AndAlso jsonData.HasValues Then
-                ' Get the category for the confirmation message
                 Dim category As String = jsonData.Value(Of String)("category")
-
-                ' Confirm with user before uploading
                 Dim result = MessageBox.Show(
-            $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
-            "Confirm Upload",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question)
+                $"The document has been classified as {category}. Would you like to upload this data to your {category.ToLower()} records?",
+                "Confirm Upload",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            )
 
                 If result = DialogResult.Yes Then
-                    Dim success As Boolean = Await SaveOCRDataToDatabase(jsonData)
+                    ' Pass the stored image hash here
+                    Dim success As Boolean = Await SaveOCRDataToDatabase(jsonData, _lastImageHash)
                     If success Then
                         MessageBox.Show($"Data has been successfully added to your {category.ToLower()} records.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         rtbAIResponse.Text = $"✓ Document processed and uploaded as {category}"
 
-                        ' Add experience points
                         UserExperience.AddXP(30)
-
-                        ' Save user experience data
                         UserExperience.SaveUserExperience(AccountData.UserID)
 
-                        ' Update the experience bar in frmMain
                         Dim mainForm As frmMain = CType(Application.OpenForms("frmMain"), frmMain)
                         If mainForm IsNot Nothing Then
                             mainForm.UpdateExperienceBar()
-
-                            ' Force the progress bar to refresh
                             mainForm.prgExperience.Invalidate()
                             mainForm.prgExperience.Refresh()
                             mainForm.lblLevel.Refresh()
