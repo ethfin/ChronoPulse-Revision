@@ -47,6 +47,7 @@ Partial Class frmMain
         Me.btnClose = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
         Me.chkToggleHide = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.btnRequestDeletion = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlMenu.SuspendLayout()
         CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel4.SuspendLayout()
@@ -114,7 +115,7 @@ Partial Class frmMain
         '
         Me.pnlLeaderboard.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.pnlLeaderboard.Location = New System.Drawing.Point(0, 431)
-        Me.pnlLeaderboard.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnlLeaderboard.Margin = New System.Windows.Forms.Padding(2)
         Me.pnlLeaderboard.Name = "pnlLeaderboard"
         Me.pnlLeaderboard.Size = New System.Drawing.Size(192, 184)
         Me.pnlLeaderboard.TabIndex = 14
@@ -432,6 +433,7 @@ Partial Class frmMain
         '
         Me.pnlTop.BackColor = System.Drawing.Color.Transparent
         Me.pnlTop.BorderColor = System.Drawing.Color.Transparent
+        Me.pnlTop.Controls.Add(Me.btnRequestDeletion)
         Me.pnlTop.Controls.Add(Me.chkToggleHide)
         Me.pnlTop.Controls.Add(Me.btnClose)
         Me.pnlTop.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -459,6 +461,30 @@ Partial Class frmMain
         Me.chkToggleHide.UncheckedState.BorderRadius = 0
         Me.chkToggleHide.UncheckedState.BorderThickness = 0
         Me.chkToggleHide.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        '
+        'btnRequestDeletion
+        '
+        Me.btnRequestDeletion.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnRequestDeletion.Animated = True
+        Me.btnRequestDeletion.BackColor = System.Drawing.Color.Transparent
+        Me.btnRequestDeletion.BorderRadius = 10
+        Me.btnRequestDeletion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRequestDeletion.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnRequestDeletion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnRequestDeletion.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnRequestDeletion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnRequestDeletion.FillColor = System.Drawing.Color.Transparent
+        Me.btnRequestDeletion.Font = New System.Drawing.Font("Pixelify Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRequestDeletion.ForeColor = System.Drawing.Color.Red
+        Me.btnRequestDeletion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnRequestDeletion.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnRequestDeletion.IndicateFocus = True
+        Me.btnRequestDeletion.Location = New System.Drawing.Point(123, 7)
+        Me.btnRequestDeletion.Name = "btnRequestDeletion"
+        Me.btnRequestDeletion.Size = New System.Drawing.Size(111, 23)
+        Me.btnRequestDeletion.TabIndex = 15
+        Me.btnRequestDeletion.Text = "DELETE"
+        Me.btnRequestDeletion.UseTransparentBackground = True
         '
         'frmMain
         '
@@ -511,4 +537,5 @@ Partial Class frmMain
     Friend WithEvents btnLogout As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlLeaderboard As FlowLayoutPanel
     Friend WithEvents chkToggleHide As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents btnRequestDeletion As Guna.UI2.WinForms.Guna2Button
 End Class

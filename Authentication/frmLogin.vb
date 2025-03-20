@@ -82,7 +82,6 @@ Public Class frmLogin
         Dim password As String = txtPassword.Text
 
         If String.IsNullOrEmpty(username) OrElse String.IsNullOrEmpty(password) Then
-            'use lblErrorMsg to display error message
             lblErrorMsg.Text = "Please enter username and password."
             lblErrorMsg.ForeColor = Color.Red
             txtUsername.BorderColor = Color.Red
@@ -99,43 +98,63 @@ Public Class frmLogin
         Using myDBConnection As MySqlConnection = createDBConnection()
             myDBConnection.Open()
 
-            Dim query As String = "SELECT COUNT(*) FROM dbaccounts WHERE username = @username AND password = @password"
+            Dim query As String = "SELECT UserID, DeletionRequestDate FROM dbaccounts WHERE username = @username AND password = @password"
             Dim cmd As New MySqlCommand(query, myDBConnection)
             cmd.Parameters.AddWithValue("@username", username)
-            cmd.Parameters.AddWithValue("@password", HashPassword(password)) ' Hash the password
+            cmd.Parameters.AddWithValue("@password", HashPassword(password))
 
-            Dim count As Integer = CInt(cmd.ExecuteScalar())
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                If reader.Read() Then
+                    AccountData.Username = username
+                    AccountData.UserID = reader.GetInt32("UserID")
+                    Dim deletionRequestDate As DateTime? =
+                    If(reader.IsDBNull(reader.GetOrdinal("DeletionRequestDate")),
+                       CType(Nothing, DateTime?),
+                       reader.GetDateTime("DeletionRequestDate"))
 
-            If count > 0 Then
-                ' Store the username and userID in AccountData
-                AccountData.Username = username
-                AccountData.UserID = GetUserID(username)
+                    If deletionRequestDate.HasValue Then
+                        Dim daysSinceRequest = (DateTime.Now - deletionRequestDate.Value).Days
+                        If daysSinceRequest >= 30 Then
+                            ' Account is considered deleted; remove it now
+                            AccountData.DeleteAccount(AccountData.UserID)
+                            MessageBox.Show("This account has been deleted.", "Account Deleted",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Return
+                        Else
+                            ' Remove deletion mark if less than 30 days
+                            AccountData.RemoveDeletionMark(AccountData.UserID)
+                            MessageBox.Show("Your account deletion request has been canceled.",
+                                        "Account Reactivated",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                    End If
 
-                Dim frmMain As New frmMain()
-                frmMain.Show()
-                txtUsername.Clear()
-                txtPassword.Clear()
-                Me.Hide()
-            Else
-                loginAttempts += 1
-                lastInvalidAttemptTime = DateTime.Now
-
-                If loginAttempts >= 5 Then
-                    btnLogin.Enabled = False
-                    lblErrorMsg.Text = "Please try again in about 30 seconds."
-                    lblErrorMsg.ForeColor = Color.Red
-                    loginTimer = New Timer()
-                    loginTimer.Interval = 30000
-                    AddHandler loginTimer.Tick, AddressOf EnableLoginButton
-                    loginTimer.Start()
+                    Dim frmMain As New frmMain()
+                    frmMain.Show()
+                    txtUsername.Clear()
+                    txtPassword.Clear()
+                    Me.Hide()
                 Else
-                    'using lblErrorMsg to display error message
-                    lblErrorMsg.Text = "Invalid username or password. Please try again."
-                    lblErrorMsg.ForeColor = Color.Red
-                    txtUsername.BorderColor = Color.Red
-                    txtPassword.BorderColor = Color.Red
+                    loginAttempts += 1
+                    lastInvalidAttemptTime = DateTime.Now
+
+                    If loginAttempts >= 5 Then
+                        btnLogin.Enabled = False
+                        lblErrorMsg.Text = "Please try again in about 30 seconds."
+                        lblErrorMsg.ForeColor = Color.Red
+                        loginTimer = New Timer()
+                        loginTimer.Interval = 30000
+                        AddHandler loginTimer.Tick, AddressOf EnableLoginButton
+                        loginTimer.Start()
+                    Else
+                        'using lblErrorMsg to display error message
+                        lblErrorMsg.Text = "Invalid username or password. Please try again."
+                        lblErrorMsg.ForeColor = Color.Red
+                        txtUsername.BorderColor = Color.Red
+                        txtPassword.BorderColor = Color.Red
+                    End If
                 End If
-            End If
+            End Using
         End Using
     End Sub
 

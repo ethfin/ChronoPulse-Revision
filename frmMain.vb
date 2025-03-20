@@ -319,6 +319,34 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub btnRequestDeletion_Click(sender As Object, e As EventArgs) Handles btnRequestDeletion.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to request account deletion? This action cannot be undone.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If result = DialogResult.Yes Then
+            ' Mark the account for deletion
+            MarkAccountForDeletion()
+            ' Log out the user
+            LogoutUser()
+        End If
+    End Sub
+
+    Private Sub LogoutUser()
+        ' Clear the AccountData
+        AccountData.Clear()
+        ' Hide the main form and show the login form
+        Me.Hide()
+        frmLogin.Show()
+    End Sub
+
+    Private Sub MarkAccountForDeletion()
+        ' Assuming you have a method to get the current user's account ID
+        Dim accountId As Integer = AccountData.UserID
+        Dim deletionRequestDate As DateTime = DateTime.Now
+
+        ' Update the account data to mark it for deletion
+        AccountData.MarkForDeletion(accountId, deletionRequestDate)
+
+        MessageBox.Show("Your account has been marked for deletion. It will be permanently deleted after 30 days unless you log in again to cancel the deletion.", "Account Deletion Requested", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 
     ' Function to get top users from the database
     Private Function GetTopUsers(ByVal limit As Integer) As List(Of Tuple(Of String, Integer, Integer, Boolean))
