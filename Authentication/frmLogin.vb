@@ -181,8 +181,8 @@ Public Class frmLogin
 
     Private Sub lnklblSignup_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnklblSignup.LinkClicked
         ' Open the signup form
-        Dim frmSignup As New frmSignup()
-        frmSignup.Show()
+        Dim frmTOS As New frmTOS()
+        frmTOS.Show()
         txtUsername.Clear()
         txtPassword.Clear()
         Me.Hide()
