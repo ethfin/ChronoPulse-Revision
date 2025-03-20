@@ -39,10 +39,9 @@ Partial Class frmTOS
         Me.pnlTOS.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlTOS.FillColor = System.Drawing.Color.GhostWhite
         Me.pnlTOS.Location = New System.Drawing.Point(1, 1)
-        Me.pnlTOS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlTOS.Name = "pnlTOS"
-        Me.pnlTOS.Padding = New System.Windows.Forms.Padding(40, 37, 40, 37)
-        Me.pnlTOS.Size = New System.Drawing.Size(1298, 741)
+        Me.pnlTOS.Padding = New System.Windows.Forms.Padding(30, 30, 30, 30)
+        Me.pnlTOS.Size = New System.Drawing.Size(973, 602)
         Me.pnlTOS.TabIndex = 3
         '
         'btnAccept
@@ -58,10 +57,9 @@ Partial Class frmTOS
         Me.btnAccept.Font = New System.Drawing.Font("Pixelify Sans", 12.0!)
         Me.btnAccept.ForeColor = System.Drawing.Color.White
         Me.btnAccept.IndicateFocus = True
-        Me.btnAccept.Location = New System.Drawing.Point(475, 644)
-        Me.btnAccept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnAccept.Location = New System.Drawing.Point(356, 523)
         Me.btnAccept.Name = "btnAccept"
-        Me.btnAccept.Size = New System.Drawing.Size(347, 55)
+        Me.btnAccept.Size = New System.Drawing.Size(260, 45)
         Me.btnAccept.TabIndex = 5
         Me.btnAccept.Text = "Continue"
         '
@@ -69,10 +67,9 @@ Partial Class frmTOS
         '
         Me.rtbTOS.BackColor = System.Drawing.Color.GhostWhite
         Me.rtbTOS.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.rtbTOS.Location = New System.Drawing.Point(44, 60)
-        Me.rtbTOS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rtbTOS.Location = New System.Drawing.Point(33, 49)
         Me.rtbTOS.Name = "rtbTOS"
-        Me.rtbTOS.Size = New System.Drawing.Size(1209, 548)
+        Me.rtbTOS.Size = New System.Drawing.Size(907, 445)
         Me.rtbTOS.TabIndex = 2
         Me.rtbTOS.Text = ""
         '
@@ -84,10 +81,9 @@ Partial Class frmTOS
         Me.chbAgree.CheckedState.BorderThickness = 0
         Me.chbAgree.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.chbAgree.Font = New System.Drawing.Font("Pixelify Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chbAgree.Location = New System.Drawing.Point(455, 608)
-        Me.chbAgree.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chbAgree.Location = New System.Drawing.Point(320, 494)
         Me.chbAgree.Name = "chbAgree"
-        Me.chbAgree.Size = New System.Drawing.Size(403, 28)
+        Me.chbAgree.Size = New System.Drawing.Size(333, 24)
         Me.chbAgree.TabIndex = 1
         Me.chbAgree.Text = "I agree to the Terms of Service (TOS)"
         Me.chbAgree.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
@@ -106,25 +102,23 @@ Partial Class frmTOS
         Me.btnClose.ImageOffset = New System.Drawing.Point(0, 0)
         Me.btnClose.ImageRotate = 0!
         Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(1242, 16)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnClose.Location = New System.Drawing.Point(931, 13)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.PressedState.Image = Global.ChronoPulse_Revision.My.Resources.Resources.close_red
         Me.btnClose.PressedState.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Size = New System.Drawing.Size(40, 37)
+        Me.btnClose.Size = New System.Drawing.Size(30, 30)
         Me.btnClose.TabIndex = 0
         Me.btnClose.TabStop = False
         Me.btnClose.UseTransparentBackground = True
         '
         'frmTOS
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(1300, 743)
+        Me.ClientSize = New System.Drawing.Size(975, 604)
         Me.Controls.Add(Me.pnlTOS)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmTOS"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
