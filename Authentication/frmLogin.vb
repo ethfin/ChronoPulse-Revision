@@ -121,11 +121,24 @@ Public Class frmLogin
                                         MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Return
                         Else
-                            ' Remove deletion mark if less than 30 days
-                            AccountData.RemoveDeletionMark(AccountData.UserID)
-                            MessageBox.Show("Your account deletion request has been canceled.",
-                                        "Account Reactivated",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ' Ask user if they want to cancel the deletion request
+                            Dim result As DialogResult = MessageBox.Show("Your account is marked for deletion. Do you want to cancel the deletion request?",
+                                                                         "Cancel Deletion Request",
+                                                                         MessageBoxButtons.YesNo,
+                                                                         MessageBoxIcon.Question)
+                            If result = DialogResult.Yes Then
+                                ' Remove deletion mark if user chooses to cancel
+                                AccountData.RemoveDeletionMark(AccountData.UserID)
+                                MessageBox.Show("Your account deletion request has been canceled.",
+                                                "Account Reactivated",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Else
+                                ' Inform user that the account will remain marked for deletion
+                                MessageBox.Show("Your account will remain marked for deletion.",
+                                                "Account Deletion",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Return
+                            End If
                         End If
                     End If
 

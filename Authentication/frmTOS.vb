@@ -91,9 +91,11 @@ Public Class frmTOS
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to close?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to go back to the login screen?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
-            Application.Exit()
+            Dim loginForm As New frmLogin()
+            loginForm.Show()
+            Me.Close()
         End If
     End Sub
 

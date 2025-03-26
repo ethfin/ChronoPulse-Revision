@@ -283,7 +283,7 @@ Public Class frmExpenses
 
         Dim lblCost As New Label With {
            .Name = "lblCost" & expenseID.ToString(),
-           .Text = "Cost: " & cost.ToString("F2"),
+           .Text = "$" & cost.ToString("F2"),
            .Location = New Point(10, 30),
            .AutoSize = False,
            .Size = New Size(100, 20),
@@ -297,7 +297,7 @@ Public Class frmExpenses
 
         Dim lblCategory As New Label With {
            .Name = "lblCategory" & expenseID.ToString(),
-           .Text = "Category: " & category,
+           .Text = category,
            .Location = New Point(130, 10),
            .AutoSize = False,
            .Size = New Size(200, 20),
@@ -311,7 +311,7 @@ Public Class frmExpenses
 
         Dim lblDate As New Label With {
            .Name = "lblDate" & expenseID.ToString(),
-           .Text = "Date: " & expenseDate.ToShortDateString(),
+           .Text = expenseDate.ToShortDateString(),
            .Location = New Point(130, 30),
            .AutoSize = False,
            .Size = New Size(120, 20),
@@ -326,7 +326,7 @@ Public Class frmExpenses
         ' Optional: display description (could be in a separate label or tooltip)
         Dim lblDescription As New Label With {
            .Name = "lblDescription" & expenseID.ToString(),
-           .Text = "Note: " & description,
+           .Text = description,
            .Location = New Point(360, 10),
            .AutoSize = False,
            .Size = New Size(200, 20),
