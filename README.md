@@ -1,6 +1,6 @@
 # ChronoPulse
 
-ChronoPulse ⏳💥, an application that integrates finance 💰 and gaming 🎮 on one platform. It helps users control their gaming spending 💸, monitor their playtime ⏱️, and enhance their mental well-being 🌟 through interactive tasks and incentives. 🎯✨
+ChronoPulse is an integrated platform that bridges personal finance management with gaming activity tracking. The application empowers users to take control of their gaming habits by monitoring spending, tracking playtime, and providing actionable insights to enhance their overall gaming experience while maintaining financial awareness.
 
 ## Screenshots
 ![image](https://github.com/user-attachments/assets/44e591aa-e2b6-49d5-bea7-977444d79749)
