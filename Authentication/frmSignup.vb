@@ -109,21 +109,29 @@ Public Class frmSignup
     End Sub
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
-        If ValidateInputFieldsSecurity() AndAlso SecurityQuestionNotEmptyCombobox() AndAlso CompareAnswersQ1() AndAlso CompareAnswersQ2() Then
-            If InsertNewUser() Then
-                MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frmLogin.Show()
-                frmSignupDetails.Close()
-                frmSignupSecurity.Close()
-                Me.Close()
-            Else
-                MessageBox.Show("Failed to create account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+        ' Validate UI input first (single pass)
+        If Not ValidateInputFieldsSecurity() Then
+            Exit Sub
         End If
 
+        ' Check DB before attempting insert
         If Not IsDatabaseConnected() Then
-            MessageBox.Show("Cannot connect to the database. Please try again later.", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
+            MessageBox.Show("Cannot connect to the database. Please try again later.",
+                            "Database Connection Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        ' Attempt insert
+        If InsertNewUser() Then
+            MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            frmLogin.Show()
+            frmSignupDetails.Close()
+            frmSignupSecurity.Close()
+            Me.Close()
+        Else
+            MessageBox.Show("Failed to create account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -134,21 +142,21 @@ Public Class frmSignup
                 Dim query As String = "INSERT INTO dbaccounts (Username, Password, Email, FirstName, LastName, SecurityQuestion1, SecurityQuestion2, SecurityAnswer1, SecurityAnswer2, CreatedAt) " &
                                       "VALUES (@Username, @Password, @Email, @FirstName, @LastName, @SecurityQuestion1, @SecurityQuestion2, @SecurityAnswer1, @SecurityAnswer2, @CreatedAt)"
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@Username", frmSignupDetails.txtUsername.Text)
-                    cmd.Parameters.AddWithValue("@Password", HashPassword(frmSignupDetails.txtPassword.Text)) ' Hash the password
-                    cmd.Parameters.AddWithValue("@Email", frmSignupDetails.txtEmail.Text)
-                    cmd.Parameters.AddWithValue("@FirstName", frmSignupDetails.txtFirstName.Text)
-                    cmd.Parameters.AddWithValue("@LastName", frmSignupDetails.txtLastName.Text)
-                    cmd.Parameters.AddWithValue("@SecurityQuestion1", frmSignupSecurity.cmbQuestion1.SelectedItem.ToString())
-                    cmd.Parameters.AddWithValue("@SecurityQuestion2", frmSignupSecurity.cmbQuestion2.SelectedItem.ToString())
-                    cmd.Parameters.AddWithValue("@SecurityAnswer1", frmSignupSecurity.txtSQAnswer1.Text)
-                    cmd.Parameters.AddWithValue("@SecurityAnswer2", frmSignupSecurity.txtSQAnswer2.Text)
-                    cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now)
+                    cmd.Parameters.Add("@Username", MySqlDbType.VarChar).Value = frmSignupDetails.txtUsername.Text.Trim()
+                    cmd.Parameters.Add("@Password", MySqlDbType.VarChar).Value = HashPassword(frmSignupDetails.txtPassword.Text)
+                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = frmSignupDetails.txtEmail.Text.Trim()
+                    cmd.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = frmSignupDetails.txtFirstName.Text.Trim()
+                    cmd.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = frmSignupDetails.txtLastName.Text.Trim()
+                    cmd.Parameters.Add("@SecurityQuestion1", MySqlDbType.VarChar).Value = frmSignupSecurity.cmbQuestion1.SelectedItem.ToString()
+                    cmd.Parameters.Add("@SecurityQuestion2", MySqlDbType.VarChar).Value = frmSignupSecurity.cmbQuestion2.SelectedItem.ToString()
+                    cmd.Parameters.Add("@SecurityAnswer1", MySqlDbType.VarChar).Value = frmSignupSecurity.txtSQAnswer1.Text.Trim()
+                    cmd.Parameters.Add("@SecurityAnswer2", MySqlDbType.VarChar).Value = frmSignupSecurity.txtSQAnswer2.Text.Trim()
+                    cmd.Parameters.Add("@CreatedAt", MySqlDbType.DateTime).Value = DateTime.Now
 
-                    cmd.ExecuteNonQuery()
+                    Dim affected As Integer = cmd.ExecuteNonQuery()
+                    Return affected > 0
                 End Using
             End Using
-            Return True
         Catch ex As MySqlException
             ' Log or handle the specific exception as needed
             Return False
@@ -193,8 +201,13 @@ Public Class frmSignup
             Return False
         End If
 
-        ' Compare passwords
-        If Not CompareAnswersQ1() AndAlso CompareAnswersQ2() Then
+        ' Security questions must be selected
+        If Not SecurityQuestionNotEmptyCombobox() Then
+            Return False
+        End If
+
+        ' Fail if either answer pair is invalid
+        If Not CompareAnswersQ1() OrElse Not CompareAnswersQ2() Then
             Return False
         End If
 
@@ -332,7 +345,7 @@ Public Class frmSignup
 
     Private Function IsDatabaseConnected() As Boolean
         Try
-            Using myDBConnection As MySqlConnection = createDBConnection()
+            Using myDBConnection As MySqlConnection = Common.createDBConnection()
                 myDBConnection.Open()
                 Return True
             End Using
